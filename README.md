@@ -1,4 +1,4 @@
-# Projeto-IP2
+# Waterway
 Projeto da disciplina Introdução à programação 2 na Universidade Federal Rural de Pernambuco
 
 ## Grupo
