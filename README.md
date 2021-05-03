@@ -18,5 +18,6 @@ Projeto da disciplina Introdução à programação 2 da Universidade Federal Ru
 2. O sistema deve simular os sensores que estariam presentes nos reservatórios e outros sistemas hidráulicos da rede.
 3. O sistema recebe os dados de reservatórios e outras entidades da rede e deve mostrar esses dados em uma interface gráfica, tratando o estado em que se encontra, se cheio ou vazio, aberto ou fechado.
 4. O sistema emitirá alertas com base nos dados recebidos, se algum bairro está sofrendo com falta de água, se o nível de água da represa está baixo e isso pode indicar a necessidade de um racionamento.
-5. O sistema deve ser capaz se adicionar e remover componentes da rede, definindo as ligações (fonte e destino da água).
-6. O sistema deve fornecer relatórios de consumo de água, médias diárias, mensal, e outros períodos.
+5. O sistema deve fornecer relatórios de consumo de água, médias diárias, mensal, e outros períodos, em planilhas ou outros tipos de arquivo.
+6. Deverá ter um banco de dados que irá armazenar informações de perfil, componentes da rede e dados de monitoramento.
+
