@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-29T00:33:55.737Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="-w5Y-cL_t_i64aznC00m" version="14.7.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-01T00:45:56.579Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="IoA-KizsRGQh1cWyoh7O" version="14.7.2" type="github">
   <diagram id="-gsOCJniIIdcKkO32to5" name="Page-1">
-    <mxGraphModel dx="2381" dy="1046" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3268" dy="1530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -19,16 +19,10 @@
           <mxGeometry y="140" width="160" height="50" as="geometry" />
         </mxCell>
         <mxCell id="XEYvs15T29jDYPcG7W7k-8" value="Valvula" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="730" y="400" width="240" height="130" as="geometry" />
+          <mxGeometry x="740" y="420" width="240" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="XEYvs15T29jDYPcG7W7k-9" value="- estado: boolean&#xa;- abertura: float&#xa;- vazao: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="XEYvs15T29jDYPcG7W7k-8" vertex="1">
-          <mxGeometry y="26" width="240" height="44" as="geometry" />
-        </mxCell>
-        <mxCell id="XEYvs15T29jDYPcG7W7k-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="XEYvs15T29jDYPcG7W7k-8" vertex="1">
-          <mxGeometry y="70" width="240" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="XEYvs15T29jDYPcG7W7k-11" value="+ alterarEstado(): void&#xa;+ alterarAbertura(abertura: float): void&#xa;+ alterarVazao(vazao: float): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="XEYvs15T29jDYPcG7W7k-8" vertex="1">
-          <mxGeometry y="78" width="240" height="52" as="geometry" />
+        <mxCell id="XEYvs15T29jDYPcG7W7k-9" value="- abertura: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="XEYvs15T29jDYPcG7W7k-8" vertex="1">
+          <mxGeometry y="26" width="240" height="24" as="geometry" />
         </mxCell>
         <mxCell id="JQQnFDqzoBP-I6LODJSh-22" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;exitX=-0.007;exitY=0.916;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.013;entryY=0.421;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="XEYvs15T29jDYPcG7W7k-9" target="XEYvs15T29jDYPcG7W7k-2" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -124,10 +118,10 @@
         <mxCell id="ZGSeOnVhYkG-6NrmND0K-33" value="+ inserir(Usuario): void&#xa;+ remover(String): void&#xa;+ buscar(String): Usuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ZGSeOnVhYkG-6NrmND0K-30" vertex="1">
           <mxGeometry y="26" width="160" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="L2nLWlJkYwpwYnrZozBT-7" value="GeradorDeArquivos" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+        <mxCell id="L2nLWlJkYwpwYnrZozBT-7" value="GeradorDeArquivos" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="630" y="-200" width="210" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="L2nLWlJkYwpwYnrZozBT-10" value="+ gerarCSV(String, ArrayList): void&#xa;+ gerarJSON(String, ArrayList): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="L2nLWlJkYwpwYnrZozBT-7">
+        <mxCell id="L2nLWlJkYwpwYnrZozBT-10" value="+ gerarCSV(String, ArrayList): void&#xa;+ gerarJSON(String, ArrayList): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="L2nLWlJkYwpwYnrZozBT-7" vertex="1">
           <mxGeometry y="26" width="210" height="84" as="geometry" />
         </mxCell>
       </root>
