@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-05T01:30:56.403Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="UcSHXbdEgSIGjc7Xn9_N" version="14.7.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-05T01:55:46.851Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="IAaVae33xMdHJsNQY8ko" version="14.7.6" type="github">
   <diagram id="-gsOCJniIIdcKkO32to5" name="Page-1">
-    <mxGraphModel dx="1281" dy="1046" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="100" pageHeight="100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1754" dy="1304" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="100" pageHeight="100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -74,7 +74,7 @@
         <mxCell id="hzPV0hBUGI2c6wMFQSFD-5" value="ConjuntoHabitacional" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="60" y="100" width="160" height="52" as="geometry" />
         </mxCell>
-        <mxCell id="hzPV0hBUGI2c6wMFQSFD-8" value="+ calcularTotal: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="hzPV0hBUGI2c6wMFQSFD-5" vertex="1">
+        <mxCell id="hzPV0hBUGI2c6wMFQSFD-8" value="+ calcularTotal(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="hzPV0hBUGI2c6wMFQSFD-5" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="hzPV0hBUGI2c6wMFQSFD-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0.504;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="hzPV0hBUGI2c6wMFQSFD-9" target="hzPV0hBUGI2c6wMFQSFD-8" edge="1">
@@ -88,10 +88,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="hzPV0hBUGI2c6wMFQSFD-9" value="Casa" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="60" y="200" width="160" height="46" as="geometry" />
+          <mxGeometry x="60" y="200" width="160" height="70" as="geometry" />
         </mxCell>
         <mxCell id="hzPV0hBUGI2c6wMFQSFD-26" value="- moradores: int" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="hzPV0hBUGI2c6wMFQSFD-9" vertex="1">
           <mxGeometry y="26" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eEbHZ_aUB2mgKhpdt0nJ-7" value="+ calcularTotal(): double" style="html=1;align=left;" vertex="1" parent="hzPV0hBUGI2c6wMFQSFD-9">
+          <mxGeometry y="46" width="160" height="24" as="geometry" />
         </mxCell>
         <mxCell id="hzPV0hBUGI2c6wMFQSFD-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="hzPV0hBUGI2c6wMFQSFD-16" target="hzPV0hBUGI2c6wMFQSFD-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
