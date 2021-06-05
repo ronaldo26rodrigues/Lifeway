@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-05T01:27:08.765Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="TLcTLkHtkl0-wvuPjxZR" version="14.7.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-05T01:27:20.292Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 OPR/75.0.3969.279" etag="8sQYSAm2SC-l10-fo9p-" version="14.7.6" type="github">
   <diagram id="-gsOCJniIIdcKkO32to5" name="Page-1">
     <mxGraphModel dx="1778" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="200" pageHeight="100" background="none" math="0" shadow="0">
       <root>
@@ -37,13 +37,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ZGSeOnVhYkG-6NrmND0K-6" value="Pessoa" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="620" y="-280" width="160" height="80" as="geometry" />
+          <mxGeometry x="480" y="-80" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="ZGSeOnVhYkG-6NrmND0K-7" value="- nome: String&#xa;- cpf: String&#xa;- tipo: TipoPessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ZGSeOnVhYkG-6NrmND0K-6" vertex="1">
           <mxGeometry y="26" width="160" height="54" as="geometry" />
         </mxCell>
         <mxCell id="1kvHpATCS6qgAt59xDc4-5" value="&lt;&lt;enumerator&gt;&gt;&#xa;TipoPessoa" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="630" y="-160" width="140" height="90" as="geometry" />
+          <mxGeometry x="490" y="40" width="140" height="90" as="geometry" />
         </mxCell>
         <mxCell id="1kvHpATCS6qgAt59xDc4-6" value="ADMINISTRADOR&#xa;USUARIO&#xa;VISITANTE" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="1kvHpATCS6qgAt59xDc4-5" vertex="1">
           <mxGeometry y="40" width="140" height="50" as="geometry" />
