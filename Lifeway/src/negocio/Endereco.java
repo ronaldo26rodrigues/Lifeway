@@ -7,17 +7,25 @@ public class Endereco {
     private String complemento;
     private String pontoDeReferencia;
 
-    Endereco() {
+    public Endereco() {
 
     }
 
-    Endereco(String rua, int numero, String complemento) {
+    public Endereco(String rua, int numero){
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = "nenhum";
+        this.pontoDeReferencia = "nenhum";
+    }
+
+    public Endereco(String rua, int numero, String complemento) {
         this.rua = rua;
         this.numero = numero;
         this.complemento = complemento;
+        this.pontoDeReferencia = "nenhum";
     }
 
-    Endereco(String rua, int numero, String complemento, String pontodeReferencia) {
+    public Endereco(String rua, int numero, String complemento, String pontodeReferencia) {
         this.rua = rua;
         this.numero = numero;
         this.complemento = complemento;
@@ -57,6 +65,11 @@ public class Endereco {
 
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
+    }
+
+    @Override
+    public String toString() {
+        return "Rua: " + this.rua + " | Número: " + this.numero + " | Complemento: " + this.complemento + " | Ponto de referência: " + this.pontoDeReferencia;
     }
 
     

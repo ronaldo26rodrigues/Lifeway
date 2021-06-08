@@ -47,6 +47,21 @@ public abstract class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Pessoa) {
+            return (
+                this.getIdentificacao().equals(((Pessoa) obj).getIdentificacao()) &&
+                this.getDataNascimento().equals(((Pessoa) obj).getDataNascimento()) &&
+                this.getNome().equals(((Pessoa) obj).getNome())
+            );
+        } else {
+            return false;
+        }
+    }
+
     
 
 }

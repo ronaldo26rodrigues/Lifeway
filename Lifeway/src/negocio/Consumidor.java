@@ -6,6 +6,7 @@ public class Consumidor extends Pessoa {
 
     private TipoConsumidor tipo;
     private Endereco endereco;
+    private String numMedidor;
 
     /**
      * Construtor: Consumidor
@@ -37,6 +38,18 @@ public class Consumidor extends Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+    /**
+     * @return the numMedidor
+     */
+    public String getNumMedidor() {
+        return numMedidor;
+    }
+    /**
+     * @param numMedidor the numMedidor to set
+     */
+    public void setNumMedidor(String numMedidor) {
+        this.numMedidor = numMedidor;
     }
     
     
