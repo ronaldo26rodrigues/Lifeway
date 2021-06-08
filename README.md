@@ -1,7 +1,9 @@
-# Waterway
+# Lifeway
 Projeto da disciplina Introdução à programação 2 da Universidade Federal Rural de Pernambuco.
 
-  Uma ferramenta de controle e monitoramento de rede de distribuição de água. A interface do programa irá fornecer dados sobre níveis atuais de água nos reservatórios da cidade, níveis da represa e centro de tratamento. Também será capaz de gerar relatórios sobre o consumo de água diários, médias mensais e outros tipos de informações úteis. Este é um sistema que pode ser usado pelos órgãos responsáveis pelo controle hidráulico.
+  Uma ferramenta de gerenciamento que conecta usuários e empresas de distribuição de água e energia elétrica. O sistema possibilita o armazenamento e a análise de dados dos consumidores, valores de consumo, e outras informações.
+Os clientes poderão ter acesso às suas contas, valores de consumo, relatórios mensais e histórico, informações sobre tarifas e impostos, bem como um espaço de comunicação direta para agendar atendimentos ou relatar problemas (como queda de energia ou falta de água, por exemplo). As empresas terão acesso aos dados dos consumidores, relatórios de consumo, requisições e reclamações realizadas pelos usuários, e outras informações necessárias. Além disso, poderão utilizar a plataforma para atualizar taxas e tarifas, calcular multas e comunicar alertas ao consumidor.
+
 
 ## Grupo
 ### VenomRage
@@ -14,10 +16,9 @@ Projeto da disciplina Introdução à programação 2 da Universidade Federal Ru
 
 ## Requisitos
 
-1. O sistema deve controlar o acesso, sendo um cargo mais alto, capaz de controlar o estado das válvulas, e um mais baixo, que apenas tem acesso aos dados de monitoramento.
-2. O sistema deve simular os sensores que estariam presentes nos reservatórios e outros sistemas hidráulicos da rede.
-3. O sistema recebe os dados de reservatórios e outras entidades da rede e deve mostrar esses dados em uma interface gráfica, tratando o estado em que se encontra, se cheio ou vazio, aberto ou fechado.
-4. O sistema emitirá alertas com base nos dados recebidos, se algum bairro está sofrendo com falta de água, se o nível de água da represa está baixo e isso pode indicar a necessidade de um racionamento.
-5. O sistema deve fornecer relatórios de consumo de água, médias diárias, mensal, e outros períodos, em planilhas ou outros tipos de arquivo.
-6. Deverá ter um banco de dados que irá armazenar informações de perfil, componentes da rede e dados de monitoramento.
-
+1.	O sistema deve controlar acesso e permissões de acordo com o tipo de usuário, podendo este ser cliente (consumidor) ou funcionário de empresa cadastrada.
+2.	O sistema deve receber e armazenar os valores de consumo fornecidos pelas empresas cadastradas, e exibir sua visualização em uma interface gráfica.
+3.	O sistema deve também receber os valores de taxas, tarifas e impostos, e calcular o valor a ser cobrado de cada consumidor, levando em conta o tipo de perfil de cada um (residencial, comercial, industrial ou público).
+4.	O sistema deve fornecer os dados de consumo a seus usuários, o valor mensal a ser pago, e a forma como esse valor foi calculado, bem como alertar usuários no caso de atraso de pagamento e cobrança de multas.
+5.	O sistema deve fornecer um espaço de comunicação, onde os clientes poderão reportar problemas e reclamações, e agendar atendimentos, e onde as empresas poderão disponibilizar informações relevantes.
+6.	O sistema deve gerar relatórios para as empresas cadastradas, com informações relevantes sobre o consumo por tempo e área.
