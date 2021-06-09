@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Funcionario extends Pessoa {
 
-    private String matricula;
+    //private String matricula;
     private String cargo;
 
     /**
@@ -15,21 +15,21 @@ public class Funcionario extends Pessoa {
      * @param matricula
      * @param cargo
      */
-    public Funcionario(String nome, String identificacao, LocalDate dataNascimento, String matricula, String cargo) {
-        super(nome, identificacao, dataNascimento);
-        this.matricula = matricula;
+    public Funcionario(String nome, String cpf, LocalDate dataNascimento, /* String matricula, */ String cargo) {
+        super(nome, cpf, dataNascimento);
+        //this.matricula = matricula;
         this.cargo = cargo;
     }
 
     // Getters & Setters
 
-    public String getMatricula() {
+    /* public String getMatricula() {
         return matricula;
     }
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
-    }
+    } */
 
     public String getCargo() {
         return cargo;
@@ -41,22 +41,22 @@ public class Funcionario extends Pessoa {
     
     
     
-    /**
-     * Equals: Funcionario (compara id e matricula)
-     */
-    @Override
-    public boolean equals(Object obj) {
-        boolean resultado = false;
-        if (obj instanceof Funcionario) {
-            Funcionario param = (Funcionario) obj;
-            if ( (param.getIdentificacao() != null) 
-                && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && param.getMatricula().equals(this.getMatricula()) ) {
-                    resultado = true;
-                }
-        }
-        return resultado;
-    }
+    // /**
+    //  * Equals: Funcionario (compara id e matricula)
+    //  */
+    // @Override
+    // public boolean equals(Object obj) {
+    //     boolean resultado = false;
+    //     if (obj instanceof Funcionario) {
+    //         Funcionario param = (Funcionario) obj;
+    //         if ( (param.getIdentificacao() != null) 
+    //             && param.getIdentificacao().equals(this.getIdentificacao()) 
+    //             /* && param.getMatricula().equals(this.getMatricula()) */ ) {
+    //                 resultado = true;
+    //             }
+    //     }
+    //     return resultado;
+    // }
 
    
     /**
@@ -65,9 +65,15 @@ public class Funcionario extends Pessoa {
     @Override
     public String toString() {
         String resultado = super.toString();
-        resultado += "\n" + "Matrícula" + this.getMatricula();
+        // resultado += "\n" + "Matrícula" + this.getMatricula();
         resultado += "\n" + "Cargo: " + this.getCargo();
         return resultado;
+    }
+
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return true;
     }
      
 }

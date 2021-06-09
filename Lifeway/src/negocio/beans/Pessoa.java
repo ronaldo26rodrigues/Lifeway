@@ -3,10 +3,10 @@ package negocio.beans;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Pessoa {
+public abstract class Pessoa extends Identificável {
     
     private String nome;
-    private String identificacao;
+    // private String identificacao;
     private LocalDate dataNascimento;
 
     DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -17,9 +17,9 @@ public abstract class Pessoa {
      * @param identificacao
      * @param dataNascimento
      */
-    public Pessoa(String nome, String identificacao, LocalDate dataNascimento) {
+    public Pessoa(String nome, String cpf, LocalDate dataNascimento) {
+        super(cpf);
         this. nome = nome;
-        this.identificacao = identificacao;
         this.dataNascimento = dataNascimento;
     }
 
@@ -34,13 +34,13 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public String getIdentificacao() {
+    /* public String getIdentificacao() {
         return identificacao;
     }
 
     public void setIdentificacao(String identificacao) {
         this.identificacao = identificacao;
-    }
+    } */
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -52,21 +52,21 @@ public abstract class Pessoa {
 
     
 
-    /**
-     * Equals: Pessoa (compara id)
-     */
-    @Override
-    public boolean equals(Object obj) {
-        boolean resultado = false;
-        if (obj instanceof Pessoa) {
-            Pessoa param = (Pessoa) obj;
-            if ( (param.getIdentificacao() != null) 
-                && param.getIdentificacao().equals(this.getIdentificacao()) ) {
-                    resultado = true;
-                }
-        }
-        return resultado;
-    }
+    // /**
+    //  * Equals: Pessoa (compara id)
+    //  */
+    // @Override
+    // public boolean equals(Object obj) {
+    //     boolean resultado = false;
+    //     if (obj instanceof Pessoa) {
+    //         Pessoa param = (Pessoa) obj;
+    //         if ( (param.getIdentificacao() != null) 
+    //             && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+    //                 resultado = true;
+    //             }
+    //     }
+    //     return resultado;
+    // }
 
    
     /**
@@ -75,9 +75,10 @@ public abstract class Pessoa {
     @Override
     public String toString() {
         String resultado = "";
+        resultado += "\n" + super.toString();
         resultado += "\n" + "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
-        resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         return resultado;
     }
      

@@ -2,11 +2,11 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-public class Consumidor extends Pessoa {
+public class Consumidor extends Identificável {
 
     private TipoConsumidor tipo;
     private Endereco endereco;
-    private String numMedidor;
+    //private String numMedidor;
 
     /**
      * Construtor: Consumidor
@@ -16,8 +16,9 @@ public class Consumidor extends Pessoa {
      * @param tipo
      * @param endereco
      */
-    public Consumidor(String nome, String identificacao, LocalDate dataNascimento, TipoConsumidor tipo, Endereco endereco) {
-        super(nome, identificacao, dataNascimento);
+    public Consumidor(String nome, String numMedidor, LocalDate dataNascimento, TipoConsumidor tipo, Endereco endereco) {
+        //super(nome, identificacao, dataNascimento);
+        super(numMedidor);
         this.tipo = tipo;
         this.endereco = endereco;
     }
@@ -39,18 +40,18 @@ public class Consumidor extends Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    /**
-     * @return numMedidor
-     */
-    public String getNumMedidor() {
-        return numMedidor;
-    }
-    /**
-     * @param numMedidor  set numMedidor
-     */
-    public void setNumMedidor(String numMedidor) {
-        this.numMedidor = numMedidor;
-    }
+    // /**
+    //  * @return numMedidor
+    //  */
+    // public String getNumMedidor() {
+    //     return numMedidor;
+    // }
+    // /**
+    //  * @param numMedidor  set numMedidor
+    //  */
+    // public void setNumMedidor(String numMedidor) {
+    //     this.numMedidor = numMedidor;
+    // }
 
     /**
      * Equals: Consumidor (compara id, tipo e endereço)
@@ -60,9 +61,9 @@ public class Consumidor extends Pessoa {
         boolean resultado = false;
         if (obj instanceof Consumidor) {
             Consumidor param = (Consumidor) obj;
-            if ( (param.getIdentificacao() != null) 
+            if ( /* (param.getIdentificacao() != null) 
                 && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && param.getTipo().equals(this.getTipo())
+                && */ param.getTipo().equals(this.getTipo())
                 && param.getEndereco().equals(this.getEndereco()) ) {
                     resultado = true;
                 }
@@ -80,6 +81,12 @@ public class Consumidor extends Pessoa {
         resultado += "\n" + "Tipo: " + this.getTipo();
         resultado += "\n" + "Endereço: " + this.getEndereco();
         return resultado;
+    }
+
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return true;
     }
     
 }

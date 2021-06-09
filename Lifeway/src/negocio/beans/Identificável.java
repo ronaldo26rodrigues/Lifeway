@@ -5,6 +5,10 @@ import java.util.Set;
 public abstract class Identificável {
     private String id;
 
+    public Identificável(String id){
+        this.id = id;
+    }
+
     /**
      * @return the id
      */
