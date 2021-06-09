@@ -3,7 +3,7 @@ package negocio.beans;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public abstract class Pessoa extends Identificável {
+public abstract class Pessoa extends Identificavel {
     
     private String nome;
     // private String identificacao;

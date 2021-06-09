@@ -1,11 +1,10 @@
 package negocio.beans;
 
-import java.util.Set;
 
-public abstract class Identificável {
+public abstract class Identificavel {
     private String id;
 
-    public Identificável(String id){
+    public Identificavel(String id){
         this.id = id;
     }
 

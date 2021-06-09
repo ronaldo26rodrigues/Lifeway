@@ -32,7 +32,7 @@ public class ControladorEmpresas {
 
     //}
 
-    // public void criarFuncionario()
+    public void criarFuncionario()
 
 
 }

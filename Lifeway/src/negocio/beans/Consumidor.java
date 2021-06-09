@@ -2,7 +2,7 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-public class Consumidor extends Identificável {
+public class Consumidor extends Identificavel {
 
     private TipoConsumidor tipo;
     private Endereco endereco;
