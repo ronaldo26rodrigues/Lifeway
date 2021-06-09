@@ -64,10 +64,7 @@ public class Funcionario extends Pessoa {
      */
     @Override
     public String toString() {
-        String resultado = "";
-        resultado += "\n" + "Nome: " + this.getNome();
-        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento();
-        resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        String resultado = super.toString();
         resultado += "\n" + "Matrícula" + this.getMatricula();
         resultado += "\n" + "Cargo: " + this.getCargo();
         return resultado;
