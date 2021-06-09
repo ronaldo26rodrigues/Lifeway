@@ -5,6 +5,8 @@ import java.util.List;
 
 import excecoes.ObjetoJaExisteException;
 
+import negocio.beans.Identificavel;
+
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     private List<T> objetos;
@@ -33,10 +35,19 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         return null;
     }
 
+    public T buscarPorID(String id){
+        T resultado = null;
+        for (T t : objetos) {
+            if(((Identificavel) t).getId() == id){
+                resultado = t;
+            }
+        }
+        return resultado;
+    }
+
     @Override
     public List<T> listar() {
-        // return objetos?
-        return null;
+        return objetos;
     }
     
     
