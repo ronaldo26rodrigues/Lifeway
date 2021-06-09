@@ -53,7 +53,7 @@ public class Consumidor extends Pessoa {
     }
 
     /**
-     * Equals: Consumidor
+     * Equals: Consumidor (compara id, tipo e endereço)
      */
     @Override
     public boolean equals(Object obj) {

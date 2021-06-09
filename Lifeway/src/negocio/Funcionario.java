@@ -60,7 +60,7 @@ public class Funcionario extends Pessoa {
 
    
     /**
-     * toString: Pessoa: nome, id, data de nascimento
+     * toString: Funcionário: nome, id, data de nascimento
      */
     @Override
     public String toString() {
@@ -68,6 +68,8 @@ public class Funcionario extends Pessoa {
         resultado += "\n" + "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento();
         resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        resultado += "\n" + "Matrícula" + this.getMatricula();
+        resultado += "\n" + "Cargo: " + this.getCargo();
         return resultado;
     }
      
