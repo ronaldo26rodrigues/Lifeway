@@ -30,15 +30,22 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
     }
 
     @Override
+    public void removerPorID(String id) {
+        T aRemover = buscarPorID(id);
+        remover(aRemover);
+    }
+
+    @Override
     public T buscar(T obj) {
         // TODO Auto-generated method stub
         return null;
     }
 
+    @Override
     public T buscarPorID(String id){
         T resultado = null;
         for (T t : objetos) {
-            if(((Identificavel) t).getId() == id){
+            if(((Identificavel) t).getId().equals(id)){
                 resultado = t;
             }
         }
@@ -49,6 +56,8 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
     public List<T> listar() {
         return objetos;
     }
+
+    
     
     
     

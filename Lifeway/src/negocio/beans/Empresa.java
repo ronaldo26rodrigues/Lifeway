@@ -2,19 +2,20 @@ package negocio.beans;
 
 import dados.IRepositorioGenerico;
 
-public class Empresa {
+public class Empresa extends Identificavel {
     
     private String nome;
     private String servico;
-    private String identificacao;
+    // private String identificacao;
 
     private IRepositorioGenerico<Cliente> repositorioClientes;
     private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
 
-    Empresa(String nome, String servico, String identificacao) {
+    public Empresa(String idEmpresa, String nome, String servico) {
+        super(idEmpresa);
         this.nome = nome;
         this.servico = servico;
-        this.identificacao = identificacao;
+        // this.identificacao = identificacao;
     }
 
 
@@ -38,13 +39,13 @@ public class Empresa {
         this.servico = servico;
     }
     
-    public String getIdentificacao() {
+    /* public String getIdentificacao() {
         return identificacao;
     }
 
     public void setIdentificacao(String identificacao) {
         this.identificacao = identificacao;
-    }
+    } */
 
     /**
      * @return the repositorioClientes
@@ -80,9 +81,9 @@ public class Empresa {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if ( (param.getIdentificacao() != null) 
+            if ( /* (param.getIdentificacao() != null) 
                 && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && param.getServico().equals(this.getServico()) ) {
+                && */ param.getServico().equals(this.getServico()) ) {
                     resultado = true;
                 }
         }
@@ -96,11 +97,15 @@ public class Empresa {
     public String toString() {
         String resultado = "";
         resultado += "\n" + "Nome: " + this.getNome();
-        resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;
-    }
-
-    
+      
 
 }
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return false;
+        }
+    }

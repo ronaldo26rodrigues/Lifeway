@@ -1,11 +1,19 @@
 package negocio.beans;
 
-import dados.IRepositorioGenerico;
+import java.time.LocalDate;
 
-public class Cliente {
+import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
+
+public class Cliente extends Pessoa {
 
     private IRepositorioGenerico<Consumidor> repositorioConsumidores;
     //private String cadastro;
+
+    public Cliente(String nome, String cpf, LocalDate dataNascimento){
+        super(nome, cpf, dataNascimento);
+        repositorioConsumidores = new RepositorioGenerico<>();
+    }
 
     /**
      * @return repositorioConsumidores
@@ -38,6 +46,12 @@ public class Cliente {
         String resultado = "";
         resultado += "\n" + super.toString() /* "Cadastro: " + this.getCadastro() */; 
         return resultado;
+    }
+
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return true;
     }
 
 }

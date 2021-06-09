@@ -1,12 +1,12 @@
 package negocio.beans;
 
-import java.time.LocalDate;
-
 public class Consumidor extends Identificavel {
 
     private TipoConsumidor tipo;
     private Endereco endereco;
-    //private String numMedidor;
+    private String idEmpresa;
+    // private String idCliente;
+    // private String numMedidor;
 
     /**
      * Construtor: Consumidor
@@ -16,9 +16,10 @@ public class Consumidor extends Identificavel {
      * @param tipo
      * @param endereco
      */
-    public Consumidor(String nome, String numMedidor, LocalDate dataNascimento, TipoConsumidor tipo, Endereco endereco) {
+    public Consumidor(String numMedidor, String idEmpresa, TipoConsumidor tipo, Endereco endereco) {
         //super(nome, identificacao, dataNascimento);
         super(numMedidor);
+        this.idEmpresa = idEmpresa;
         this.tipo = tipo;
         this.endereco = endereco;
     }
@@ -88,5 +89,30 @@ public class Consumidor extends Identificavel {
         // TODO Auto-generated method stub
         return true;
     }
+
+    /**
+     * @return the idEmpresa
+     */
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
+    @Override
+    public void setId(String id) {
+        // TODO Auto-generated method stub
+        super.setId(id);
+    }
+    
+    // /**
+    //  * @return the idCliente
+    //  */
+    // public String getIdCliente() {
+    //     return idCliente;
+    // }
+    // /**
+    //  * @param idCliente the idCliente to set
+    //  */
+    // public void setIdCliente(String idCliente) {
+    //     this.idCliente = idCliente;
+    // }
     
 }
