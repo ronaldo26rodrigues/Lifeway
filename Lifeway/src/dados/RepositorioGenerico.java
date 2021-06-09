@@ -35,7 +35,7 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     @Override
     public List<T> listar() {
-        // TODO Auto-generated method stub
+        // return objetos?
         return null;
     }
     
