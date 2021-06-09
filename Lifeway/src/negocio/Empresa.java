@@ -1,10 +1,15 @@
 package negocio;
 
+import dados.IRepositorioGenerico;
+
 public class Empresa {
     
     private String nome;
     private String servico;
     private String identificacao;
+
+    private IRepositorioGenerico<Cliente> repositorioClientes;
+    private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
 
     Empresa(String nome, String servico, String identificacao) {
         this.nome = nome;
@@ -39,6 +44,31 @@ public class Empresa {
 
     public void setIdentificacao(String identificacao) {
         this.identificacao = identificacao;
+    }
+
+    /**
+     * @return the repositorioClientes
+     */
+    public IRepositorioGenerico<Cliente> getRepositorioClientes() {
+        return repositorioClientes;
+    }
+    /**
+     * @return the repositorioFuncionarios
+     */
+    public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
+        return repositorioFuncionarios;
+    }
+    /**
+     * @param repositorioClientes the repositorioClientes to set
+     */
+    public void setRepositorioClientes(IRepositorioGenerico<Cliente> repositorioClientes) {
+        this.repositorioClientes = repositorioClientes;
+    }
+    /**
+     * @param repositorioFuncionarios the repositorioFuncionarios to set
+     */
+    public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
+        this.repositorioFuncionarios = repositorioFuncionarios;
     }
 
 
