@@ -11,4 +11,5 @@ public interface IRepositorioGenerico<T> {
     T buscar(T obj);
     List<T> listar();
     
+    
 }
