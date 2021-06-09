@@ -1,4 +1,4 @@
-package negocio;
+package negocio.beans;
 
 public enum Bandeira {
     

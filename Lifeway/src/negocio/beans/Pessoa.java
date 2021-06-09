@@ -1,12 +1,15 @@
-package negocio;
+package negocio.beans;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Pessoa {
     
     private String nome;
     private String identificacao;
     private LocalDate dataNascimento;
+
+    DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
      * Construtor: Pessoa
@@ -47,6 +50,7 @@ public abstract class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
+    
 
     /**
      * Equals: Pessoa (compara id)
@@ -72,7 +76,7 @@ public abstract class Pessoa {
     public String toString() {
         String resultado = "";
         resultado += "\n" + "Nome: " + this.getNome();
-        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento();
+        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
         resultado += "\n" + "Identificação: " + this.getIdentificacao();
         return resultado;
     }

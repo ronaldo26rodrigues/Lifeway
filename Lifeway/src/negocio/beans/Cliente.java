@@ -1,4 +1,4 @@
-package negocio;
+package negocio.beans;
 
 import dados.IRepositorioGenerico;
 

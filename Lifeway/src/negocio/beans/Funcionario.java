@@ -1,4 +1,4 @@
-package negocio;
+package negocio.beans;
 
 import java.time.LocalDate;
 
@@ -60,7 +60,7 @@ public class Funcionario extends Pessoa {
 
    
     /**
-     * toString: Funcionário: nome, id, data de nascimento
+     * toString: Funcionário: nome, id, data de nascimento, matrícula, cargo
      */
     @Override
     public String toString() {

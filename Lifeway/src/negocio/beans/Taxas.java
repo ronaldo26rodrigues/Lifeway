@@ -1,4 +1,4 @@
-package negocio;
+package negocio.beans;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Taxas {
-    
+
     private List<TaxasPorTipo> taxasPorTipo;
     private Map<String, Double> tarifas;
     private Bandeira bandeira;
