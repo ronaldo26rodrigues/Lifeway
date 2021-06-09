@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 public abstract class Pessoa extends Identificavel {
     
     private String nome;
+    // private String senha;
     // private String identificacao;
     private LocalDate dataNascimento;
 
