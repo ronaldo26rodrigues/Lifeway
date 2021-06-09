@@ -5,7 +5,7 @@ import dados.IRepositorioGenerico;
 public class Cliente {
 
     private IRepositorioGenerico<Consumidor> repositorioConsumidores;
-    private String cadastro;
+    //private String cadastro;
 
     /**
      * @return repositorioConsumidores
@@ -13,18 +13,19 @@ public class Cliente {
     public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
         return repositorioConsumidores;
     }
-    /**
-     * @return cadastro
-     */
-    public String getCadastro() {
-        return cadastro;
-    }
-    /**
-     * @param cadastro set cadastro
-     */
-    public void setCadastro(String cadastro) {
-        this.cadastro = cadastro;
-    }
+    
+    // /**
+    //  * @return cadastro
+    //  */
+    // public String getCadastro() {
+    //     return cadastro;
+    // }
+    // /**
+    //  * @param cadastro set cadastro
+    //  */
+    // public void setCadastro(String cadastro) {
+    //     this.cadastro = cadastro;
+    // }
 
 
     //equals cliente
@@ -35,7 +36,7 @@ public class Cliente {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Cadastro: " + this.getCadastro();
+        resultado += "\n" + super.toString() /* "Cadastro: " + this.getCadastro() */; 
         return resultado;
     }
 

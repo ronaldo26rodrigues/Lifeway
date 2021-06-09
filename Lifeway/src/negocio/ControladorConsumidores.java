@@ -1,10 +1,7 @@
 package negocio;
 
-import java.util.List;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoNaoExisteException;
 import negocio.beans.Consumidor;
 
 public class ControladorConsumidores {
@@ -23,11 +20,10 @@ public class ControladorConsumidores {
         return instance;
     }
 
-    public List<Consumidor> listar() {
+    /**
+     * @return the repositorioConsumidores
+     */
+    public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
         return repositorioConsumidores;
-    }
-
-    public void remover(Consumidor obj) throws ObjetoNaoExisteException {
-        //TODO
     }
 }
