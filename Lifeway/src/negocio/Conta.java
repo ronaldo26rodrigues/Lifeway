@@ -50,5 +50,19 @@ public class Conta {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
     
+    //equals?
+
+    /**
+     * toString: Conta
+     */
+    @Override
+    public String toString() {
+        String resultado = "";
+        resultado += "\n" + "Data: " + this.getData();
+        resultado += "\n" + "Consumo: " + this.getConsumo();
+        resultado += "\n" + "Valor: " + this.getValor();
+        return resultado;
+    }
 }

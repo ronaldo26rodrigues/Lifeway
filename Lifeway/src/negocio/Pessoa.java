@@ -48,20 +48,34 @@ public abstract class Pessoa {
     }
 
 
-
+    /**
+     * Equals: Pessoa (compara id)
+     */
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Pessoa) {
-            return (
-                this.getIdentificacao().equals(((Pessoa) obj).getIdentificacao()) &&
-                this.getDataNascimento().equals(((Pessoa) obj).getDataNascimento()) &&
-                this.getNome().equals(((Pessoa) obj).getNome())
-            );
-        } else {
-            return false;
+        boolean resultado = false;
+        if (obj instanceof Pessoa) {
+            Pessoa param = (Pessoa) obj;
+            if ( (param.getIdentificacao() != null) 
+                && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+                    resultado = true;
+                }
         }
+        return resultado;
     }
 
-    
+   
+    /**
+     * toString: Pessoa: nome, id, data de nascimento
+     */
+    @Override
+    public String toString() {
+        String resultado = "";
+        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento();
+        resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        return resultado;
+    }
+     
 
 }

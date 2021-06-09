@@ -67,9 +67,15 @@ public class Endereco {
         this.pontoDeReferencia = pontoDeReferencia;
     }
 
+    /**
+     * toString: Endereço
+     */
     @Override
     public String toString() {
-        return "Rua: " + this.rua + " | Número: " + this.numero + " | Complemento: " + this.complemento + " | Ponto de referência: " + this.pontoDeReferencia;
+        return "Rua: " + this.rua + 
+        " | Número: " + this.numero + 
+        " | Complemento: " + this.complemento + 
+        " | Ponto de referência: " + this.pontoDeReferencia;
     }
 
     

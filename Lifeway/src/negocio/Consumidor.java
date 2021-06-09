@@ -40,17 +40,46 @@ public class Consumidor extends Pessoa {
         this.endereco = endereco;
     }
     /**
-     * @return the numMedidor
+     * @return numMedidor
      */
     public String getNumMedidor() {
         return numMedidor;
     }
     /**
-     * @param numMedidor the numMedidor to set
+     * @param numMedidor  set numMedidor
      */
     public void setNumMedidor(String numMedidor) {
         this.numMedidor = numMedidor;
     }
-    
+
+    /**
+     * Equals: Consumidor
+     */
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Consumidor) {
+            Consumidor param = (Consumidor) obj;
+            if ( (param.getIdentificacao() != null) 
+                && param.getIdentificacao().equals(this.getIdentificacao()) 
+                && param.getTipo().equals(this.getTipo())
+                && param.getEndereco().equals(this.getEndereco()) ) {
+                    resultado = true;
+                }
+        }
+        return resultado;
+    }
+
+
+    /**
+     * toString: Consumidor
+     */
+    @Override
+    public String toString() {
+        String resultado = super.toString();
+        resultado += "\n" + "Tipo: " + this.getTipo();
+        resultado += "\n" + "Endereço: " + this.getEndereco();
+        return resultado;
+    }
     
 }

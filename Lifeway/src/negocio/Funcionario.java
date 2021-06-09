@@ -40,4 +40,35 @@ public class Funcionario extends Pessoa {
     }
     
     
+    
+    /**
+     * Equals: Funcionario (compara id e matricula)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Funcionario) {
+            Funcionario param = (Funcionario) obj;
+            if ( (param.getIdentificacao() != null) 
+                && param.getIdentificacao().equals(this.getIdentificacao()) 
+                && param.getMatricula().equals(this.getMatricula()) ) {
+                    resultado = true;
+                }
+        }
+        return resultado;
+    }
+
+   
+    /**
+     * toString: Pessoa: nome, id, data de nascimento
+     */
+    @Override
+    public String toString() {
+        String resultado = "";
+        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento();
+        resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        return resultado;
+    }
+     
 }
