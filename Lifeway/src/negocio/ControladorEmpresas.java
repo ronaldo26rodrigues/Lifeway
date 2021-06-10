@@ -87,7 +87,6 @@ public class ControladorEmpresas {
 
     public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
-        System.out.println(empresaSelecionada.getTaxas());
         empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).setFixa(taxaFixa);
     }
 
