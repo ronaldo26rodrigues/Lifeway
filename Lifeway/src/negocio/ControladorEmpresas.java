@@ -38,7 +38,7 @@ public class ControladorEmpresas {
         return repositorioEmpresas;
     }
 
-    private Empresa selecionarEmpresa(String idEmpresa){
+    public Empresa selecionarEmpresa(String idEmpresa){
         return repositorioEmpresas.buscarPorID(idEmpresa);
     }
 

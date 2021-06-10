@@ -2,6 +2,8 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
+import negocio.ControladorEmpresas;
+
 public class Report extends Identificavel {
     
     private String assunto;
@@ -99,6 +101,21 @@ public class Report extends Identificavel {
     public boolean validar() {
         // TODO Auto-generated method stub
         return true;
+    }
+
+    @Override
+    public String toString() {
+        String texto="";
+
+        texto += "\n" + "Assunto: " + this.assunto;
+        texto += "\n" + "Mensagem: " + this.mensagem;
+        texto += "\n" + "Empresa: " + this.idEmpresa;
+        texto += "\n" + "Data: " + this.data;
+        texto += "\n" + "Endereço: " + this.endereco;
+        texto += "\n" + "Resolvido: " + this.resolvido;
+
+        return texto;
+
     }
 
 
