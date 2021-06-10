@@ -13,4 +13,5 @@ public interface IRepositorioGenerico<T> {
     T buscarPorID(String id);
     List<T> listar();
     
+    
 }
