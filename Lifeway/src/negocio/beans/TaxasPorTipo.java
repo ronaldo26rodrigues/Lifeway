@@ -1,12 +1,13 @@
 package negocio.beans;
 
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class TaxasPorTipo {
     
     private TipoConsumidor tipo;
     private double fixa;
-    private Map<String, Double> adicional;
+    private Map<ValoresDeAte, Double>  adicional;
 
     public TaxasPorTipo(TipoConsumidor tipo, double valorFixo){
         this.tipo = tipo;
@@ -16,7 +17,7 @@ public class TaxasPorTipo {
     /**
      * @return the adicional
      */
-    public Map<String, Double> getAdicional() {
+    public Map<ValoresDeAte, Double> getAdicional() {
         return adicional;
     }
     /**
@@ -35,7 +36,7 @@ public class TaxasPorTipo {
     /**
      * @param adicional the adicional to set
      */
-    public void setAdicional(Map<String, Double> adicional) {
+    public void setAdicional(Map<ValoresDeAte, Double> adicional) {
         this.adicional = adicional;
     }
     /**
@@ -50,5 +51,11 @@ public class TaxasPorTipo {
     public void setTipo(TipoConsumidor tipo) {
         this.tipo = tipo;
     }
+
+    public void adicionarAdicional(double de, double ate, double valor){
+        adicional.put(new ValoresDeAte(de, ate) , valor);
+    }
+    
     
 }
+

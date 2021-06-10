@@ -2,6 +2,7 @@ package negocio;
 
 import java.time.LocalDate;
 
+import negocio.beans.Bandeira;
 import negocio.beans.Cliente;
 import negocio.beans.Consumidor;
 import negocio.beans.Empresa;
@@ -69,6 +70,23 @@ public class Controlador {
 
     public void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario) {
         this.controladorEmpresas.removerFuncionarioNaEmpresa(idEmpresa, idFuncionario);
+    }
+
+
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
+        this.controladorEmpresas.adicionarTaxaFixaPorTipoNaEmpresa(idEmpresa, tipo, taxaFixa);
+    }
+
+    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double de, double ate, double valor){
+        this.controladorEmpresas.adicionarTaxaAdicionalPorTipoNaEmpresa(idEmpresa, tipo, de, ate, valor);
+    }
+
+    public void adicionarTarifaNaEmpresa(String idEmpresa, String nomeTarifa, Double valor){
+        this.controladorEmpresas.adicionarTarifaNaEmpresa(idEmpresa, nomeTarifa, valor);
+    }
+    
+    public void definirBandeiraDaEmpresa(String idEmpresa, Bandeira bandeira, float valor){
+        this.controladorEmpresas.definirBandeiraDaEmpresa(idEmpresa, bandeira, valor);
     }
 
     

@@ -35,4 +35,40 @@ public class Taxas {
     public void setTarifas(Map<String, Double> tarifas) {
         this.tarifas = tarifas;
     }
+    /**
+     * @return the taxasPorTipo
+     */
+    public List<TaxasPorTipo> getTaxasPorTipo() {
+        return taxasPorTipo;
+    }
+    public TaxasPorTipo getTaxasDoTipo(TipoConsumidor tipo){
+        TaxasPorTipo taxaDoTipo = null;
+        for (TaxasPorTipo t : taxasPorTipo) {
+            if(t.getTipo().equals(tipo)){
+                taxaDoTipo = t;
+            }
+        }
+        return taxaDoTipo;
+    }
+    /**
+     * @return the bandeira
+     */
+    public Bandeira getBandeira() {
+        return bandeira;
+    }
+    /**
+     * @return the tarifas
+     */
+    public Map<String, Double> getTarifas() {
+        return tarifas;
+    }
+
+    public void adicionarTarifa(String nome, Double valor){
+        this.tarifas.put(nome, valor);
+    }
+
+    public void definirBandeira(Bandeira bandeira, float valor){
+        this.bandeira = bandeira;
+        this.bandeira.setValor(valor);
+    }
 }

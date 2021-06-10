@@ -5,9 +5,11 @@ import java.time.LocalDate;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import excecoes.ObjetoJaExisteException;
+import negocio.beans.Bandeira;
 import negocio.beans.Cliente;
 import negocio.beans.Empresa;
 import negocio.beans.Funcionario;
+import negocio.beans.TipoConsumidor;
 
 public class ControladorEmpresas {
     
@@ -77,6 +79,37 @@ public class ControladorEmpresas {
         empresaSelecionada.getRepositorioFuncionarios().removerPorID(idFuncionario);
     }
 
+
+
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
+        Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
+        empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).setFixa(taxaFixa);
+    }
+
+    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double de, double ate, double valor){
+        Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
+        empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).adicionarAdicional(de, ate, valor);
+    
+    }
+
+    public void adicionarTarifaNaEmpresa(String idEmpresa, String nomeTarifa, Double valor){
+        Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
+        empresaSelecionada.getTaxas().adicionarTarifa(nomeTarifa, valor);
+    }
+
+    public void definirBandeiraDaEmpresa(String idEmpresa, Bandeira bandeira, float valor){
+        Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
+        empresaSelecionada.getTaxas().definirBandeira(bandeira, valor);
+    }
+
+
+
+
+
+
+
+
+
     /* public Cliente criarClienteNaEmpresa(String idEmpresa, String nome, String cpf, LocalDate dataNascimento){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         Cliente novoCliente = new Cliente(nome, cpf, dataNascimento);
@@ -92,6 +125,8 @@ public class ControladorEmpresas {
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         empresaSelecionada.getRepositorioClientes().removerPorID(idCliente);
     } */
+
+    
 
 
 }

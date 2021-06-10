@@ -6,6 +6,9 @@ public class Empresa extends Identificavel {
     
     private String nome;
     private String servico;
+
+    private Taxas taxas;
+
     // private String identificacao;
 
     private IRepositorioGenerico<Cliente> repositorioClientes;
@@ -15,6 +18,7 @@ public class Empresa extends Identificavel {
         super(idEmpresa);
         this.nome = nome;
         this.servico = servico;
+        this.taxas = new Taxas();
         // this.identificacao = identificacao;
     }
 
@@ -70,6 +74,19 @@ public class Empresa extends Identificavel {
      */
     public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
         this.repositorioFuncionarios = repositorioFuncionarios;
+    }
+
+    /**
+     * @return the taxas
+     */
+    public Taxas getTaxas() {
+        return taxas;
+    }
+    /**
+     * @param taxas the taxas to set
+     */
+    public void setTaxas(Taxas taxas) {
+        this.taxas = taxas;
     }
 
 
