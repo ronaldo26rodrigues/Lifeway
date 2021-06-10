@@ -77,7 +77,7 @@ public class ControladorConsumidores {
             valor += t.getValue();
         }
 
-        valor += empresaSelecionada.getTaxas().getBandeira().getValor();
+        valor += consumo * empresaSelecionada.getTaxas().getBandeira().getValor();
 
         return valor;
     }
