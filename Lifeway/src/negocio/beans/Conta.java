@@ -2,13 +2,14 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-public class Conta {
+public class Conta extends Identificavel {
     
     private LocalDate data;
     private double consumo;
     private double valor;
 
-    public Conta(LocalDate data, double consumo, double valor){
+    public Conta(String idConta, LocalDate data, double consumo, double valor){
+        super(idConta);
         this.data = data;
         this.consumo = consumo;
         this.valor = valor;
@@ -64,5 +65,11 @@ public class Conta {
         resultado += "\n" + "Consumo: " + this.getConsumo();
         resultado += "\n" + "Valor: " + this.getValor();
         return resultado;
+    }
+
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return false;
     }
 }
