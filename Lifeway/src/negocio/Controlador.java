@@ -22,11 +22,11 @@ public class Controlador {
 
     private Controlador() {
         //construtor privado
-        this.controladorEmpresas = controladorEmpresas.getInstance();
-        this.controladorFuncionarios = controladorFuncionarios.getInstance();
+        this.controladorEmpresas = ControladorEmpresas.getInstance();
+        /* this.controladorFuncionarios = controladorFuncionarios.getInstance();
         this.controladorContas = controladorContas.getInstance();
-        this.controladorConsumidores = controladorConsumidores.getInstance();
-        this.controladorClientes = controladorClientes.getInstance();
+        this.controladorConsumidores = controladorConsumidores.getInstance(); */
+        this.controladorClientes = ControladorClientes.getInstance();
     }
 
     public static Controlador getInstance() {
@@ -87,6 +87,10 @@ public class Controlador {
     
     public void definirBandeiraDaEmpresa(String idEmpresa, Bandeira bandeira, float valor){
         this.controladorEmpresas.definirBandeiraDaEmpresa(idEmpresa, bandeira, valor);
+    }
+
+    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo){
+        this.controladorEmpresas.adicionarTaxaDoTipoNaEmpresa(idEmpresa, tipo);
     }
 
     

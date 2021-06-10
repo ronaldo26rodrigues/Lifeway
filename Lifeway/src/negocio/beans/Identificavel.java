@@ -27,4 +27,9 @@ public abstract class Identificavel {
     public String toString() {
         return "ID: " +  this.getId();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.id.equals(((Identificavel) obj).getId());
+    }
 }

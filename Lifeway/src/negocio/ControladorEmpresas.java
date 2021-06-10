@@ -20,7 +20,7 @@ public class ControladorEmpresas {
         this.repositorioEmpresas = new RepositorioGenerico<>();
     }
 
-    public ControladorEmpresas getInstance() {
+    public static ControladorEmpresas getInstance() {
         if(instance == null) {
             instance = new ControladorEmpresas();
         }
@@ -79,10 +79,15 @@ public class ControladorEmpresas {
         empresaSelecionada.getRepositorioFuncionarios().removerPorID(idFuncionario);
     }
 
+    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo){
+        Empresa empresaSelecionada =  selecionarEmpresa(idEmpresa);
+        empresaSelecionada.getTaxas().criarTaxaDoTipo(tipo);
+    }
 
 
     public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
+        System.out.println(empresaSelecionada.getTaxas());
         empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).setFixa(taxaFixa);
     }
 

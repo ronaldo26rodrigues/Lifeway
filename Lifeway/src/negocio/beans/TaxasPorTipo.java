@@ -9,6 +9,10 @@ public class TaxasPorTipo {
     private double fixa;
     private Map<ValoresDeAte, Double>  adicional;
 
+    public TaxasPorTipo(TipoConsumidor tipo){
+        this.tipo = tipo;
+    }
+
     public TaxasPorTipo(TipoConsumidor tipo, double valorFixo){
         this.tipo = tipo;
         this.fixa = valorFixo;

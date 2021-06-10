@@ -18,7 +18,7 @@ public class ControladorClientes {
         this.repositorioClientes = new RepositorioGenerico<>();
     }
 
-    public ControladorClientes getInstance(){
+    public static ControladorClientes getInstance(){
         if(instance == null){
             instance = new ControladorClientes();
         }

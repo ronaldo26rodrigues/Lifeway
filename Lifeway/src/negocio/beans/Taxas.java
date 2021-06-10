@@ -71,4 +71,8 @@ public class Taxas {
         this.bandeira = bandeira;
         this.bandeira.setValor(valor);
     }
+
+    public void criarTaxaDoTipo(TipoConsumidor tipo){
+        this.taxasPorTipo.add(new TaxasPorTipo(tipo));
+    }
 }
