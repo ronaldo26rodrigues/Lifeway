@@ -1,5 +1,32 @@
-public class App {
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class  App extends Application{
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        launch(args);
+    }   
+    private static Stage stg;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        stg = primaryStage;
+        primaryStage.setResizable(false);
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+       Parent root = fxmlLoader.load();
+       Scene tela = new Scene(root, 1280, 720);
+
+       primaryStage.setTitle("LIFEWAY");
+       primaryStage.setScene(tela);
+       primaryStage.show();
+    }
+
+    public void trocarCena(String fxml) throws IOException{
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.getScene().setRoot(pane);
     }
 }
