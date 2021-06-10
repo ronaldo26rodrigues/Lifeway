@@ -27,14 +27,14 @@ public class ControladorConsumidores {
         this.repositorioConsumidores = clienteSelecionado.getRepositorioConsumidores();
     }
 
-    public ControladorConsumidores getInstance() {
+    public static ControladorConsumidores getInstance() {
         if (instance == null) {
             instance = new ControladorConsumidores();
         }
         return instance;
     }
 
-    public ControladorConsumidores getInstance(String idCliente){
+    public static ControladorConsumidores getInstance(String idCliente){
         if(instance == null){
             instance = new ControladorConsumidores(idCliente);
         }
