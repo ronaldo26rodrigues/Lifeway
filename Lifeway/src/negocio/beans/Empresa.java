@@ -1,6 +1,7 @@
 package negocio.beans;
 
 import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
 
 public class Empresa extends Identificavel {
     
@@ -13,12 +14,16 @@ public class Empresa extends Identificavel {
 
     private IRepositorioGenerico<Cliente> repositorioClientes;
     private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
+    private IRepositorioGenerico<Report> repositorioReports;
 
     public Empresa(String idEmpresa, String nome, String servico) {
         super(idEmpresa);
         this.nome = nome;
         this.servico = servico;
         this.taxas = new Taxas();
+        repositorioClientes = new RepositorioGenerico<>();
+        repositorioFuncionarios = new RepositorioGenerico<>();
+        repositorioReports = new RepositorioGenerico<>();
         // this.identificacao = identificacao;
     }
 
@@ -74,6 +79,19 @@ public class Empresa extends Identificavel {
      */
     public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
         this.repositorioFuncionarios = repositorioFuncionarios;
+    }
+
+    /**
+     * @return the repositorioReports
+     */
+    public IRepositorioGenerico<Report> getRepositorioReports() {
+        return repositorioReports;
+    }
+    /**
+     * @param repositorioReports the repositorioReports to set
+     */
+    public void setRepositorioReports(IRepositorioGenerico<Report> repositorioReports) {
+        this.repositorioReports = repositorioReports;
     }
 
     /**

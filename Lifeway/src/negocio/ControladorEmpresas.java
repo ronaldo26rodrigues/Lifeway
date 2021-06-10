@@ -1,13 +1,16 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Bandeira;
 import negocio.beans.Empresa;
+import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
+import negocio.beans.Report;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
@@ -113,6 +116,32 @@ public class ControladorEmpresas {
 
     public List<Empresa> listarEmpresas(){
         return repositorioEmpresas.listar();
+    }
+
+
+    public void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
+        Report novoReport = new Report(protocolo, assunto, mensagem, idEmpresa, data, endereco);
+        try {
+            selecionarEmpresa(idEmpresa).getRepositorioReports().inserir(novoReport);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
+    public void resolverProblema(String idEmpresa, String protocolo){
+        selecionarEmpresa(idEmpresa).getRepositorioReports().buscarPorID(protocolo).setResolvido(true);
+    }
+
+    public List<Report> listarProblemas(String idEmpresa) {
+        return selecionarEmpresa(idEmpresa).getRepositorioReports().listar();
+    }
+
+    public List<Report> listarProblemasPendentes(String idEmpresa) {
+        List<Report> problemasPendentes = new ArrayList<>();
+        for (Report report : this.listarProblemas(idEmpresa)) {
+            if(report.getResolvido()==false) problemasPendentes.add(report);
+        }
+        return problemasPendentes;
     }
 
 

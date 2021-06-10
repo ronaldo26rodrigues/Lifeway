@@ -30,14 +30,16 @@ public class TesteMain {
 
         controlador.acessarCliente("1234567890");
 
-        controlador.adicionarContaAoConsumidor("conta1", "emp1", "med1", LocalDate.of(2021, 3, 26), 1500);
+        controlador.adicionarContaAoConsumidor("conta1", "emp1", "med1", LocalDate.of(2021, 3, 26), 900);
 
         for (Cliente cliente : controlador.listarClientes()) {
             System.out.println(cliente);
+            System.out.println("--------------");
         }
 
         for (Consumidor consumidor : controlador.listarConsumidoresDoCliente("1234567890")) {
             System.out.println(consumidor);
+            System.out.println("=========");
         }
 
         controlador.listarContas("med1");

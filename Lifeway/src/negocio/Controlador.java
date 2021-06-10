@@ -10,6 +10,7 @@ import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
+import negocio.beans.Report;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
@@ -28,7 +29,7 @@ public class Controlador {
         this.controladorEmpresas = ControladorEmpresas.getInstance();
         // this.controladorFuncionarios = controladorFuncionarios.getInstance();
         // this.controladorContas = controladorContas.getInstance();
-        this.controladorConsumidores = controladorConsumidores.getInstance();
+        this.controladorConsumidores = ControladorConsumidores.getInstance();
         this.controladorClientes = ControladorClientes.getInstance();
     }
 
@@ -137,6 +138,25 @@ public class Controlador {
 
     public List<Consumidor> listarConsumidoresDoCliente(String idCliente) {
         return controladorClientes.listarConsumidoresDoCliente(idCliente);
+    }
+
+
+    // Controles de reports
+
+    public void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco) {
+        this.controladorEmpresas.reportarProblema(protocolo, assunto, mensagem, idEmpresa, data, endereco);
+    }
+
+    public void resolverProblema(String idEmpresa, String protocolo) {
+        this.controladorEmpresas.resolverProblema(idEmpresa, protocolo);
+    }
+
+    public List<Report> listarProblemas(String idEmpresa) {
+        return this.controladorEmpresas.listarProblemas(idEmpresa);
+    }
+
+    public List<Report> listarProblemasPendentes(String idEmpresa) {
+        return this.controladorEmpresas.listarProblemasPendentes(idEmpresa);
     }
 
     
