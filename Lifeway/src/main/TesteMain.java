@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import negocio.Controlador;
 import negocio.beans.Endereco;
+import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
 public class TesteMain {
@@ -14,7 +15,7 @@ public class TesteMain {
 
         controlador.adicionarTaxaDoTipoNaEmpresa("emp1", TipoConsumidor.RESIDENCIAL);
 
-        controlador.adicionarTaxaFixaPorTipoNaEmpresa("emp1", TipoConsumidor.RESIDENCIAL, 10);
+        controlador.adicionarTaxaFixaPorTipoNaEmpresa("emp1", TipoConsumidor.RESIDENCIAL, new TaxaFixa(1000, 10));
 
         controlador.criarCliente("Ronaldo", "1234567890", LocalDate.of(2021, 8, 26));
 

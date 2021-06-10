@@ -1,13 +1,16 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import negocio.beans.Bandeira;
 import negocio.beans.Cliente;
 import negocio.beans.Consumidor;
+import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
+import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
 public class Controlador {
@@ -15,17 +18,17 @@ public class Controlador {
     private static Controlador instance;
 
     private ControladorEmpresas controladorEmpresas;
-    private ControladorFuncionarios controladorFuncionarios;
+    // private ControladorFuncionarios controladorFuncionarios;
     private ControladorConsumidores controladorConsumidores;
-    private ControladorContas controladorContas;
+    // private ControladorContas controladorContas;
     private ControladorClientes controladorClientes;
 
     private Controlador() {
         //construtor privado
         this.controladorEmpresas = ControladorEmpresas.getInstance();
-        /* this.controladorFuncionarios = controladorFuncionarios.getInstance();
-        this.controladorContas = controladorContas.getInstance();
-        this.controladorConsumidores = controladorConsumidores.getInstance(); */
+        // this.controladorFuncionarios = controladorFuncionarios.getInstance();
+        // this.controladorContas = controladorContas.getInstance();
+        this.controladorConsumidores = controladorConsumidores.getInstance();
         this.controladorClientes = ControladorClientes.getInstance();
     }
 
@@ -37,7 +40,7 @@ public class Controlador {
     }
 
 
-
+    // Controles de clientes
 
     public Cliente criarCliente(String nome, String cpf, LocalDate dataNascimento){
         return this.controladorClientes.criarCliente(nome, cpf, dataNascimento);
@@ -56,6 +59,8 @@ public class Controlador {
     }
 
 
+    // Controles de empresas
+
     public Empresa criarEmpresa(String idEmpresa, String nome, String servico) {
         return this.controladorEmpresas.criarEmpresa(idEmpresa, nome, servico);
     }
@@ -72,8 +77,9 @@ public class Controlador {
         this.controladorEmpresas.removerFuncionarioNaEmpresa(idEmpresa, idFuncionario);
     }
 
+    // Controles de taxa
 
-    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, TaxaFixa taxaFixa){
         this.controladorEmpresas.adicionarTaxaFixaPorTipoNaEmpresa(idEmpresa, tipo, taxaFixa);
     }
 
@@ -91,6 +97,46 @@ public class Controlador {
 
     public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo){
         this.controladorEmpresas.adicionarTaxaDoTipoNaEmpresa(idEmpresa, tipo);
+    }
+
+
+    // controle de consumidores
+
+
+    public void acessarCliente(String idCliente){
+        controladorConsumidores.acessarCliente(idCliente);
+    }
+
+    public void adicionarContaAoConsumidor(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo){
+        controladorConsumidores.adicionarContaAoConsumidor(idConta, idEmpresa, numMedidor, data, consumo);
+    }
+
+    public void pagarContaDoMes(String idConta, String numMedidor, int mes){
+        controladorConsumidores.pagarContaDoMes(idConta, numMedidor, mes);
+    }
+
+    public List<Conta> listarContasPendentes(String numMedidor){
+        return controladorConsumidores.listarContasPendentes(numMedidor);
+    }
+
+    public List<Conta> listarContas(String numMedidor){
+        return controladorConsumidores.listarContas(numMedidor);
+    }
+
+    public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
+        return controladorEmpresas.listarFuncionariosDaEmpresa(idEmpresa);
+    }
+
+    public List<Empresa> listarEmpresas() {
+        return controladorEmpresas.listarEmpresas();
+    }
+
+    public List<Cliente> listarClientes() {
+        return controladorClientes.listarClientes();
+    }
+
+    public List<Consumidor> listarConsumidoresDoCliente(String idCliente) {
+        return controladorClientes.listarConsumidoresDoCliente(idCliente);
     }
 
     

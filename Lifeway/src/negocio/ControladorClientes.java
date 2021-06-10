@@ -1,6 +1,7 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
@@ -63,5 +64,15 @@ public class ControladorClientes {
         Cliente clienteSelecionado = repositorioClientes.buscarPorID(idCliente);
         clienteSelecionado.getRepositorioConsumidores().removerPorID(numMedidor);
     }
+
+    public List<Cliente> listarClientes(){
+        return repositorioClientes.listar();
+    }
+
+    public List<Consumidor> listarConsumidoresDoCliente(String idCliente) {
+        return repositorioClientes.buscarPorID(idCliente).getRepositorioConsumidores().listar();
+    }
+
+    
     
 }

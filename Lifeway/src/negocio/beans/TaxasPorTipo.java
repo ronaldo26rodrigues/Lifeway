@@ -6,14 +6,14 @@ import java.util.Map.Entry;
 public class TaxasPorTipo {
     
     private TipoConsumidor tipo;
-    private double fixa;
+    private TaxaFixa fixa;
     private Map<ValoresDeAte, Double>  adicional;
 
     public TaxasPorTipo(TipoConsumidor tipo){
         this.tipo = tipo;
     }
 
-    public TaxasPorTipo(TipoConsumidor tipo, double valorFixo){
+    public TaxasPorTipo(TipoConsumidor tipo, TaxaFixa valorFixo){
         this.tipo = tipo;
         this.fixa = valorFixo;
     }
@@ -27,7 +27,7 @@ public class TaxasPorTipo {
     /**
      * @return the fixa
      */
-    public double getFixa() {
+    public TaxaFixa getFixa() {
         return fixa;
     }
     /**
@@ -46,7 +46,7 @@ public class TaxasPorTipo {
     /**
      * @param fixa the fixa to set
      */
-    public void setFixa(double fixa) {
+    public void setFixa(TaxaFixa fixa) {
         this.fixa = fixa;
     }
     /**

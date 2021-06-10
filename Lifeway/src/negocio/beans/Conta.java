@@ -8,6 +8,8 @@ public class Conta extends Identificavel {
     private double consumo;
     private double valor;
 
+    private boolean paga;
+
     public Conta(String idConta, LocalDate data, double consumo, double valor){
         super(idConta);
         this.data = data;
@@ -52,6 +54,16 @@ public class Conta extends Identificavel {
         this.valor = valor;
     }
 
+    /**
+     * @param paga the paga to set
+     */
+    public void setPaga(boolean paga) {
+        this.paga = paga;
+    }
+    public boolean getPaga(){
+        return paga;
+    }
+
     
     //equals?
 
@@ -64,12 +76,13 @@ public class Conta extends Identificavel {
         resultado += "\n" + "Data: " + this.getData();
         resultado += "\n" + "Consumo: " + this.getConsumo();
         resultado += "\n" + "Valor: " + this.getValor();
+        resultado += "\n" + "Paga: " + this.getPaga();
         return resultado;
     }
 
     @Override
     public boolean validar() {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 }

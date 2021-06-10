@@ -1,14 +1,14 @@
 package negocio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
 import negocio.beans.Bandeira;
-import negocio.beans.Cliente;
 import negocio.beans.Empresa;
 import negocio.beans.Funcionario;
+import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
 public class ControladorEmpresas {
@@ -85,7 +85,7 @@ public class ControladorEmpresas {
     }
 
 
-    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double taxaFixa){
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, TaxaFixa taxaFixa){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).setFixa(taxaFixa);
     }
@@ -104,6 +104,15 @@ public class ControladorEmpresas {
     public void definirBandeiraDaEmpresa(String idEmpresa, Bandeira bandeira, float valor){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         empresaSelecionada.getTaxas().definirBandeira(bandeira, valor);
+    }
+
+
+    public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
+        return repositorioEmpresas.buscarPorID(idEmpresa).getRepositorioFuncionarios().listar();
+    }
+
+    public List<Empresa> listarEmpresas(){
+        return repositorioEmpresas.listar();
     }
 
 

@@ -1,10 +1,18 @@
 package negocio.beans;
 
+import java.util.List;
+
+import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
+
 public class Consumidor extends Identificavel {
 
     private TipoConsumidor tipo;
     private Endereco endereco;
     private String idEmpresa;
+
+    private IRepositorioGenerico<Conta>repositorioContas;
+
     // private String idCliente;
     // private String numMedidor;
 
@@ -22,6 +30,7 @@ public class Consumidor extends Identificavel {
         this.idEmpresa = idEmpresa;
         this.tipo = tipo;
         this.endereco = endereco;
+        this.repositorioContas = new RepositorioGenerico<>();
     }
 
     //Getters & Setters
@@ -41,6 +50,22 @@ public class Consumidor extends Identificavel {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+    /**
+     * @return the repositorioContas
+     */
+    public IRepositorioGenerico<Conta> getRepositorioContas() {
+        return repositorioContas;
+    }
+    
+    /**
+     * @param repositorioContas the repositorioContas to set
+     */
+    public void setRepositorioContas(IRepositorioGenerico<Conta> repositorioContas) {
+        this.repositorioContas = repositorioContas;
+    }
+
+
+    
     // /**
     //  * @return numMedidor
     //  */
