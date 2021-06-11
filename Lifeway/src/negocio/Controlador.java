@@ -14,7 +14,7 @@ import negocio.beans.Report;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoConsumidor;
 
-public class Controlador {
+public class Controlador implements IControlador {
     
     private static Controlador instance;
 

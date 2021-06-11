@@ -3,6 +3,7 @@ package main;
 import java.time.LocalDate;
 
 import negocio.Controlador;
+import negocio.IControlador;
 import negocio.beans.Bandeira;
 import negocio.beans.Cliente;
 import negocio.beans.Consumidor;
@@ -14,7 +15,7 @@ import negocio.beans.TipoConsumidor;
 
 public class TesteMain {
     public static void main(String[] args) { 
-        Controlador controlador = Controlador.getInstance();
+        IControlador controlador = Controlador.getInstance();
 
         controlador.criarEmpresa("emp1", "Compesa", "agua");
 
