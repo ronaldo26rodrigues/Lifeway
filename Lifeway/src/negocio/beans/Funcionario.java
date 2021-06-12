@@ -2,26 +2,25 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends Usuario {
 
-    //private String matricula;
-    private String cargo;
+    //private String cargo;
+    //empresa do funcionario:
+    private String idEmpresa;
 
-    /**
-     * Construtor: Funcionario
-     * @param nome
-     * @param identificacao
-     * @param dataNascimento
-     * @param matricula
-     * @param cargo
-     */
-    public Funcionario(String nome, String cpf, LocalDate dataNascimento, /* String matricula, */ String cargo) {
-        super(nome, cpf, dataNascimento);
-        //this.matricula = matricula;
-        this.cargo = cargo;
+    public Funcionario(String nome, String identificacao, String senha, String idEmpresa) {
+        super(nome, identificacao, senha);
+        this.idEmpresa = idEmpresa;
+        //cargo?
     }
 
+    //private String matricula;
+
+
+
     // Getters & Setters
+
+    
 
     /* public String getMatricula() {
         return matricula;
@@ -30,14 +29,6 @@ public class Funcionario extends Pessoa {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     } */
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
     
     
     
@@ -66,8 +57,16 @@ public class Funcionario extends Pessoa {
     public String toString() {
         String resultado = super.toString();
         // resultado += "\n" + "Matrícula" + this.getMatricula();
-        resultado += "\n" + "Cargo: " + this.getCargo();
+        resultado += "\n" + "Empresa: " + this.getIdEmpresa();
         return resultado;
+    }
+
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     @Override

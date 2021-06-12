@@ -10,9 +10,9 @@ import negocio.beans.Bandeira;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
-import negocio.beans.Report;
+import negocio.beans.RelatorioDeOcorrencia;
 import negocio.beans.TaxaFixa;
-import negocio.beans.TipoConsumidor;
+import negocio.beans.TipoPropriedade;
 
 public class ControladorEmpresas {
     
@@ -82,18 +82,18 @@ public class ControladorEmpresas {
         empresaSelecionada.getRepositorioFuncionarios().removerPorID(idFuncionario);
     }
 
-    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo){
+    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo){
         Empresa empresaSelecionada =  selecionarEmpresa(idEmpresa);
         empresaSelecionada.getTaxas().criarTaxaDoTipo(tipo);
     }
 
 
-    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, TaxaFixa taxaFixa){
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, TaxaFixa taxaFixa){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).setFixa(taxaFixa);
     }
 
-    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double de, double ate, double valor){
+    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, double de, double ate, double valor){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
         empresaSelecionada.getTaxas().getTaxasDoTipo(tipo).adicionarAdicional(de, ate, valor);
     
@@ -120,7 +120,7 @@ public class ControladorEmpresas {
 
 
     public void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
-        Report novoReport = new Report(protocolo, assunto, mensagem, idEmpresa, data, endereco);
+        RelatorioDeOcorrencia novoReport = new RelatorioDeOcorrencia(protocolo, assunto, mensagem, idEmpresa, data, endereco);
         try {
             selecionarEmpresa(idEmpresa).getRepositorioReports().inserir(novoReport);
         } catch (Exception e) {
@@ -132,13 +132,13 @@ public class ControladorEmpresas {
         selecionarEmpresa(idEmpresa).getRepositorioReports().buscarPorID(protocolo).setResolvido(true);
     }
 
-    public List<Report> listarProblemas(String idEmpresa) {
+    public List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa) {
         return selecionarEmpresa(idEmpresa).getRepositorioReports().listar();
     }
 
-    public List<Report> listarProblemasPendentes(String idEmpresa) {
-        List<Report> problemasPendentes = new ArrayList<>();
-        for (Report report : this.listarProblemas(idEmpresa)) {
+    public List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
+        List<RelatorioDeOcorrencia> problemasPendentes = new ArrayList<>();
+        for (RelatorioDeOcorrencia report : this.listarProblemas(idEmpresa)) {
             if(report.getResolvido()==false) problemasPendentes.add(report);
         }
         return problemasPendentes;

@@ -4,15 +4,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import negocio.beans.Bandeira;
-import negocio.beans.Cliente;
-import negocio.beans.Consumidor;
+import negocio.beans.Usuario;
+import negocio.beans.Propriedade;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
-import negocio.beans.Report;
+import negocio.beans.RelatorioDeOcorrencia;
 import negocio.beans.TaxaFixa;
-import negocio.beans.TipoConsumidor;
+import negocio.beans.TipoPropriedade;
 
 public class Controlador implements IControlador {
     
@@ -20,7 +20,7 @@ public class Controlador implements IControlador {
 
     private ControladorEmpresas controladorEmpresas;
     // private ControladorFuncionarios controladorFuncionarios;
-    private ControladorConsumidores controladorConsumidores;
+    private ControladorPropriedades controladorConsumidores;
     // private ControladorContas controladorContas;
     private ControladorClientes controladorClientes;
 
@@ -29,7 +29,7 @@ public class Controlador implements IControlador {
         this.controladorEmpresas = ControladorEmpresas.getInstance();
         // this.controladorFuncionarios = controladorFuncionarios.getInstance();
         // this.controladorContas = controladorContas.getInstance();
-        this.controladorConsumidores = ControladorConsumidores.getInstance();
+        this.controladorConsumidores = ControladorPropriedades.getInstance();
         this.controladorClientes = ControladorClientes.getInstance();
     }
 
@@ -43,7 +43,7 @@ public class Controlador implements IControlador {
 
     // Controles de clientes
 
-    public Cliente criarCliente(String nome, String cpf, LocalDate dataNascimento){
+    public Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento){
         return this.controladorClientes.criarCliente(nome, cpf, dataNascimento);
     }
 
@@ -51,7 +51,7 @@ public class Controlador implements IControlador {
         this.controladorClientes.removerCliente(cpf);
     }
 
-    public Consumidor adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoConsumidor tipo, Endereco endereco){
+    public Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
         return this.controladorClientes.adicionarConsumidorAoCliente(cpfCliente, idEmpresa, numMedidor, tipo, endereco);
     }
 
@@ -80,11 +80,11 @@ public class Controlador implements IControlador {
 
     // Controles de taxa
 
-    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, TaxaFixa taxaFixa){
+    public void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, TaxaFixa taxaFixa){
         this.controladorEmpresas.adicionarTaxaFixaPorTipoNaEmpresa(idEmpresa, tipo, taxaFixa);
     }
 
-    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double de, double ate, double valor){
+    public void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, double de, double ate, double valor){
         this.controladorEmpresas.adicionarTaxaAdicionalPorTipoNaEmpresa(idEmpresa, tipo, de, ate, valor);
     }
 
@@ -96,7 +96,7 @@ public class Controlador implements IControlador {
         this.controladorEmpresas.definirBandeiraDaEmpresa(idEmpresa, bandeira, valor);
     }
 
-    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo){
+    public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo){
         this.controladorEmpresas.adicionarTaxaDoTipoNaEmpresa(idEmpresa, tipo);
     }
 
@@ -132,11 +132,11 @@ public class Controlador implements IControlador {
         return controladorEmpresas.listarEmpresas();
     }
 
-    public List<Cliente> listarClientes() {
+    public List<Usuario> listarClientes() {
         return controladorClientes.listarClientes();
     }
 
-    public List<Consumidor> listarConsumidoresDoCliente(String idCliente) {
+    public List<Propriedade> listarConsumidoresDoCliente(String idCliente) {
         return controladorClientes.listarConsumidoresDoCliente(idCliente);
     }
 
@@ -151,11 +151,11 @@ public class Controlador implements IControlador {
         this.controladorEmpresas.resolverProblema(idEmpresa, protocolo);
     }
 
-    public List<Report> listarProblemas(String idEmpresa) {
+    public List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa) {
         return this.controladorEmpresas.listarProblemas(idEmpresa);
     }
 
-    public List<Report> listarProblemasPendentes(String idEmpresa) {
+    public List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
         return this.controladorEmpresas.listarProblemasPendentes(idEmpresa);
     }
 

@@ -5,14 +5,14 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import negocio.beans.Cliente;
-import negocio.beans.Consumidor;
+import negocio.beans.Usuario;
+import negocio.beans.Propriedade;
 import negocio.beans.Endereco;
-import negocio.beans.TipoConsumidor;
+import negocio.beans.TipoPropriedade;
 
 public class ControladorClientes {
 
-    private IRepositorioGenerico<Cliente> repositorioClientes;
+    private IRepositorioGenerico<Usuario> repositorioClientes;
     private static ControladorClientes instance;
 
     private ControladorClientes(){
@@ -29,13 +29,13 @@ public class ControladorClientes {
     /**
      * @return the repositorioClientes
      */
-    public IRepositorioGenerico<Cliente> getRepositorioClientes() {
+    public IRepositorioGenerico<Usuario> getRepositorioClientes() {
         return repositorioClientes;
     }
 
 
-    public Cliente criarCliente(String nome, String cpf, LocalDate dataNascimento){
-        Cliente novoCliente = new Cliente(nome, cpf, dataNascimento);
+    public Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento){
+        Usuario novoCliente = new Usuario(nome, cpf, dataNascimento);
         
         try {
             repositorioClientes.inserir(novoCliente);
@@ -49,9 +49,9 @@ public class ControladorClientes {
         repositorioClientes.removerPorID(cpf);
     }
 
-    public Consumidor adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoConsumidor tipo, Endereco endereco){
-        Consumidor novoConsumidor = new Consumidor(numMedidor, idEmpresa, tipo, endereco);
-        Cliente clienteSelecionado = repositorioClientes.buscarPorID(cpfCliente);
+    public Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
+        Propriedade novoConsumidor = new Propriedade(numMedidor, tipo, endereco);
+        Usuario clienteSelecionado = repositorioClientes.buscarPorID(cpfCliente);
         try {
             clienteSelecionado.getRepositorioConsumidores().inserir(novoConsumidor);
         } catch (Exception e) {
@@ -61,18 +61,16 @@ public class ControladorClientes {
     }
 
     public void removerConsumidorDoCliente(String idCliente, String numMedidor){
-        Cliente clienteSelecionado = repositorioClientes.buscarPorID(idCliente);
+        Usuario clienteSelecionado = repositorioClientes.buscarPorID(idCliente);
         clienteSelecionado.getRepositorioConsumidores().removerPorID(numMedidor);
     }
 
-    public List<Cliente> listarClientes(){
+    public List<Usuario> listarClientes(){
         return repositorioClientes.listar();
     }
 
-    public List<Consumidor> listarConsumidoresDoCliente(String idCliente) {
+    public List<Propriedade> listarConsumidoresDoCliente(String idCliente) {
         return repositorioClientes.buscarPorID(idCliente).getRepositorioConsumidores().listar();
     }
 
-    
-    
 }

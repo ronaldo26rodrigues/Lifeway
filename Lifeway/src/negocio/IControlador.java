@@ -16,7 +16,7 @@ public interface IControlador {
      * @param cpf
      * @param dataNascimento
      */
-    Cliente criarCliente(String nome, String cpf, LocalDate dataNascimento);
+    Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento);
 
     /**
      * Remove um cliente de cpf informado no sistema
@@ -33,7 +33,7 @@ public interface IControlador {
      * @param endereco
      * @return
      */
-    Consumidor adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoConsumidor tipo, Endereco endereco);
+    Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco);
 
     /**
      * Remove o consumidor informado de um dado cliente
@@ -85,7 +85,7 @@ public interface IControlador {
      * @param tipo
      * @param taxaFixa
      */
-    void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, TaxaFixa taxaFixa);
+    void adicionarTaxaFixaPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, TaxaFixa taxaFixa);
 
     /**
      * Cria uma faixa de preço a uma empresa
@@ -96,7 +96,7 @@ public interface IControlador {
      * @param ate
      * @param valor
      */
-    void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo, double de, double ate, double valor);
+    void adicionarTaxaAdicionalPorTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo, double de, double ate, double valor);
 
     /**
      * Adiciona uma tarifa fixa na empresa
@@ -108,7 +108,7 @@ public interface IControlador {
 
 
     void definirBandeiraDaEmpresa(String idEmpresa, Bandeira bandeira, float valor);
-    void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoConsumidor tipo);
+    void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo);
     void acessarCliente(String idCliente);
     void adicionarContaAoConsumidor(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo);
     void pagarContaDoMes(String idConta, String numMedidor, int mes);
@@ -116,11 +116,11 @@ public interface IControlador {
     List<Conta> listarContas(String numMedidor);
     List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa);
     List<Empresa> listarEmpresas();
-    List<Cliente> listarClientes();
-    List<Consumidor> listarConsumidoresDoCliente(String idCliente);
+    List<Usuario> listarClientes();
+    List<Propriedade> listarConsumidoresDoCliente(String idCliente);
     void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco);
     void resolverProblema(String idEmpresa, String protocolo);
-    List<Report> listarProblemas(String idEmpresa);
-    List<Report> listarProblemasPendentes(String idEmpresa);
+    List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa);
+    List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa);
 
 }

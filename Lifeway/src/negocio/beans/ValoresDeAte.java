@@ -1,6 +1,7 @@
 package negocio.beans;
 
 public class ValoresDeAte {
+    
     private Double de;
     private Double ate;
 

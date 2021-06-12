@@ -2,8 +2,9 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-public class Conta extends Identificavel {
+public class Conta {
     
+    private String idConta;
     private LocalDate data;
     private double consumo;
     private double valor;
@@ -11,10 +12,21 @@ public class Conta extends Identificavel {
     private boolean paga;
 
     public Conta(String idConta, LocalDate data, double consumo, double valor){
-        super(idConta);
+        this.idConta = idConta;
         this.data = data;
         this.consumo = consumo;
         this.valor = valor;
+    }
+
+
+    
+
+    public String getIdConta() {
+        return idConta;
+    }
+
+    public void setIdConta(String idConta) {
+        this.idConta = idConta;
     }
 
     /**
@@ -65,7 +77,11 @@ public class Conta extends Identificavel {
     }
 
     
-    //equals?
+    public double calcularTotal() {
+        double total = 0;
+        //TODO
+        return total;   
+    }
 
     /**
      * toString: Conta
@@ -80,7 +96,6 @@ public class Conta extends Identificavel {
         return resultado;
     }
 
-    @Override
     public boolean validar() {
         // TODO Auto-generated method stub
         return true;

@@ -5,41 +5,43 @@ import java.util.List;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
-public class Consumidor extends Identificavel {
+public class Propriedade {
 
-    private TipoConsumidor tipo;
+    //extends Cliente?
+    private TipoPropriedade tipo;
     private Endereco endereco;
-    private String idEmpresa;
+    //private String idEmpresa; ?
 
     private IRepositorioGenerico<Conta>repositorioContas;
+    private String numMedidor;
 
     // private String idCliente;
     // private String numMedidor;
 
     /**
-     * Construtor: Consumidor
-     * @param nome
-     * @param identificacao
-     * @param dataNascimento
+     * Construtor: Propriedade
+     * @param numMedidor
      * @param tipo
      * @param endereco
      */
-    public Consumidor(String numMedidor, String idEmpresa, TipoConsumidor tipo, Endereco endereco) {
+    public Propriedade(String numMedidor, TipoPropriedade tipo, Endereco endereco) {
         //super(nome, identificacao, dataNascimento);
-        super(numMedidor);
-        this.idEmpresa = idEmpresa;
+        //super(numMedidor);
+        //this.idEmpresa = idEmpresa;
+        this.numMedidor = numMedidor;
         this.tipo = tipo;
         this.endereco = endereco;
+        
         this.repositorioContas = new RepositorioGenerico<>();
     }
 
     //Getters & Setters
 
-    public TipoConsumidor getTipo() {
+    public TipoPropriedade getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoConsumidor tipo) {
+    public void setTipo(TipoPropriedade tipo) {
         this.tipo = tipo;
     }
 
@@ -85,8 +87,8 @@ public class Consumidor extends Identificavel {
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
-        if (obj instanceof Consumidor) {
-            Consumidor param = (Consumidor) obj;
+        if (obj instanceof Propriedade) {
+            Propriedade param = (Propriedade) obj;
             if ( /* (param.getIdentificacao() != null) 
                 && param.getIdentificacao().equals(this.getIdentificacao()) 
                 && */ param.getTipo().equals(this.getTipo())
@@ -109,7 +111,6 @@ public class Consumidor extends Identificavel {
         return resultado;
     }
 
-    @Override
     public boolean validar() {
         // TODO Auto-generated method stub
         return true;
@@ -118,14 +119,13 @@ public class Consumidor extends Identificavel {
     /**
      * @return the idEmpresa
      */
-    public String getIdEmpresa() {
-        return idEmpresa;
-    }
-    @Override
-    public void setId(String id) {
+    //public String getIdEmpresa() {
+       // return idEmpresa;
+    //}
+
+    //public void setId(String id) {
         // TODO Auto-generated method stub
-        super.setId(id);
-    }
+    //}
     
     // /**
     //  * @return the idCliente

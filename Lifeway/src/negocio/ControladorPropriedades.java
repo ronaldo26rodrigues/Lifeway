@@ -7,57 +7,57 @@ import java.util.Map;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import negocio.beans.Cliente;
-import negocio.beans.Consumidor;
+import negocio.beans.Usuario;
+import negocio.beans.Propriedade;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.ValoresDeAte;
 
-public class ControladorConsumidores {
+public class ControladorPropriedades {
     
-    private IRepositorioGenerico<Consumidor> repositorioConsumidores;
-    private static ControladorConsumidores instance;
+    private IRepositorioGenerico<Propriedade> repositorioConsumidores;
+    private static ControladorPropriedades instance;
 
-    private ControladorConsumidores() {
+    private ControladorPropriedades() {
         this.repositorioConsumidores = new RepositorioGenerico<>();
     }
 
-    private ControladorConsumidores(String idCliente){
-        Cliente clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
+    private ControladorPropriedades(String idCliente){
+        Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
         this.repositorioConsumidores = clienteSelecionado.getRepositorioConsumidores();
     }
 
-    public static ControladorConsumidores getInstance() {
+    public static ControladorPropriedades getInstance() {
         if (instance == null) {
-            instance = new ControladorConsumidores();
+            instance = new ControladorPropriedades();
         }
         return instance;
     }
 
-    public static ControladorConsumidores getInstance(String idCliente){
+    public static ControladorPropriedades getInstance(String idCliente){
         if(instance == null){
-            instance = new ControladorConsumidores(idCliente);
+            instance = new ControladorPropriedades(idCliente);
         }
         return instance;
     }
 
     public void acessarCliente(String idCliente){
-        Cliente clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
+        Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
         this.repositorioConsumidores = clienteSelecionado.getRepositorioConsumidores();
     }
 
     /**
      * @return the repositorioConsumidores
      */
-    public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
+    public IRepositorioGenerico<Propriedade> getRepositorioConsumidores() {
         return repositorioConsumidores;
     }
 
-    private Consumidor selecionarConsumidor(String numMedidor){
+    private Propriedade selecionarConsumidor(String numMedidor){
         return repositorioConsumidores.buscarPorID(numMedidor);
     }
 
-    private double calcularValorConta(Consumidor consumidor, double consumo){
+    private double calcularValorConta(Propriedade consumidor, double consumo){
         double valor = 0;
         Empresa empresaSelecionada = ControladorEmpresas.getInstance().getRepositorioEmpresas().buscarPorID(consumidor.getIdEmpresa());
 
@@ -83,7 +83,7 @@ public class ControladorConsumidores {
     }
 
     public void adicionarContaAoConsumidor(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo){
-        Consumidor consumidorSelecionado = selecionarConsumidor(numMedidor);
+        Propriedade consumidorSelecionado = selecionarConsumidor(numMedidor);
 
         double valor = calcularValorConta(consumidorSelecionado, consumo);
 

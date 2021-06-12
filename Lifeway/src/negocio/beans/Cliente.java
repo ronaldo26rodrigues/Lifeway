@@ -1,59 +1,73 @@
 package negocio.beans;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-import dados.IRepositorioGenerico;
-import dados.RepositorioGenerico;
-
-public class Cliente extends Pessoa {
-
-    private IRepositorioGenerico<Consumidor> repositorioConsumidores;
-    //private String cadastro;
-
-    public Cliente(String nome, String cpf, LocalDate dataNascimento){
-        super(nome, cpf, dataNascimento);
-        repositorioConsumidores = new RepositorioGenerico<>();
-    }
-
-    /**
-     * @return repositorioConsumidores
-     */
-    public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
-        return repositorioConsumidores;
-    }
+public class Cliente extends Usuario {
     
+    private LocalDate dataNascimento;
+    //numero propriedades?
+
+    DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    public Cliente(String nome, String identificacao, String senha, LocalDate dataNascimento) {
+        super(nome, identificacao, senha);
+        this.dataNascimento = dataNascimento;
+    }
+
+
+
+    //Getters & Setters
+
+    //chama o super?
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public DateTimeFormatter getMeuFormatador() {
+        return meuFormatador;
+    }
+
+    public void setMeuFormatador(DateTimeFormatter meuFormatador) {
+        this.meuFormatador = meuFormatador;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    
+
     // /**
-    //  * @return cadastro
+    //  * Equals: Pessoa (compara id)
     //  */
-    // public String getCadastro() {
-    //     return cadastro;
+    // @Override
+    // public boolean equals(Object obj) {
+    //     boolean resultado = false;
+    //     if (obj instanceof Pessoa) {
+    //         Pessoa param = (Pessoa) obj;
+    //         if ( (param.getIdentificacao() != null) 
+    //             && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+    //                 resultado = true;
+    //             }
+    //     }
+    //     return resultado;
     // }
-    // /**
-    //  * @param cadastro set cadastro
-    //  */
-    // public void setCadastro(String cadastro) {
-    //     this.cadastro = cadastro;
-    // }
 
-
-    //equals cliente
-
+   
     /**
-     * toString: Cliente ???
+     * toString: Pessoa: nome, id, data de nascimento
      */
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + super.toString() /* "Cadastro: " + this.getCadastro() */; 
+        resultado += "\n" + super.toString();
+        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
+        // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         return resultado;
     }
-
-    @Override
-    public boolean validar() {
-        // TODO Auto-generated method stub
-        return true;
-    }
-
-    
+     
 
 }

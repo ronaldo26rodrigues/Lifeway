@@ -41,7 +41,7 @@ public class Taxas {
     public List<TaxasPorTipo> getTaxasPorTipo() {
         return taxasPorTipo;
     }
-    public TaxasPorTipo getTaxasDoTipo(TipoConsumidor tipo){
+    public TaxasPorTipo getTaxasDoTipo(TipoPropriedade tipo){
         TaxasPorTipo taxaDoTipo = null;
         for (TaxasPorTipo t : taxasPorTipo) {
             if(t.getTipo().equals(tipo)){
@@ -72,7 +72,7 @@ public class Taxas {
         this.bandeira.setValor(valor);
     }
 
-    public void criarTaxaDoTipo(TipoConsumidor tipo){
+    public void criarTaxaDoTipo(TipoPropriedade tipo){
         this.taxasPorTipo.add(new TaxasPorTipo(tipo));
     }
 }

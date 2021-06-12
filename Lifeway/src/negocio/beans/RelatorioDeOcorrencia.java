@@ -4,8 +4,9 @@ import java.time.LocalDate;
 
 import negocio.ControladorEmpresas;
 
-public class Report extends Identificavel {
+public class RelatorioDeOcorrencia {
     
+    private String protocolo;
     private String assunto;
     private String mensagem;
     private String idEmpresa;
@@ -13,13 +14,15 @@ public class Report extends Identificavel {
     private Endereco endereco;
     private boolean resolvido;
 
-    public Report(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
-        super(protocolo);
+    public RelatorioDeOcorrencia(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
+        //super(protocolo);
+        this.protocolo = protocolo;
         this.assunto = assunto;
         this.mensagem = mensagem;
         this.idEmpresa = idEmpresa;
         this.data = data;
         this.endereco = endereco;
+
         resolvido = false;
     }
     
@@ -97,7 +100,6 @@ public class Report extends Identificavel {
     }
     
 
-    @Override
     public boolean validar() {
         // TODO Auto-generated method stub
         return true;

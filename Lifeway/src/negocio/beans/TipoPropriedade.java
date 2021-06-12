@@ -1,6 +1,6 @@
 package negocio.beans;
 
-public enum TipoConsumidor {
+public enum TipoPropriedade {
     
     RESIDENCIAL,
     COMERCIAL,

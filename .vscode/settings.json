@@ -8,6 +8,14 @@
         "e:\\Java\\Java Libs\\javafx-sdk-11.0.2\\lib\\javafx.media.jar",
         "e:\\Java\\Java Libs\\javafx-sdk-11.0.2\\lib\\javafx.swing.jar",
         "e:\\Java\\Java Libs\\javafx-sdk-11.0.2\\lib\\javafx.web.jar",
-        "e:\\Java\\Java Libs\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar"
+        "e:\\Java\\Java Libs\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.base.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.controls.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.fxml.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.graphics.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.media.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.swing.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx.web.jar",
+        "d:\\Programs\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar"
     ]
 }

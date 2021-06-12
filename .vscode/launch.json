@@ -5,19 +5,23 @@
     "version": "0.2.0",
     "configurations": [
 
+
+    
+
         {
             "type": "java",
             "name": "Launch oi",
             "request": "launch",
             "mainClass": "oi",
             "projectName": "waterway_84ac4e92",
-            "vmArgs": "--module-path \"E:/Java/Java Libs/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"D:/Programs/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Launch Current File", 
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"D:/Programs/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -25,7 +29,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "waterway_84ac4e92",
-            "vmArgs": "--module-path \"E:/Java/Java Libs/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"D:/Programs/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

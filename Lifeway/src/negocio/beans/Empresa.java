@@ -3,28 +3,31 @@ package negocio.beans;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
-public class Empresa extends Identificavel {
+public class Empresa {
     
     private String nome;
     private String servico;
-
+    private String idEmpresa;
     private Taxas taxas;
 
     // private String identificacao;
 
-    private IRepositorioGenerico<Cliente> repositorioClientes;
+    private IRepositorioGenerico<Usuario> repositorioClientes;
     private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
-    private IRepositorioGenerico<Report> repositorioReports;
+    private IRepositorioGenerico<RelatorioDeOcorrencia> repositorioReports;
 
     public Empresa(String idEmpresa, String nome, String servico) {
-        super(idEmpresa);
+        //super(idEmpresa);
+        this.idEmpresa = idEmpresa;
         this.nome = nome;
         this.servico = servico;
+
         this.taxas = new Taxas();
+
         repositorioClientes = new RepositorioGenerico<>();
         repositorioFuncionarios = new RepositorioGenerico<>();
         repositorioReports = new RepositorioGenerico<>();
-        // this.identificacao = identificacao;
+
     }
 
 
@@ -32,9 +35,21 @@ public class Empresa extends Identificavel {
 
     // Getters & Setters
 
+    
+
     public String getNome() {
         return nome;
     }
+
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
+
+
+    public void setIdEmpresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -59,38 +74,38 @@ public class Empresa extends Identificavel {
     /**
      * @return the repositorioClientes
      */
-    public IRepositorioGenerico<Cliente> getRepositorioClientes() {
+    public IRepositorioGenerico<Usuario> getRepositorioClientes() {
         return repositorioClientes;
     }
     /**
      * @return the repositorioFuncionarios
      */
-    public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
-        return repositorioFuncionarios;
-    }
+    //public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
+        //return repositorioFuncionarios;
+    //}
     /**
      * @param repositorioClientes the repositorioClientes to set
      */
-    public void setRepositorioClientes(IRepositorioGenerico<Cliente> repositorioClientes) {
+    public void setRepositorioClientes(IRepositorioGenerico<Usuario> repositorioClientes) {
         this.repositorioClientes = repositorioClientes;
     }
     /**
      * @param repositorioFuncionarios the repositorioFuncionarios to set
      */
-    public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
-        this.repositorioFuncionarios = repositorioFuncionarios;
-    }
+    //public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
+        //this.repositorioFuncionarios = repositorioFuncionarios;
+    //}
 
     /**
      * @return the repositorioReports
      */
-    public IRepositorioGenerico<Report> getRepositorioReports() {
+    public IRepositorioGenerico<RelatorioDeOcorrencia> getRepositorioReports() {
         return repositorioReports;
     }
     /**
      * @param repositorioReports the repositorioReports to set
      */
-    public void setRepositorioReports(IRepositorioGenerico<Report> repositorioReports) {
+    public void setRepositorioReports(IRepositorioGenerico<RelatorioDeOcorrencia> repositorioReports) {
         this.repositorioReports = repositorioReports;
     }
 
@@ -138,7 +153,6 @@ public class Empresa extends Identificavel {
       
 
 }
-    @Override
     public boolean validar() {
         // TODO Auto-generated method stub
         return false;
