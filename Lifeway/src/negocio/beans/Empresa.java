@@ -14,7 +14,7 @@ public class Empresa {
 
     private IRepositorioGenerico<Usuario> repositorioClientes;
     //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
-    private IRepositorioGenerico<RelatorioDeOcorrencia> repositorioReports;
+    private IRepositorioGenerico<RelatorioDeOcorrencia> repositorioRDO;
 
     public Empresa(String idEmpresa, String nome, String servico) {
         //super(idEmpresa);
@@ -26,7 +26,7 @@ public class Empresa {
 
         repositorioClientes = new RepositorioGenerico<>();
         //repositorioFuncionarios = new RepositorioGenerico<>();
-        repositorioReports = new RepositorioGenerico<>();
+        repositorioRDO = new RepositorioGenerico<>();
 
     }
 
@@ -99,14 +99,14 @@ public class Empresa {
     /**
      * @return the repositorioReports
      */
-    public IRepositorioGenerico<RelatorioDeOcorrencia> getRepositorioReports() {
-        return repositorioReports;
+    public IRepositorioGenerico<RelatorioDeOcorrencia> getRepositorioRDO() {
+        return repositorioRDO;
     }
     /**
-     * @param repositorioReports the repositorioReports to set
+     * @param repositorioRDO the repositorioReports to set
      */
-    public void setRepositorioReports(IRepositorioGenerico<RelatorioDeOcorrencia> repositorioReports) {
-        this.repositorioReports = repositorioReports;
+    public void setRepositorioRDO(IRepositorioGenerico<RelatorioDeOcorrencia> repositorioRDO) {
+        this.repositorioRDO = repositorioRDO;
     }
 
     /**

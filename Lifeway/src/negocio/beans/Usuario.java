@@ -44,7 +44,22 @@ public abstract class Usuario {
     // }
 
 
-    //equals cliente
+    /**
+     * Equals: Usuário
+     */
+    
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if(obj instanceof Usuario) {
+            Usuario param = (Usuario) obj;
+            if( (param.getIdentificacao() != null) 
+            && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+                resultado = true;
+            }
+        }   
+        return resultado;
+    }
 
     /**
      * toString: Cliente ???
