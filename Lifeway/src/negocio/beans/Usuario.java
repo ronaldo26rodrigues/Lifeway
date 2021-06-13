@@ -7,7 +7,7 @@ import dados.RepositorioGenerico;
 
 public abstract class Usuario {
 
-    private IRepositorioGenerico<Propriedade> repositorioConsumidores;
+    private IRepositorioGenerico<Propriedade> repositorioPropriedades;
     //private String cadastro;
     private String nome;
     private String identificacao;
@@ -20,7 +20,7 @@ public abstract class Usuario {
         this.identificacao = identificacao;
         this.senha = senha;
 
-        repositorioConsumidores = new RepositorioGenerico<>();
+        repositorioPropriedades = new RepositorioGenerico<>();
     }
 
     /**
@@ -61,12 +61,12 @@ public abstract class Usuario {
         return true;
     }
 
-    public IRepositorioGenerico<Propriedade> getRepositorioConsumidores() {
-        return repositorioConsumidores;
+    public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
+        return repositorioPropriedades;
     }
 
-    public void setRepositorioConsumidores(IRepositorioGenerico<Propriedade> repositorioConsumidores) {
-        this.repositorioConsumidores = repositorioConsumidores;
+    public void setRepositorioPropriedades(IRepositorioGenerico<Propriedade> repositorioPropriedades) {
+        this.repositorioPropriedades = repositorioPropriedades;
     }
 
     public String getNome() {

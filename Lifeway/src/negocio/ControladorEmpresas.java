@@ -65,21 +65,21 @@ public class ControladorEmpresas {
         repositorioEmpresas.removerPorID(idEmpresa);
     }
 
-    public Funcionario criarFuncionarioNaEmpresa(String empresa, String cpf, String nome, LocalDate dataNascimento, String cargo){
-        Funcionario novoFuncionario = new Funcionario(nome, cpf, dataNascimento, cargo);
-        Empresa empresaSelecionada = selecionarEmpresa(empresa);
+    public Funcionario criarFuncionarioNaEmpresa(String nome, String identificacao, String senha, String idEmpresa){
+        Funcionario novoFuncionario = new Funcionario(nome, identificacao, senha, idEmpresa);
+        Empresa empresaSelecionada = selecionarEmpresa(idEmpresa); // <- fazer metodo pra pegar empresa por ID
 
-        try {
-            empresaSelecionada.getRepositorioFuncionarios().inserir(novoFuncionario);
-        } catch (Exception e) {
-            return null;
-        }
+        //try {
+            //empresaSelecionada.getRepositorioFuncionarios().inserir(novoFuncionario);
+        //} catch (Exception e) {
+            //return null;
+        //}
         return novoFuncionario;
     }
 
     public void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario){
         Empresa empresaSelecionada = selecionarEmpresa(idEmpresa);
-        empresaSelecionada.getRepositorioFuncionarios().removerPorID(idFuncionario);
+        //empresaSelecionada.getRepositorioFuncionarios().removerPorID(idFuncionario);
     }
 
     public void adicionarTaxaDoTipoNaEmpresa(String idEmpresa, TipoPropriedade tipo){
@@ -110,9 +110,9 @@ public class ControladorEmpresas {
     }
 
 
-    public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
-        return repositorioEmpresas.buscarPorID(idEmpresa).getRepositorioFuncionarios().listar();
-    }
+    //public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
+        //return repositorioEmpresas.buscarPorID(idEmpresa).getRepositorioFuncionarios().listar();
+    //}
 
     public List<Empresa> listarEmpresas(){
         return repositorioEmpresas.listar();

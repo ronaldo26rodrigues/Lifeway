@@ -13,7 +13,7 @@ public class Empresa {
     // private String identificacao;
 
     private IRepositorioGenerico<Usuario> repositorioClientes;
-    private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
+    //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
     private IRepositorioGenerico<RelatorioDeOcorrencia> repositorioReports;
 
     public Empresa(String idEmpresa, String nome, String servico) {
@@ -25,7 +25,7 @@ public class Empresa {
         this.taxas = new Taxas();
 
         repositorioClientes = new RepositorioGenerico<>();
-        repositorioFuncionarios = new RepositorioGenerico<>();
+        //repositorioFuncionarios = new RepositorioGenerico<>();
         repositorioReports = new RepositorioGenerico<>();
 
     }

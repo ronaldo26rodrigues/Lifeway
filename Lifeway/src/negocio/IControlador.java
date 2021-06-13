@@ -33,14 +33,14 @@ public interface IControlador {
      * @param endereco
      * @return
      */
-    Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco);
+    Propriedade adicionarPropriedade(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco);
 
     /**
      * Remove o consumidor informado de um dado cliente
      * @param idCliente
      * @param numMedidor
      */
-    void removerConsumidorDoCliente(String idCliente, String numMedidor);
+    void removerPropriedade(String idCliente, String numMedidor);
 
 
     // Controles de empresa
@@ -69,14 +69,14 @@ public interface IControlador {
      * @param cargo
      * @return
      */
-    Funcionario criarFuncionarioNaEmpresa(String empresa, String cpf, String nome, LocalDate dataNascimento, String cargo);
+    //Funcionario criarFuncionarioNaEmpresa(String empresa, String cpf, String nome, LocalDate dataNascimento, String cargo);
 
     /**
      * Recebe o identificador de um funcionário para excluir seu perfil da empresa
      * @param idEmpresa
      * @param idFuncionario
      */
-    void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario);
+    //void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario);
 
     /**
      * Cria uma taxa fixa para um dado tipo de consumidor na empresa
@@ -114,10 +114,13 @@ public interface IControlador {
     void pagarContaDoMes(String idConta, String numMedidor, int mes);
     List<Conta> listarContasPendentes(String numMedidor);
     List<Conta> listarContas(String numMedidor);
-    List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa);
+    //List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa);
+    
     List<Empresa> listarEmpresas();
     List<Usuario> listarClientes();
-    List<Propriedade> listarConsumidoresDoCliente(String idCliente);
+
+    List<Propriedade> listarPropriedades(String idCliente);
+
     void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco);
     void resolverProblema(String idEmpresa, String protocolo);
     List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa);

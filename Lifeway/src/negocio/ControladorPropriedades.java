@@ -24,7 +24,7 @@ public class ControladorPropriedades {
 
     private ControladorPropriedades(String idCliente){
         Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
-        this.repositorioConsumidores = clienteSelecionado.getRepositorioConsumidores();
+        this.repositorioConsumidores = clienteSelecionado.getRepositorioPropriedades();
     }
 
     public static ControladorPropriedades getInstance() {
@@ -43,7 +43,7 @@ public class ControladorPropriedades {
 
     public void acessarCliente(String idCliente){
         Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
-        this.repositorioConsumidores = clienteSelecionado.getRepositorioConsumidores();
+        this.repositorioConsumidores = clienteSelecionado.getRepositorioPropriedades();
     }
 
     /**

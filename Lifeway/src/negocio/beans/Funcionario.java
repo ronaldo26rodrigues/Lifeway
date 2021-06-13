@@ -1,7 +1,5 @@
 package negocio.beans;
 
-import java.time.LocalDate;
-
 public class Funcionario extends Usuario {
 
     //private String cargo;

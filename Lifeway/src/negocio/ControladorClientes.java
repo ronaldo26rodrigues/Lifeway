@@ -7,6 +7,7 @@ import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Usuario;
 import negocio.beans.Propriedade;
+import negocio.beans.Cliente;
 import negocio.beans.Endereco;
 import negocio.beans.TipoPropriedade;
 
@@ -34,8 +35,8 @@ public class ControladorClientes {
     }
 
 
-    public Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento){
-        Usuario novoCliente = new Usuario(nome, cpf, dataNascimento);
+    public Usuario criarCliente(String nome, String identificavel, String senha, LocalDate dataNascimento){
+        Usuario novoCliente = new Cliente(nome, identificavel, senha, dataNascimento);
         
         try {
             repositorioClientes.inserir(novoCliente);
@@ -49,28 +50,28 @@ public class ControladorClientes {
         repositorioClientes.removerPorID(cpf);
     }
 
-    public Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
-        Propriedade novoConsumidor = new Propriedade(numMedidor, tipo, endereco);
+    public Propriedade adicionarPropriedade(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
+        Propriedade novaPropriedade = new Propriedade(numMedidor, tipo, endereco);
         Usuario clienteSelecionado = repositorioClientes.buscarPorID(cpfCliente);
         try {
-            clienteSelecionado.getRepositorioConsumidores().inserir(novoConsumidor);
+            clienteSelecionado.getRepositorioPropriedades().inserir(novaPropriedade);
         } catch (Exception e) {
             return null;
         }
-        return novoConsumidor;
+        return novaPropriedade;
     }
 
-    public void removerConsumidorDoCliente(String idCliente, String numMedidor){
+    public void removerPropriedade(String idCliente, String numMedidor){
         Usuario clienteSelecionado = repositorioClientes.buscarPorID(idCliente);
-        clienteSelecionado.getRepositorioConsumidores().removerPorID(numMedidor);
+        clienteSelecionado.getRepositorioPropriedades().removerPorID(numMedidor);
     }
 
     public List<Usuario> listarClientes(){
         return repositorioClientes.listar();
     }
 
-    public List<Propriedade> listarConsumidoresDoCliente(String idCliente) {
-        return repositorioClientes.buscarPorID(idCliente).getRepositorioConsumidores().listar();
+    public List<Propriedade> listarPropriedadesDoCliente(String idCliente) {
+        return repositorioClientes.buscarPorID(idCliente).getRepositorioPropriedades().listar();
     }
 
 }

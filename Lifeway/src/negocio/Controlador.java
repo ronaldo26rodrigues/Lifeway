@@ -43,20 +43,20 @@ public class Controlador implements IControlador {
 
     // Controles de clientes
 
-    public Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento){
-        return this.controladorClientes.criarCliente(nome, cpf, dataNascimento);
+    public Usuario criarCliente(String nome, String identificacao, String senha, LocalDate dataNascimento){
+        return this.controladorClientes.criarCliente(nome, identificacao, senha, dataNascimento);
     }
 
     public void removerCliente(String cpf){
         this.controladorClientes.removerCliente(cpf);
     }
 
-    public Propriedade adicionarConsumidorAoCliente(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
-        return this.controladorClientes.adicionarConsumidorAoCliente(cpfCliente, idEmpresa, numMedidor, tipo, endereco);
+    public Propriedade adicionarPropriedade(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
+        return this.controladorClientes.adicionarPropriedade(cpfCliente, idEmpresa, numMedidor, tipo, endereco);
     }
 
-    public void removerConsumidorDoCliente(String idCliente, String numMedidor){
-        this.controladorClientes.removerConsumidorDoCliente(idCliente, numMedidor);
+    public void removerPropriedade(String idCliente, String numMedidor){
+        this.controladorClientes.removerPropriedade(idCliente, numMedidor);
     }
 
 
@@ -70,13 +70,13 @@ public class Controlador implements IControlador {
         this.controladorEmpresas.removerEmpresa(idEmpresa);
     }
 
-    public Funcionario criarFuncionarioNaEmpresa(String empresa, String cpf, String nome, LocalDate dataNascimento, String cargo) {
-        return this.controladorEmpresas.criarFuncionarioNaEmpresa(empresa, cpf, nome, dataNascimento, cargo);
-    }
+    //public Funcionario criarFuncionarioNaEmpresa(String empresa, String cpf, String nome, LocalDate dataNascimento, String cargo) {
+        //return this.controladorEmpresas.criarFuncionarioNaEmpresa(empresa, cpf, nome, dataNascimento, cargo);
+    //}
 
-    public void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario) {
-        this.controladorEmpresas.removerFuncionarioNaEmpresa(idEmpresa, idFuncionario);
-    }
+    //public void removerFuncionarioNaEmpresa(String idEmpresa, String idFuncionario) {
+        //this.controladorEmpresas.removerFuncionarioNaEmpresa(idEmpresa, idFuncionario);
+    //}
 
     // Controles de taxa
 
@@ -124,9 +124,9 @@ public class Controlador implements IControlador {
         return controladorConsumidores.listarContas(numMedidor);
     }
 
-    public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
-        return controladorEmpresas.listarFuncionariosDaEmpresa(idEmpresa);
-    }
+    //public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
+        //return controladorEmpresas.listarFuncionariosDaEmpresa(idEmpresa);
+    //}
 
     public List<Empresa> listarEmpresas() {
         return controladorEmpresas.listarEmpresas();
@@ -136,8 +136,8 @@ public class Controlador implements IControlador {
         return controladorClientes.listarClientes();
     }
 
-    public List<Propriedade> listarConsumidoresDoCliente(String idCliente) {
-        return controladorClientes.listarConsumidoresDoCliente(idCliente);
+    public List<Propriedade> listarPropriedadesDoCliente(String idCliente) {
+        return controladorClientes.listarPropriedadesDoCliente(idCliente);
     }
 
 
