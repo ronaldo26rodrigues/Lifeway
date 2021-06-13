@@ -14,6 +14,7 @@ public class Propriedade {
 
     private IRepositorioGenerico<Conta>repositorioContas;
     private String numMedidor;
+    private String idEmpresa;
 
     // private String idCliente;
     // private String numMedidor;
@@ -35,12 +36,35 @@ public class Propriedade {
         this.repositorioContas = new RepositorioGenerico<>();
     }
 
+
+    public Propriedade(String numMedidor, TipoPropriedade tipo, Endereco endereco, String idEmpresa) {
+        //super(nome, identificacao, dataNascimento);
+        //super(numMedidor);
+        //this.idEmpresa = idEmpresa;
+        this.numMedidor = numMedidor;
+        this.tipo = tipo;
+        this.endereco = endereco;
+        this.idEmpresa = idEmpresa;
+        
+        this.repositorioContas = new RepositorioGenerico<>();
+    }
+
     //Getters & Setters
 
     
     public TipoPropriedade getTipo() {
         return tipo;
     }
+
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
+
+
+    public void setIdEmpresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
 
     public String getNumMedidor() {
         return numMedidor;
@@ -91,7 +115,10 @@ public class Propriedade {
     // }
 
     /**
-     * Equals: Consumidor (compara id, tipo e endereço)
+     * eu acho que pra comparar propriedades, basta comparar endereço,
+     * já que o método deve estar atrelado a um cliente específico,
+     * mas não tenho ctz. Mudar?
+     * Equals: Propriedade (compara id, tipo e endereço)
      */
     @Override
     public boolean equals(Object obj) {
@@ -100,8 +127,8 @@ public class Propriedade {
             Propriedade param = (Propriedade) obj;
             if ( /* (param.getIdentificacao() != null) 
                 && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && */ param.getTipo().equals(this.getTipo())
-                && param.getEndereco().equals(this.getEndereco()) ) {
+                && param.getTipo().equals(this.getTipo())
+                && */param.getEndereco().equals(this.getEndereco()) ) {
                     resultado = true;
                 }
         }
@@ -110,7 +137,7 @@ public class Propriedade {
 
 
     /**
-     * toString: Consumidor
+     * toString: Propriedade
      */
     @Override
     public String toString() {

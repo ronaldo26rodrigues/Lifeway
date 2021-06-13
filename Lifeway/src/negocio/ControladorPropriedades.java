@@ -15,16 +15,16 @@ import negocio.beans.ValoresDeAte;
 
 public class ControladorPropriedades {
     
-    private IRepositorioGenerico<Propriedade> repositorioConsumidores;
+    private IRepositorioGenerico<Propriedade> repositorioPropriedades;
     private static ControladorPropriedades instance;
 
     private ControladorPropriedades() {
-        this.repositorioConsumidores = new RepositorioGenerico<>();
+        this.repositorioPropriedades = new RepositorioGenerico<>();
     }
 
     private ControladorPropriedades(String idCliente){
         Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
-        this.repositorioConsumidores = clienteSelecionado.getRepositorioPropriedades();
+        this.repositorioPropriedades = clienteSelecionado.getRepositorioPropriedades();
     }
 
     public static ControladorPropriedades getInstance() {
@@ -41,33 +41,34 @@ public class ControladorPropriedades {
         return instance;
     }
 
+    
     public void acessarCliente(String idCliente){
         Usuario clienteSelecionado = ControladorClientes.getInstance().getRepositorioClientes().buscarPorID(idCliente);
-        this.repositorioConsumidores = clienteSelecionado.getRepositorioPropriedades();
+        this.repositorioPropriedades = clienteSelecionado.getRepositorioPropriedades();
     }
 
     /**
-     * @return the repositorioConsumidores
+     * @return the repositorioPropriedades
      */
-    public IRepositorioGenerico<Propriedade> getRepositorioConsumidores() {
-        return repositorioConsumidores;
+    public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
+        return repositorioPropriedades;
     }
 
-    private Propriedade selecionarConsumidor(String numMedidor){
-        return repositorioConsumidores.buscarPorID(numMedidor);
+    private Propriedade selecionaPropriedade(String numMedidor){
+        return repositorioPropriedades.buscarPorID(numMedidor);
     }
 
-    private double calcularValorConta(Propriedade consumidor, double consumo){
+    private double calcularValorConta(Propriedade propriedade, double consumo){
         double valor = 0;
-        Empresa empresaSelecionada = ControladorEmpresas.getInstance().getRepositorioEmpresas().buscarPorID(consumidor.getIdEmpresa());
+        Empresa empresaSelecionada = ControladorEmpresas.getInstance().getRepositorioEmpresas().buscarPorID(propriedade.getIdEmpresa());
 
-        valor += empresaSelecionada.getTaxas().getTaxasDoTipo(consumidor.getTipo()).getFixa().getValorFixo();
+        valor += empresaSelecionada.getTaxas().getTaxasDoTipo(propriedade.getTipo()).getFixa().getValorFixo();
 
-        Map<ValoresDeAte, Double> adicionais = empresaSelecionada.getTaxas().getTaxasDoTipo(consumidor.getTipo()).getAdicional();
+        Map<ValoresDeAte, Double> adicionais = empresaSelecionada.getTaxas().getTaxasDoTipo(propriedade.getTipo()).getAdicional();
 
         for (Map.Entry<ValoresDeAte, Double> a : adicionais.entrySet()) {
             if(consumo > ((ValoresDeAte) a.getKey()).getDe() && consumo < ((ValoresDeAte) a.getKey()).getAte()){
-                valor += a.getValue() * (consumo-empresaSelecionada.getTaxas().getTaxasDoTipo(consumidor.getTipo()).getFixa().getMaximo());
+                valor += a.getValue() * (consumo-empresaSelecionada.getTaxas().getTaxasDoTipo(propriedade.getTipo()).getFixa().getMaximo());
             }
         }
 
@@ -82,28 +83,28 @@ public class ControladorPropriedades {
         return valor;
     }
 
-    public void adicionarContaAoConsumidor(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo){
-        Propriedade consumidorSelecionado = selecionarConsumidor(numMedidor);
+    public void adicionarContaAPropriedade(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo){
+        Propriedade propriedadeSelecionada = selecionaPropriedade(numMedidor);
 
-        double valor = calcularValorConta(consumidorSelecionado, consumo);
+        double valor = calcularValorConta(propriedadeSelecionada, consumo);
 
         Conta novaConta = new Conta(idConta, data, consumo, valor);
 
         try {
-            consumidorSelecionado.getRepositorioContas().inserir(novaConta);
+            propriedadeSelecionada.getRepositorioContas().inserir(novaConta);
         } catch (Exception e) {
             //TODO: handle exception
         }
     }
 
     public void pagarContaDoMes(String idConta, String numMedidor, int mes){
-        selecionarConsumidor(numMedidor).getRepositorioContas().buscarPorID(idConta).setPaga(true);
+        selecionaPropriedade(numMedidor).getRepositorioContas().buscarPorID(idConta).setPaga(true);
     }
 
     public List<Conta> listarContasPendentes(String numMedidor){
         List<Conta> contasPendentes = new ArrayList<>();
         
-        for (Conta conta : selecionarConsumidor(numMedidor).getRepositorioContas().listar()) {
+        for (Conta conta : selecionaPropriedade(numMedidor).getRepositorioContas().listar()) {
             if(conta.getPaga()==false){
                 contasPendentes.add(conta);
             }
@@ -113,6 +114,6 @@ public class ControladorPropriedades {
     }
 
     public List<Conta> listarContas(String numMedidor){
-        return selecionarConsumidor(numMedidor).getRepositorioContas().listar();
+        return selecionaPropriedade(numMedidor).getRepositorioContas().listar();
     }
 }

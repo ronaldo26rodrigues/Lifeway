@@ -20,7 +20,7 @@ public class Controlador implements IControlador {
 
     private ControladorEmpresas controladorEmpresas;
     // private ControladorFuncionarios controladorFuncionarios;
-    private ControladorPropriedades controladorConsumidores;
+    private ControladorPropriedades controladorPropriedades;
     // private ControladorContas controladorContas;
     private ControladorClientes controladorClientes;
 
@@ -29,7 +29,7 @@ public class Controlador implements IControlador {
         this.controladorEmpresas = ControladorEmpresas.getInstance();
         // this.controladorFuncionarios = controladorFuncionarios.getInstance();
         // this.controladorContas = controladorContas.getInstance();
-        this.controladorConsumidores = ControladorPropriedades.getInstance();
+        this.controladorPropriedades = ControladorPropriedades.getInstance();
         this.controladorClientes = ControladorClientes.getInstance();
     }
 
@@ -105,23 +105,23 @@ public class Controlador implements IControlador {
 
 
     public void acessarCliente(String idCliente){
-        controladorConsumidores.acessarCliente(idCliente);
+        controladorPropriedades.acessarCliente(idCliente);
     }
 
     public void adicionarContaAoConsumidor(String idConta, String idEmpresa, String numMedidor, LocalDate data, double consumo){
-        controladorConsumidores.adicionarContaAoConsumidor(idConta, idEmpresa, numMedidor, data, consumo);
+        controladorPropriedades.adicionarContaAPropriedade(idConta, idEmpresa, numMedidor, data, consumo);
     }
 
     public void pagarContaDoMes(String idConta, String numMedidor, int mes){
-        controladorConsumidores.pagarContaDoMes(idConta, numMedidor, mes);
+        controladorPropriedades.pagarContaDoMes(idConta, numMedidor, mes);
     }
 
     public List<Conta> listarContasPendentes(String numMedidor){
-        return controladorConsumidores.listarContasPendentes(numMedidor);
+        return controladorPropriedades.listarContasPendentes(numMedidor);
     }
 
     public List<Conta> listarContas(String numMedidor){
-        return controladorConsumidores.listarContas(numMedidor);
+        return controladorPropriedades.listarContas(numMedidor);
     }
 
     //public List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa){
