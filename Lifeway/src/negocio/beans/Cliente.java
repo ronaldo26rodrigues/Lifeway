@@ -39,21 +39,21 @@ public class Cliente extends Usuario {
 
     
 
-    // /**
-    //  * Equals: Pessoa (compara id)
-    //  */
-    // @Override
-    // public boolean equals(Object obj) {
-    //     boolean resultado = false;
-    //     if (obj instanceof Pessoa) {
-    //         Pessoa param = (Pessoa) obj;
-    //         if ( (param.getIdentificacao() != null) 
-    //             && param.getIdentificacao().equals(this.getIdentificacao()) ) {
-    //                 resultado = true;
-    //             }
-    //     }
-    //     return resultado;
-    // }
+    /**
+    * Equals: Cliente (compara id)
+    */
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Cliente) {
+            Cliente param = (Cliente) obj;
+            if ( (param.getIdentificacao() != null) 
+                && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+                    resultado = true;
+                }
+        }
+        return resultado;
+     }
 
    
     /**
@@ -63,7 +63,7 @@ public class Cliente extends Usuario {
     public String toString() {
         String resultado = "";
         resultado += "\n" + super.toString();
-        resultado += "\n" + "Nome: " + this.getNome();
+        //resultado += "\n" + "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
         // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         return resultado;

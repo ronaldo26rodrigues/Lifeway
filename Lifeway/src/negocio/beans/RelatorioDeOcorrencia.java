@@ -27,6 +27,16 @@ public class RelatorioDeOcorrencia {
     }
     
     
+    public String getProtocolo() {
+        return protocolo;
+    }
+
+
+    public void setProtocolo(String protocolo) {
+        this.protocolo = protocolo;
+    }
+
+
     /**
      * @return the assunto
      */

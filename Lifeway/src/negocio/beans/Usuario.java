@@ -47,7 +47,7 @@ public abstract class Usuario {
     /**
      * Equals: Usuário
      */
-    
+
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
@@ -62,7 +62,7 @@ public abstract class Usuario {
     }
 
     /**
-     * toString: Cliente ???
+     * toString: Usuario
      */
     @Override
     public String toString() {
@@ -76,6 +76,9 @@ public abstract class Usuario {
         return true;
     }
 
+
+    //Getters & Setters
+    
     public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
         return repositorioPropriedades;
     }

@@ -122,18 +122,18 @@ public class ControladorEmpresas {
     public void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
         RelatorioDeOcorrencia novoReport = new RelatorioDeOcorrencia(protocolo, assunto, mensagem, idEmpresa, data, endereco);
         try {
-            selecionarEmpresa(idEmpresa).getRepositorioReports().inserir(novoReport);
+            selecionarEmpresa(idEmpresa).getRepositorioRDO().inserir(novoReport);
         } catch (Exception e) {
             //TODO: handle exception
         }
     }
 
     public void resolverProblema(String idEmpresa, String protocolo){
-        selecionarEmpresa(idEmpresa).getRepositorioReports().buscarPorID(protocolo).setResolvido(true);
+        selecionarEmpresa(idEmpresa).getRepositorioRDO().buscarPorID(protocolo).setResolvido(true);
     }
 
     public List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa) {
-        return selecionarEmpresa(idEmpresa).getRepositorioReports().listar();
+        return selecionarEmpresa(idEmpresa).getRepositorioRDO().listar();
     }
 
     public List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
@@ -143,11 +143,6 @@ public class ControladorEmpresas {
         }
         return problemasPendentes;
     }
-
-
-
-
-
 
 
 

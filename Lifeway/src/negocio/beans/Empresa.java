@@ -124,16 +124,15 @@ public class Empresa {
 
 
     /**
-     * Equals: Empresa (compara id e tipo de serviço)
+     * Equals: Empresa (compara id)
      */
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if ( /* (param.getIdentificacao() != null) 
-                && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && */ param.getServico().equals(this.getServico()) ) {
+            if (  (param.getIdEmpresa() != null) 
+                && param.getIdEmpresa().equals(this.getIdEmpresa()) ) {
                     resultado = true;
                 }
         }
@@ -151,8 +150,8 @@ public class Empresa {
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;
       
+    }
 
-}
     public boolean validar() {
         // TODO Auto-generated method stub
         return false;

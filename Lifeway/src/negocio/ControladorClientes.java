@@ -36,6 +36,7 @@ public class ControladorClientes {
 
 
     public Usuario criarCliente(String nome, String identificavel, String senha, LocalDate dataNascimento){
+        
         Usuario novoCliente = new Cliente(nome, identificavel, senha, dataNascimento);
         
         try {
@@ -47,12 +48,20 @@ public class ControladorClientes {
     }
 
     public void removerCliente(String cpf){
-        repositorioClientes.removerPorID(cpf);
+        repositorioClientes.remover(cpf);
     }
 
+    public List<Usuario> listarClientes(){
+        return repositorioClientes.listar();
+    }
+
+
+
+
+    //fica aqui ou em controlador propriedades?
     public Propriedade adicionarPropriedade(String cpfCliente, String idEmpresa, String numMedidor, TipoPropriedade tipo, Endereco endereco){
         Propriedade novaPropriedade = new Propriedade(numMedidor, tipo, endereco);
-        Usuario clienteSelecionado = repositorioClientes.buscarPorID(cpfCliente);
+        Usuario clienteSelecionado = repositorioClientes.buscar(cpfCliente);
         try {
             clienteSelecionado.getRepositorioPropriedades().inserir(novaPropriedade);
         } catch (Exception e) {
@@ -66,9 +75,6 @@ public class ControladorClientes {
         clienteSelecionado.getRepositorioPropriedades().removerPorID(numMedidor);
     }
 
-    public List<Usuario> listarClientes(){
-        return repositorioClientes.listar();
-    }
 
     public List<Propriedade> listarPropriedadesDoCliente(String idCliente) {
         return repositorioClientes.buscarPorID(idCliente).getRepositorioPropriedades().listar();
