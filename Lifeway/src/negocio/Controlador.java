@@ -159,6 +159,18 @@ public class Controlador implements IControlador {
         return this.controladorEmpresas.listarProblemasPendentes(idEmpresa);
     }
 
+    @Override
+    public Usuario criarCliente(String nome, String cpf, LocalDate dataNascimento) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Propriedade> listarPropriedades(String idCliente) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     
 
 }

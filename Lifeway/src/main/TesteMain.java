@@ -28,7 +28,7 @@ public class TesteMain {
 
         controlador.criarCliente("Ronaldo", "1234567890", LocalDate.of(2021, 8, 26));
 
-        controlador.adicionarConsumidorAoCliente("1234567890", "emp1", "med1", TipoPropriedade.RESIDENCIAL, new Endereco("rua das orquideas", 20));
+        controlador.adicionarPropriedade("1234567890", "emp1", "med1", TipoPropriedade.RESIDENCIAL, new Endereco("rua das orquideas", 20));
 
         controlador.acessarCliente("1234567890");
 
@@ -39,7 +39,7 @@ public class TesteMain {
             System.out.println("--------------");
         }
 
-        for (Propriedade consumidor : controlador.listarConsumidoresDoCliente("1234567890")) {
+        for (Propriedade consumidor : controlador.listarPropriedades("1234567890")) {
             System.out.println(consumidor);
             System.out.println("=========");
         }

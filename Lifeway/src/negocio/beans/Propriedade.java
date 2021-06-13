@@ -37,8 +37,17 @@ public class Propriedade {
 
     //Getters & Setters
 
+    
     public TipoPropriedade getTipo() {
         return tipo;
+    }
+
+    public String getNumMedidor() {
+        return numMedidor;
+    }
+
+    public void setNumMedidor(String numMedidor) {
+        this.numMedidor = numMedidor;
     }
 
     public void setTipo(TipoPropriedade tipo) {
