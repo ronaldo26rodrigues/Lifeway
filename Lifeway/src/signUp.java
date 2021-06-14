@@ -12,13 +12,13 @@ public class signUp {
 
 
     public void voltar(ActionEvent event) throws IOException {
-       check();
-
+       
+       App voltarp = new App();
+       voltarp.trocarCena("Login.fxml");
     }
 
-    private void check() throws IOException{
-        App g = new App();
-        g.trocarCena("Login.fxml");
+   
+       
         
-    }
+    
 }

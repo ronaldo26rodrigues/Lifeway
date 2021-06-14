@@ -66,7 +66,7 @@
             <Image url="@imgs/senha.png" />
          </image>
       </ImageView>
-      <Button fx:id="BotaoEsqueceuS" layoutX="74.0" layoutY="531.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #9871F5;" styleClass="text-decoration:" text="Esqueceu a senha?">
+      <Button fx:id="BotaoEsqueceuS" layoutX="74.0" layoutY="531.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #9871F5;" styleClass="text-decoration:">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>
@@ -79,7 +79,7 @@
       <Separator layoutX="550.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="0.0" />
       <Pane layoutX="550.0" prefHeight="720.0" prefWidth="732.0" style="-fx-background-color: FFFAFA;">
          <children>
-            <ImageView fitHeight="490.0" fitWidth="466.0" layoutX="133.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="490.0" fitWidth="503.0" layoutX="121.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/Logo.png" />
                </image>

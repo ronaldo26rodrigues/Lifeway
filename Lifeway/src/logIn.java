@@ -46,7 +46,7 @@ private void checkLogin() throws IOException{
     if(cpf.getText().toString().equals("123") && senha.getText().toString().equals("123")){
         loginErrado.setText("Sucesso!");
     
-        m.trocarCena("SignUP.fxml");
+        m.trocarCena("Menu.fxml");
     }
 
     else if(cpf.getText().isEmpty() && senha.getText().isEmpty()){
