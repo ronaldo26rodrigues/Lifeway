@@ -2,21 +2,32 @@ package negocio.beans;
 
 public class Funcionario extends Usuario {
 
-    //private String cargo;
-    //empresa do funcionario:
     private String idEmpresa;
+    private Empresa empresa;
 
+    //recebe o objeto empresa
+    public Funcionario(String nome, String identificacao, String senha, Empresa empresa, String idEmpresa) {
+        super(nome, identificacao, senha);
+        this.empresa = empresa;
+        this.idEmpresa = idEmpresa;
+
+        //buscar empresa por ID
+    }
+
+    //não recebe o objeto empresa mas recebe a id
     public Funcionario(String nome, String identificacao, String senha, String idEmpresa) {
         super(nome, identificacao, senha);
         this.idEmpresa = idEmpresa;
-        //cargo?
+
+        //buscar empresa por ID
     }
 
-    //private String matricula;
 
+    @Override
+    public String getTipo() {
+        return "FUNCIONÁRIO";
+    }
 
-
-    // Getters & Setters
 
     
 
@@ -54,10 +65,18 @@ public class Funcionario extends Usuario {
     @Override
     public String toString() {
         String resultado = super.toString();
-        // resultado += "\n" + "Matrícula" + this.getMatricula();
-        resultado += "\n" + "Empresa: " + this.getIdEmpresa();
+        resultado += "\n" + "Empresa: " + this.getEmpresa().getNome();
         return resultado;
     }
+
+
+    @Override
+    public boolean validar() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    // Getters & Setters
 
     public String getIdEmpresa() {
         return idEmpresa;
@@ -67,10 +86,12 @@ public class Funcionario extends Usuario {
         this.idEmpresa = idEmpresa;
     }
 
-    @Override
-    public boolean validar() {
-        // TODO Auto-generated method stub
-        return true;
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
      
 }

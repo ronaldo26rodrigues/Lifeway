@@ -14,7 +14,7 @@ public class Empresa {
 
     private IRepositorioGenerico<Usuario> repositorioClientes;
     //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
-    private IRepositorioGenerico<RelatorioDeOcorrencia> repositorioRDO;
+    private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
 
     public Empresa(String idEmpresa, String nome, String servico) {
         //super(idEmpresa);
@@ -30,13 +30,13 @@ public class Empresa {
 
     }
 
+    //métodos para receber as taxas instanciadas pelo funcionário
 
     //method(type): type
 
     // Getters & Setters
 
     
-
     public String getNome() {
         return nome;
     }
@@ -99,13 +99,13 @@ public class Empresa {
     /**
      * @return the repositorioReports
      */
-    public IRepositorioGenerico<RelatorioDeOcorrencia> getRepositorioRDO() {
+    public IRepositorioGenerico<RegistroDeOcorrencia> getRepositorioRDO() {
         return repositorioRDO;
     }
     /**
      * @param repositorioRDO the repositorioReports to set
      */
-    public void setRepositorioRDO(IRepositorioGenerico<RelatorioDeOcorrencia> repositorioRDO) {
+    public void setRepositorioRDO(IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO) {
         this.repositorioRDO = repositorioRDO;
     }
 
@@ -146,7 +146,7 @@ public class Empresa {
     public String toString() {
         String resultado = "";
         resultado += "\n" + "Nome: " + this.getNome();
-        // resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        resultado += "\n" + "ID: " + this.getIdEmpresa();
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;
       

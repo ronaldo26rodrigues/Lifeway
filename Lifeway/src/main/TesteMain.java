@@ -9,7 +9,7 @@ import negocio.beans.Usuario;
 import negocio.beans.Propriedade;
 import negocio.beans.Conta;
 import negocio.beans.Endereco;
-import negocio.beans.RelatorioDeOcorrencia;
+import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoPropriedade;
 
@@ -59,14 +59,14 @@ public class TesteMain {
 
         controlador.reportarProblema("ptc1", "vazamento", "cano furado na calçada", "emp1", LocalDate.now(), new Endereco("rua da lagoa", 14));
         System.out.println("\nProblemas reportados:");
-        for (RelatorioDeOcorrencia report : controlador.listarProblemas("emp1")) {
+        for (RegistroDeOcorrencia report : controlador.listarProblemas("emp1")) {
             System.out.println(report);
         }
 
         controlador.resolverProblema("emp1", "ptc1");
 
         System.out.println("\nProblemas pendentes:");
-        for (RelatorioDeOcorrencia report : controlador.listarProblemasPendentes("emp1")) {
+        for (RegistroDeOcorrencia report : controlador.listarProblemasPendentes("emp1")) {
             System.out.println(report);
         }
 

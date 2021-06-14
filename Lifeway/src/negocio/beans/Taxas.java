@@ -10,6 +10,7 @@ public class Taxas {
     private List<TaxasPorTipo> taxasPorTipo;
     private Map<String, Double> tarifas;
     private Bandeira bandeira;
+    
 
     public Taxas(){
         this.taxasPorTipo = new ArrayList<>();

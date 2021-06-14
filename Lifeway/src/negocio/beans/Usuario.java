@@ -1,19 +1,16 @@
 package negocio.beans;
 
-import java.time.LocalDate;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
 public abstract class Usuario {
 
     private IRepositorioGenerico<Propriedade> repositorioPropriedades;
-    //private String cadastro;
+
     private String nome;
     private String identificacao;
     private String senha;
-    //private LocalDate dataNascimento;
-    //private String id;
+
 
     public Usuario(String nome, String identificacao, String senha){
         this.nome = nome;
@@ -22,6 +19,11 @@ public abstract class Usuario {
 
         repositorioPropriedades = new RepositorioGenerico<>();
     }
+
+
+    // Método abstrato getTipo
+    public abstract String getTipo();
+
 
     /**
      * @return repositorioConsumidores
@@ -67,7 +69,8 @@ public abstract class Usuario {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + super.toString() /* "Cadastro: " + this.getCadastro() */; 
+        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }
 
@@ -78,7 +81,7 @@ public abstract class Usuario {
 
 
     //Getters & Setters
-    
+
     public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
         return repositorioPropriedades;
     }

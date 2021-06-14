@@ -10,7 +10,7 @@ import negocio.beans.Bandeira;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
-import negocio.beans.RelatorioDeOcorrencia;
+import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoPropriedade;
 
@@ -120,7 +120,7 @@ public class ControladorEmpresas {
 
 
     public void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
-        RelatorioDeOcorrencia novoReport = new RelatorioDeOcorrencia(protocolo, assunto, mensagem, idEmpresa, data, endereco);
+        RegistroDeOcorrencia novoReport = new RegistroDeOcorrencia(protocolo, assunto, mensagem, idEmpresa, data, endereco);
         try {
             selecionarEmpresa(idEmpresa).getRepositorioRDO().inserir(novoReport);
         } catch (Exception e) {
@@ -132,13 +132,13 @@ public class ControladorEmpresas {
         selecionarEmpresa(idEmpresa).getRepositorioRDO().buscarPorID(protocolo).setResolvido(true);
     }
 
-    public List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa) {
+    public List<RegistroDeOcorrencia> listarProblemas(String idEmpresa) {
         return selecionarEmpresa(idEmpresa).getRepositorioRDO().listar();
     }
 
-    public List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
-        List<RelatorioDeOcorrencia> problemasPendentes = new ArrayList<>();
-        for (RelatorioDeOcorrencia report : this.listarProblemas(idEmpresa)) {
+    public List<RegistroDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
+        List<RegistroDeOcorrencia> problemasPendentes = new ArrayList<>();
+        for (RegistroDeOcorrencia report : this.listarProblemas(idEmpresa)) {
             if(report.getResolvido()==false) problemasPendentes.add(report);
         }
         return problemasPendentes;

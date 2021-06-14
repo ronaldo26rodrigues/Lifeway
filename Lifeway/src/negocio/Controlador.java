@@ -10,7 +10,7 @@ import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Funcionario;
-import negocio.beans.RelatorioDeOcorrencia;
+import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.TaxaFixa;
 import negocio.beans.TipoPropriedade;
 
@@ -151,11 +151,11 @@ public class Controlador implements IControlador {
         this.controladorEmpresas.resolverProblema(idEmpresa, protocolo);
     }
 
-    public List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa) {
+    public List<RegistroDeOcorrencia> listarProblemas(String idEmpresa) {
         return this.controladorEmpresas.listarProblemas(idEmpresa);
     }
 
-    public List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
+    public List<RegistroDeOcorrencia> listarProblemasPendentes(String idEmpresa) {
         return this.controladorEmpresas.listarProblemasPendentes(idEmpresa);
     }
 

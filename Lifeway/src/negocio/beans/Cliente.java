@@ -2,10 +2,14 @@ package negocio.beans;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente extends Usuario {
     
     private LocalDate dataNascimento;
+    private List<Propriedade> propriedades;
+
     //numero propriedades?
 
     DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -13,17 +17,37 @@ public class Cliente extends Usuario {
     public Cliente(String nome, String identificacao, String senha, LocalDate dataNascimento) {
         super(nome, identificacao, senha);
         this.dataNascimento = dataNascimento;
+
+        this.propriedades = new ArrayList<>();
     }
 
 
+    @Override
+    public String getTipo() {
+        return "CLIENTE";
+    }
 
     //Getters & Setters
 
-    //chama o super?
+    
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public List<Propriedade> getPropriedades() {
+        return propriedades;
+    }
+
+
+    public void setPropriedades(List<Propriedade> propriedades) {
+        this.propriedades = propriedades;
+    }
+
 
     public DateTimeFormatter getMeuFormatador() {
         return meuFormatador;
@@ -33,9 +57,6 @@ public class Cliente extends Usuario {
         this.meuFormatador = meuFormatador;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
 
     
 
@@ -68,6 +89,9 @@ public class Cliente extends Usuario {
         // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         return resultado;
     }
+
+
+
      
 
 }

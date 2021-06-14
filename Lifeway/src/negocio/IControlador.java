@@ -115,7 +115,7 @@ public interface IControlador {
     List<Conta> listarContasPendentes(String numMedidor);
     List<Conta> listarContas(String numMedidor);
     //List<Funcionario> listarFuncionariosDaEmpresa(String idEmpresa);
-    
+
     List<Empresa> listarEmpresas();
     List<Usuario> listarClientes();
 
@@ -123,7 +123,7 @@ public interface IControlador {
 
     void reportarProblema(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco);
     void resolverProblema(String idEmpresa, String protocolo);
-    List<RelatorioDeOcorrencia> listarProblemas(String idEmpresa);
-    List<RelatorioDeOcorrencia> listarProblemasPendentes(String idEmpresa);
+    List<RegistroDeOcorrencia> listarProblemas(String idEmpresa);
+    List<RegistroDeOcorrencia> listarProblemasPendentes(String idEmpresa);
 
 }

@@ -1,6 +1,7 @@
 package negocio.beans;
 
 public class TaxaFixa {
+    
     private double maximo;
     private double valorFixo;
 

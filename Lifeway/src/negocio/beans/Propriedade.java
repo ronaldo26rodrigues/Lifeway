@@ -7,47 +7,35 @@ import dados.RepositorioGenerico;
 
 public class Propriedade {
 
-    //extends Cliente?
+    private String idPropriedade;
     private TipoPropriedade tipo;
     private Endereco endereco;
-    //private String idEmpresa; ?
+    private Cliente clienteProprietario;
+    private String idEmpresa;
+    private Empresa empresaContratada;
 
     private IRepositorioGenerico<Conta>repositorioContas;
-    private String numMedidor;
-    private String idEmpresa;
 
     // private String idCliente;
     // private String numMedidor;
 
     /**
      * Construtor: Propriedade
-     * @param numMedidor
+     * @param idPropriedade
      * @param tipo
      * @param endereco
      */
-    public Propriedade(String numMedidor, TipoPropriedade tipo, Endereco endereco) {
-        //super(nome, identificacao, dataNascimento);
-        //super(numMedidor);
-        //this.idEmpresa = idEmpresa;
-        this.numMedidor = numMedidor;
-        this.tipo = tipo;
-        this.endereco = endereco;
+    public Propriedade(TipoPropriedade tipo,Endereco endereco, Cliente clienteProprietario, String idPropriedade, String idEmpresa) {
         
-        this.repositorioContas = new RepositorioGenerico<>();
-    }
-
-
-    public Propriedade(String numMedidor, TipoPropriedade tipo, Endereco endereco, String idEmpresa) {
-        //super(nome, identificacao, dataNascimento);
-        //super(numMedidor);
-        //this.idEmpresa = idEmpresa;
-        this.numMedidor = numMedidor;
         this.tipo = tipo;
         this.endereco = endereco;
+        this.clienteProprietario = clienteProprietario;
+        this.idPropriedade = idPropriedade;
         this.idEmpresa = idEmpresa;
         
         this.repositorioContas = new RepositorioGenerico<>();
     }
+
 
     //Getters & Setters
 
@@ -56,22 +44,28 @@ public class Propriedade {
         return tipo;
     }
 
+    public Empresa getEmpresaContratada() {
+        return empresaContratada;
+    }
+
+    public void setEmpresaContratada(Empresa empresaContratada) {
+        this.empresaContratada = empresaContratada;
+    }
+
     public String getIdEmpresa() {
         return idEmpresa;
     }
-
 
     public void setIdEmpresa(String idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
 
-
-    public String getNumMedidor() {
-        return numMedidor;
+    public String getIdPropriedade() {
+        return idPropriedade;
     }
 
-    public void setNumMedidor(String numMedidor) {
-        this.numMedidor = numMedidor;
+    public void setIdPropriedade(String idPropriedade) {
+        this.idPropriedade = idPropriedade;
     }
 
     public void setTipo(TipoPropriedade tipo) {
@@ -85,6 +79,16 @@ public class Propriedade {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public Cliente getClienteProprietario() {
+        return clienteProprietario;
+    }
+
+    public void setClienteProprietario(Cliente clienteProprietario) {
+        this.clienteProprietario = clienteProprietario;
+    }
+
+
     /**
      * @return the repositorioContas
      */
@@ -141,9 +145,13 @@ public class Propriedade {
      */
     @Override
     public String toString() {
-        String resultado = super.toString();
-        resultado += "\n" + "Tipo: " + this.getTipo();
+        String resultado = "";
+        resultado += "\n" + "Cliente proprietário: " + this.getClienteProprietario().getNome();
+        resultado += "\n" + "ID da propriedade: " + this.getIdPropriedade();
+        resultado += "\n" + "Tipo de propriedade: " + this.getTipo();
         resultado += "\n" + "Endereço: " + this.getEndereco();
+        resultado += "\n" + "Empresa distribuidora: " + this.getEmpresaContratada().getNome();
+
         return resultado;
     }
 

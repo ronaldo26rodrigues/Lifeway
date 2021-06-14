@@ -5,21 +5,37 @@ import java.time.LocalDate;
 public class Conta {
     
     private String idConta;
-    private LocalDate data;
+    private Cliente cliente;
+    private Empresa empresa;
+    private LocalDate dataEmissao;
     private double consumo;
-    private double valor;
+    private double valorTotal;
+    private Taxas taxasAplicadas;
+    private LocalDate dataVencimento;
 
     private boolean paga;
 
-    public Conta(String idConta, LocalDate data, double consumo, double valor){
+    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal){
         this.idConta = idConta;
-        this.data = data;
+        this.cliente = cliente;
+        this.empresa = empresa;
+        this.dataEmissao = dataEmissao;
         this.consumo = consumo;
-        this.valor = valor;
+        this.valorTotal = valorTotal;
     }
 
+    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal, Taxas taxasAplicadas){
+        this.idConta = idConta;
+        this.cliente = cliente;
+        this.empresa = empresa;
+        this.dataEmissao = dataEmissao;
+        this.consumo = consumo;
+        this.valorTotal = valorTotal;
+    }
 
     //Getters & Setters
+
+    
 
     public String getIdConta() {
         return idConta;
@@ -29,49 +45,65 @@ public class Conta {
         this.idConta = idConta;
     }
 
-    /**
-     * @return the consumo
-     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public LocalDate getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(LocalDate dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+    public Taxas getTaxasAplicadas() {
+        return taxasAplicadas;
+    }
+
+    public void setTaxasAplicadas(Taxas taxasAplicadas) {
+        this.taxasAplicadas = taxasAplicadas;
+    }
+
     public double getConsumo() {
         return consumo;
     }
-    /**
-     * @return the data
-     */
-    public LocalDate getData() {
-        return data;
-    }
-    /**
-     * @return the valor
-     */
-    public double getValor() {
-        return valor;
-    }
-    /**
-     * @param consumo the consumo to set
-     */
+
     public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
-    /**
-     * @param data the data to set
-     */
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(double valor) {
-        this.valor = valor;
+    public LocalDate getDataEmissao() {
+        return dataEmissao;
     }
 
-    /**
-     * @param paga the paga to set
-     */
+    public void setDataEmissao(LocalDate dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public void setPaga(boolean paga) {
         this.paga = paga;
     }
+
     public boolean getPaga(){
         return paga;
     }
@@ -89,10 +121,13 @@ public class Conta {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Data: " + this.getData();
+        resultado += "\n" + "Cliente: " + this.getCliente().getNome();
+        resultado += "\n" + "Empresa: " + this.getEmpresa().getNome();
+        resultado += "\n" + "Data de emissão: " + this.getDataEmissao();
+        resultado += "\n" + "Data de vencimento: " + this.getDataVencimento();
         resultado += "\n" + "Consumo: " + this.getConsumo();
-        resultado += "\n" + "Valor: " + this.getValor();
-        resultado += "\n" + "Paga: " + this.getPaga();
+        resultado += "\n" + "Valor a pagar: " + this.getValorTotal();
+        resultado += "\n" + "Status de pagamento: " + this.getPaga();
         return resultado;
     }
 

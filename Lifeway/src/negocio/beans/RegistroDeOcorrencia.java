@@ -4,22 +4,25 @@ import java.time.LocalDate;
 
 import negocio.ControladorEmpresas;
 
-public class RelatorioDeOcorrencia {
+public class RegistroDeOcorrencia {
     
     private String protocolo;
     private String assunto;
     private String mensagem;
-    private String idEmpresa;
+    private Empresa empresa;
+    private Cliente cliente;
     private LocalDate data;
     private Endereco endereco;
     private boolean resolvido;
+    
 
-    public RelatorioDeOcorrencia(String protocolo, String assunto, String mensagem, String idEmpresa, LocalDate data, Endereco endereco){
-        //super(protocolo);
+    public RegistroDeOcorrencia(String protocolo, String assunto, String mensagem, 
+        Empresa empresa, Cliente cliente, LocalDate data, Endereco endereco){
         this.protocolo = protocolo;
         this.assunto = assunto;
         this.mensagem = mensagem;
-        this.idEmpresa = idEmpresa;
+        this.empresa = empresa;
+        this.cliente = cliente;
         this.data = data;
         this.endereco = endereco;
 
@@ -27,10 +30,18 @@ public class RelatorioDeOcorrencia {
     }
     
     
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public String getProtocolo() {
         return protocolo;
     }
-
 
     public void setProtocolo(String protocolo) {
         this.protocolo = protocolo;
@@ -58,8 +69,8 @@ public class RelatorioDeOcorrencia {
     /**
      * @return the idEmpresa
      */
-    public String getIdEmpresa() {
-        return idEmpresa;
+    public Empresa getEmpresa() {
+        return empresa;
     }
     /**
      * @return the mensagem
@@ -89,8 +100,8 @@ public class RelatorioDeOcorrencia {
     /**
      * @param idEmpresa the idEmpresa to set
      */
-    public void setIdEmpresa(String idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
     /**
      * @param mensagem the mensagem to set
@@ -118,13 +129,13 @@ public class RelatorioDeOcorrencia {
     @Override
     public String toString() {
         String texto="";
-
+        texto += "\n" + "Cliente: " + this.cliente.getNome();
+        texto += "\n" + "Empresa: " + this.empresa.getNome();
         texto += "\n" + "Assunto: " + this.assunto;
         texto += "\n" + "Mensagem: " + this.mensagem;
-        texto += "\n" + "Empresa: " + this.idEmpresa;
         texto += "\n" + "Data: " + this.data;
         texto += "\n" + "Endereço: " + this.endereco;
-        texto += "\n" + "Resolvido: " + this.resolvido;
+        texto += "\n" + "Status: " + this.resolvido;
 
         return texto;
 
