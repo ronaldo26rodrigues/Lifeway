@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
@@ -170,70 +171,116 @@
       <Pane layoutX="233.0" layoutY="14.0" prefHeight="649.0" prefWidth="872.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="14.0">
          <children>
             <Pane layoutX="564.0" layoutY="213.0" />
-            <AnchorPane layoutX="20.0" layoutY="54.0" prefHeight="610.0" prefWidth="895.0" style="-fx-background-color: #131022;">
+            <AnchorPane layoutX="14.0" layoutY="55.0" prefHeight="610.0" prefWidth="895.0" style="-fx-background-color: #ffff;">
                <children>
-                  <Pane layoutX="20.0" layoutY="114.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
-                     <children>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/dinheiro.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Tipo de taxa" textFill="#41951c">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Label layoutX="14.0" layoutY="20.0" text="Informações uteis para você." textFill="WHITE">
+                  <Label layoutX="46.0" layoutY="14.0" text="Pagamentos pendentes:">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="20.0" layoutY="272.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Label layoutX="46.0" layoutY="305.0" text="Pagamentos futuros:">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="53.0" layoutY="91.0" prefHeight="200.0" prefWidth="224.0" style="-fx-background-color: #1c6fff; -fx-background-radius: 15px;">
                      <children>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/dinheiro.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Status " textFill="#41951c">
+                        <Label layoutX="3.0" layoutY="24.0" text="Valor: R$ 100,00" textFill="WHITE">
                            <font>
-                              <Font size="16.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" textFill="WHITE">
+                        <Label layoutX="3.0" layoutY="70.0" text="Vencimento: 20/05/2021" textFill="WHITE">
                            <font>
-                              <Font size="13.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
+                        <Label layoutX="3.0" layoutY="117.0" text="Nome: Conta de água" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="73.0" layoutY="158.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Pagar" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="20.0" layoutY="440.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="53.0" layoutY="379.0" prefHeight="200.0" prefWidth="224.0" style="-fx-background-color: #39A67F; -fx-background-radius: 15px;">
                      <children>
-                        <Label layoutX="58.0" layoutY="14.0" text="Registos de ocorrencias concluidos" textFill="#41951c">
+                        <Label layoutX="3.0" layoutY="24.0" text="Valor: R$ 100,00" textFill="WHITE">
                            <font>
-                              <Font size="16.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes." textFill="WHITE">
+                        <Label layoutX="3.0" layoutY="70.0" text="Vencimento: 20/06/2021" textFill="WHITE">
                            <font>
-                              <Font size="13.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="20.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/chart.png" />
-                           </image>
-                        </ImageView>
+                        <Label layoutX="3.0" layoutY="117.0" text="Nome: Conta de água" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="73.0" layoutY="158.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Pagar" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children>
                   </Pane>
+                  <Pane layoutX="336.0" layoutY="91.0" prefHeight="200.0" prefWidth="224.0" style="-fx-background-color: #1c6fff; -fx-background-radius: 15px;">
+                     <children>
+                        <Label layoutX="3.0" layoutY="24.0" text="Valor: R$ 400,00" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="70.0" text="Vencimento: 25/05/2021" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="117.0" text="Nome: Conta de luz" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="73.0" layoutY="158.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Pagar" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="336.0" layoutY="379.0" prefHeight="200.0" prefWidth="224.0" style="-fx-background-color: #39A67F; -fx-background-radius: 15px;">
+                     <children>
+                        <Label layoutX="3.0" layoutY="24.0" text="Valor: R$ 560,00" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="70.0" text="Vencimento: 30/06/2021" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="117.0" text="Nome: Conta de luz" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="73.0" layoutY="158.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Pagar" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Line endX="794.5" layoutX="101.0" layoutY="52.0" startX="-100.0" />
+                  <Line endX="793.0" layoutX="102.0" layoutY="344.0" startX="-100.0" />
                </children>
             </AnchorPane>
             <Label layoutX="36.0" layoutY="14.0" text="Bem vindo a área de pagamentos" textFill="WHITE">

@@ -2,12 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
@@ -169,71 +172,48 @@
          </children></AnchorPane>
       <Pane layoutX="233.0" layoutY="14.0" prefHeight="649.0" prefWidth="872.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="14.0">
          <children>
-            <Pane layoutX="564.0" layoutY="213.0" />
-            <AnchorPane layoutX="20.0" layoutY="54.0" prefHeight="610.0" prefWidth="895.0" style="-fx-background-color: #131022;">
+            <AnchorPane layoutX="8.0" layoutY="55.0" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <Pane layoutX="20.0" layoutY="114.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
-                     <children>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/dinheiro.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Tipo de taxa" textFill="#41951c">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Label layoutX="14.0" layoutY="20.0" text="Informações uteis para você." textFill="WHITE">
+                  <Label layoutX="14.0" text="Nova Ocorrência">
                      <font>
-                        <Font size="26.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="20.0" layoutY="272.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Line endX="841.0" endY="-8.0" layoutX="103.0" layoutY="44.0" startX="-103.0" startY="-8.0" />
+                  <AnchorPane layoutX="24.0" layoutY="37.0" prefHeight="572.0" prefWidth="898.0" style="-fx-background-color: #ebfdff;">
                      <children>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/dinheiro.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Status " textFill="#41951c">
+                        <Label layoutX="13.0" layoutY="14.0" prefHeight="35.0" prefWidth="103.0" text="Ocorrência:">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="14.0" prefHeight="149.0" prefWidth="386.0" promptText="Digite Aqui" />
+                        <DatePicker layoutX="124.0" layoutY="193.0" prefHeight="59.0" prefWidth="239.0" />
+                        <Label layoutX="74.0" layoutY="193.0" prefHeight="35.0" prefWidth="50.0" text="Data:">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="4.0" layoutY="280.0" prefHeight="35.0" prefWidth="120.0" text="Local(Opcional):">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="20.0" layoutY="440.0" prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
-                     <children>
-                        <Label layoutX="58.0" layoutY="14.0" text="Registos de ocorrencias concluidos" textFill="#41951c">
+                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="286.0" prefHeight="69.0" prefWidth="280.0" promptText="Digite Aqui" />
+                        <Label layoutX="23.0" layoutY="376.0" prefHeight="35.0" prefWidth="103.0" text="Comentários:">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes." textFill="WHITE">
+                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="384.0" prefHeight="96.0" prefWidth="319.0" promptText="Digite Aqui" />
+                        <Label layoutX="45.0" layoutY="502.0" prefHeight="35.0" prefWidth="71.0" text="Telefone:">
                            <font>
-                              <Font size="13.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="20.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/chart.png" />
-                           </image>
-                        </ImageView>
+                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="502.0" prefHeight="35.0" prefWidth="262.0" promptText="Digite Aqui" />
                      </children>
-                  </Pane>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <Label layoutX="36.0" layoutY="14.0" text="Bem vindo a área de registo de ocorrência" textFill="WHITE">
