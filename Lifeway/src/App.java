@@ -15,7 +15,7 @@ public class  App extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         stg = primaryStage;
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
        Parent root = fxmlLoader.load();
        Scene tela = new Scene(root, 1280, 720);

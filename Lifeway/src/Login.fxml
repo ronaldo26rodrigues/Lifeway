@@ -1,104 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #9871F5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logIn">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logIn">
+  <columnConstraints>
+    <ColumnConstraints />
+    <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <PasswordField fx:id="senha" layoutX="77.0" layoutY="493.0" prefHeight="39.0" prefWidth="435.0" promptText="Senha">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </PasswordField>
-      <TextField fx:id="cpf" layoutX="77.0" layoutY="352.0" prefHeight="40.0" prefWidth="435.0" promptText="CPF">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="38.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/usuario.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="57.0" layoutX="252.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="38.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/senha.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="BotaoEsqueceuS" layoutX="74.0" layoutY="531.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #9871F5;" styleClass="text-decoration:">
-         <font>
-            <Font name="Comic Sans MS" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="botaoLogin" layoutX="177.0" layoutY="633.0" mnemonicParsing="false" onAction="#entrar" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #13f2db; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="border 2px solid red" text="Entrar">
-         <font>
-            <Font name="Comic Sans MS" size="24.0" />
-         </font>
-      </Button>
-      <Separator layoutX="550.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="0.0" />
-      <Pane layoutX="550.0" prefHeight="720.0" prefWidth="732.0" style="-fx-background-color: FFFAFA;">
-         <children>
-            <ImageView fitHeight="490.0" fitWidth="503.0" layoutX="121.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <center>
+            <ImageView fitHeight="438.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@imgs/Logo.png" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
-      <Button fx:id="botaoCriarConta" layoutX="316.0" layoutY="25.0" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc">
-         <font>
-            <Font name="Comic Sans MS" size="16.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="198.0" fitWidth="236.0" layoutX="167.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/icon.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="loginErrado" layoutX="43.0" layoutY="401.0" prefHeight="51.0" prefWidth="435.0">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
+         </center>
+         <left>
+            <AnchorPane prefHeight="600.0" prefWidth="3.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <AnchorPane prefHeight="600.0" prefWidth="5.0" BorderPane.alignment="CENTER" />
+         </right>
+         <top>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+      <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: #9871F5;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <top>
+            <Button fx:id="botaoCriarConta" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="173.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </top>
+         <left>
+            <AnchorPane prefHeight="483.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <AnchorPane prefHeight="285.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="cpf" prefHeight="40.0" prefWidth="372.0" promptText="CPF" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="130.0" left="40.0" right="30.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@imgs/user.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets bottom="130.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <BorderPane prefHeight="189.0" prefWidth="450.0">
+                     <center>
+                        <ImageView fitHeight="237.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@imgs/icon.png" />
+                           </image>
+                        </ImageView>
+                     </center>
+                     <bottom>
+                        <AnchorPane prefHeight="0.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <PasswordField fx:id="senha" prefHeight="39.0" prefWidth="278.0" promptText="Senha" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="40.0" right="30.0" />
+                     </GridPane.margin>
+                  </PasswordField>
+                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@imgs/senha.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="loginErrado" prefHeight="51.0" prefWidth="435.0" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="100.0" />
+                     </GridPane.margin>
+                  </Label>
+                <Button mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #9871F5;" text="Login para Funcionário" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="200.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </center>
+         <bottom>
+            <Button fx:id="botaoLogin" alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="51.0" prefWidth="174.0" style="-fx-background-color: #13f2db; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="border 2px solid red" text="Entrar" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </bottom>
+      </BorderPane>
    </children>
-</AnchorPane>
+</GridPane>

@@ -1,195 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
-   <children>
-      <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane layoutX="-2.0" prefHeight="200.0" prefWidth="262.0" style="-fx-background-color: #39A67F;">
-               <children>
-                  <ImageView fitHeight="190.0" fitWidth="184.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+         <top>
+            <ImageView fitHeight="251.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@waterway/Lifeway/src/imgs/Logo.png" />
+               </image>
+            </ImageView>
+         </top>
+         <bottom>
+            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@imgs/Logo.png" />
+                        <Image url="@waterway/Lifeway/src/imgs/porta.png" />
                      </image>
                   </ImageView>
-               </children>
-            </Pane>
-            <VBox layoutX="-2.0" layoutY="201.0" prefHeight="520.0" prefWidth="262.0" style="-fx-background-color: #7156DD;">
+               </graphic>
+            </Button>
+         </bottom>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/extratos.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/extratos.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/boletos.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/boletos.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/user.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/user.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoRO" layoutX="-23.0" layoutY="3.0" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="254.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/alerta.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="231.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/alerta.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="250.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoSair" alignment="BOTTOM_LEFT" layoutX="-34.0" layoutY="185.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="172.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/porta.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Pane layoutX="-13.0" layoutY="-10.0" prefHeight="69.0" prefWidth="247.0">
-                           <children>
-                              <Button fx:id="botaoHome" layoutX="-61.0" layoutY="3.0" mnemonicParsing="false" onAction="#irHome" prefHeight="63.0" prefWidth="254.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@imgs/home.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                           </children>
-                        </Pane>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="231.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/home.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-         </children></AnchorPane>
-      <Pane layoutX="233.0" layoutY="14.0" prefHeight="649.0" prefWidth="872.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="14.0">
-         <children>
-            <Pane layoutX="564.0" layoutY="213.0" />
-            <AnchorPane layoutX="20.0" layoutY="54.0" prefHeight="610.0" prefWidth="895.0" style="-fx-background-color: #131022;">
+         </center>
+      </BorderPane>
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
+         <top>
+            <AnchorPane prefHeight="33.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+         </top>
+         <left>
+            <AnchorPane prefHeight="446.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <AnchorPane prefHeight="39.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <right>
+            <AnchorPane prefHeight="535.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="14.0" layoutY="20.0" text="Informações uteis para você." textFill="WHITE">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Label>
+                  <SplitPane dividerPositions="0.14482758620689656" orientation="VERTICAL" prefHeight="617.0" prefWidth="922.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="284.0" prefWidth="898.0" style="-fx-background-color: #ffffff;">
+                           <children>
+                              <Button contentDisplay="RIGHT" layoutX="691.0" layoutY="44.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #ffffff; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Exibir valor total de transações" textAlignment="JUSTIFY" textFill="#0011ff">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="RIGHT" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="222.0" style="-fx-background-color: #39A67F; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Buscar Conta por nome" textAlignment="JUSTIFY" textFill="WHITE">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="17.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="RIGHT" layoutX="273.0" layoutY="23.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #39A67F; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Buscar Conta por data" textAlignment="JUSTIFY" textFill="WHITE">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="17.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="898.0">
+                           <children>
+                              <SplitPane dividerPositions="0.06991525423728813" orientation="VERTICAL" prefHeight="474.0" prefWidth="898.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="34.0" prefWidth="896.0" style="-fx-background-color: gray;">
+                                       <children>
+                                          <Label alignment="CENTER" layoutY="-3.0" prefHeight="38.0" prefWidth="142.0" text="DATA" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="136.0" prefHeight="38.0" prefWidth="165.0" text="TIPO" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="294.0" prefHeight="38.0" prefWidth="285.0" text="NOME" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="579.0" layoutY="-3.0" prefHeight="38.0" prefWidth="174.0" text="STATUS" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="753.0" prefHeight="38.0" prefWidth="142.0" text="VALOR(R$)" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.15219842164599776, 0.3314543404735062, 0.644870349492672, 0.8478015783540023, 0.9966178128523112" layoutX="4.0" prefHeight="449.0" prefWidth="889.0">
+                                             <items>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                   <children>
+                                                      <Label layoutX="10.0" layoutY="4.0" prefHeight="17.0" prefWidth="113.0" text="24/10/2020 09:02">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="93.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="20.0" layoutY="4.0" prefHeight="17.0" prefWidth="113.0" text="Pagamento">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="515.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="21.0" layoutY="1.0" prefHeight="26.0" prefWidth="214.0" text="Conta de luz: Celpe">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="31.0" layoutY="1.0" prefHeight="17.0" prefWidth="113.0" text="Aprovada">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="7.0" layoutY="1.0" prefHeight="17.0" prefWidth="113.0" text="355,62">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="425.0" />
+                                             </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
-            <Label layoutX="36.0" layoutY="14.0" text="Bem vindo a área de extratos" textFill="WHITE">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label layoutX="383.0" layoutY="14.0" text="Usuário." textFill="#63ff14">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </children>
-</AnchorPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
