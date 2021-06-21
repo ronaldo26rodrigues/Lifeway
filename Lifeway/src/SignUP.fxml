@@ -33,7 +33,7 @@
          <center>
             <ImageView fitHeight="438.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../waterway/Lifeway/src/imgs/Logo.png" />
+                  <Image url="@imgs/Logo.png" />
                </image>
             </ImageView>
          </center>
@@ -87,7 +87,7 @@
                   </TextField>
                   <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../waterway/Lifeway/src/imgs/usuario.png" />
+                        <Image url="@imgs/usuario.png" />
                      </image>
                      <GridPane.margin>
                         <Insets bottom="130.0" />
@@ -97,7 +97,7 @@
                      <center>
                         <ImageView fitHeight="181.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../../waterway/Lifeway/src/imgs/icon.png" />
+                              <Image url="@imgs/icon.png" />
                            </image>
                         </ImageView>
                      </center>
@@ -115,7 +115,7 @@
                   </PasswordField>
                   <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../waterway/Lifeway/src/imgs/senha.png" />
+                        <Image url="@imgs/senha.png" />
                      </image>
                   </ImageView>
                   <PasswordField fx:id="senha1" prefHeight="39.0" prefWidth="278.0" promptText="Nome" GridPane.rowIndex="1">
@@ -128,7 +128,7 @@
                   </PasswordField>
                   <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../waterway/Lifeway/src/imgs/usuario.png" />
+                        <Image url="@imgs/usuario.png" />
                      </image>
                      <GridPane.margin>
                         <Insets top="120.0" />
@@ -141,7 +141,7 @@
                   </DatePicker>
                   <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../waterway/Lifeway/src/imgs/calendario.png" />
+                        <Image url="@imgs/calendario.png" />
                      </image>
                      <GridPane.margin>
                         <Insets top="230.0" />

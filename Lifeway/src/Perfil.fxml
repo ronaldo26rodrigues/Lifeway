@@ -19,7 +19,7 @@
          <top>
             <ImageView fitHeight="251.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@waterway/Lifeway/src/imgs/Logo.png" />
+                  <Image url="@imgs/Logo.png" />
                </image>
             </ImageView>
          </top>
@@ -31,7 +31,7 @@
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@waterway/Lifeway/src/imgs/porta.png" />
+                        <Image url="@imgs/porta.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -47,7 +47,7 @@
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/extratos.png" />
+                              <Image url="@imgs/extratos.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -59,7 +59,7 @@
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/boletos.png" />
+                              <Image url="@imgs/boletos.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -71,7 +71,7 @@
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/user.png" />
+                              <Image url="@imgs/usuario.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -83,7 +83,7 @@
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/alerta.png" />
+                              <Image url="@imgs/alerta.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -95,7 +95,7 @@
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/home.png" />
+                              <Image url="@imgs/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -142,7 +142,7 @@
                   </Button>
                   <ImageView fitHeight="77.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                      <image>
-                        <Image url="@waterway/Lifeway/src/imgs/user.png" />
+                        <Image url="@imgs/user.png" />
                      </image>
                      <GridPane.margin>
                         <Insets bottom="350.0" left="90.0" />
