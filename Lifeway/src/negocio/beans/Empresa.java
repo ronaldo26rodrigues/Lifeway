@@ -1,5 +1,8 @@
 package negocio.beans;
 
+import java.util.List;
+import java.util.Map;
+
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
@@ -9,6 +12,10 @@ public class Empresa {
     private String servico;
     private String idEmpresa;
     private Taxas taxas;
+
+    // private List<TaxasPorTipo> taxasPorTipo;
+    // private Map<String, Double> tarifas;
+    // private Bandeira bandeira;
 
     // private String identificacao;
 
@@ -22,7 +29,7 @@ public class Empresa {
         this.nome = nome;
         this.servico = servico;
 
-        this.taxas = new Taxas();
+        // this.taxas = new Taxas();
 
         repositorioClientes = new RepositorioGenerico<>();
         //repositorioFuncionarios = new RepositorioGenerico<>();
@@ -109,23 +116,63 @@ public class Empresa {
         this.repositorioRDO = repositorioRDO;
     }
 
-    /**
-     * @return the taxas
-     */
-    public Taxas getTaxas() {
-        return taxas;
-    }
-    /**
-     * @param taxas the taxas to set
-     */
-    public void setTaxas(Taxas taxas) {
-        this.taxas = taxas;
-    }
+    // /**
+    //  * @return the taxas
+    //  */
+    // public Taxas getTaxas() {
+    //     return taxas;
+    // }
+    // /**
+    //  * @param taxas the taxas to set
+    //  */
+    // public void setTaxas(Taxas taxas) {
+    //     this.taxas = taxas;
+    // }
 
 
     /**
      * Equals: Empresa (compara id)
      */
+
+    // /**
+    //  * @return the bandeira
+    //  */
+    // public Bandeira getBandeira() {
+    //     return bandeira;
+    // }
+    // /**
+    //  * @return the tarifas
+    //  */
+    // public Map<String, Double> getTarifas() {
+    //     return tarifas;
+    // }
+    // /**
+    //  * @return the taxasPorTipo
+    //  */
+    // public List<TaxasPorTipo> getTaxasPorTipo() {
+    //     return taxasPorTipo;
+    // }
+    
+    // /**
+    //  * @param bandeira the bandeira to set
+    //  */
+    // public void setBandeira(Bandeira bandeira) {
+    //     this.bandeira = bandeira;
+    // }
+    // /**
+    //  * @param tarifas the tarifas to set
+    //  */
+    // public void setTarifas(Map<String, Double> tarifas) {
+    //     this.tarifas = tarifas;
+    // }
+    // /**
+    //  * @param taxasPorTipo the taxasPorTipo to set
+    //  */
+    // public void setTaxasPorTipo(List<TaxasPorTipo> taxasPorTipo) {
+    //     this.taxasPorTipo = taxasPorTipo;
+    // }
+
+
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;

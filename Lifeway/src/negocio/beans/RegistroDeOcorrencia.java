@@ -2,7 +2,7 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-import negocio.ControladorEmpresas;
+// import negocio.ControladorEmpresas;
 
 public class RegistroDeOcorrencia {
     
