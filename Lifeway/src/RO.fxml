@@ -2,231 +2,179 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
-   <children>
-      <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane layoutX="-2.0" prefHeight="200.0" prefWidth="262.0" style="-fx-background-color: #39A67F;">
-               <children>
-                  <ImageView fitHeight="190.0" fitWidth="184.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu">
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+         <top>
+            <ImageView fitHeight="251.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@waterway/Lifeway/src/imgs/Logo.png" />
+               </image>
+            </ImageView>
+         </top>
+         <bottom>
+            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@imgs/Logo.png" />
+                        <Image url="@waterway/Lifeway/src/imgs/porta.png" />
                      </image>
                   </ImageView>
-               </children>
-            </Pane>
-            <VBox layoutX="-2.0" layoutY="201.0" prefHeight="520.0" prefWidth="262.0" style="-fx-background-color: #7156DD;">
+               </graphic>
+            </Button>
+         </bottom>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/extratos.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/extratos.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/boletos.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/boletos.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/user.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="226.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/user.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="69.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoRO" layoutX="-23.0" layoutY="3.0" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="254.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/alerta.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                        </Button>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="231.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/alerta.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="250.0" prefWidth="262.0">
-                     <children>
-                        <Button fx:id="botaoSair" alignment="BOTTOM_LEFT" layoutX="-34.0" layoutY="185.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="172.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <padding>
-                              <Insets left="50.0" />
-                           </padding>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/porta.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Pane layoutX="-13.0" layoutY="-10.0" prefHeight="69.0" prefWidth="247.0">
-                           <children>
-                              <Button fx:id="botaoHome" layoutX="-61.0" layoutY="3.0" mnemonicParsing="false" onAction="#irHome" prefHeight="63.0" prefWidth="254.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@imgs/home.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </Button>
-                           </children>
-                        </Pane>
-                        <ImageView fitHeight="49.0" fitWidth="26.0" layoutX="231.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imgs/seta.png" />
+                              <Image url="@waterway/Lifeway/src/imgs/home.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-         </children></AnchorPane>
-      <Pane layoutX="233.0" layoutY="14.0" prefHeight="649.0" prefWidth="872.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="14.0">
-         <children>
-            <AnchorPane layoutX="8.0" layoutY="55.0" prefHeight="629.0" prefWidth="945.0" style="-fx-background-color: #ffffff;">
+         </center>
+      </BorderPane>
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
+         <top>
+            <AnchorPane prefHeight="122.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+         </top>
+         <left>
+            <AnchorPane prefHeight="446.0" prefWidth="195.0" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <right>
+            <AnchorPane prefHeight="446.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <GridPane prefHeight="428.0" prefWidth="705.0" style="-fx-background-color: #ebfdff;" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label layoutX="14.0" text="Nova Ocorrência">
+                  <Label prefHeight="35.0" prefWidth="103.0" text="Ocorrência:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Line endX="841.0" endY="-8.0" layoutX="103.0" layoutY="44.0" startX="-103.0" startY="-8.0" />
-                  <AnchorPane layoutX="24.0" layoutY="37.0" prefHeight="572.0" prefWidth="898.0" style="-fx-background-color: #ebfdff;">
-                     <children>
-                        <Label layoutX="13.0" layoutY="14.0" prefHeight="35.0" prefWidth="103.0" text="Ocorrência:">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="14.0" prefHeight="149.0" prefWidth="386.0" promptText="Digite Aqui" />
-                        <DatePicker layoutX="124.0" layoutY="193.0" prefHeight="59.0" prefWidth="239.0" />
-                        <Label layoutX="74.0" layoutY="193.0" prefHeight="35.0" prefWidth="50.0" text="Data:">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="4.0" layoutY="280.0" prefHeight="35.0" prefWidth="120.0" text="Local(Opcional):">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="286.0" prefHeight="69.0" prefWidth="280.0" promptText="Digite Aqui" />
-                        <Label layoutX="23.0" layoutY="376.0" prefHeight="35.0" prefWidth="103.0" text="Comentários:">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="384.0" prefHeight="96.0" prefWidth="319.0" promptText="Digite Aqui" />
-                        <Label layoutX="45.0" layoutY="502.0" prefHeight="35.0" prefWidth="71.0" text="Telefone:">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="TOP_LEFT" layoutX="124.0" layoutY="502.0" prefHeight="35.0" prefWidth="262.0" promptText="Digite Aqui" />
-                     </children>
-                  </AnchorPane>
+                  <TextField alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui">
+                     <GridPane.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label prefHeight="35.0" prefWidth="50.0" text="Data:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="50.0" right="100.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label prefHeight="35.0" prefWidth="140.0" text="Local(Opcional):" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="35.0" prefWidth="123.0" text="Comentários:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="140.0" right="100.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="120.0" right="100.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
-            </AnchorPane>
-            <Label layoutX="36.0" layoutY="14.0" text="Bem vindo a área de registo de ocorrência" textFill="WHITE">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label layoutX="533.0" layoutY="16.0" text="Usuário." textFill="#63ff14">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </children>
-</AnchorPane>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
