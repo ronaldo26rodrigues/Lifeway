@@ -20,7 +20,7 @@ public class Empresa {
     public Taxas taxasPorTipo;
     private double maximo;
     private double valorFixo;
-    private List<TaxasPorTipo> taxasTipo;
+    private List<TaxasTipo> taxasTipo;
     private Map<String, Double> tarifas;
     private Bandeira bandeira;
     private TipoPropriedade tipo;
@@ -263,7 +263,7 @@ public class Empresa {
         /**
          * @param taxasPorTipo set taxasPorTipo
          */
-        public void setTaxasPorTipo(List<TaxasPorTipo> taxasPorTipo) {
+        public void setTaxasPorTipo(List<TaxasTipo> taxasPorTipo) {
             this.taxasTipo = taxasTipo;
         }
         /**
@@ -275,12 +275,12 @@ public class Empresa {
         /**
          * @return the taxasPorTipo
          */
-        public List<TaxasPorTipo> getTaxasPorTipo() {
+        public List<TaxasTipo> getTaxasPorTipo() {
             return taxasTipo;
         }
-        public TaxasPorTipo getTaxasDoTipo(TipoPropriedade tipo){
-            TaxasPorTipo taxaDoTipo = null;
-            for (TaxasPorTipo t : taxasTipo) {
+        public TaxasTipo getTaxasDoTipo(TipoPropriedade tipo){
+            TaxasTipo taxaDoTipo = null;
+            for (TaxasTipo t : taxasTipo) {
                 if(t.getTipo().equals(tipo)){
                     taxaDoTipo = t;
                 }
@@ -310,7 +310,7 @@ public class Empresa {
         }
     
         public void criarTaxaDoTipo(TipoPropriedade tipo){
-            this.taxasPorTipo.add(new TaxasPorTipo(tipo));
+            this.taxasTipo.add(new TaxasporTipo(tipo));
         }
         public void TaxasTipo(TipoPropriedade tipo){
             this.tipo = tipo;
@@ -349,4 +349,4 @@ public class Empresa {
             faixa.put(new ValoresDeAte(de, ate) , valor);
         }
     }
-    }
+    
