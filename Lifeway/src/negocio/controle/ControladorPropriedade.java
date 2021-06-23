@@ -5,7 +5,7 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
 import negocio.beans.Propriedade;
 
 public class ControladorPropriedade {
@@ -26,11 +26,11 @@ public class ControladorPropriedade {
         return instance;
     }
 
-    public void criarNovaPropriedade(Propriedade propriedade) throws ObjetoJaExisteException {
+    public void criarNovaPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
         repositorioPropriedade.inserir(propriedade);
     }
 
-    public void excluirPropriedade(Propriedade propriedade) throws ObjetoJaExisteException {
+    public void excluirPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
         repositorioPropriedade.remover(propriedade);
     }
 
