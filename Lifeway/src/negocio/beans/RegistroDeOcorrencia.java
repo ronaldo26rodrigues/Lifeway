@@ -10,14 +10,14 @@ public class RegistroDeOcorrencia {
     private String assunto;
     private String mensagem;
     private Empresa empresa;
-    private Cliente cliente;
+    private Usuario cliente;
     private LocalDate data;
     private Endereco endereco;
     private boolean resolvido;
     
 
     public RegistroDeOcorrencia(String protocolo, String assunto, String mensagem, 
-        Empresa empresa, Cliente cliente, LocalDate data, Endereco endereco){
+        Empresa empresa, Usuario cliente, LocalDate data, Endereco endereco){
         this.protocolo = protocolo;
         this.assunto = assunto;
         this.mensagem = mensagem;
@@ -31,11 +31,11 @@ public class RegistroDeOcorrencia {
     
     
     
-    public Cliente getCliente() {
+    public Usuario getUsuario() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setUsuario(Usuario cliente) {
         this.cliente = cliente;
     }
 
@@ -129,7 +129,7 @@ public class RegistroDeOcorrencia {
     @Override
     public String toString() {
         String texto="";
-        texto += "\n" + "Cliente: " + this.cliente.getNome();
+        texto += "\n" + "Usuario: " + this.cliente.getNome();
         texto += "\n" + "Empresa: " + this.empresa.getNome();
         texto += "\n" + "Assunto: " + this.assunto;
         texto += "\n" + "Mensagem: " + this.mensagem;
