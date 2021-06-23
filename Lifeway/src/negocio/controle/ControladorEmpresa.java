@@ -1,7 +1,5 @@
 package negocio.controle;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -10,7 +8,6 @@ import dados.RepositorioGenerico;
 import excecoes.ElementoJaExisteException;
 import excecoes.EmpresaJaCadastradaException;
 import negocio.beans.Empresa;
-import negocio.beans.Usuario;
 
 public class ControladorEmpresa {
 
