@@ -21,7 +21,7 @@ public class ControladorPropriedade {
         this.repositorioPropriedade = new RepositorioGenerico<>();
     }
 
-    public ControladorPropriedade getInstance() {
+    public static ControladorPropriedade getInstance() {
         if(instance == null){
             instance = new ControladorPropriedade();
         }
