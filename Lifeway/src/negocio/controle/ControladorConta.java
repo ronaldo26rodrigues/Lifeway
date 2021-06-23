@@ -1,5 +1,5 @@
 package negocio.controle;
 
-public class Controlador {
+public class ControladorConta {
     
 }
