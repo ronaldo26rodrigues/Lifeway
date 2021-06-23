@@ -6,78 +6,114 @@ public class Taxa {
     private double faixaAte;
 
     private double valor;
+    private String tipoTaxa;
     private TipoPropriedade tipoPropriedade;
     private Bandeira bandeira;
+    private Empresa empresa;
 
 
-
-    public Taxa(double faixaDe, double faixaAte, double valor, TipoPropriedade tipoPropriedade, Bandeira bandeira) {
+    public Taxa(double faixaDe, double faixaAte, double valor, String tipoTaxa, TipoPropriedade tipoPropriedade, Bandeira bandeira, Empresa empresa) {
         this.bandeira = bandeira;
         this.faixaAte = faixaAte;
         this.faixaDe = faixaAte;
         this.tipoPropriedade = tipoPropriedade;
         this.valor = valor;
+        this.empresa = empresa;
+        this.tipoTaxa = tipoTaxa;
     }
 
 
+    //Geters & Setters
 
     /**
-     * @return the bandeira
+     * 
+     * @return descrição/tipo de taxa
+     */
+    public String getTipoTaxa() {
+        return tipoTaxa;
+    }
+
+    /**
+     * 
+     * @param tipoTaxa descrição/tipo de taxa
+     */
+    public void setTipoTaxa(String tipoTaxa) {
+        this.tipoTaxa = tipoTaxa;
+    }
+
+    /**
+     * 
+     * @return empresa
+     */
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    /**
+     * 
+     * @param empresa
+     */
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    /**
+     * @return bandeira
      */
     public Bandeira getBandeira() {
         return bandeira;
     }
     /**
-     * @return the faixaAte
+     * @return faixaAte (limite máximo da faixa)
      */
     public double getFaixaAte() {
         return faixaAte;
     }
     /**
-     * @return the faixaDe
+     * @return faixaDe (limite mínimo da faixa)
      */
     public double getFaixaDe() {
         return faixaDe;
     }
     /**
-     * @return the tipoPropriedade
+     * @return tipoPropriedade
      */
     public TipoPropriedade getTipoPropriedade() {
         return tipoPropriedade;
     }
     /**
-     * @return the valor
+     * @return valor
      */
     public double getValor() {
         return valor;
     }
     
     /**
-     * @param bandeira the bandeira to set
+     * @param bandeira
      */
     public void setBandeira(Bandeira bandeira) {
         this.bandeira = bandeira;
     }
     /**
-     * @param faixaAte the faixaAte to set
+     * @param faixaAte (limite máximo da faixa)
      */
     public void setFaixaAte(double faixaAte) {
         this.faixaAte = faixaAte;
     }
     /**
-     * @param faixaDe the faixaDe to set
+     * @param faixaDe (limite mínimo da faixa)
      */
     public void setFaixaDe(double faixaDe) {
         this.faixaDe = faixaDe;
     }
     /**
-     * @param tipoPropriedade the tipoPropriedade to set
+     * @param tipoPropriedade
      */
     public void setTipoPropriedade(TipoPropriedade tipoPropriedade) {
         this.tipoPropriedade = tipoPropriedade;
     }
     /**
-     * @param valor the valor to set
+     * @param valor
      */
     public void setValor(double valor) {
         this.valor = valor;
