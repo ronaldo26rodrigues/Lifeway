@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class menu {
+public class Menu {
 
     @FXML
     private Button botaoSair;
