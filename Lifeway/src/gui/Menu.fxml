@@ -163,7 +163,7 @@
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
+                        <Label fx:id="tipoTaxa" layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>

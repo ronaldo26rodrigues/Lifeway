@@ -10,7 +10,7 @@ import negocio.controle.ControladorUsuario;
 
 import java.io.IOException;
 
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
 
 public class SignUp {
 
@@ -38,7 +38,7 @@ public class SignUp {
        voltarp.trocarCena("Login.fxml");
     }
 
-    public void criarConta() throws ObjetoJaExisteException {
+    public void criarConta() throws ElementoJaExisteException {
         ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
     }

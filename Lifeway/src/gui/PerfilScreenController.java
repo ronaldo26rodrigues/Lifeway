@@ -1,16 +1,22 @@
 package gui;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Menu {
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import negocio.beans.Cliente;
+import negocio.controle.ControladorUsuario;
 
+
+public class PerfilScreenController implements Initializable {
+
+    
+    
     @FXML
     private Button botaoSair;
     @FXML
@@ -25,7 +31,25 @@ public class Menu {
     private Button botaoHome;
 
 
+    @FXML
+    private Label nomePerfil;
+
+    @FXML
+    private Label cpfPerfil;
+
+    @FXML 
+    Label dataNascimentoPerfil;
+
     
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        if(nomePerfil != null) {
+            nomePerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getNome());
+            cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
+            dataNascimentoPerfil.setText(((Cliente) ControladorUsuario.getInstance().getUsuarioLogado()).getDataNascimento().toString());
+        }
+        
+    }
 
 
     public void SairConta(ActionEvent event) throws IOException {
@@ -62,5 +86,8 @@ public class Menu {
 
     }
 
-   
+
+    
+
+
 }

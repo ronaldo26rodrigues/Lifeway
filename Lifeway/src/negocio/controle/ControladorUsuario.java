@@ -19,6 +19,7 @@ public class ControladorUsuario {
     private static ControladorUsuario instance;
     
     private IRepositorioGenerico<Usuario> repositorioUsuario;
+    private Usuario usuarioLogado;
 
     
     ControladorUsuario() {
@@ -42,6 +43,17 @@ public class ControladorUsuario {
 
     public List<Usuario> listarUsuarios() {
         return repositorioUsuario.listar();
+    }
+
+    public void login(Usuario usuario) {
+        this.usuarioLogado = usuario;
+    }
+    
+    /**
+     * @return the usuarioLogado
+     */
+    public Usuario getUsuarioLogado() {
+        return usuarioLogado;
     }
 
     

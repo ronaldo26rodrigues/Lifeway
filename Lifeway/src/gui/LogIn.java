@@ -65,6 +65,7 @@ private void checkLogin() throws IOException{
     for (Usuario usuario : ControladorUsuario.getInstance().listarUsuarios()) {
         if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText())){
             usuarioLogado = usuario;
+            ControladorUsuario.getInstance().login(usuarioLogado);
             m.trocarCena("Menu.fxml");
         }
     }
