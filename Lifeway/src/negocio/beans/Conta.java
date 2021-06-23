@@ -1,6 +1,8 @@
 package negocio.beans;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Conta {
     
@@ -10,7 +12,7 @@ public class Conta {
     private LocalDate dataEmissao;
     private double consumo;
     private double valorTotal;
-    private Taxas taxasAplicadas;
+    private List<Taxa> taxasAplicadas;
     private LocalDate dataVencimento;
 
     private boolean paga;
@@ -22,16 +24,10 @@ public class Conta {
         this.dataEmissao = dataEmissao;
         this.consumo = consumo;
         this.valorTotal = valorTotal;
+
+        this.taxasAplicadas = new ArrayList<>();
     }
 
-    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal, Taxas taxasAplicadas){
-        this.idConta = idConta;
-        this.cliente = cliente;
-        this.empresa = empresa;
-        this.dataEmissao = dataEmissao;
-        this.consumo = consumo;
-        this.valorTotal = valorTotal;
-    }
 
     //Getters & Setters
 
@@ -69,11 +65,16 @@ public class Conta {
         this.dataVencimento = dataVencimento;
     }
 
-    public Taxas getTaxasAplicadas() {
+    /**
+     * @return the taxasAplicadas
+     */
+    public List<Taxa> getTaxasAplicadas() {
         return taxasAplicadas;
     }
-
-    public void setTaxasAplicadas(Taxas taxasAplicadas) {
+    /**
+     * @param taxasAplicadas the taxasAplicadas to set
+     */
+    public void setTaxasAplicadas(List<Taxa> taxasAplicadas) {
         this.taxasAplicadas = taxasAplicadas;
     }
 

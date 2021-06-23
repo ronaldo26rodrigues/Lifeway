@@ -15,16 +15,8 @@ public class Empresa {
     private String nome;
     private String servico;
     private String idEmpresa;
-    private Taxas taxas;
-    public Taxas taxaFixa;
-    public Taxas taxasPorTipo;
-    private double maximo;
-    private double valorFixo;
-    private List<TaxasTipo> taxasTipo;
-    private Map<String, Double> tarifas;
-    private Bandeira bandeira;
-    private TipoPropriedade tipo;
-    private Map<ValoresDeAte, Double>  faixa;
+    
+    private List<Taxa> taxas; // ?
 
 
     // private List<TaxasPorTipo> taxasPorTipo;
@@ -33,7 +25,7 @@ public class Empresa {
 
     // private String identificacao;
 
-    private IRepositorioGenerico<Usuario> repositorioClientes;
+    private IRepositorioGenerico<Usuario> repositorioFuncionarios;
     //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
     private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
 
@@ -43,9 +35,9 @@ public class Empresa {
         this.nome = nome;
         this.servico = servico;
 
-        // this.taxas = new Taxas();
+        this.taxas = new ArrayList<>();
 
-        repositorioClientes = new RepositorioGenerico<>();
+        repositorioFuncionarios = new RepositorioGenerico<>();
         //repositorioFuncionarios = new RepositorioGenerico<>();
         repositorioRDO = new RepositorioGenerico<>();
 
@@ -83,6 +75,22 @@ public class Empresa {
     public void setServico(String servico) {
         this.servico = servico;
     }
+
+    /**
+     * @return the taxas
+     */
+    public List<Taxa> getTaxas() {
+        return taxas;
+    }
+    /**
+     * @param taxas the taxas to set
+     */
+    public void setTaxas(List<Taxa> taxas) {
+        this.taxas = taxas;
+    }
+
+
+    
     
     /* public String getIdentificacao() {
         return identificacao;
@@ -93,10 +101,10 @@ public class Empresa {
     } */
 
     /**
-     * @return the repositorioClientes
+     * @return the repositorioFuncionarios
      */
-    public IRepositorioGenerico<Usuario> getRepositorioClientes() {
-        return repositorioClientes;
+    public IRepositorioGenerico<Usuario> getRepositorioFuncionarios() {
+        return repositorioFuncionarios;
     }
     /**
      * @return the repositorioFuncionarios
@@ -105,10 +113,10 @@ public class Empresa {
         //return repositorioFuncionarios;
     //}
     /**
-     * @param repositorioClientes the repositorioClientes to set
+     * @param repositorioFuncionarios the repositorioFuncionarios to set
      */
-    public void setRepositorioClientes(IRepositorioGenerico<Usuario> repositorioClientes) {
-        this.repositorioClientes = repositorioClientes;
+    public void setRepositorioFuncionarios(IRepositorioGenerico<Usuario> repositorioFuncionarios) {
+        this.repositorioFuncionarios = repositorioFuncionarios;
     }
     /**
      * @param repositorioFuncionarios the repositorioFuncionarios to set
@@ -218,135 +226,6 @@ public class Empresa {
         return false;
         }
 
-        /**
-         * @return the maximo
-         */
-        public double getMaximo() {
-            return maximo;
-        }
-        /**
-         * @return the valorFixo
-         */
-        public double getValorFixo() {
-            return valorFixo;
-        }
-        /**
-         * @param maximo the maximo to set
-         */
-        public void setMaximo(double maximo) {
-            this.maximo = maximo;
-        }
-        /**
-         * @param valorFixo the valorFixo to set
-         */
-        public void setValorFixo(double valorFixo) {
-            this.valorFixo = valorFixo;
-        }
-    
-        public void taxaFixa(double maximo, double valorFixo){
-            this.maximo = maximo;
-            this.valorFixo = valorFixo;
-        }
-
-        public void Taxa(){
-            this.taxasTipo = new ArrayList<>();
-            this.tarifas = new HashMap<>(); 
-        }
-    
-        public void Taxa(Bandeira bandeira, float valorBandeira){
-            this.taxasTipo = new ArrayList<>();
-            this.tarifas = new HashMap<>();
-            this.bandeira = bandeira;
-            bandeira.setValor(valorBandeira);
-        }
-    
-        /**
-         * @param taxasPorTipo set taxasPorTipo
-         */
-        public void setTaxasPorTipo(List<TaxasTipo> taxasPorTipo) {
-            this.taxasTipo = taxasTipo;
-        }
-        /**
-         * @param tarifas set tarifas
-         */
-        public void setTarifas(Map<String, Double> tarifas) {
-            this.tarifas = tarifas;
-        }
-        /**
-         * @return the taxasPorTipo
-         */
-        public List<TaxasTipo> getTaxasPorTipo() {
-            return taxasTipo;
-        }
-        public TaxasTipo getTaxasDoTipo(TipoPropriedade tipo){
-            TaxasTipo taxaDoTipo = null;
-            for (TaxasTipo t : taxasTipo) {
-                if(t.getTipo().equals(tipo)){
-                    taxaDoTipo = t;
-                }
-            }
-            return taxaDoTipo;
-        }
-        /**
-         * @return the bandeira
-         */
-        public Bandeira getBandeira() {
-            return bandeira;
-        }
-        /**
-         * @return the tarifas
-         */
-        public Map<String, Double> getTarifas() {
-            return tarifas;
-        }
-    
-        public void adicionarTarifa(String nome, Double valor){
-            this.tarifas.put(nome, valor);
-        }
-    
-        public void definirBandeira(Bandeira bandeira, float valor){
-            this.bandeira = bandeira;
-            this.bandeira.setValor(valor);
-        }
-    
-        public void criarTaxaDoTipo(TipoPropriedade tipo){
-            this.taxasTipo.add(new TaxasporTipo(tipo));
-        }
-        public void TaxasTipo(TipoPropriedade tipo){
-            this.tipo = tipo;
-            faixa = new HashMap<>();
-        }
-    
-    
-        /**
-         * @return the adicional
-         */
-        public Map<ValoresDeAte, Double> getAdicional() {
-            return faixa;
-        }
-        /**
-         * @return the tipo
-         */
-        public TipoPropriedade getTipo() {
-            return tipo;
-        }
-    
-        /**
-         * @param adicional the adicional to set
-         */
-        public void setAdicional(Map<ValoresDeAte, Double> adicional) {
-            this.faixa = adicional;
-        }
-    
-        /**
-         * @param tipo the tipo to set
-         */
-        public void setTipo(TipoPropriedade tipo) {
-            this.tipo = tipo;
-        }
-    
-        public void adicionarAdicional(double de, double ate, double valor){
-            faixa.put(new ValoresDeAte(de, ate) , valor);
-        }
+        
     }
     
