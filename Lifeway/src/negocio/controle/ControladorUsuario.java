@@ -21,7 +21,7 @@ public class ControladorUsuario {
         this.repositorioUsuario = new RepositorioGenerico<>();
     }
 
-    public ControladorUsuario getInstance() {
+    public static ControladorUsuario getInstance() {
         if(instance == null){
             instance = new ControladorUsuario();
         }

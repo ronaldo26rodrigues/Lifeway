@@ -22,7 +22,7 @@ public class ControladorEmpresa {
         this.repositorioEmpresa = new RepositorioGenerico<>();
     }
 
-    public ControladorEmpresa getInstance() {
+    public static ControladorEmpresa getInstance() {
         if(instance == null){
             instance = new ControladorEmpresa();
         }
