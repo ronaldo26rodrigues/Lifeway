@@ -6,7 +6,7 @@ import java.util.List;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import excecoes.ElementoJaExisteException;
-import excecoes.PropriedadeJaCadastrada;
+import excecoes.PropriedadeJaCadastradaException;
 import negocio.beans.Propriedade;
 
 
@@ -44,16 +44,16 @@ public class ControladorPropriedade {
      * Método para cadastrar propriedade no perfil do usuário cliente.
      * @param propriedade
      * @throws NoSuchAlgorithmException
-     * @throws PropriedadeJaCadastrada
+     * @throws PropriedadeJaCadastradaException
      */
-    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastrada {
+    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
         if (propriedade == null) return; // >>> Tratar erros para GUI
 
         //adicionar propriedade ao repositorioPropriedade
         try {
             this.repositorioPropriedade.inserir(propriedade);
             } catch(ElementoJaExisteException e) {
-                throw new PropriedadeJaCadastrada(e);
+                throw new PropriedadeJaCadastradaException(e);
         }
     }
 }

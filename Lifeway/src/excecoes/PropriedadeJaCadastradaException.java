@@ -2,19 +2,19 @@ package excecoes;
 
 import negocio.beans.Propriedade;
 
-public class PropriedadeJaCadastrada extends Exception {
+public class PropriedadeJaCadastradaException extends Exception {
     
     private Propriedade propriedade;
     private ElementoJaExisteException e;
 
-    public PropriedadeJaCadastrada(Propriedade propriedade) {
+    public PropriedadeJaCadastradaException(Propriedade propriedade) {
         if (propriedade == null) {
             throw new IllegalArgumentException();
         }
         this.propriedade = propriedade;
     }
 
-    public PropriedadeJaCadastrada(ElementoJaExisteException e) {
+    public PropriedadeJaCadastradaException(ElementoJaExisteException e) {
         if (e == null) {
             throw new IllegalArgumentException();
         }
