@@ -2,11 +2,11 @@ package dados;
 
 import java.util.List;
 
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
 
 public interface IRepositorioGenerico<T> {
     
-    void inserir(T obj) throws ObjetoJaExisteException;
+    void inserir(T obj) throws ElementoJaExisteException;
     void remover(T obj);
     //void removerPorID(String id);
     T buscar(T obj);

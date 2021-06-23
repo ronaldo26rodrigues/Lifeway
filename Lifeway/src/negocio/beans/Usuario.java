@@ -46,6 +46,11 @@ public abstract class Usuario {
     // }
 
 
+
+    //Validar CPF
+    
+
+
     /**
      * Equals: Usuário
      */
