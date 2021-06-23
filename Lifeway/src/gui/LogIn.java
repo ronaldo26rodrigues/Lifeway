@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,6 +27,8 @@ private Label loginErrado;
 private TextField cpf;
 @FXML
 private PasswordField senha;
+@FXML
+private CheckBox checkBox;
 
 
 
@@ -63,10 +66,17 @@ private void checkLogin() throws IOException{
     App m = new App();
     Usuario usuarioLogado = null;
     for (Usuario usuario : ControladorUsuario.getInstance().listarUsuarios()) {
-        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText())){
+        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText()) && checkBox
+        .isSelected() == false ){
             usuarioLogado = usuario;
             ControladorUsuario.getInstance().login(usuarioLogado);
             m.trocarCena("Menu.fxml");
+        }
+        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText()) && checkBox
+        .isSelected() == true ){
+            usuarioLogado = usuario;
+            ControladorUsuario.getInstance().login(usuarioLogado);
+            m.trocarCena("MenuFuncionario.fxml");
         }
     }
     if(usuarioLogado==null){
