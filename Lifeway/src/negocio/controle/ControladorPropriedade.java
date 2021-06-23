@@ -1,15 +1,14 @@
 package negocio.controle;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
+import excecoes.PropriedadeJaCadastrada;
 import negocio.beans.Propriedade;
-import negocio.beans.Usuario;
+
 
 public class ControladorPropriedade {
 
@@ -29,11 +28,11 @@ public class ControladorPropriedade {
         return instance;
     }
 
-    public void criarNovaPropriedade(Propriedade propriedade) throws ObjetoJaExisteException {
+    public void criarNovaPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
         repositorioPropriedade.inserir(propriedade);
     }
 
-    public void excluirPropriedade(Propriedade propriedade) throws ObjetoJaExisteException {
+    public void excluirPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
         repositorioPropriedade.remover(propriedade);
     }
 
@@ -41,17 +40,20 @@ public class ControladorPropriedade {
         return repositorioPropriedade.listar();
     }
 
-    
-    //throws CPFInvalidoException, PropriedadeJaCadastradaException
-    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException {
-    if (propriedade == null) return; // >>> Tratar erros para GUI
+    /**
+     * Método para cadastrar propriedade no perfil do usuário cliente.
+     * @param propriedade
+     * @throws NoSuchAlgorithmException
+     * @throws PropriedadeJaCadastrada
+     */
+    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastrada {
+        if (propriedade == null) return; // >>> Tratar erros para GUI
 
-    //verificar se CPF é válido
-    //criar função para isso em cliente?
-
-    //gerar hash das senhas
-
-    //adicionar Propriedade ao repositorioCliente
-
-}
+        //adicionar propriedade ao repositorioPropriedade
+        try {
+            this.repositorioPropriedade.inserir(propriedade);
+            } catch(ElementoJaExisteException e) {
+                throw new PropriedadeJaCadastrada(e);
+        }
+    }
 }

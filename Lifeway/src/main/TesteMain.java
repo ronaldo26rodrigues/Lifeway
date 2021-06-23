@@ -1,76 +1,43 @@
 package main;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 
-import negocio.Controlador;
-import negocio.IControlador;
+import excecoes.CPFInvalidoException;
+import excecoes.UsuarioJaCadastradoException;
 import negocio.beans.Bandeira;
+import negocio.beans.Cliente;
 import negocio.beans.Usuario;
+import negocio.controle.ControladorUsuario;
 import negocio.beans.Propriedade;
 import negocio.beans.Conta;
 import negocio.beans.Endereco;
 import negocio.beans.RegistroDeOcorrencia;
-import negocio.beans.TaxaFixa;
+//import negocio.beans.TaxaFixa;
 import negocio.beans.TipoPropriedade;
 
 public class TesteMain {
-    public static void main(String[] args) { 
-        IControlador controlador = Controlador.getInstance();
+    public static void main(String[] args) throws NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException { 
 
-        controlador.criarEmpresa("emp1", "Compesa", "agua");
+        ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
+        
+        Usuario u1 = new Cliente("Fulano", "45038837719", "senha123", LocalDate.of(1992, 05, 12));
+        controladorUsuario.cadastrarUsuario(u1);
+        
+        //controladorUsuario.criarNovoUsuario(usuario);
 
-        controlador.adicionarTaxaDoTipoNaEmpresa("emp1", TipoPropriedade.RESIDENCIAL);
+        //teste cpf inválido
+        Usuario u2 = new Cliente("Cicrano", "1503771", "senha0101", LocalDate.of(1994, 07, 11));
+        controladorUsuario.cadastrarUsuario(u2);
 
-        controlador.adicionarTaxaFixaPorTipoNaEmpresa("emp1", TipoPropriedade.RESIDENCIAL, new TaxaFixa(1000, 10));
-        controlador.adicionarTaxaAdicionalPorTipoNaEmpresa("emp1", TipoPropriedade.RESIDENCIAL, 1000, 2000, 0.2);
-        controlador.adicionarTarifaNaEmpresa("emp1", "Esgoto", 2.0);
-        controlador.definirBandeiraDaEmpresa("emp1", Bandeira.AMARELA, 0.025f);
+        //teste usuário já cadastrado
+        Usuario u3 = new Cliente("Fulano", "45038837719", "senha123", LocalDate.of(1992, 05, 12));
+        controladorUsuario.cadastrarUsuario(u3);
 
-        controlador.criarCliente("Ronaldo", "1234567890", LocalDate.of(2021, 8, 26));
-
-        controlador.adicionarPropriedade("1234567890", "emp1", "med1", TipoPropriedade.RESIDENCIAL, new Endereco("rua das orquideas", 20));
-
-        controlador.acessarCliente("1234567890");
-
-        controlador.adicionarContaAoConsumidor("conta1", "emp1", "med1", LocalDate.of(2021, 3, 26), 900);
-
-        for (Usuario cliente : controlador.listarClientes()) {
-            System.out.println(cliente);
+        for (Usuario usuario : controladorUsuario.listarUsuarios()) {
+            System.out.println(usuario);
             System.out.println("--------------");
         }
-
-        for (Propriedade consumidor : controlador.listarPropriedades("1234567890")) {
-            System.out.println(consumidor);
-            System.out.println("=========");
-        }
-
-        controlador.listarContas("med1");
-
-        for (Conta conta : controlador.listarContasPendentes("med1")) {
-            System.out.println(conta);
-        }
-
-        controlador.pagarContaDoMes("conta1", "med1", 3);
-
-        System.out.println("Contas pendentes depois de paga");
-        for (Conta conta : controlador.listarContasPendentes("med1")) {
-            System.out.println(conta);
-        }
-
-        controlador.reportarProblema("ptc1", "vazamento", "cano furado na calçada", "emp1", LocalDate.now(), new Endereco("rua da lagoa", 14));
-        System.out.println("\nProblemas reportados:");
-        for (RegistroDeOcorrencia report : controlador.listarProblemas("emp1")) {
-            System.out.println(report);
-        }
-
-        controlador.resolverProblema("emp1", "ptc1");
-
-        System.out.println("\nProblemas pendentes:");
-        for (RegistroDeOcorrencia report : controlador.listarProblemasPendentes("emp1")) {
-            System.out.println(report);
-        }
-
-
-        
     }
+
 }

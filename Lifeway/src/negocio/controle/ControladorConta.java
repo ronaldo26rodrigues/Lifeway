@@ -36,4 +36,9 @@ public class ControladorConta {
     public List<Conta> listarContas() {
         return repositorioContas.listar();
     }
+
+    //Método para gerar histórico de contas?
+    //Gerar conta
+
+    
 }

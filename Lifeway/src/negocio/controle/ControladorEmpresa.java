@@ -7,7 +7,7 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
 import negocio.beans.Empresa;
 import negocio.beans.Usuario;
 

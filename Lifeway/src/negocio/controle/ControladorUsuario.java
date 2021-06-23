@@ -25,7 +25,7 @@ public class ControladorUsuario {
         this.repositorioUsuario = new RepositorioGenerico<>();
     }
 
-    public ControladorUsuario getInstance() {
+    public static ControladorUsuario getInstance() {
         if(instance == null){
             instance = new ControladorUsuario();
         }
@@ -45,17 +45,27 @@ public class ControladorUsuario {
     }
 
     
-    //throws CPFInvalidoException, ClienteJaCadastradoException
+    
+    /**
+     * Método para cadastrar usuário e inserir no repositorioUsuario.
+     * Verifica se o CPF é válido utilizando a classe ValidaCPF.
+     * Gera um Hash para a senha do usuário (utilizando o algoritmo SHA-256) 
+     * e guarda em formato hexadecimal.
+     * @param usuario
+     * @throws NoSuchAlgorithmException
+     * @throws UsuarioJaCadastradoException
+     * @throws CPFInvalidoException
+     */
     public void cadastrarUsuario(Usuario usuario) throws 
         NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
-        //if (cpf == null || senhaUsuario == null) return; // >>> Tratar erros para GUI
+        
+        if(usuario == null) return;
 
         String cpfUsuario = usuario.getIdentificacao();
         String senhaUsuario = usuario.getSenha();
 
         
         //verificar se CPF é válido
-        //if(!isCPF(cpfUsuario))
         if(!ValidaCPF.isCPF(cpfUsuario)) {
             throw new CPFInvalidoException(cpfUsuario);
         }
@@ -64,7 +74,7 @@ public class ControladorUsuario {
         MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
         byte senhaDigest[] = algoritmo.digest(senhaUsuario.getBytes(StandardCharsets.UTF_8));
 
-        //guardar em formato hexadecimal
+        //guardar senha em formato hexadecimal
         StringBuilder hexString = new StringBuilder();
         for (byte b : senhaDigest) {
             hexString.append(String.format("%02X", 0xFF & b));            
@@ -81,5 +91,17 @@ public class ControladorUsuario {
             throw new UsuarioJaCadastradoException(e);
         }
     }
+
+    //public boolean autenticarUsuario()
+    //public String informacoesPessoais()?
+    //public void alterarCadastro()
+
+    /**
+     * 
+     * @return repositorioUsuario
+     */
+    public IRepositorioGenerico<Usuario> getRepositorioUsuario() {
+        return repositorioUsuario;
+    }
 }
-}
+
