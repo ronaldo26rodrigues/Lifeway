@@ -7,8 +7,12 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
+import excecoes.CPFInvalidoException;
+import excecoes.ElementoJaExisteException;
+import excecoes.UsuarioJaCadastradoException;
 import negocio.beans.Usuario;
+import negocio.beans.ValidaCPF;
+
 
 public class ControladorUsuario {
 
@@ -21,18 +25,18 @@ public class ControladorUsuario {
         this.repositorioUsuario = new RepositorioGenerico<>();
     }
 
-    public ControladorUsuario getInstance() {
+    public static ControladorUsuario getInstance() {
         if(instance == null){
             instance = new ControladorUsuario();
         }
         return instance;
     }
 
-    public void criarNovoUsuario(Usuario usuario) throws ObjetoJaExisteException {
+    public void criarNovoUsuario(Usuario usuario) throws ElementoJaExisteException {
         repositorioUsuario.inserir(usuario);
     }
 
-    public void excluirPerfil(Usuario usuario) throws ObjetoJaExisteException {
+    public void excluirPerfil(Usuario usuario) throws ElementoJaExisteException {
         repositorioUsuario.remover(usuario);
     }
 
@@ -41,28 +45,63 @@ public class ControladorUsuario {
     }
 
     
-    //throws CPFInvalidoException, ClienteJaCadastradoException
-    public void cadastrarUsuario(Usuario usuario, String senhaUsuario) throws NoSuchAlgorithmException {
-    if (usuario == null || senhaUsuario == null) return; // >>> Tratar erros para GUI
+    
+    /**
+     * Método para cadastrar usuário e inserir no repositorioUsuario.
+     * Verifica se o CPF é válido utilizando a classe ValidaCPF.
+     * Gera um Hash para a senha do usuário (utilizando o algoritmo SHA-256) 
+     * e guarda em formato hexadecimal.
+     * @param usuario
+     * @throws NoSuchAlgorithmException
+     * @throws UsuarioJaCadastradoException
+     * @throws CPFInvalidoException
+     */
+    public void cadastrarUsuario(Usuario usuario) throws 
+        NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+        
+        if(usuario == null) return;
 
-    //verificar se CPF é válido
-    //criar função para isso em cliente?
+        String cpfUsuario = usuario.getIdentificacao();
+        String senhaUsuario = usuario.getSenha();
 
-    //gerar hash das senhas
-    MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
-    byte senhaDigest[] = algoritmo.digest(senhaUsuario.getBytes(StandardCharsets.UTF_8));
+        
+        //verificar se CPF é válido
+        if(!ValidaCPF.isCPF(cpfUsuario)) {
+            throw new CPFInvalidoException(cpfUsuario);
+        }
 
-    //guardar em formato hexadecimal
-    StringBuilder hexString = new StringBuilder();
-    for (byte b : senhaDigest) {
-        hexString.append(String.format("%02X", 0xFF & b));            
+        //gerar hash das senhas
+        MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
+        byte senhaDigest[] = algoritmo.digest(senhaUsuario.getBytes(StandardCharsets.UTF_8));
+
+        //guardar senha em formato hexadecimal
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : senhaDigest) {
+            hexString.append(String.format("%02X", 0xFF & b));            
+        }
+
+        String senhaHex = hexString.toString();
+        usuario.setSenha(senhaHex);
+
+
+        //adicionar usuario ao repositorioUsuario
+        try {
+            this.repositorioUsuario.inserir(usuario);
+        } catch(ElementoJaExisteException e) {
+            throw new UsuarioJaCadastradoException(e);
+        }
     }
 
-    String senhaHex = hexString.toString();
-    usuario.setSenha(senhaHex);
+    //public boolean autenticarUsuario()
+    //public String informacoesPessoais()?
+    //public void alterarCadastro()
 
-
-    //adicionar cliente ao repositorioCliente
-
+    /**
+     * 
+     * @return repositorioUsuario
+     */
+    public IRepositorioGenerico<Usuario> getRepositorioUsuario() {
+        return repositorioUsuario;
+    }
 }
-}
+

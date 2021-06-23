@@ -5,7 +5,8 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
+import excecoes.EmpresaJaCadastradaException;
 import negocio.beans.Empresa;
 
 public class ControladorEmpresa {
@@ -19,18 +20,18 @@ public class ControladorEmpresa {
         this.repositorioEmpresa = new RepositorioGenerico<>();
     }
 
-    public ControladorEmpresa getInstance() {
+    public static ControladorEmpresa getInstance() {
         if(instance == null){
             instance = new ControladorEmpresa();
         }
         return instance;
     }
 
-    public void criarNovaEmpresa(Empresa empresa) throws ObjetoJaExisteException {
+    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException {
         repositorioEmpresa.inserir(empresa);
     }
 
-    public void excluirEmpresa(Empresa empresa) throws ObjetoJaExisteException {
+    public void excluirEmpresa(Empresa empresa) throws ElementoJaExisteException {
         repositorioEmpresa.remover(empresa);
     }
 
@@ -38,11 +39,23 @@ public class ControladorEmpresa {
         return repositorioEmpresa.listar();
     }
 
-    
-    //throws CPFInvalidoException, ClienteJaCadastradoException
-    public void cadastrarEmpresa(Empresa empresa) throws NoSuchAlgorithmException {
-    if (empresa == null) return; // >>> Tratar erros para GUI
 
+    /**
+     * Método para cadastrar empresa.
+     * @param empresa
+     * @throws NoSuchAlgorithmException
+     * @throws EmpresaJaCadastradaException
+     */
+    public void cadastrarEmpresa(Empresa empresa) throws NoSuchAlgorithmException, EmpresaJaCadastradaException {
+        if (empresa == null) return; // >>> Tratar erros para GUI
 
-}
+        //id, nome, serviço
+
+        //adicionar empresa ao repositorioEmpresa
+        try {
+            this.repositorioEmpresa.inserir(empresa);
+        } catch(ElementoJaExisteException e) {
+            throw new EmpresaJaCadastradaException(e);
+        }
+    }
 }

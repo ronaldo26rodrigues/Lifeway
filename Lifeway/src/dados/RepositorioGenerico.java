@@ -3,7 +3,7 @@ package dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import excecoes.ObjetoJaExisteException;
+import excecoes.ElementoJaExisteException;
 
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
@@ -14,11 +14,11 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
     }
 
     @Override
-    public void inserir(T obj) throws ObjetoJaExisteException {
+    public void inserir(T obj) throws ElementoJaExisteException {
         if(!objetos.contains(obj)){
             objetos.add(obj);
         } else {
-            throw new ObjetoJaExisteException(obj.toString());
+            throw new ElementoJaExisteException(obj.toString());
         }
     }
 
