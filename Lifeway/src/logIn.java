@@ -7,11 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class logIn {
+public class LogIn {
     
-public logIn(){
+public LogIn(){
 
 }
+
 @FXML
 private Button botaoCriarConta;
 @FXML
