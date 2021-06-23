@@ -5,8 +5,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import negocio.beans.Empresa;
+import negocio.beans.Endereco;
+import negocio.beans.RegistroDeOcorrencia;
+import negocio.controle.Fachada;
 
 public class ROScreenController {
     @FXML
@@ -24,15 +30,24 @@ public class ROScreenController {
 
 
     @FXML
-    private TextField ocorrenciaField;
+    private TextField ocorrencia;
     @FXML
-    private TextField dataField;
-    @FXML
-    private TextField localField;
-    @FXML
-    private TextField comentariosField;
-
+    private DatePicker dataOcorrencia;
     
+    @FXML
+    private TextArea rua;
+    @FXML
+    private TextArea numeroCasa;
+    @FXML
+    private TextArea complemento;
+    @FXML
+    private TextArea pontoReferencia;
+
+    @FXML
+    private TextField detalhes;
+
+    @FXML
+    private Button botaoOcorrencia;
 
 
     public void SairConta(ActionEvent event) throws IOException {
@@ -67,6 +82,16 @@ public class ROScreenController {
         App d = new App();
         d.trocarCena("Menu.fxml");
 
+    }
+    public void registrarOcorrencia(ActionEvent event) throws IOException {
+        System.out.println("botao de criar ocorrencia clicado");
+        System.out.println(Fachada.getInstance().getUsuarioLogado());
+        
+        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), new Empresa("compesa", "Compesa", "agua"), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
+
+        for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
+            System.out.println(registroDeOcorrencia);
+        }
     }
 
 }

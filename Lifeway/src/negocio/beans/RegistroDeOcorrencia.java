@@ -129,6 +129,7 @@ public class RegistroDeOcorrencia {
     @Override
     public String toString() {
         String texto="";
+        texto += "\n" + "Protocolo: " + this.protocolo; 
         texto += "\n" + "Usuario: " + this.cliente.getNome();
         texto += "\n" + "Empresa: " + this.empresa.getNome();
         texto += "\n" + "Assunto: " + this.assunto;

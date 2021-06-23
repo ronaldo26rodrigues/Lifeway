@@ -119,14 +119,14 @@
          <bottom>
             <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoOK" layoutX="333.0" layoutY="47.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #906080; -fx-border-radius: 0.1rem;" text="OK" textFill="#392727" />
+                  <Button fx:id="botaoOcorrencia" layoutX="333.0" layoutY="47.0" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" textFill="#392727" />
                </children></AnchorPane>
          </bottom>
          <right>
             <AnchorPane prefHeight="446.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <GridPane prefHeight="428.0" prefWidth="705.0" style="-fx-background-color: #1000080; -fx-border-radius: 80%;" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="428.0" prefWidth="705.0" style="-fx-background-color: #000B1D; -fx-border-radius: 80%;" BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -148,7 +148,7 @@
                         <Insets left="7.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="ocorrenciaField" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui">
+                  <TextField fx:id="ocorrencia" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui">
                      <GridPane.margin>
                         <Insets left="110.0" right="40.0" />
                      </GridPane.margin>
@@ -178,7 +178,7 @@
                         <Insets left="7.0" />
                      </padding>
                   </Label>
-                  <Label prefHeight="35.0" prefWidth="123.0" text="Comentários:" textFill="#dadada" GridPane.rowIndex="3">
+                  <Label prefHeight="35.0" prefWidth="123.0" text="Detalhes:" textFill="#dadada" GridPane.rowIndex="3">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -189,7 +189,7 @@
                         <Insets left="7.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="comentario" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui" GridPane.rowIndex="3">
+                  <TextField fx:id="detalhes" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="120.0" right="40.0" />
                      </GridPane.margin>

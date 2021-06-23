@@ -7,6 +7,13 @@ import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
+import java.util.List;
+
+import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
+
+import excecoes.ElementoJaExisteException;
+//import jdk.vm.ci.code.RegisterAttributes;
 import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.Usuario;
 
@@ -36,7 +43,7 @@ public class ControladorRO {
         try {
             repositorioRO.inserir(novaOcorrencia);
         } catch (Exception e) {
-            //TODO: handle exception
+            
         }
         
         
@@ -51,4 +58,34 @@ public class ControladorRO {
         }
     }
 
+    public void criarNovaOcorrencia(RegistroDeOcorrencia registroDeOcorrencia) throws ElementoJaExisteException {
+        repositorioRO.inserir(registroDeOcorrencia);
+    }
+    public void excluirOcorrencia(RegistroDeOcorrencia registroDeOcorrencia) throws ElementoJaExisteException {
+        repositorioRO.remover(registroDeOcorrencia);
+    }
+
+    public List<RegistroDeOcorrencia> listarROcorrencias() {
+        return repositorioRO.listar();
+    }
+        
+
+    /**
+     * @return the repositorioRO
+     */
+    public IRepositorioGenerico<RegistroDeOcorrencia> getRepositorioRO() {
+        return repositorioRO;
+    }
+
+    /**
+     * @param repositorioRO the repositorioRO to set
+     */
+    public void setRepositorioRO(IRepositorioGenerico<RegistroDeOcorrencia> repositorioRO) {
+        this.repositorioRO = repositorioRO;
+    }
+
+    
 }
+
+
+
