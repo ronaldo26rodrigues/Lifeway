@@ -16,7 +16,8 @@ import negocio.controle.Fachada;
 
 import java.io.IOException;
     import java.net.URL;
-    import java.util.ResourceBundle;
+import java.nio.channels.SelectableChannel;
+import java.util.ResourceBundle;
 
     public class ListaRO implements Initializable{
         
@@ -48,9 +49,16 @@ import java.io.IOException;
         private TableColumn<RegistroDeOcorrencia, String> colunaEstado;
 
 
-        /* @FXML
+         @FXML
         private Label labelConsumidorList;
 
+        @FXML
+        private Button marcarResolvido;
+
+        RegistroDeOcorrencia registroSelecionado;
+
+
+        /*
         String[] consumidores = {"Vicente, Rona, Ganso"}; */
 
         String consumidorAtual;
@@ -90,6 +98,18 @@ import java.io.IOException;
 
         }
 
+        public void marcarResolvidoEvent(ActionEvent event) throws IOException {
+            registroSelecionado.setResolvido(true);
+            atualizarLista();
+        }
+
+        public void atualizarLista() {
+            listaRO.getItems().removeAll(Fachada.getInstance().listarROcorrencias());
+            for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
+                listaRO.getItems().addAll(registroDeOcorrencia);
+            }
+        }
+
         
 
         @Override
@@ -101,9 +121,19 @@ import java.io.IOException;
             colunaLocal.setCellValueFactory(new PropertyValueFactory<>("endereco"));
             colunaEstado.setCellValueFactory(new PropertyValueFactory<>("resolvido"));
 
-            for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
-                listaRO.getItems().addAll(registroDeOcorrencia);
-            }
+            atualizarLista();
+            
+
+            listaRO.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<RegistroDeOcorrencia>(){
+
+                @Override
+                public void changed(ObservableValue<? extends RegistroDeOcorrencia> arg0, RegistroDeOcorrencia arg1, RegistroDeOcorrencia arg2) {
+                    registroSelecionado = listaRO.getSelectionModel().getSelectedItem();
+                    
+                    labelConsumidorList.setText(registroSelecionado.toString());
+                }
+                
+            });
             
             
             

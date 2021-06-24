@@ -84,7 +84,7 @@ private void checkLogin() throws IOException, NoSuchAlgorithmException{
             ControladorUsuario.getInstance().login(usuarioLogado);
             m.trocarCena("Menu.fxml");
         }
-        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText()) && checkBox
+        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex) && checkBox
         .isSelected() == true ){
             /* if(usuario.getTipo().equals("FUNCIONARIO")){ */
 
