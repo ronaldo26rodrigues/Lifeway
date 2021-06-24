@@ -5,11 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import Excecoes.CPFInvalidoException;
+import Excecoes.ElementoJaExisteException;
+import Excecoes.UsuarioJaCadastradoException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.CPFInvalidoException;
-import excecoes.ElementoJaExisteException;
-import excecoes.UsuarioJaCadastradoException;
 import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
 
