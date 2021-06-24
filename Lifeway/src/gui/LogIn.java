@@ -2,6 +2,7 @@ package gui;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
+import excecoes.EmpresaJaCadastradaException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,8 +12,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import negocio.beans.Empresa;
 import negocio.beans.Usuario;
+import negocio.controle.ControladorEmpresa;
 import negocio.controle.ControladorUsuario;
+import negocio.controle.Fachada;
 
 public class LogIn {
     
@@ -40,8 +44,11 @@ public void criar(ActionEvent event) throws IOException{
     
 }
 
-public void entrar(ActionEvent event) throws IOException, NoSuchAlgorithmException{
+public void entrar(ActionEvent event) throws IOException, NoSuchAlgorithmException, EmpresaJaCadastradaException{
     checkLogin();
+
+    ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e1", "Compesa", "agua"));
+    ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e2", "Celpe", "energia"));
 }
 
 private void checar() throws IOException{

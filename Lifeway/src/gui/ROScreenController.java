@@ -1,20 +1,32 @@
 package gui;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.RegistroDeOcorrencia;
+import negocio.beans.Usuario;
+import negocio.controle.ControladorEmpresa;
 import negocio.controle.Fachada;
+import javafx.util.Callback;
 
-public class ROScreenController {
+public class ROScreenController implements Initializable {
     @FXML
     private Button botaoSair;
     @FXML
@@ -48,6 +60,9 @@ public class ROScreenController {
 
     @FXML
     private Button botaoOcorrencia;
+
+    @FXML
+    private ComboBox<Empresa> empresaCB;
 
 
     public void SairConta(ActionEvent event) throws IOException {
@@ -87,11 +102,48 @@ public class ROScreenController {
         System.out.println("botao de criar ocorrencia clicado");
         System.out.println(Fachada.getInstance().getUsuarioLogado());
         
-        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), new Empresa("compesa", "Compesa", "agua"), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
+        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
+
+        
 
         for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
             System.out.println(registroDeOcorrencia);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<Empresa> empresaList = FXCollections.observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
+        System.out.println(empresaList);
+        empresaCB.setItems(empresaList);
+        // empresaCB.getItems().addAll(empresaList);
+        empresaCB.setCellFactory(new Callback<ListView<Empresa>,ListCell<Empresa>>(){
+
+            @Override
+            public ListCell<Empresa> call(ListView<Empresa> arg0) {
+                
+                final ListCell<Empresa> cell = new ListCell<>() {
+                    @Override
+                    protected void updateItem(Empresa arg0, boolean arg1) {
+                        super.updateItem(arg0, arg1);
+
+                        if(arg0!=null) {
+                            setText(arg0.getNome());
+                        } else {
+                            setText(null);
+                        }
+                    };
+                };
+
+                return cell;
+            }
+            
+        });
+
+
+        
+
+        
     }
 
 }
