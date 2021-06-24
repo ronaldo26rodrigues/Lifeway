@@ -1,4 +1,4 @@
-package Excecoes;
+package excecoes;
 
 public class ElementoNaoExisteException extends Exception {
 

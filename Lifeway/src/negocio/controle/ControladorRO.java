@@ -3,7 +3,7 @@ package negocio.controle;
 import java.time.LocalDate;
 import java.util.Random;
 
-import Excecoes.ElementoJaExisteException;
+import excecoes.ElementoJaExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;

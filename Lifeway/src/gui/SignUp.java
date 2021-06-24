@@ -17,9 +17,9 @@ import negocio.controle.ControladorUsuario;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import Excecoes.CPFInvalidoException;
-import Excecoes.ElementoJaExisteException;
-import Excecoes.UsuarioJaCadastradoException;
+import excecoes.CPFInvalidoException;
+import excecoes.ElementoJaExisteException;
+import excecoes.UsuarioJaCadastradoException;
 
 public class SignUp {
 
