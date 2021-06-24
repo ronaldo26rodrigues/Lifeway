@@ -87,6 +87,7 @@ public class Cliente extends Usuario {
         //resultado += "\n" + "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
         // resultado += "\n" + "Identificação: " + this.getIdentificacao();
+        resultado += "\n" + "Senha: " + this.getSenha(); //TESTE
         return resultado;
     }
 

@@ -55,8 +55,6 @@ public class ControladorUsuario {
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
-
-    
     
     /**
      * Método para cadastrar usuário e inserir no repositorioUsuario.
@@ -74,8 +72,6 @@ public class ControladorUsuario {
         if(usuario == null) return;
 
         String cpfUsuario = usuario.getIdentificacao();
-        String senhaUsuario = usuario.getSenha();
-
         
         //verificar se CPF é válido
         boolean cpfValido;
@@ -86,9 +82,24 @@ public class ControladorUsuario {
             cpfValido = true;
         }
 
+        String senhaHex = gerarSenhaHex(usuario.getSenha());
+        usuario.setSenha(senhaHex);
+
+        //adicionar usuario ao repositorioUsuario
+        try {
+            this.repositorioUsuario.inserir(usuario);
+        } catch(ElementoJaExisteException e) {
+            throw new UsuarioJaCadastradoException(e);
+        }
+    }
+
+    public static String gerarSenhaHex(String senha) throws NoSuchAlgorithmException {
+
+        //String senhaUsuario = usuario.getSenha();
+        
         //gerar hash das senhas
         MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
-        byte senhaDigest[] = algoritmo.digest(senhaUsuario.getBytes(StandardCharsets.UTF_8));
+        byte senhaDigest[] = algoritmo.digest(senha.getBytes(StandardCharsets.UTF_8));
 
         //guardar senha em formato hexadecimal
         StringBuilder hexString = new StringBuilder();
@@ -97,15 +108,9 @@ public class ControladorUsuario {
         }
 
         String senhaHex = hexString.toString();
-        usuario.setSenha(senhaHex);
+        //usuario.setSenha(senhaHex);
+        return senhaHex;
 
-
-        //adicionar usuario ao repositorioUsuario
-        try {
-            this.repositorioUsuario.inserir(usuario);
-        } catch(ElementoJaExisteException e) {
-            throw new UsuarioJaCadastradoException(e);
-        }
     }
 
     //public boolean autenticarUsuario()

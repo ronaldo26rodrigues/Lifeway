@@ -50,7 +50,7 @@ public class SignUp {
 
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
-        boolean cadastroRealizado = false;;
+        boolean cadastroRealizado = false;
         try {
             ControladorUsuario.getInstance().cadastrarUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));
             cadastroRealizado = true;
@@ -65,6 +65,7 @@ public class SignUp {
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
+
         if(cadastroRealizado == true) {
             botaoCriarConta.setFont(Font.font(14));
             botaoCriarConta.setText("Conta criada!\nFaça seu login.");
