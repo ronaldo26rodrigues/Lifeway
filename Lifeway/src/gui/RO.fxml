@@ -141,7 +141,7 @@
                         <Insets left="7.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="ocorrencia" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digte Aqui">
+                  <TextField fx:id="ocorrencia" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="596.0" promptText="Digite Aqui">
                      <GridPane.margin>
                         <Insets left="110.0" right="40.0" />
                      </GridPane.margin>
@@ -190,7 +190,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <GridPane.margin>
-                        <Insets left="80.0" />
+                        <Insets left="120.0" />
                      </GridPane.margin>
                      <children>
                         <TextArea fx:id="pontoReferencia" prefHeight="200.0" prefWidth="200.0" promptText="Ponto de referência (opcional)" GridPane.rowIndex="2" />
