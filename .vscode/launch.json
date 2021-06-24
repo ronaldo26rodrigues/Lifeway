@@ -9,7 +9,16 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "gui.App",
-            "projectName": "Lifeway_dcfdc2ac"
+            "projectName": "Lifeway_3c99f4ff",
+            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "gui.App",
+            "projectName": "Lifeway_dcfdc2ac",
+            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -23,7 +32,8 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
-            "projectName": "Lifeway_3c99f4ff"
+            "projectName": "Lifeway_3c99f4ff",
+            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -37,7 +47,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "Lifeway_dcfdc2ac",
-            "vmArgs": "--module-path \"C:/Users/USUARIO/OneDrive/Área de Trabalho/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
