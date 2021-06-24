@@ -13,13 +13,6 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Menu">
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
-         <top>
-            <ImageView fitHeight="251.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@waterway/Lifeway/src/imgs/Logo.png" />
-               </image>
-            </ImageView>
-         </top>
          <bottom>
             <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
@@ -35,68 +28,73 @@
             </Button>
          </bottom>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="628.0" prefWidth="293.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/extratos.png" />
+                              <Image url="@imgs/extratos.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                   <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/boletos.png" />
+                              <Image url="@imgs/boletos.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/user.png" />
+                              <Image url="@imgs/usuario.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                   <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/alerta.png" />
+                              <Image url="@imgs/alerta.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="62.0" prefWidth="320.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@waterway/Lifeway/src/imgs/home.png" />
+                              <Image url="@imgs/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
+                  <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/Logo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </VBox>
          </center>
@@ -108,7 +106,7 @@
             <AnchorPane prefHeight="33.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
          </top>
          <left>
-            <AnchorPane prefHeight="446.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="617.0" prefWidth="14.0" BorderPane.alignment="CENTER" />
          </left>
          <bottom>
             <AnchorPane prefHeight="39.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
@@ -175,7 +173,7 @@
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <SplitPane dividerPositions="0.15219842164599776, 0.3314543404735062, 0.644870349492672, 0.8478015783540023, 0.9966178128523112" layoutX="4.0" prefHeight="449.0" prefWidth="889.0">
+                                          <SplitPane dividerPositions="0.15219842164599776, 0.3314543404735062, 0.644870349492672, 0.8478015783540023, 0.5" layoutX="4.0" prefHeight="449.0" prefWidth="889.0">
                                              <items>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                                    <children>
