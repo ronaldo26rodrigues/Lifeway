@@ -2,7 +2,7 @@ package gui;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import excecoes.EmpresaJaCadastradaException;
+import Excecoes.EmpresaJaCadastradaException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

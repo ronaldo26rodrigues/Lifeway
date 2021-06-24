@@ -2,7 +2,7 @@ package dados;
 
 import java.util.List;
 
-import excecoes.ElementoJaExisteException;
+import Excecoes.ElementoJaExisteException;
 
 public interface IRepositorioGenerico<T> {
     

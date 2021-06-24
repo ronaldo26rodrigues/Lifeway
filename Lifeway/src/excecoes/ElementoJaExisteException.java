@@ -1,4 +1,4 @@
-package excecoes;
+package Excecoes;
 
 import java.lang.Exception;
 

@@ -1,4 +1,4 @@
-package excecoes;
+package Excecoes;
 
 import negocio.beans.Empresa;
 
