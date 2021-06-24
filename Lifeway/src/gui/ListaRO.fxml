@@ -124,12 +124,12 @@
             </Label>
          </bottom>
          <center>
-            <TableView fx:id="listaRO" prefHeight="474.0" prefWidth="370.0">
+            <TableView fx:id="listaRO" prefHeight="474.0" prefWidth="388.0">
               <columns>
-                <TableColumn fx:id="colunaAssunto" prefWidth="90.0" text="Assunto" />
-                <TableColumn fx:id="colunaLocal" prefWidth="141.0" text="Local" />
-                  <TableColumn fx:id="colunaData" prefWidth="100.0" text="Data" />
-                  <TableColumn fx:id="colunaEstado" prefWidth="84.0" resizable="false" text="Estado" />
+                <TableColumn fx:id="colunaAssunto" prefWidth="82.0" text="Assunto" />
+                <TableColumn fx:id="colunaLocal" prefWidth="222.0" text="Local" />
+                  <TableColumn fx:id="colunaData" prefWidth="62.0" text="Data" />
+                  <TableColumn fx:id="colunaEstado" prefWidth="49.0" resizable="false" text="Estado" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
