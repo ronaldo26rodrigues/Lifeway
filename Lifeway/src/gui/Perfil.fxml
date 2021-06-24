@@ -140,7 +140,7 @@
                                           <Font name="Calibri" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="BASELINE_CENTER" layoutX="196.0" layoutY="37.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="188.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar propriedades" textFill="WHITE">
+                                    <Button fx:id="adicionarPropriedades" alignment="BASELINE_CENTER" layoutX="196.0" layoutY="37.0" mnemonicParsing="false" onAction="#irAdicionarPropriedades" prefHeight="42.0" prefWidth="188.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar propriedades" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="15.0" />
                                        </font>

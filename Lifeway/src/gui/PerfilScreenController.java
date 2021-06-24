@@ -29,6 +29,8 @@ public class PerfilScreenController implements Initializable {
     private Button botaoRO;
     @FXML
     private Button botaoHome;
+    @FXML
+    private Button adicionarPropriedades;
 
 
     @FXML
@@ -55,6 +57,11 @@ public class PerfilScreenController implements Initializable {
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
+
+    }
+    public void irAdicionarPropriedades(ActionEvent event) throws IOException {
+        App w = new App();
+        w.trocarCena("Propriedades.fxml");
 
     }
 
