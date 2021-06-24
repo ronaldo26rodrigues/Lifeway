@@ -3,11 +3,13 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import negocio.beans.Usuario;
 import negocio.controle.ControladorUsuario;
 
@@ -74,9 +76,14 @@ private void checkLogin() throws IOException{
         }
         if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText()) && checkBox
         .isSelected() == true ){
-            usuarioLogado = usuario;
-            ControladorUsuario.getInstance().login(usuarioLogado);
-            m.trocarCena("MenuFuncionario.fxml");
+            /* if(usuario.getTipo().equals("FUNCIONARIO")){ */
+
+                usuarioLogado = usuario;
+                ControladorUsuario.getInstance().login(usuarioLogado);
+                m.trocarCena("MenuFuncionario.fxml");
+            /* } else {
+                loginErrado.setText("Você não possui um perfil de usuário");
+            } */
         }
     }
     if(usuarioLogado==null){
