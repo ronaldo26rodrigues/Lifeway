@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PerfilScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PerfilScreenController">
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
@@ -106,96 +105,95 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <top>
-            <AnchorPane prefHeight="122.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="78.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
          </top>
          <left>
-            <AnchorPane prefHeight="446.0" prefWidth="195.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="528.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </left>
          <bottom>
-            <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="81.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
          </bottom>
          <right>
-            <AnchorPane prefHeight="446.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="528.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <GridPane prefHeight="428.0" prefWidth="705.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="20.0" />
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="603.0" minWidth="10.0" prefWidth="603.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="12.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="224.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Alterar  informações" textFill="WHITE" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Comic Sans MS" size="19.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="15.0" top="400.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <ImageView fitHeight="77.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                     <image>
-                        <Image url="@imgs/user.png" />
-                     </image>
-                     <GridPane.margin>
-                        <Insets bottom="350.0" />
-                     </GridPane.margin>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="166.0" text="Nome Completo" textFill="#e38eff" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="22.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="100.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label fx:id="nomePerfil" alignment="CENTER" prefHeight="31.0" prefWidth="612.0" text="Vicente" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="26.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="80.0" top="50.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2" />
-                  <Label fx:id="cpfPerfil" alignment="CENTER" prefHeight="31.0" prefWidth="210.0" text="000000000" textFill="WHITE" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="26.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets top="120.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="143.0" text="CPF" textFill="#e38eff" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="22.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets top="50.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="192.0" text="Data de Nascimento" textFill="#e38eff" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="22.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets top="180.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label fx:id="dataNascimentoPerfil" alignment="CENTER" prefHeight="31.0" prefWidth="182.0" text="08/06/2002" textFill="WHITE" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Calibri" size="26.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets top="250.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <AnchorPane prefHeight="446.0" prefWidth="83.0" style="-fx-background-color: white;" />
-               </children>
-            </GridPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <GridPane prefHeight="478.0" prefWidth="862.0" style="-fx-background-color: eb6b62;" styleClass="#47b39d" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="89.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.0" minWidth="10.0" prefWidth="387.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="42.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <bottom>
+                              <AnchorPane prefHeight="93.0" prefWidth="387.0" style="-fx-background-color: #47b39d;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button alignment="BASELINE_CENTER" layoutX="6.0" layoutY="37.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="182.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Alterar  informações" textFill="WHITE">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="BASELINE_CENTER" layoutX="196.0" layoutY="37.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="188.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar propriedades" textFill="WHITE">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </bottom>
+                           <left>
+                              <AnchorPane prefHeight="435.0" prefWidth="391.0" style="-fx-background-color: #47b39d;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <ImageView fitHeight="77.0" fitWidth="69.0" layoutX="155.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imgs/user.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" layoutX="-1.0" layoutY="103.0" prefHeight="35.0" prefWidth="379.0" text="Nome Completo">
+                                       <font>
+                                          <Font name="Calibri" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="nomePerfil" alignment="CENTER" layoutY="138.0" prefHeight="31.0" prefWidth="376.0" text="Vicente" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="1.0" layoutY="181.0" prefHeight="35.0" prefWidth="376.0" text="CPF">
+                                       <font>
+                                          <Font name="Calibri" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cpfPerfil" alignment="CENTER" layoutX="85.0" layoutY="218.0" prefHeight="31.0" prefWidth="222.0" text="000000000" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutY="261.0" prefHeight="35.0" prefWidth="375.0" text="Data de Nascimento">
+                                       <font>
+                                          <Font name="Calibri" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dataNascimentoPerfil" alignment="CENTER" layoutY="301.0" prefHeight="31.0" prefWidth="377.0" text="08/06/2002" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="26.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </left>
+                        </BorderPane>
+                     </children>
+                  </GridPane>
+               </center>
+            </BorderPane>
          </center>
       </BorderPane>
    </center>
