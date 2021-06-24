@@ -6,7 +6,8 @@ package gui;
     import javafx.fxml.FXML;
     import javafx.fxml.Initializable;
     import javafx.scene.control.Button;
-    import javafx.scene.control.Label;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
     import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,6 +55,9 @@ import java.util.ResourceBundle;
 
         @FXML
         private Button marcarResolvido;
+
+        @FXML
+        private CheckBox apenasPendentes;
 
         RegistroDeOcorrencia registroSelecionado;
 
@@ -106,9 +110,11 @@ import java.util.ResourceBundle;
         public void atualizarLista() {
             listaRO.getItems().removeAll(Fachada.getInstance().listarROcorrencias());
             for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
-                listaRO.getItems().addAll(registroDeOcorrencia);
+                if(registroDeOcorrencia.getResolvido() == false && apenasPendentes.isSelected()) listaRO.getItems().addAll(registroDeOcorrencia); else if(apenasPendentes.isSelected()==false) listaRO.getItems().addAll(registroDeOcorrencia);
             }
         }
+
+        
 
         
 

@@ -3,10 +3,10 @@ package negocio.controle;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import dados.IRepositorioGenerico;
-import dados.RepositorioGenerico;
 import excecoes.ElementoJaExisteException;
 import excecoes.EmpresaJaCadastradaException;
+import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
 import negocio.beans.Empresa;
 
 public class ControladorEmpresa {

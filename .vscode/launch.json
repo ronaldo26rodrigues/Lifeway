@@ -6,61 +6,26 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "gui.App",
-            "projectName": "Lifeway_3c99f4ff",
-            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "gui.App",
-            "projectName": "Lifeway_dcfdc2ac",
-            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch TesteMain",
-            "request": "launch",
-            "mainClass": "main.TesteMain",
-            "projectName": "Lifeway_3c99f4ff"
-        },
-        {
-            "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "App",
-            "projectName": "Lifeway_3c99f4ff",
-            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"C:/Users/USUARIO/OneDrive/Área de Trabalho/Lifewa/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Launch App",
             "request": "launch",
-            "mainClass": "App",
-            "projectName": "Lifeway_dcfdc2ac",
-            "vmArgs": "--module-path \"D:/Java Projects/IP2/Lifeway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "gui.App",
+            "projectName": "Lifewa_61f7ab6d",
+            "vmArgs": "--module-path \"C:/Users/USUARIO/OneDrive/Área de Trabalho/Lifewa/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
-            "name": "Launch TesteMain",
+            "name": "Launch Teste",
             "request": "launch",
-            "mainClass": "main.TesteMain",
-            "projectName": "Lifeway_dcfdc2ac"
-        },
-        {
-            "type": "java",
-            "name": "Launch Main",
-            "request": "launch",
-            "mainClass": "questao_3.Main"
+            "mainClass": "testes.Teste",
+            "projectName": "Lifewa_61f7ab6d",
+            "vmArgs": "--module-path \"C:/Users/USUARIO/OneDrive/Área de Trabalho/Lifewa/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
