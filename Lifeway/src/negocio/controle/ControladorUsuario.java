@@ -78,8 +78,12 @@ public class ControladorUsuario {
 
         
         //verificar se CPF é válido
+        boolean cpfValido;
         if(!ValidaCPF.isCPF(cpfUsuario)) {
+            cpfValido = false;
             throw new CPFInvalidoException(cpfUsuario);
+        } else {
+            cpfValido = true;
         }
 
         //gerar hash das senhas
