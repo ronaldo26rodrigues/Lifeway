@@ -50,7 +50,11 @@ private void checar() throws IOException{
     
 }
 
-
+/**
+ * Método para validar log in (confere se CPF e senha estão corretos)
+ * @throws IOException
+ * @throws NoSuchAlgorithmException
+ */
 private void checkLogin() throws IOException, NoSuchAlgorithmException{
     /* App m = new App();
     if(cpf.getText().toString().equals("123") && senha.getText().toString().equals("123")){
@@ -69,8 +73,9 @@ private void checkLogin() throws IOException, NoSuchAlgorithmException{
     App m = new App();
     Usuario usuarioLogado = null;
     for (Usuario usuario : ControladorUsuario.getInstance().listarUsuarios()) {
-        //validar senha
-
+            
+        //chama método gerarSenhaHex para criptografar senha digitada
+        //e comparar com a senha guardada no sistema
         String senhaInseridaHex = ControladorUsuario.gerarSenhaHex(senha.getText());
 
         if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex) && checkBox

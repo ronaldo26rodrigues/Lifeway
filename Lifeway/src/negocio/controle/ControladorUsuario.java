@@ -59,8 +59,8 @@ public class ControladorUsuario {
     /**
      * Método para cadastrar usuário e inserir no repositorioUsuario.
      * Verifica se o CPF é válido utilizando a classe ValidaCPF.
-     * Gera um Hash para a senha do usuário (utilizando o algoritmo SHA-256) 
-     * e guarda em formato hexadecimal.
+     * Chama o método gerarSenhaHex para guardar a senha do usuário
+     * em formato hexadecimal.
      * @param usuario
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
@@ -74,13 +74,13 @@ public class ControladorUsuario {
         String cpfUsuario = usuario.getIdentificacao();
         
         //verificar se CPF é válido
-        boolean cpfValido;
+        //boolean cpfValido;
         if(!ValidaCPF.isCPF(cpfUsuario)) {
-            cpfValido = false;
+            //cpfValido = false;
             throw new CPFInvalidoException(cpfUsuario);
-        } else {
-            cpfValido = true;
-        }
+        } //else {
+            //cpfValido = true;
+        //}
 
         String senhaHex = gerarSenhaHex(usuario.getSenha());
         usuario.setSenha(senhaHex);
@@ -93,6 +93,13 @@ public class ControladorUsuario {
         }
     }
 
+    /**
+     * Método para gerar um Hash para a senha do usuário (utilizando o algoritmo SHA-256)
+     * e guardá-la em formato hexadecimal (senhaHex)
+     * @param senha
+     * @return senhaHex
+     * @throws NoSuchAlgorithmException
+     */
     public static String gerarSenhaHex(String senha) throws NoSuchAlgorithmException {
 
         //String senhaUsuario = usuario.getSenha();

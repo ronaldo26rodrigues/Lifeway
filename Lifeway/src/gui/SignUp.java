@@ -4,14 +4,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Font;
 import negocio.beans.Cliente;
-import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorUsuario;
 
 import java.io.IOException;
@@ -47,7 +45,14 @@ public class SignUp {
        voltarp.trocarCena("Login.fxml");
     }
 
-
+    /**
+     * Método para cadastrar novo usuário.
+     * @throws ElementoJaExisteException
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws UsuarioJaCadastradoException
+     * @throws CPFInvalidoException
+     */
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         boolean cadastroRealizado = false;
