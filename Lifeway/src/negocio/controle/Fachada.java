@@ -16,11 +16,13 @@ public class Fachada {
 
     private static ControladorUsuario controladorUsuario;
     private static ControladorRO controladorRO;
+    private static ControladorPropriedade controladorPropriedade;
     
 
     private Fachada() {
         controladorUsuario = ControladorUsuario.getInstance();
         controladorRO = ControladorRO.getInstance();
+        controladorPropriedade = ControladorPropriedade.getInstance();
     }
 
     public static Fachada getInstance() {
@@ -76,5 +78,7 @@ public class Fachada {
     public List<RegistroDeOcorrencia> listarROcorrencias() {
         return controladorRO.listarROcorrencias();
     }
+
+    
  
 }

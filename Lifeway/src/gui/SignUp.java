@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Font;
 import negocio.beans.Cliente;
+import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorUsuario;
 
@@ -52,7 +53,9 @@ public class SignUp {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         boolean cadastroRealizado = false;;
         try {
-            ControladorUsuario.getInstance().cadastrarUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));
+            Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue());
+            ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
+            System.out.println(novoCliente.getSenha());
             cadastroRealizado = true;
         } catch (CPFInvalidoException e) {
             System.out.println("Exception caught: CPF inválido.");
