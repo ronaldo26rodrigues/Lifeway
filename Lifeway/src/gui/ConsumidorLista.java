@@ -1,6 +1,7 @@
 package gui;
 
-    import javafx.beans.value.ChangeListener;
+    import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
     import javafx.beans.value.ObservableValue;
     import javafx.event.ActionEvent;
     import javafx.fxml.FXML;
@@ -8,8 +9,13 @@ package gui;
     import javafx.scene.control.Button;
     import javafx.scene.control.Label;
     import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.Usuario;
+import negocio.controle.Fachada;
 
-    import java.io.IOException;
+import java.io.IOException;
     import java.net.URL;
     import java.util.ResourceBundle;
 
@@ -29,11 +35,22 @@ package gui;
         @FXML
         private Button botaoHomeADM;
         @FXML
-        private ListView<String> consumidorList;
+        private TableView<Usuario> consumidorList;
+
+        @FXML
+        private TableColumn<Usuario, String> colunaProprietario;
+        @FXML
+        private TableColumn<Usuario, String> colunaTipo;
+        @FXML
+        private TableColumn<Usuario, String> colunaEndereco;
+        @FXML
+        private TableColumn<Usuario, String> colunaSituacao;
+
+
         @FXML
         private Label labelConsumidorList;
 
-        String[] consumidores = {"Vicente", "Rona", "Ganso"};
+        // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
         String consumidorAtual;
 
@@ -76,7 +93,21 @@ package gui;
 
         @Override
         public void initialize(URL arg0, ResourceBundle arg1) {
-            consumidorList.getItems().addAll(consumidores);   
+
+
+            colunaProprietario.setCellValueFactory(new PropertyValueFactory<>("nome"));
+            colunaTipo.setCellValueFactory(new PropertyValueFactory<>("senha"));
+            colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("identificacao"));
+            colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("nome"));
+
+
+
+
+
+             for (Usuario usuario : Fachada.getInstance().listarUsuarios()) {
+                consumidorList.getItems().addAll(usuario); 
+            }
+              /*
             consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>(){
 
                 @Override
@@ -85,7 +116,7 @@ package gui;
                 labelConsumidorList.setText(consumidorAtual);       
                 }
                 
-            });
+            }); */
         }
 
     

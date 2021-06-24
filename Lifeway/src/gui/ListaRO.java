@@ -8,8 +8,13 @@ package gui;
     import javafx.scene.control.Button;
     import javafx.scene.control.Label;
     import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.RegistroDeOcorrencia;
+import negocio.controle.Fachada;
 
-    import java.io.IOException;
+import java.io.IOException;
     import java.net.URL;
     import java.util.ResourceBundle;
 
@@ -28,12 +33,25 @@ package gui;
         private Button botaoListaRO;
         @FXML
         private Button botaoHomeADM;
+        
+        
         @FXML
-        private ListView<String> consumidorList;
+        private TableView<RegistroDeOcorrencia> listaRO;
+
         @FXML
+        private TableColumn<RegistroDeOcorrencia, String> colunaAssunto;
+        @FXML
+        private TableColumn<RegistroDeOcorrencia, String> colunaLocal;
+        @FXML
+        private TableColumn<RegistroDeOcorrencia, String> colunaData;
+        @FXML
+        private TableColumn<RegistroDeOcorrencia, String> colunaEstado;
+
+
+        /* @FXML
         private Label labelConsumidorList;
 
-        String[] consumidores = {"Vicente, Rona, Ganso"};
+        String[] consumidores = {"Vicente, Rona, Ganso"}; */
 
         String consumidorAtual;
 
@@ -76,7 +94,21 @@ package gui;
 
         @Override
         public void initialize(URL arg0, ResourceBundle arg1) {
-            consumidorList.getItems().addAll(consumidores);   
+            
+            
+            colunaAssunto.setCellValueFactory(new PropertyValueFactory<>("assunto"));
+            colunaData.setCellValueFactory(new PropertyValueFactory<>("data"));
+            colunaLocal.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+            colunaEstado.setCellValueFactory(new PropertyValueFactory<>("resolvido"));
+
+            for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
+                listaRO.getItems().addAll(registroDeOcorrencia);
+            }
+            
+            
+            
+            
+            /* consumidorList.getItems().addAll(consumidores);   
             consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>(){
 
                 @Override
@@ -85,7 +117,7 @@ package gui;
                 labelConsumidorList.setText(consumidorAtual);       
                 }
                 
-            });
+            }); */
         }
 
     
