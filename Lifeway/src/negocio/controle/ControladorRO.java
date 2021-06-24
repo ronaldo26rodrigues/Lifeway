@@ -3,6 +3,7 @@ package negocio.controle;
 import java.time.LocalDate;
 import java.util.Random;
 
+import Excecoes.ElementoJaExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;
@@ -11,8 +12,6 @@ import java.util.List;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-
-import excecoes.ElementoJaExisteException;
 //import jdk.vm.ci.code.RegisterAttributes;
 import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.Usuario;

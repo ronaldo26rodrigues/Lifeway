@@ -3,7 +3,7 @@ package dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import excecoes.ElementoJaExisteException;
+import Excecoes.ElementoJaExisteException;
 
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 

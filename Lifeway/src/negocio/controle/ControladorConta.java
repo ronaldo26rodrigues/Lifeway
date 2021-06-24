@@ -2,9 +2,9 @@ package negocio.controle;
 
 import java.util.List;
 
+import Excecoes.ElementoJaExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import excecoes.ElementoJaExisteException;
 import negocio.beans.Conta;
 
 public class ControladorConta {
