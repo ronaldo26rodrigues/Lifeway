@@ -76,8 +76,16 @@ public class SignUp {
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
 
         if(cadastroRealizado == true) {
-            botaoCriarConta.setFont(Font.font(14));
-            botaoCriarConta.setText("Conta criada!\nFaça seu login.");
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Cadastro realizado");
+            alert.setHeaderText(null);
+            alert.setContentText("Cadastro realizado com sucesso. Faça seu login!");
+
+            alert.showAndWait();
+
+            botaoCriarConta.setFont(Font.font(16));
+            botaoCriarConta.setText("Faça seu login.");
             botaoCriarConta.setOnAction(new EventHandler<ActionEvent>(){
                 public void handle(ActionEvent arg0) {
                     App voltarp = new App();
