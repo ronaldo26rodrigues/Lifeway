@@ -146,6 +146,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" />
+               </BorderPane.margin>
             </Button>
          </bottom>
       </BorderPane>
