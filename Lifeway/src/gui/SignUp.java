@@ -50,12 +50,12 @@ public class SignUp {
 
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
-
+        boolean cadastroRealizado = false;;
         try {
             ControladorUsuario.getInstance().cadastrarUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));
+            cadastroRealizado = true;
         } catch (CPFInvalidoException e) {
-            System.out.println("Exception caught: CPF inválido.");  
-        } finally {
+            System.out.println("Exception caught: CPF inválido.");
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("CPF inválido");
             //alert.setHeaderText("Look, an Error Dialog");
@@ -65,20 +65,22 @@ public class SignUp {
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
-        
-        botaoCriarConta.setFont(Font.font(14));
-        botaoCriarConta.setText("Conta criada!\nFaça seu login.");
-        botaoCriarConta.setOnAction(new EventHandler<ActionEvent>(){
-            public void handle(ActionEvent arg0) {
-                App voltarp = new App();
-                try {
-                    voltarp.trocarCena("Login.fxml");
-                } catch (Exception e) {
-                    //TODO: handle exception
-                }
-                
-            };
-        });
+        if(cadastroRealizado == true) {
+            botaoCriarConta.setFont(Font.font(14));
+            botaoCriarConta.setText("Conta criada!\nFaça seu login.");
+            botaoCriarConta.setOnAction(new EventHandler<ActionEvent>(){
+                public void handle(ActionEvent arg0) {
+                    App voltarp = new App();
+                    try {
+                        voltarp.trocarCena("Login.fxml");
+                    } catch (Exception e) {
+                        //TODO: handle exception
+                    }
+                    
+                };
+            });
+        }
+
     }
 
    
