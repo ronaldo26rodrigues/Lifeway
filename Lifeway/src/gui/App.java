@@ -19,9 +19,10 @@ public class  App extends Application{
         primaryStage.setResizable(true);
        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
        Parent root = fxmlLoader.load();
-       Scene tela = new Scene(root, 1280, 720);
+       Scene tela = new Scene(root);
 
        primaryStage.setTitle("LIFEWAY");
+       primaryStage.setMaximized(true);
        primaryStage.setScene(tela);
        primaryStage.show();
     }
