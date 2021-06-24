@@ -3,7 +3,7 @@ package negocio.controle;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import Excecoes.ElementoJaExisteException;
+import excecoes.ElementoJaExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Propriedade;

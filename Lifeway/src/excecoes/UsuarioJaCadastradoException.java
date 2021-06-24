@@ -1,4 +1,4 @@
-package Excecoes;
+package excecoes;
 
 
 import negocio.beans.Usuario;
