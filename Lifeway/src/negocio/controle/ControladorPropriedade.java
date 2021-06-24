@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.PropriedadeJaCadastradaException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Propriedade;
@@ -39,16 +40,20 @@ public class ControladorPropriedade {
     }
 
     
-    //throws CPFInvalidoException, PropriedadeJaCadastradaException
-    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException {
-    if (propriedade == null) return; // >>> Tratar erros para GUI
+    /**
+     * Método para cadastrar propriedade.
+     * @param propriedade
+     * @throws NoSuchAlgorithmException
+     * @throws PropriedadeJaCadastradaException
+     */
+    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
+        if (propriedade == null) return; // >>> Tratar erros para GUI
 
-    //verificar se CPF é válido
-    //criar função para isso em cliente?
+        try {
+            this.repositorioPropriedade.inserir(propriedade);
+        } catch(ElementoJaExisteException e) {
+            throw new PropriedadeJaCadastradaException(e);
+        }
 
-    //gerar hash das senhas
-
-    //adicionar Propriedade ao repositorioCliente
-
-}
+    }
 }

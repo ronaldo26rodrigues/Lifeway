@@ -4,7 +4,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.ElementoNaoExisteException;
 import excecoes.EmpresaJaCadastradaException;
+import excecoes.EmpresaNaoExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;
@@ -31,7 +33,7 @@ public class ControladorEmpresa {
         repositorioEmpresa.inserir(empresa);
     }
 
-    public void excluirEmpresa(Empresa empresa) throws ElementoJaExisteException {
+    public void excluirEmpresa(Empresa empresa) throws ElementoNaoExisteException {
         repositorioEmpresa.remover(empresa);
     }
 
@@ -58,4 +60,5 @@ public class ControladorEmpresa {
             throw new EmpresaJaCadastradaException(e);
         }
     }
+
 }
