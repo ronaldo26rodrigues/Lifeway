@@ -1,5 +1,6 @@
 package gui;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +40,7 @@ public void criar(ActionEvent event) throws IOException{
     
 }
 
-public void entrar(ActionEvent event) throws IOException{
+public void entrar(ActionEvent event) throws IOException, NoSuchAlgorithmException{
     checkLogin();
 }
 
@@ -49,8 +50,12 @@ private void checar() throws IOException{
     
 }
 
-
-private void checkLogin() throws IOException{
+/**
+ * Método para validar log in (confere se CPF e senha estão corretos)
+ * @throws IOException
+ * @throws NoSuchAlgorithmException
+ */
+private void checkLogin() throws IOException, NoSuchAlgorithmException{
     /* App m = new App();
     if(cpf.getText().toString().equals("123") && senha.getText().toString().equals("123")){
         loginErrado.setText("Sucesso!");
@@ -68,7 +73,12 @@ private void checkLogin() throws IOException{
     App m = new App();
     Usuario usuarioLogado = null;
     for (Usuario usuario : ControladorUsuario.getInstance().listarUsuarios()) {
-        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senha.getText()) && checkBox
+            
+        //chama método gerarSenhaHex para criptografar senha digitada
+        //e comparar com a senha guardada no sistema
+        String senhaInseridaHex = ControladorUsuario.gerarSenhaHex(senha.getText());
+
+        if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex) && checkBox
         .isSelected() == false ){
             usuarioLogado = usuario;
             ControladorUsuario.getInstance().login(usuarioLogado);

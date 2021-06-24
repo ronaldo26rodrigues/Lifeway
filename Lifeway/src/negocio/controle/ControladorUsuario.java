@@ -55,14 +55,12 @@ public class ControladorUsuario {
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
-
-    
     
     /**
      * Método para cadastrar usuário e inserir no repositorioUsuario.
      * Verifica se o CPF é válido utilizando a classe ValidaCPF.
-     * Gera um Hash para a senha do usuário (utilizando o algoritmo SHA-256) 
-     * e guarda em formato hexadecimal.
+     * Chama o método gerarSenhaHex para guardar a senha do usuário
+     * em formato hexadecimal.
      * @param usuario
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
@@ -74,21 +72,41 @@ public class ControladorUsuario {
         if(usuario == null) return;
 
         String cpfUsuario = usuario.getIdentificacao();
-        String senhaUsuario = usuario.getSenha();
-
         
         //verificar se CPF é válido
-        boolean cpfValido;
+        //boolean cpfValido;
         if(!ValidaCPF.isCPF(cpfUsuario)) {
-            cpfValido = false;
+            //cpfValido = false;
             throw new CPFInvalidoException(cpfUsuario);
-        } else {
-            cpfValido = true;
-        }
+        } //else {
+            //cpfValido = true;
+        //}
 
+        String senhaHex = gerarSenhaHex(usuario.getSenha());
+        usuario.setSenha(senhaHex);
+
+        //adicionar usuario ao repositorioUsuario
+        try {
+            this.repositorioUsuario.inserir(usuario);
+        } catch(ElementoJaExisteException e) {
+            throw new UsuarioJaCadastradoException(e);
+        }
+    }
+
+    /**
+     * Método para gerar um Hash para a senha do usuário (utilizando o algoritmo SHA-256)
+     * e guardá-la em formato hexadecimal (senhaHex)
+     * @param senha
+     * @return senhaHex
+     * @throws NoSuchAlgorithmException
+     */
+    public static String gerarSenhaHex(String senha) throws NoSuchAlgorithmException {
+
+        //String senhaUsuario = usuario.getSenha();
+        
         //gerar hash das senhas
         MessageDigest algoritmo = MessageDigest.getInstance("SHA-256");
-        byte senhaDigest[] = algoritmo.digest(senhaUsuario.getBytes(StandardCharsets.UTF_8));
+        byte senhaDigest[] = algoritmo.digest(senha.getBytes(StandardCharsets.UTF_8));
 
         //guardar senha em formato hexadecimal
         StringBuilder hexString = new StringBuilder();
@@ -97,15 +115,9 @@ public class ControladorUsuario {
         }
 
         String senhaHex = hexString.toString();
-        usuario.setSenha(senhaHex);
+        //usuario.setSenha(senhaHex);
+        return senhaHex;
 
-
-        //adicionar usuario ao repositorioUsuario
-        try {
-            this.repositorioUsuario.inserir(usuario);
-        } catch(ElementoJaExisteException e) {
-            throw new UsuarioJaCadastradoException(e);
-        }
     }
 
     //public boolean autenticarUsuario()
