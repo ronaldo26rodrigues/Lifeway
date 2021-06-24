@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Extratos">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Extratos">
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
             <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="17.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -109,9 +109,9 @@
          <bottom>
             <AnchorPane prefHeight="39.0" prefWidth="993.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button contentDisplay="RIGHT" layoutX="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="204.0" style="-fx-background-color: #ffffff; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Exibir valor total de transações" textAlignment="JUSTIFY" textFill="#0011ff">
+                  <Button contentDisplay="RIGHT" layoutX="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="226.0" style="-fx-background-color: #ffffff; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Exibir valor total de transações" textAlignment="JUSTIFY" textFill="#0011ff">
                      <font>
-                        <Font name="Arial" size="13.0" />
+                        <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Button>
                </children></AnchorPane>
@@ -137,12 +137,12 @@
                <children>
                   <Button contentDisplay="RIGHT" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="222.0" style="-fx-background-color: #39A67F; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Buscar Conta por nome" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
-                        <Font name="Comic Sans MS" size="17.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="RIGHT" layoutX="249.0" layoutY="23.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #39A67F; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Buscar Conta por data" textAlignment="JUSTIFY" textFill="WHITE">
+                  <Button contentDisplay="RIGHT" layoutX="246.0" layoutY="25.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="222.0" style="-fx-background-color: #39A67F; text-decoration: underline;" stylesheets="@javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Buscar Conta por data" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
-                        <Font name="Comic Sans MS" size="17.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Button>
                </children>

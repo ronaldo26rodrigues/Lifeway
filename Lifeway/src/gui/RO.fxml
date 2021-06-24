@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ROScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ROScreenController">
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
@@ -110,22 +110,16 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <top>
-            <AnchorPane prefHeight="122.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="56.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
          </top>
          <left>
-            <AnchorPane prefHeight="446.0" prefWidth="195.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="429.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
          </left>
-         <bottom>
-            <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="botaoOcorrencia" layoutX="333.0" layoutY="47.0" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" textFill="#392727" />
-               </children></AnchorPane>
-         </bottom>
          <right>
-            <AnchorPane prefHeight="446.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="429.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <GridPane prefHeight="428.0" prefWidth="705.0" style="-fx-background-color: #000B1D; -fx-border-radius: 80%;" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="499.0" prefWidth="548.0" style="-fx-background-color: #000B1D; -fx-border-radius: 80%;" BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -243,8 +237,18 @@
                      </children>
                   </GridPane>
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
             </GridPane>
          </center>
+         <bottom>
+            <Button fx:id="botaoOcorrencia" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="34.0" prefWidth="228.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" textFill="#392727" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
       </BorderPane>
    </center>
 </BorderPane>

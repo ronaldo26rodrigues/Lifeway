@@ -114,7 +114,7 @@
             <AnchorPane prefHeight="547.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
          <top>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="920.0" text="Perfil Administrativo" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="73.0" prefWidth="580.0" text="Perfil Administrativo" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font size="50.0" />
                </font>
@@ -180,7 +180,7 @@
                            <children>
                               <Button alignment="BASELINE_CENTER" layoutX="9.0" layoutY="40.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="369.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Alterar  informações" textFill="WHITE">
                                  <font>
-                                    <Font name="Comic Sans MS" size="17.0" />
+                                    <Font name="Calibri" size="20.0" />
                                  </font>
                               </Button>
                            </children>

@@ -21,7 +21,7 @@ public class  App extends Application{
        Parent root = fxmlLoader.load();
        Scene tela = new Scene(root);
 
-       primaryStage.setTitle("LIFEWAY");
+       primaryStage.setTitle("LIFEWAY");        
        primaryStage.setMaximized(true);
        primaryStage.setScene(tela);
        primaryStage.show();

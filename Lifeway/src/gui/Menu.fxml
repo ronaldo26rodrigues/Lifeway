@@ -134,7 +134,7 @@
                      <children>
                         <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes." textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
                         <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
@@ -163,7 +163,7 @@
                         </Label>
                         <Label fx:id="tipoTaxa" layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -175,14 +175,14 @@
                               <Image url="@imgs/dinheiro.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="60.0" layoutY="6.0" text="Status " textFill="#41951c">
+                        <Label layoutX="58.0" layoutY="14.0" text="Status " textFill="#41951c">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
                         <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="17.0" />
                            </font>
                         </Label>
                      </children>

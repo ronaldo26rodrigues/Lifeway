@@ -50,9 +50,9 @@
       </BorderPane>
       <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: #9871F5;" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <top>
-            <Button fx:id="botaoCriarConta" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="173.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoCriarConta" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="188.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Comic Sans MS" size="16.0" />
+                  <Font name="Calibri" size="24.0" />
                </font>
                <BorderPane.margin>
                   <Insets top="10.0" />
@@ -141,7 +141,7 @@
          <bottom>
             <Button fx:id="botaoLogin" alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="51.0" prefWidth="174.0" style="-fx-background-color: #13f2db; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="border 2px solid red" text="Entrar" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Comic Sans MS" size="24.0" />
+                  <Font name="Calibri" size="30.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
