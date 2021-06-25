@@ -28,8 +28,8 @@ public class Endereco {
     public Endereco(String rua, int numero, String complemento, String pontodeReferencia) {
         this.rua = rua;
         this.numero = numero;
-        this.complemento = complemento;
-        this.pontoDeReferencia = pontodeReferencia;
+        setComplemento(complemento);
+        setPontoDeReferencia(pontoDeReferencia);
     }
 
 
@@ -56,7 +56,11 @@ public class Endereco {
     }
 
     public void setComplemento(String complemento) {
-        this.complemento = complemento;
+        if(complemento == null || complemento.equals("")) {
+            this.complemento = "nenhum";
+        } else {
+            this.complemento = complemento;
+        }
     }
 
     public String getPontoDeReferencia() {
@@ -64,7 +68,11 @@ public class Endereco {
     }
 
     public void setPontoDeReferencia(String pontoDeReferencia) {
-        this.pontoDeReferencia = pontoDeReferencia;
+        if(pontoDeReferencia == null || pontoDeReferencia.equals("")) {
+            this.pontoDeReferencia = "nenhum";
+        } else {
+            this.pontoDeReferencia = pontoDeReferencia;
+        }
     }
 
     /**
