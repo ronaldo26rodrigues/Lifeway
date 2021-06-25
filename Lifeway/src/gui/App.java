@@ -17,14 +17,14 @@ public class  App extends Application{
 
         stg = primaryStage;
         primaryStage.setResizable(true);
-       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
-       Parent root = fxmlLoader.load();
-       Scene tela = new Scene(root);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene tela = new Scene(root);
 
-       primaryStage.setTitle("LIFEWAY");        
-       primaryStage.setMaximized(true);
-       primaryStage.setScene(tela);
-       primaryStage.show();
+        primaryStage.setTitle("LIFEWAY");        
+        primaryStage.setMaximized(true);
+        primaryStage.setScene(tela);
+        primaryStage.show();
     }
 
     public void trocarCena(String fxml) throws IOException{

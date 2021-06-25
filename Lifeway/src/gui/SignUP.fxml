@@ -47,18 +47,21 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
-      <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: #9871F5;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <top>
-            <Button fx:id="botaoLogar" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="46.0" prefWidth="173.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Fazer Login" textFill="#fcfcfc" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoLogar" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #eb0000; -fx-border-radius: 15px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Fazer Login" textFill="#fcfcfc" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
                <BorderPane.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="5.0" top="10.0" />
                </BorderPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
          </top>
          <left>
@@ -68,7 +71,7 @@
             <AnchorPane prefHeight="285.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane prefWidth="450.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -82,15 +85,15 @@
                         <Font size="17.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="130.0" left="40.0" right="30.0" />
+                        <Insets bottom="180.0" left="45.0" right="30.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/usuario.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="130.0" />
+                        <Insets bottom="180.0" left="2.0" />
                      </GridPane.margin>
                   </ImageView>
                   <BorderPane prefHeight="233.0" prefWidth="450.0">
@@ -99,6 +102,9 @@
                            <image>
                               <Image url="@imgs/icon.png" />
                            </image>
+                           <BorderPane.margin>
+                              <Insets top="10.0" />
+                           </BorderPane.margin>
                         </ImageView>
                      </center>
                      <bottom>
@@ -110,48 +116,51 @@
                         <Font size="17.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="40.0" right="30.0" />
+                        <Insets bottom="60.0" left="45.0" right="30.0" />
                      </GridPane.margin>
                   </PasswordField>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/senha.png" />
                      </image>
+                     <GridPane.margin>
+                        <Insets bottom="60.0" left="2.0" />
+                     </GridPane.margin>
                   </ImageView>
                   <TextField fx:id="nome" prefHeight="40.0" prefWidth="368.0" promptText="Nome" GridPane.rowIndex="1">
                      <font>
                         <Font size="17.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="-120.0" left="40.0" right="30.0" />
+                        <Insets bottom="-70.0" left="45.0" right="30.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/usuario.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets top="120.0" />
+                        <Insets bottom="50.0" left="2.0" top="120.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <DatePicker fx:id="dataNascimento" prefHeight="40.0" prefWidth="435.0" promptText="Data de Nascimento" GridPane.rowIndex="1">
+                  <DatePicker fx:id="dataNascimento" prefHeight="40.0" prefWidth="381.0" promptText="Data de Nascimento" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="40.0" right="30.0" top="230.0" />
+                        <Insets bottom="50.0" left="45.0" right="30.0" top="230.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/calendario.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets top="230.0" />
+                        <Insets bottom="50.0" left="5.0" top="230.0" />
                      </GridPane.margin>
                   </ImageView>
                </children>
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoCriarConta" alignment="CENTER" mnemonicParsing="false" onAction="#criarConta" prefHeight="51.0" prefWidth="174.0" style="-fx-background-color: #13f2db; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="border 2px solid red" text="Criar Conta" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoCriarConta" alignment="CENTER" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="174.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Criar Conta" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -159,7 +168,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <BorderPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="17.0" left="10.0" />
                </BorderPane.margin>
             </Button>
          </bottom>
