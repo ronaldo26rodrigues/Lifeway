@@ -6,7 +6,7 @@ import java.util.List;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 import excecoes.EmpresaJaCadastradaException;
-import excecoes.EmpresaNaoExisteException;
+// import excecoes.EmpresaNaoExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;

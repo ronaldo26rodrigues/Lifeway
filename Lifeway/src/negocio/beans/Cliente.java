@@ -83,7 +83,7 @@ public class Cliente extends Usuario {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + super.toString();
+        resultado += super.toString();
         //resultado += "\n" + "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
         // resultado += "\n" + "Identificação: " + this.getIdentificacao();

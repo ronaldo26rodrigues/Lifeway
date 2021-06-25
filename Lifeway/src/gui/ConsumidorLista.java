@@ -12,6 +12,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.Propriedade;
 import negocio.beans.Usuario;
 import negocio.controle.Fachada;
 
@@ -35,16 +36,16 @@ import java.io.IOException;
         @FXML
         private Button botaoHomeADM;
         @FXML
-        private TableView<Usuario> consumidorList;
+        private TableView<Propriedade> consumidorList;
 
         @FXML
-        private TableColumn<Usuario, String> colunaProprietario;
+        private TableColumn<Propriedade, String> colunaProprietario;
         @FXML
-        private TableColumn<Usuario, String> colunaTipo;
+        private TableColumn<Propriedade, String> colunaTipo;
         @FXML
-        private TableColumn<Usuario, String> colunaEndereco;
+        private TableColumn<Propriedade, String> colunaEndereco;
         @FXML
-        private TableColumn<Usuario, String> colunaSituacao;
+        private TableColumn<Propriedade, String> colunaSituacao;
 
 
         @FXML
@@ -95,16 +96,16 @@ import java.io.IOException;
         public void initialize(URL arg0, ResourceBundle arg1) {
 
 
-            colunaProprietario.setCellValueFactory(new PropertyValueFactory<>("nome"));
-            colunaTipo.setCellValueFactory(new PropertyValueFactory<>("senha"));
-            colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("identificacao"));
-            colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("nome"));
+            colunaProprietario.setCellValueFactory(new PropertyValueFactory<>("clienteProprietario"));
+            colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+            colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+            colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("idPropriedade"));
 
 
 
 
 
-             for (Usuario usuario : Fachada.getInstance().listarUsuarios()) {
+             for (Propriedade usuario : Fachada.getInstance().listarPropriedade()) {
                 consumidorList.getItems().addAll(usuario); 
             }
               /*

@@ -1,6 +1,7 @@
 package negocio.beans;
 
 import java.util.List;
+import java.util.Random;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
@@ -10,7 +11,7 @@ public class Propriedade {
     private String idPropriedade;
     private TipoPropriedade tipo;
     private Endereco endereco;
-    private Cliente clienteProprietario;
+    private Usuario clienteProprietario;
     private String idEmpresa;
     private Empresa empresaContratada;
 
@@ -34,6 +35,16 @@ public class Propriedade {
         this.idEmpresa = idEmpresa;
         
         this.repositorioContas = new RepositorioGenerico<>();
+    }
+
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
+        Random rng = new Random();
+        idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
+
+        this.tipo = tipo;
+        this.clienteProprietario = cliente;
+        this.empresaContratada = empresa;
+        this.endereco = endereco;
     }
 
 
@@ -80,7 +91,7 @@ public class Propriedade {
         this.endereco = endereco;
     }
 
-    public Cliente getClienteProprietario() {
+    public Usuario getClienteProprietario() {
         return clienteProprietario;
     }
 

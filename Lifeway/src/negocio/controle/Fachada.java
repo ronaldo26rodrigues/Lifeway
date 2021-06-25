@@ -1,11 +1,14 @@
 package negocio.controle;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.PropriedadeJaCadastradaException;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
+import negocio.beans.Propriedade;
 import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.Usuario;
 
@@ -77,6 +80,18 @@ public class Fachada {
         
     public List<RegistroDeOcorrencia> listarROcorrencias() {
         return controladorRO.listarROcorrencias();
+    }
+
+    public void excluirPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
+        controladorPropriedade.excluirPropriedade(propriedade);;
+    }
+
+    public List<Propriedade> listarPropriedade() {
+        return controladorPropriedade.listarPropriedade();
+    }
+
+    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
+        controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
     

@@ -74,7 +74,7 @@ public abstract class Usuario {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "Nome: " + this.getNome();
         resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }
