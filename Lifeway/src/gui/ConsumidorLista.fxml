@@ -128,7 +128,7 @@
                 <TableColumn fx:id="colunaProprietario" prefWidth="88.0" text="Proprietario" />
                 <TableColumn fx:id="colunaTipo" prefWidth="82.0" text="Tipo" />
                   <TableColumn fx:id="colunaEndereco" prefWidth="85.0" text="Endereço" />
-                  <TableColumn fx:id="colunaSituacao" prefWidth="91.0" text="Situação" />
+                  <TableColumn fx:id="colunaSituacao" prefWidth="91.0" text="id" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="61.0" />
