@@ -1,0 +1,18 @@
+Funcionalidades que já podem ser executadas:
+
+- Criar perfil
+
+Cliente:
+- Registrar ocorrência
+- Criar propriedade
+
+Funcionario:
+- Acessar a lista de propriedades
+- Acessar a lista de ocorrências
+- Resolver ocorrências
+
+TODO:
+
+- Na lista de propriedades, selecionar uma propriedade e adicionar a ela uma leitura de consumo, e com esses valores criar e adicionar uma conta a esta propriedade.
+- Definição de taxas da empresa
+- Criar e gerenciar empresas (no momento existem apenas duas criadas pelo programa e que não podem ser gerenciadas por um funcionario)
