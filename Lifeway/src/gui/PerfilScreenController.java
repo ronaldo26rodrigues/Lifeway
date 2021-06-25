@@ -31,6 +31,8 @@ public class PerfilScreenController implements Initializable {
     private Button botaoHome;
     @FXML
     private Button adicionarPropriedades;
+    @FXML
+    private Button alterarInformacoes;
 
 
     @FXML

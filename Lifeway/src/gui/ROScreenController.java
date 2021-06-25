@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -10,18 +11,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
-import negocio.beans.RegistroDeOcorrencia;
-import negocio.beans.Usuario;
 import negocio.controle.ControladorEmpresa;
 import negocio.controle.Fachada;
 import javafx.util.Callback;
@@ -101,15 +101,7 @@ public class ROScreenController implements Initializable {
     public void registrarOcorrencia(ActionEvent event) throws IOException {
         System.out.println("botao de criar ocorrencia clicado");
         System.out.println(Fachada.getInstance().getUsuarioLogado());
-        
-        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
-
-        
-
-        for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
-            System.out.println(registroDeOcorrencia);
         }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -139,11 +131,9 @@ public class ROScreenController implements Initializable {
             }
             
         });
-
-
-        
-
-        
-    }
+            }
+    
 
 }
+
+
