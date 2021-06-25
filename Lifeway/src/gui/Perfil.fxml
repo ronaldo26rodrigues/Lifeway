@@ -20,9 +20,9 @@
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
-            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="464.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="17.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
