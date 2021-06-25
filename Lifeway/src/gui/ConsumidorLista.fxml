@@ -163,9 +163,9 @@
                         <Insets right="16.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextArea maxWidth="-Infinity" minHeight="-Infinity" prefHeight="44.0" prefWidth="248.0" promptText="Digite aqui" wrapText="true" GridPane.columnIndex="1" />
-                  <DatePicker promptText="Data da Leitura" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar Leitura" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextArea fx:id="valorConsumido" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="44.0" prefWidth="248.0" promptText="Digite aqui" wrapText="true" GridPane.columnIndex="1" />
+                  <DatePicker fx:id="dataDeLeitura" promptText="Data da Leitura" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="addLeitura" mnemonicParsing="false" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar Leitura" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </bottom>
