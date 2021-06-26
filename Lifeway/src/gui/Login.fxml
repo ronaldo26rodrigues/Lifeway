@@ -48,9 +48,9 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
-      <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: #9871F5;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <top>
-            <Button fx:id="botaoCriarConta" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="188.0" style="-fx-background-color: #F13953; -fx-border-radius: 15px; -fx-background-radius: 15px;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoCriarConta" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#criar" prefHeight="46.0" prefWidth="206.0" style="-fx-background-color: #eb0000; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Criar uma conta" textFill="#fcfcfc" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
@@ -83,23 +83,26 @@
                         <Font size="17.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="130.0" left="40.0" right="30.0" />
+                        <Insets bottom="140.0" left="45.0" right="30.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/user.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="130.0" />
+                        <Insets bottom="140.0" left="5.0" />
                      </GridPane.margin>
                   </ImageView>
                   <BorderPane prefHeight="189.0" prefWidth="450.0">
                      <center>
-                        <ImageView fitHeight="237.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <ImageView fitHeight="181.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
                               <Image url="@imgs/icon.png" />
                            </image>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
                         </ImageView>
                      </center>
                      <bottom>
@@ -111,13 +114,16 @@
                         <Font size="17.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="40.0" right="30.0" />
+                        <Insets bottom="10.0" left="45.0" right="30.0" />
                      </GridPane.margin>
                   </PasswordField>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/senha.png" />
                      </image>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="5.0" />
+                     </GridPane.margin>
                   </ImageView>
                   <Label fx:id="loginErrado" prefHeight="51.0" prefWidth="435.0" GridPane.rowIndex="1">
                      <font>
@@ -132,14 +138,14 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets top="200.0" />
+                        <Insets left="13.0" top="140.0" />
                      </GridPane.margin>
                   </CheckBox>
                </children>
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoLogin" alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="51.0" prefWidth="174.0" style="-fx-background-color: #13f2db; -fx-border-radius: 20px; -fx-background-radius: 20px;" styleClass="border 2px solid red" text="Entrar" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoLogin" alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="56.0" prefWidth="121.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Entrar" textFill="#f7f7f7" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
@@ -147,7 +153,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <BorderPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="17.0" />
                </BorderPane.margin>
             </Button>
          </bottom>
