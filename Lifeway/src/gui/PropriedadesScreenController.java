@@ -9,11 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.util.Callback;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
@@ -58,6 +60,17 @@ public class PropriedadesScreenController implements Initializable {
         } catch (Exception e) {
             //TODO: handle exception
         }
+        Alert alertPropriedades = new Alert(AlertType.INFORMATION);
+            alertPropriedades.setTitle("Propriedade adicionada");
+                alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
+                rua.clear();
+                complemento.clear();
+                numeroCasa.clear();
+                empresaCB.getSelectionModel().clearSelection();
+                tipoCB.getSelectionModel().clearSelection();
+                complemento.clear();
+                pontoReferencia.clear();
+                alertPropriedades.showAndWait();
         
     } 
 
