@@ -101,7 +101,23 @@ public class ROScreenController implements Initializable {
     public void registrarOcorrencia(ActionEvent event) throws IOException {
         System.out.println("botao de criar ocorrencia clicado");
         System.out.println(Fachada.getInstance().getUsuarioLogado());
-        }
+            System.out.println("botao de criar ocorrencia clicado");
+            System.out.println(Fachada.getInstance().getUsuarioLogado());
+            Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Ocorrência registrada");
+                alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
+                ocorrencia.clear();
+                rua.clear();
+                detalhes.clear();
+                numeroCasa.clear();
+                empresaCB.getSelectionModel().clearSelection();
+                dataOcorrencia.setValue(LocalDate.now());
+                complemento.clear();
+                pontoReferencia.clear();
+                alert.showAndWait();
+            }
+        
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
