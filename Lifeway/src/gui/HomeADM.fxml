@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -24,6 +25,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </bottom>
          <center>
@@ -40,6 +44,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
                      <font>
@@ -52,6 +59,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
                      <font>
@@ -64,6 +74,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
                      <font>
@@ -76,6 +89,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
@@ -88,6 +104,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
                      <image>
