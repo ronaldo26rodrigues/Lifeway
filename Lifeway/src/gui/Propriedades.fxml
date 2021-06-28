@@ -20,7 +20,7 @@
    <left>
       <BorderPane prefHeight="600.0" prefWidth="142.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <center>
-            <VBox prefHeight="600.0" prefWidth="152.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="364.0" prefWidth="142.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="retornar" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRetornar" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE">
                      <font>
@@ -51,23 +51,10 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <left>
-            <AnchorPane prefHeight="441.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="463.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
          </left>
-         <bottom>
-            <AnchorPane prefHeight="81.0" prefWidth="581.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="botaoOK" layoutX="319.0" layoutY="17.0" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="45.0" prefWidth="112.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children></AnchorPane>
-         </bottom>
          <right>
-            <AnchorPane prefHeight="441.0" prefWidth="62.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="463.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -95,7 +82,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ComboBox fx:id="tipoCB" prefWidth="150.0" GridPane.columnIndex="1">
+                              <ComboBox fx:id="tipoCB" prefHeight="32.0" prefWidth="185.0" GridPane.columnIndex="1">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -103,7 +90,7 @@
                                     <Insets left="40.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <ComboBox fx:id="empresaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <ComboBox fx:id="empresaCB" prefHeight="32.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -133,7 +120,7 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="25.0" />
                                  </font>
                               </Label>
                               <Label text="Empresa:" GridPane.rowIndex="1">
@@ -141,7 +128,7 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="25.0" />
                                  </font>
                               </Label>
                               <Label text="Endereço" GridPane.rowIndex="2">
@@ -149,7 +136,7 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="25.0" />
                                  </font>
                               </Label>
                            </children>
@@ -160,12 +147,25 @@
             </BorderPane>
          </center>
          <top>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="764.0" text="Forneça Suas Propriedades" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="758.0" text="Forneça Suas Propriedades " textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
          </top>
+         <bottom>
+            <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="45.0" prefWidth="133.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
       </BorderPane>
    </center>
 </BorderPane>
