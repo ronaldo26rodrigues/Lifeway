@@ -22,7 +22,7 @@ import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
-public class SignUp {
+public class SignUpEmpresa {
 
     @FXML
     private Button botaoLogar;
@@ -43,7 +43,7 @@ public class SignUp {
     private DatePicker dataNascimento;
 
     @FXML
-    private CheckBox checkBoxEmpresa;
+    private CheckBox checkBoxEmpresa2;
 
 
     public void voltar(ActionEvent event) throws IOException {
@@ -52,14 +52,16 @@ public class SignUp {
        voltarp.trocarCena("Login.fxml");
     }
 
-    public void irCriarEmpresa(ActionEvent event) throws IOException {
-        if(checkBoxEmpresa.isSelected() == true ){
+    
+    public void irCriarEmpresa2(ActionEvent event) throws IOException {
+        if(checkBoxEmpresa2.isSelected() == false ){
             App oi = new App();
-            oi.trocarCena("SignUPEmpresa.fxml");
+            oi.trocarCena("SignUP.fxml");
         }
        
        
      }    
+
 
     /**
      * Método para cadastrar novo usuário.
