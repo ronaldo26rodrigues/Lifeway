@@ -56,6 +56,8 @@ public class SignUp {
         if(checkBoxEmpresa.isSelected() == true ){
             App oi = new App();
             oi.trocarCena("SignUPEmpresa.fxml");
+
+            
         }
        
        

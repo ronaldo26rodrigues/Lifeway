@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.Funcionario;
 import negocio.beans.RegistroDeOcorrencia;
 import negocio.controle.Fachada;
 
@@ -109,8 +110,10 @@ import java.util.ResourceBundle;
 
         public void atualizarLista() {
             listaRO.getItems().removeAll(Fachada.getInstance().listarROcorrencias());
-            for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
-                if(registroDeOcorrencia.getResolvido() == false && apenasPendentes.isSelected()) listaRO.getItems().addAll(registroDeOcorrencia); else if(apenasPendentes.isSelected()==false) listaRO.getItems().addAll(registroDeOcorrencia);
+                for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
+                    if(registroDeOcorrencia.getEmpresa().equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                    if(registroDeOcorrencia.getResolvido() == false && apenasPendentes.isSelected()) listaRO.getItems().addAll(registroDeOcorrencia); else if(apenasPendentes.isSelected()==false) listaRO.getItems().addAll(registroDeOcorrencia);
+                }
             }
         }
 
