@@ -11,9 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Font;
 import negocio.beans.Cliente;
+import negocio.beans.Empresa;
+import negocio.beans.Funcionario;
 import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorUsuario;
+import negocio.controle.Fachada;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -25,10 +28,7 @@ import excecoes.UsuarioJaCadastradoException;
 public class SignUpEmpresa {
 
     @FXML
-    private Button botaoLogar;
-
-    @FXML
-    private Button botaoCriarConta;
+    private Button botaoFazerLogin;
 
     @FXML
     private TextField cpf;
@@ -45,6 +45,14 @@ public class SignUpEmpresa {
     @FXML
     private CheckBox checkBoxEmpresa2;
 
+    @FXML
+    private TextField nomeDaEmpresa;
+
+    @FXML
+    private TextField servicoDaEmpresa;
+
+    @FXML
+    private TextField criarContaDoFuncionario;
 
     public void voltar(ActionEvent event) throws IOException {
        
@@ -75,9 +83,11 @@ public class SignUpEmpresa {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         boolean cadastroRealizado = false;
         try {
-            Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue());
-            ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
-            System.out.println(novoCliente.getSenha());
+            Empresa novaEmpresa = new Empresa( nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
+            Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
+            Usuario novoFuncionario = new Funcionario (nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue(), novaEmpresa);
+            ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
+            System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
         } catch (CPFInvalidoException e) {
             System.out.println("Exception caught: CPF inválido.");
@@ -100,9 +110,9 @@ public class SignUpEmpresa {
 
             alert.showAndWait();
 
-            botaoCriarConta.setFont(Font.font(16));
-            botaoCriarConta.setText("Faça seu login.");
-            botaoCriarConta.setOnAction(new EventHandler<ActionEvent>(){
+            criarContaDoFuncionario.setFont(Font.font(16));
+            criarContaDoFuncionario.setText("Faça seu login.");
+            criarContaDoFuncionario.setOnAction(new EventHandler<ActionEvent>(){
                 public void handle(ActionEvent arg0) {
                     App voltarp = new App();
                     try {

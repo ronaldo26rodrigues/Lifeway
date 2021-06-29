@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -124,89 +128,109 @@
    </left>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
-         <top>
-            <AnchorPane prefHeight="35.0" prefWidth="921.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="TOP_RIGHT" contentDisplay="BOTTOM" layoutX="190.0" layoutY="14.0" lineSpacing="4.0" text="Alterar Informações" textAlignment="RIGHT" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-         </top>
-         <left>
-            <AnchorPane prefHeight="509.0" prefWidth="617.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" BorderPane.alignment="CENTER">
-               <children>
-                  <BorderPane layoutX="232.0" prefHeight="128.0" prefWidth="153.0">
-                     <bottom>
-                        <AnchorPane prefHeight="0.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
-                     </bottom>
-                     <center>
-                        <ImageView fitHeight="130.0" fitWidth="135.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@imgs/icon.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets top="10.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </center>
-                  </BorderPane>
-                  <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="16.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/usuario.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="cpf" layoutX="61.0" layoutY="161.0" prefHeight="40.0" prefWidth="372.0" promptText="Novo Nome">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="17.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/senha.png" />
-                     </image>
-                  </ImageView>
-                  <PasswordField fx:id="senha" layoutX="63.0" layoutY="228.0" prefHeight="39.0" prefWidth="288.0" promptText="Nova Senha">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </PasswordField>
-                  <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="16.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/usuario.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="20.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/calendario.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="nome" layoutX="63.0" layoutY="289.0" prefHeight="40.0" prefWidth="368.0" promptText="Novo CPF">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </TextField>
-                  <DatePicker fx:id="dataNascimento" layoutX="63.0" layoutY="349.0" prefHeight="40.0" prefWidth="381.0" promptText="Alterar Data de Nascimento" />
-                  <Button fx:id="botaoCriarConta" alignment="CENTER" layoutX="211.0" layoutY="448.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="174.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Salvar " textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="24.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children></AnchorPane>
-         </left>
          <bottom>
             <AnchorPane prefHeight="1.0" prefWidth="617.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" BorderPane.alignment="CENTER" />
          </bottom>
          <right>
-            <AnchorPane prefHeight="509.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="599.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
+         <left>
+            <AnchorPane prefHeight="599.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <GridPane prefHeight="478.0" prefWidth="862.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" styleClass="#47b39d" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="376.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <bottom>
+                        <AnchorPane prefHeight="93.0" prefWidth="387.0" style="-fx-background-color: 2F2B43;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="botaoCriarConta" alignment="CENTER" layoutX="-1.0" layoutY="21.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Salvar " textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                     <center>
+                        <AnchorPane prefHeight="541.0" prefWidth="368.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <DatePicker fx:id="dataNascimento" layoutX="22.0" layoutY="363.0" prefHeight="40.0" prefWidth="381.0" promptText="Alterar Data de Nascimento" />
+                              <TextField fx:id="nome" layoutX="23.0" layoutY="301.0" prefHeight="40.0" prefWidth="378.0" promptText="Novo CPF">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fitHeight="161.0" fitWidth="203.0" layoutX="93.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/icon.png" />
+                                 </image>
+                              </ImageView>
+                              <PasswordField fx:id="senha" layoutX="22.0" layoutY="234.0" prefHeight="39.0" prefWidth="375.0" promptText="Nova Senha">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
+                              <TextField fx:id="cpf" layoutX="21.0" layoutY="173.0" prefHeight="40.0" prefWidth="378.0" promptText="Novo Nome">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="-15.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/calendario.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="-18.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/usuario.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="-17.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/senha.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="-15.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/usuario.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="599.0" prefWidth="44.0">
+                     <bottom>
+                        <AnchorPane prefHeight="0.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+               </children>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.0">
+                     <bumpInput>
+                        <Shadow height="1.0" radius="0.0" width="0.0" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </GridPane>
+         </center>
       </BorderPane>
    </center>
 </BorderPane>
