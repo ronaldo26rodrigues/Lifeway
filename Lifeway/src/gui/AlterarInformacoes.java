@@ -50,12 +50,15 @@ public class AlterarInformacoes {
      * @throws CPFInvalidoException
      */
     public void irRetornar(ActionEvent event) throws IOException{
-        App n = new App();
-        n.trocarCena("Perfil.fxml");
-
+        if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("CLIENTE")) {
+            (new App()).trocarCena("Perfil.fxml");
+        } else if (Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
+            (new App()).trocarCena("PerfilADM.fxml");
+    
+        }
     }
     
-    public void alterarInformacoes () throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+    public void alterarInformacoes(ActionEvent event) throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
     boolean alteracaoRealizada = false;
     if(!novoNome.getText().equals("")) {
         Fachada.getInstance().getUsuarioLogado().setNome(novoNome.getText());
@@ -70,7 +73,13 @@ public class AlterarInformacoes {
         Fachada.getInstance().getUsuarioLogado().setDataDeNascimeto(novaDataNascimento.getValue());
     }  
 
+    if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("CLIENTE")) {
+        (new App()).trocarCena("Perfil.fxml");
+    } else if (Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
+        (new App()).trocarCena("PerfilADM.fxml");
 
+    }
+    
 }    
      
 } 
