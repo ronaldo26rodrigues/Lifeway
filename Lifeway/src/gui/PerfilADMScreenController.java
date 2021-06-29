@@ -51,9 +51,14 @@ public class PerfilADMScreenController implements Initializable {
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
             dataNascimentoPerfil.setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
 
-            
+
         }
         
+    }
+
+    public void irAlterarInformacoes(ActionEvent event) throws IOException {
+        App d = new App();
+        d.trocarCena("AlterarInformacoes.fxml");
     }
 
     public void SairConta(ActionEvent event) throws IOException {

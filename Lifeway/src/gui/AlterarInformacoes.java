@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import negocio.beans.Cliente;
 import negocio.beans.Usuario;
+import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorUsuario;
 import negocio.controle.Fachada;
 
@@ -49,7 +50,7 @@ public class AlterarInformacoes {
      * @throws UsuarioJaCadastradoException
      * @throws CPFInvalidoException
      */
-    public void irRetornar(ActionEvent event) throws IOException{
+    public void irRetornar() throws IOException{
         if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("CLIENTE")) {
             (new App()).trocarCena("Perfil.fxml");
         } else if (Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
@@ -59,27 +60,40 @@ public class AlterarInformacoes {
     }
     
     public void alterarInformacoes(ActionEvent event) throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
-    boolean alteracaoRealizada = false;
+    boolean alteracaoRealizada = true;
     if(!novoNome.getText().equals("")) {
         Fachada.getInstance().getUsuarioLogado().setNome(novoNome.getText());
     }
     if(!novoCpf.getText().equals("")) {
-        Fachada.getInstance().getUsuarioLogado().setIdentificacao(novoCpf.getText());
+
+        if(ValidaCPF.isCPF(novoCpf.getText())){
+            Fachada.getInstance().getUsuarioLogado().setIdentificacao(novoCpf.getText());
+        } else {
+            alteracaoRealizada = false;
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("CPF inválido");
+            //alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("O CPF inserido é inválido. Tente novamente.");
+            
+            alert.showAndWait();  
+            
+            throw new CPFInvalidoException(novoCpf.getText());
+        }
+
+        
     }
     if(!novaSenha.getText().equals("")) {
         Fachada.getInstance().getUsuarioLogado().setSenha(ControladorUsuario.gerarSenhaHex(novaSenha.getText()));
     }
-    if(!novaDataNascimento.getValue().toString().equals("")) {
+    System.out.println(novaDataNascimento.getValue());
+    if(novaDataNascimento.getValue() != null) {
         Fachada.getInstance().getUsuarioLogado().setDataDeNascimeto(novaDataNascimento.getValue());
     }  
 
-    if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("CLIENTE")) {
-        (new App()).trocarCena("Perfil.fxml");
-    } else if (Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
-        (new App()).trocarCena("PerfilADM.fxml");
-
-    }
+    if(alteracaoRealizada) irRetornar();
     
 }    
+
+
      
 } 

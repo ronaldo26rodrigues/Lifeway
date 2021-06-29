@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PerfilScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PerfilADMScreenController">
    <left>
       <BorderPane prefHeight="687.0" prefWidth="320.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
@@ -182,7 +182,7 @@
                      <bottom>
                         <AnchorPane prefHeight="93.0" prefWidth="386.0" style="-fx-background-color: 2F2B43;" BorderPane.alignment="CENTER">
                            <children>
-                              <Button alignment="BASELINE_CENTER" layoutX="76.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 20px;" text="Alterar  informações" textFill="WHITE">
+                              <Button alignment="BASELINE_CENTER" layoutX="76.0" layoutY="25.0" mnemonicParsing="false" onAction="#irAlterarInformacoes" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 20px;" text="Alterar  informações" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="20.0" />
                                  </font>
