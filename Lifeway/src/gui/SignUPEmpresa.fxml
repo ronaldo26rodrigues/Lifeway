@@ -173,7 +173,7 @@
                         <Insets top="180.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <TextField prefHeight="17.0" prefWidth="349.0" promptText="Nome da Empresa" GridPane.rowIndex="1">
+                  <TextField fx:id="nomeDaEmpresa" prefHeight="17.0" prefWidth="349.0" promptText="Nome da Empresa" GridPane.rowIndex="1">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -181,7 +181,7 @@
                         <Insets left="45.0" right="30.0" top="180.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="24.0" prefWidth="340.0" promptText="Serviço da Empresa" GridPane.rowIndex="1">
+                  <TextField fx:id="servicoDaEmpresa" prefHeight="24.0" prefWidth="340.0" promptText="Serviço da Empresa" GridPane.rowIndex="1">
                      <font>
                         <Font size="17.0" />
                      </font>

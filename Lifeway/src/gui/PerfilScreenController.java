@@ -50,7 +50,7 @@ public class PerfilScreenController implements Initializable {
         if(nomePerfil != null) {
             nomePerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getNome());
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
-            dataNascimentoPerfil.setText(((Cliente) ControladorUsuario.getInstance().getUsuarioLogado()).getDataNascimento().toString());
+            dataNascimentoPerfil.setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
         }
         
     }
