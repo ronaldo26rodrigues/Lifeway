@@ -95,8 +95,14 @@ public class PerfilScreenController implements Initializable {
 
     }
 
+    public void irAlterarInformacoes(ActionEvent event) throws IOException {
+        App f = new App();
+        f.trocarCena("AlterarInformacoes.fxml");
+
+    }
+
 
     
-
+    
 
 }
