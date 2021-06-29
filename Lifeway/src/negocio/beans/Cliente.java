@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Cliente extends Usuario {
     
-    private LocalDate dataNascimento;
+    
     private List<Propriedade> propriedades;
 
     //numero propriedades?
@@ -15,8 +15,8 @@ public class Cliente extends Usuario {
     DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Cliente(String nome, String identificacao, String senha, LocalDate dataNascimento) {
-        super(nome, identificacao, senha);
-        this.dataNascimento = dataNascimento;
+        super(nome, identificacao, senha, dataNascimento);
+        
 
         this.propriedades = new ArrayList<>();
     }
@@ -28,17 +28,7 @@ public class Cliente extends Usuario {
     }
 
     //Getters & Setters
-
-    
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
+   
     public List<Propriedade> getPropriedades() {
         return propriedades;
     }
@@ -85,7 +75,6 @@ public class Cliente extends Usuario {
         String resultado = "";
         resultado += super.toString();
         //resultado += "\n" + "Nome: " + this.getNome();
-        resultado += "\n" + "Data de Nascimento: " + this.getDataNascimento().format(meuFormatador);
         // resultado += "\n" + "Identificação: " + this.getIdentificacao();
         //resultado += "\n" + "Senha: " + this.getSenha(); //TESTE
         return resultado;

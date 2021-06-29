@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,222 +14,129 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Menu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PropriedadesScreenController">
    <left>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
-         <bottom>
-            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="337.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/porta.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </bottom>
-         <center>
-            <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/extratos.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/boletos.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/usuario.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/alerta.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="62.0" prefWidth="320.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/home.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <ImageView fitHeight="319.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/Logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
+      <BorderPane prefHeight="600.0" prefWidth="0.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
-         <bottom>
-            <AnchorPane prefHeight="1.0" prefWidth="617.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" BorderPane.alignment="CENTER" />
-         </bottom>
-         <right>
-            <AnchorPane prefHeight="599.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-         </right>
          <left>
-            <AnchorPane prefHeight="599.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="463.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
          </left>
+         <right>
+            <AnchorPane prefHeight="463.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
+         </right>
          <center>
-            <GridPane prefHeight="478.0" prefWidth="862.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" styleClass="#47b39d" BorderPane.alignment="CENTER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="25.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="376.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="42.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
-                     <bottom>
-                        <AnchorPane prefHeight="93.0" prefWidth="387.0" style="-fx-background-color: 2F2B43;" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <GridPane prefHeight="475.0" prefWidth="759.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" styleClass="#47b39d" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="0.0" prefWidth="0.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="520.0" minWidth="10.0" prefWidth="520.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="0.0" prefWidth="0.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                            <children>
-                              <Button fx:id="botaoCriarConta" alignment="CENTER" layoutX="-1.0" layoutY="21.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Salvar " textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial" size="24.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </bottom>
-                     <center>
-                        <AnchorPane prefHeight="541.0" prefWidth="368.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <DatePicker fx:id="dataNascimento" layoutX="22.0" layoutY="363.0" prefHeight="40.0" prefWidth="381.0" promptText="Alterar Data de Nascimento" />
-                              <TextField fx:id="nome" layoutX="23.0" layoutY="301.0" prefHeight="40.0" prefWidth="378.0" promptText="Novo CPF">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                              </TextField>
-                              <ImageView fitHeight="161.0" fitWidth="203.0" layoutX="93.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="219.0" fitWidth="261.0" layoutX="146.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@imgs/icon.png" />
                                  </image>
                               </ImageView>
-                              <PasswordField fx:id="senha" layoutX="22.0" layoutY="234.0" prefHeight="39.0" prefWidth="375.0" promptText="Nova Senha">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                              </PasswordField>
-                              <TextField fx:id="cpf" layoutX="21.0" layoutY="173.0" prefHeight="40.0" prefWidth="378.0" promptText="Novo Nome">
+                              <TextField layoutX="55.0" layoutY="224.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo Nome">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="-15.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@imgs/calendario.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="-18.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+                              <PasswordField layoutX="56.0" layoutY="353.0" prefHeight="39.0" prefWidth="463.0" promptText="Nova Senha">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
+                              <TextField layoutX="55.0" layoutY="287.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo CPF">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="dataascimento" layoutX="59.0" layoutY="413.0" prefHeight="40.0" prefWidth="463.0" promptText="Alterar Data de Nascimento" />
+                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="14.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@imgs/usuario.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="-17.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="15.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@imgs/senha.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="-15.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="14.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@imgs/usuario.png" />
                                  </image>
                               </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="18.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/calendario.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
+                     </children>
+                  </GridPane>
+               </center>
+               <top>
+                  <BorderPane prefHeight="53.0" prefWidth="874.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="731.0" text="Forneça Suas Propriedades " textFill="WHITE" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
                      </center>
+                     <left>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fx:id="retornarPerfil" fitHeight="44.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </left>
                   </BorderPane>
-                  <BorderPane prefHeight="599.0" prefWidth="44.0">
-                     <bottom>
-                        <AnchorPane prefHeight="0.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
-                     </bottom>
-                  </BorderPane>
-               </children>
-               <effect>
-                  <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.0">
-                     <bumpInput>
-                        <Shadow height="1.0" radius="0.0" width="0.0" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-            </GridPane>
+               </top>
+            </BorderPane>
          </center>
+         <bottom>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
       </BorderPane>
    </center>
 </BorderPane>

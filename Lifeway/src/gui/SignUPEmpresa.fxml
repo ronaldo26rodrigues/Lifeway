@@ -165,22 +165,6 @@
                         <Insets left="3.0" top="350.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <PasswordField prefHeight="29.0" prefWidth="358.0" promptText="Nome da empresa" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="45.0" right="30.0" top="180.0" />
-                     </GridPane.margin>
-                  </PasswordField>
-                  <PasswordField prefHeight="29.0" prefWidth="358.0" promptText="Serviço da empresa" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="45.0" right="30.0" top="270.0" />
-                     </GridPane.margin>
-                  </PasswordField>
                   <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/usuario.png" />
@@ -189,12 +173,28 @@
                         <Insets top="180.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <TextField prefHeight="17.0" prefWidth="349.0" promptText="Nome da Empresa" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="45.0" right="30.0" top="180.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField prefHeight="24.0" prefWidth="340.0" promptText="Serviço da Empresa" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="45.0" right="30.0" top="275.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@imgs/senha.png" />
+                        <Image url="@imgs/usuario.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets top="260.0" />
+                        <Insets top="270.0" />
                      </GridPane.margin>
                   </ImageView>
                </children>
