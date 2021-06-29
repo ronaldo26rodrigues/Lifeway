@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import gui.AlterarInformacoes;
+
 public class Cliente extends Usuario {
     
     
@@ -20,6 +22,8 @@ public class Cliente extends Usuario {
 
         this.propriedades = new ArrayList<>();
     }
+
+    
 
 
     @Override

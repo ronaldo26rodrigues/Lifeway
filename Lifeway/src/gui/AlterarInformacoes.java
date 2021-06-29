@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import negocio.beans.Cliente;
 import negocio.beans.Usuario;
 import negocio.controle.ControladorUsuario;
+import negocio.controle.Fachada;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,18 +30,6 @@ import excecoes.UsuarioJaCadastradoException;
 
 public class AlterarInformacoes {
 
-    @FXML
-    private Button botaoSair;
-    @FXML
-    private Button botaoExtratos;
-    @FXML
-    private Button botaoPagamentos;
-    @FXML
-    private Button botaoPerfil;
-    @FXML
-    private Button botaoRO;
-    @FXML
-    private Button botaoHome;
     @FXML
     private TextField novoCpf;
     @FXML
@@ -60,27 +49,28 @@ public class AlterarInformacoes {
      * @throws UsuarioJaCadastradoException
      * @throws CPFInvalidoException
      */
-    
-    public void alterarInformacoes () throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
-        boolean alteracaoRealizada = false;
-        try {
-            Usuario novoCliente = new Cliente(novoNome.getText(), novoCpf.getText(), novaSenha.getText(), novaDataNascimento.getValue());
-            ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
-            // System.out.println(nova.getSenha());
-            alteracaoRealizada = true;
-        } catch (CPFInvalidoException e) {
-            System.out.println("Exception caught: CPF inválido.");
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("CPF inválido");
-            //alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("O CPF inserido é inválido. Tente novamente.");
-            
-            alert.showAndWait();  
-        }
-
-        (new App()).trocarCena("Perfil.fxml");
+    public void irRetornar(ActionEvent event) throws IOException{
+        App n = new App();
+        n.trocarCena("Perfil.fxml");
 
     }
+    
+    public void alterarInformacoes () throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+    boolean alteracaoRealizada = false;
+    if(!novoNome.getText().equals("")) {
+        Fachada.getInstance().getUsuarioLogado().setNome(novoNome.getText());
+    }
+    if(!novoCpf.getText().equals("")) {
+        Fachada.getInstance().getUsuarioLogado().setIdentificacao(novoCpf.getText());
+    }
+    if(!novaSenha.getText().equals("")) {
+        Fachada.getInstance().getUsuarioLogado().setSenha(ControladorUsuario.gerarSenhaHex(novaSenha.getText()));
+    }
+    if(!novaDataNascimento.getValue().toString().equals("")) {
+        Fachada.getInstance().getUsuarioLogado().setDataDeNascimeto(novaDataNascimento.getValue());
+    }  
 
 
-}
+}    
+     
+} 

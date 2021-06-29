@@ -47,8 +47,7 @@ public void criar(ActionEvent event) throws IOException{
 public void entrar(ActionEvent event) throws IOException, NoSuchAlgorithmException, EmpresaJaCadastradaException{
     checkLogin();
 
-    /* ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e1", "Compesa", "agua"));
-    ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e2", "Celpe", "energia")); */
+
 }
 
 private void checar() throws IOException{

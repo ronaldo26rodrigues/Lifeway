@@ -101,7 +101,7 @@
                         </Label>
                      </center>
                      <left>
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" style="-fx-border-color: 0; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="Button" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRetornar" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -125,7 +125,7 @@
             </BorderPane>
          </center>
          <bottom>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#alterarInformacoes" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#alterarInformacoes" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
                <font>
                   <Font size="21.0" />
                </font>
