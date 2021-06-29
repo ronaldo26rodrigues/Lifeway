@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuFuncionario">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PerfilADMScreenController">
    <left>
       <BorderPane prefHeight="687.0" prefWidth="320.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
@@ -151,12 +151,12 @@
                                     <Font name="Calibri" size="30.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="-1.0" layoutY="167.0" prefHeight="31.0" prefWidth="387.0" text="Vicente Gabriel Rocha Cortez" textFill="WHITE">
+                              <Label fx:id="nomePerfil" alignment="CENTER" layoutX="-1.0" layoutY="167.0" prefHeight="31.0" prefWidth="387.0" text="Vicente Gabriel Rocha Cortez" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="27.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="34.0" layoutY="320.0" prefHeight="31.0" prefWidth="321.0" text="7217271272" textFill="WHITE">
+                              <Label fx:id="cpfPerfil" alignment="CENTER" layoutX="34.0" layoutY="320.0" prefHeight="31.0" prefWidth="321.0" text="7217271272" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="27.0" />
                                  </font>
@@ -171,7 +171,7 @@
                                     <Font name="Calibri" size="30.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="27.0" layoutY="386.0" prefHeight="31.0" prefWidth="336.0" text="08/06/2002" textFill="WHITE">
+                              <Label fx:id="dataNascimentoPerfil" alignment="CENTER" layoutX="27.0" layoutY="386.0" prefHeight="31.0" prefWidth="336.0" text="08/06/2002" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="27.0" />
                                  </font>
