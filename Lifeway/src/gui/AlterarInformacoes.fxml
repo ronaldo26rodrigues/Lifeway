@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PropriedadesScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AlterarInformacoes">
    <left>
       <BorderPane prefHeight="600.0" prefWidth="0.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER" />
    </left>
@@ -50,22 +50,22 @@
                                     <Image url="@imgs/icon.png" />
                                  </image>
                               </ImageView>
-                              <TextField layoutX="55.0" layoutY="224.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo Nome">
+                              <TextField fx:id="novoNome" layoutX="55.0" layoutY="224.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo Nome">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <PasswordField layoutX="56.0" layoutY="353.0" prefHeight="39.0" prefWidth="463.0" promptText="Nova Senha">
+                              <PasswordField fx:id="novaSenha" layoutX="56.0" layoutY="353.0" prefHeight="39.0" prefWidth="463.0" promptText="Nova Senha">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </PasswordField>
-                              <TextField layoutX="55.0" layoutY="287.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo CPF">
+                              <TextField fx:id="novoCpf" layoutX="55.0" layoutY="287.0" prefHeight="40.0" prefWidth="464.0" promptText="Novo CPF">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </TextField>
-                              <DatePicker fx:id="dataascimento" layoutX="59.0" layoutY="413.0" prefHeight="40.0" prefWidth="463.0" promptText="Alterar Data de Nascimento" />
+                              <DatePicker fx:id="novaDataNascimento" layoutX="59.0" layoutY="413.0" prefHeight="40.0" prefWidth="463.0" promptText="Alterar Data de Nascimento" />
                               <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="14.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@imgs/usuario.png" />
@@ -101,7 +101,7 @@
                         </Label>
                      </center>
                      <left>
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" style="-fx-border-color: 0; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -125,7 +125,7 @@
             </BorderPane>
          </center>
          <bottom>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#alterarInformacoes" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="OK" BorderPane.alignment="CENTER">
                <font>
                   <Font size="21.0" />
                </font>

@@ -66,7 +66,7 @@ public class AlterarInformacoes {
         try {
             Usuario novoCliente = new Cliente(novoNome.getText(), novoCpf.getText(), novaSenha.getText(), novaDataNascimento.getValue());
             ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
-            System.out.println(nova.getSenha());
+            // System.out.println(nova.getSenha());
             alteracaoRealizada = true;
         } catch (CPFInvalidoException e) {
             System.out.println("Exception caught: CPF inválido.");
@@ -78,9 +78,9 @@ public class AlterarInformacoes {
             alert.showAndWait();  
         }
 
+        (new App()).trocarCena("Perfil.fxml");
 
-
-
+    }
 
 
 }

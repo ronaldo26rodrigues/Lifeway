@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import negocio.beans.Cliente;
 import negocio.controle.ControladorUsuario;
+import negocio.controle.Fachada;
 
 
 public class PerfilScreenController implements Initializable {
@@ -51,9 +52,15 @@ public class PerfilScreenController implements Initializable {
             nomePerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getNome());
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
             dataNascimentoPerfil.setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
+
+            /* if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
+                adicionarPropriedades.setDisable(true);
+            } */
         }
         
     }
+
+    
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
@@ -64,6 +71,11 @@ public class PerfilScreenController implements Initializable {
         App w = new App();
         w.trocarCena("Propriedades.fxml");
 
+    }
+
+    public void irAlterarInformacoes(ActionEvent event) throws IOException {
+        App d = new App();
+        d.trocarCena("AlterarInformacoes.fxml");
     }
 
     public void irExtratos(ActionEvent event) throws IOException {
@@ -93,4 +105,6 @@ public class PerfilScreenController implements Initializable {
         d.trocarCena("Menu.fxml");
 
     }
+
+    
 }

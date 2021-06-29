@@ -50,6 +50,8 @@ public class PerfilADMScreenController implements Initializable {
             nomePerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getNome());
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
             dataNascimentoPerfil.setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
+
+            
         }
         
     }
