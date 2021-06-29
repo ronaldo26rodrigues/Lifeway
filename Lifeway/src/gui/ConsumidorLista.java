@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.Usuario;
 import negocio.controle.Fachada;
@@ -90,6 +91,15 @@ import java.io.IOException;
 
         }
 
+        public void atualizarLista() {
+            consumidorList.getItems().removeAll(consumidorList.getItems());
+            for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
+                if(propriedade.getEmpresaContratada().equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                    consumidorList.getItems().addAll(propriedade);
+                }
+            }
+        }
+
         
 
         @Override
@@ -103,11 +113,9 @@ import java.io.IOException;
 
 
 
+            atualizarLista();
 
-
-             for (Propriedade usuario : Fachada.getInstance().listarPropriedade()) {
-                consumidorList.getItems().addAll(usuario); 
-            }
+             
               /*
             consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>(){
 

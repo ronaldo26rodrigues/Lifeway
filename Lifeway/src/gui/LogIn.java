@@ -93,18 +93,20 @@ private void checkLogin() throws IOException, NoSuchAlgorithmException{
         }
         if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex) && checkBox
         .isSelected() == true ){
-            /* if(usuario.getTipo().equals("FUNCIONARIO")){ */
+            if(usuario.getTipo().equals("FUNCIONARIO")){
 
                 usuarioLogado = usuario;
                 ControladorUsuario.getInstance().login(usuarioLogado);
                 m.trocarCena("MenuFuncionario.fxml");
-            /* } else {
-                loginErrado.setText("Você não possui um perfil de usuário");
-            } */
+            } else {
+                loginErrado.setText("Você não possui um perfil de funcionário");
+            }
         }
     }
     if(usuarioLogado==null){
         loginErrado.setText("Login ou senha incorretos");
+        // botaoLogin.setDisable(true);
+        
     }
 }
 }
