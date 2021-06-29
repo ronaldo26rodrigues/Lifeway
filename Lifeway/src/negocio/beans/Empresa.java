@@ -216,7 +216,7 @@ public class Empresa {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "Nome: " + this.getNome();
         resultado += "\n" + "ID: " + this.getIdEmpresa();
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;
