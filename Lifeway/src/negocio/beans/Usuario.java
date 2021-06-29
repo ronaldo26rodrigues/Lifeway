@@ -1,5 +1,8 @@
 package negocio.beans;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
@@ -10,12 +13,14 @@ public abstract class Usuario {
     private String nome;
     private String identificacao;
     private String senha;
+    private LocalDate dataDeNascimeto;
 
 
-    public Usuario(String nome, String identificacao, String senha){
+    public Usuario(String nome, String identificacao, String senha, LocalDate dataDeNascimeto){
         this.nome = nome;
         this.identificacao = identificacao;
         this.senha = senha;
+        this.dataDeNascimeto = dataDeNascimeto;
 
         repositorioPropriedades = new RepositorioGenerico<>();
     }
@@ -73,8 +78,11 @@ public abstract class Usuario {
      */
     @Override
     public String toString() {
+
+        DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String resultado = "";
         resultado += "Nome: " + this.getNome();
+        resultado += "\n" + "Data de Nascimento: " + this.getDataDeNascimeto().format(meuFormatador);
         resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }
@@ -86,6 +94,12 @@ public abstract class Usuario {
 
 
     //Getters & Setters
+    public LocalDate getDataDeNascimeto() {
+        return dataDeNascimeto;
+    }
+    public void setDataDeNascimeto(LocalDate dataDeNascimeto) {
+        this.dataDeNascimeto = dataDeNascimeto;
+    }
 
     public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
         return repositorioPropriedades;

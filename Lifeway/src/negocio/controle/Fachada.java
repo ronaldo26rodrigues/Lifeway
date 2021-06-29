@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.ElementoNaoExisteException;
 import excecoes.PropriedadeJaCadastradaException;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
@@ -20,9 +21,10 @@ public class Fachada {
     private static ControladorUsuario controladorUsuario;
     private static ControladorRO controladorRO;
     private static ControladorPropriedade controladorPropriedade;
-    
+    private static ControladorEmpresa controladorEmpresa;
 
     private Fachada() {
+        controladorEmpresa = ControladorEmpresa.getInstance();
         controladorUsuario = ControladorUsuario.getInstance();
         controladorRO = ControladorRO.getInstance();
         controladorPropriedade = ControladorPropriedade.getInstance();
@@ -94,6 +96,17 @@ public class Fachada {
         controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
+    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException {
+        controladorEmpresa.criarNovaEmpresa(empresa);
+    }
+
+    public void excluirEmpresa(Empresa empresa) throws ElementoNaoExisteException {
+        controladorEmpresa.excluirEmpresa(empresa);
+    }
+
+    public List<Empresa> listarEmpresas() {
+        return controladorEmpresa.listarEmpresas();
+    }
     
  
 }

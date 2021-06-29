@@ -69,6 +69,7 @@ public class SignUp {
      * @throws UsuarioJaCadastradoException
      * @throws CPFInvalidoException
      */
+    
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         boolean cadastroRealizado = false;
