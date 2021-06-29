@@ -20,6 +20,7 @@ import negocio.controle.Fachada;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 
 import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
@@ -65,10 +66,22 @@ public class SignUpEmpresa {
         if(checkBoxEmpresa2.isSelected() == false ){
             App oi = new App();
             oi.trocarCena("SignUP.fxml");
+            Alert AlertaSignUp = new Alert(AlertType.INFORMATION);
+            AlertaSignUp.setTitle("Cadastro realizado");
+            AlertaSignUp.setHeaderText(null);
+            AlertaSignUp.setContentText("Sua empresa foi cadastrada com sucesso. Faça seu login!");
+                cpf.clear();
+                senha.clear();
+                nome.clear();
+                dataNascimento.setValue(LocalDate.now());
+                servicoDaEmpresa.clear();
+                criarContaDoFuncionario.clear();
+                AlertaSignUp.showAndWait();
+            }
         }
        
        
-     }    
+     
 
 
     /**
