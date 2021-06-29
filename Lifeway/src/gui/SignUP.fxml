@@ -159,10 +159,10 @@
                   </ImageView>
                   <CheckBox fx:id="checkBoxEmpresa" mnemonicParsing="false" onAction="#irCriarEmpresa" text="Criar uma Empresa" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="3.0" top="350.0" />
+                        <Insets left="13.0" top="210.0" />
                      </GridPane.margin>
                   </CheckBox>
                </children>

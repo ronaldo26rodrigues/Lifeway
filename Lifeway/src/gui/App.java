@@ -27,7 +27,7 @@ public class  App extends Application{
         primaryStage.show();
     }
 
-    public void trocarCena(String fxml) throws IOException{
+    public void trocarCena(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }

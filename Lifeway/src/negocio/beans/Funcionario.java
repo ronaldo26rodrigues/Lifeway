@@ -23,7 +23,7 @@ public class Funcionario extends Usuario {
     
     @Override
     public String getTipo() {
-        return "FUNCIONÁRIO";
+        return "FUNCIONARIO";
     }
 
 
