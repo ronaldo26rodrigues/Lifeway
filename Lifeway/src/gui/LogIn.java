@@ -103,9 +103,13 @@ private void checkLogin() throws IOException, NoSuchAlgorithmException{
         }
     }
     if(usuarioLogado==null){
-        loginErrado.setText("Login ou senha incorretos");
-        // botaoLogin.setDisable(true);
+
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Erro no login");
+        alert.setHeaderText("Não foi possível realizar seu login");
+        alert.setContentText("Usuário ou senha incorretos.");
         
+        alert.showAndWait();
     }
 }
 }
