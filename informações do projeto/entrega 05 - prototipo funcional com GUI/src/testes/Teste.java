@@ -10,7 +10,7 @@ import negocio.controle.Fachada;
 
 public class Teste {
     public static void main(String[] args) {
-        Fachada.getInstance().criarNovaOcorrencia("poste", "caiu na rua", new Empresa("c", "compesa", "agua"), new Cliente("Ronaldo", "122", "a", LocalDate.now()), LocalDate.now(), new Endereco());
+        Fachada.getInstance().criarNovaOcorrencia("poste", "caiu na rua", new Empresa("compesa", "agua"), new Cliente("Ronaldo", "122", "a", LocalDate.now()), LocalDate.now(), new Endereco());
         
         for (RegistroDeOcorrencia r : Fachada.getInstance().listarROcorrencias()) {
             System.out.println(r);

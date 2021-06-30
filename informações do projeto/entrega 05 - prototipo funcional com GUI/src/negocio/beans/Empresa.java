@@ -2,6 +2,7 @@ package negocio.beans;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
@@ -29,9 +30,10 @@ public class Empresa {
     //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
     private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
 
-    public Empresa(String idEmpresa, String nome, String servico) {
+    public Empresa(String nome, String servico) {
         //super(idEmpresa);
-        this.idEmpresa = idEmpresa;
+        Random rng = new Random();
+        this.idEmpresa = "EMP" + rng.nextInt(1000) + rng.nextInt(1000);
         this.nome = nome;
         this.servico = servico;
 
@@ -214,7 +216,7 @@ public class Empresa {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Nome: " + this.getNome();
+        resultado += "Nome: " + this.getNome();
         resultado += "\n" + "ID: " + this.getIdEmpresa();
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;

@@ -11,24 +11,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Font;
 import negocio.beans.Cliente;
+import negocio.beans.Empresa;
+import negocio.beans.Funcionario;
 import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorUsuario;
+import negocio.controle.Fachada;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 
 import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
-public class SignUp {
+public class SignUpEmpresa {
 
     @FXML
-    private Button botaoLogar;
-
-    @FXML
-    private Button botaoCriarConta;
+    private Button botaoFazerLogin;
 
     @FXML
     private TextField cpf;
@@ -43,8 +44,16 @@ public class SignUp {
     private DatePicker dataNascimento;
 
     @FXML
-    private CheckBox checkBoxEmpresa;
+    private CheckBox checkBoxEmpresa2;
 
+    @FXML
+    private TextField nomeDaEmpresa;
+
+    @FXML
+    private TextField servicoDaEmpresa;
+
+    @FXML
+    private TextField criarContaDoFuncionario;
 
     public void voltar(ActionEvent event) throws IOException {
        
@@ -52,16 +61,28 @@ public class SignUp {
        voltarp.trocarCena("Login.fxml");
     }
 
-    public void irCriarEmpresa(ActionEvent event) throws IOException {
-        if(checkBoxEmpresa.isSelected() == true ){
+    
+    public void irCriarEmpresa2(ActionEvent event) throws IOException {
+        if(checkBoxEmpresa2.isSelected() == false ){
             App oi = new App();
-            oi.trocarCena("SignUPEmpresa.fxml");
-
-            
+            oi.trocarCena("SignUP.fxml");
+            Alert AlertaSignUp = new Alert(AlertType.INFORMATION);
+            AlertaSignUp.setTitle("Cadastro realizado");
+            AlertaSignUp.setHeaderText(null);
+            AlertaSignUp.setContentText("Sua empresa foi cadastrada com sucesso. Faça seu login!");
+                cpf.clear();
+                senha.clear();
+                nome.clear();
+                dataNascimento.setValue(LocalDate.now());
+                servicoDaEmpresa.clear();
+                criarContaDoFuncionario.clear();
+                AlertaSignUp.showAndWait();
+            }
         }
        
        
-     }    
+     
+
 
     /**
      * Método para cadastrar novo usuário.
@@ -71,14 +92,15 @@ public class SignUp {
      * @throws UsuarioJaCadastradoException
      * @throws CPFInvalidoException
      */
-    
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         //ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue()));;
         boolean cadastroRealizado = false;
         try {
-            Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue());
-            ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
-            System.out.println(novoCliente.getSenha());
+            Empresa novaEmpresa = new Empresa( nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
+            Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
+            Usuario novoFuncionario = new Funcionario (nome.getText(), cpf.getText(), senha.getText(), dataNascimento.getValue(), novaEmpresa);
+            ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
+            System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
         } catch (CPFInvalidoException e) {
             System.out.println("Exception caught: CPF inválido.");
@@ -101,9 +123,9 @@ public class SignUp {
 
             alert.showAndWait();
 
-            botaoCriarConta.setFont(Font.font(16));
-            botaoCriarConta.setText("Faça seu login.");
-            botaoCriarConta.setOnAction(new EventHandler<ActionEvent>(){
+            criarContaDoFuncionario.setFont(Font.font(16));
+            criarContaDoFuncionario.setText("Faça seu login.");
+            criarContaDoFuncionario.setOnAction(new EventHandler<ActionEvent>(){
                 public void handle(ActionEvent arg0) {
                     App voltarp = new App();
                     try {

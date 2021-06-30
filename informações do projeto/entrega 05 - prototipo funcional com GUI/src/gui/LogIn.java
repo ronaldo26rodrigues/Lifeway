@@ -47,8 +47,7 @@ public void criar(ActionEvent event) throws IOException{
 public void entrar(ActionEvent event) throws IOException, NoSuchAlgorithmException, EmpresaJaCadastradaException{
     checkLogin();
 
-    ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e1", "Compesa", "agua"));
-    ControladorEmpresa.getInstance().cadastrarEmpresa(new Empresa("e2", "Celpe", "energia"));
+
 }
 
 private void checar() throws IOException{
@@ -93,18 +92,30 @@ private void checkLogin() throws IOException, NoSuchAlgorithmException{
         }
         if(usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex) && checkBox
         .isSelected() == true ){
-            /* if(usuario.getTipo().equals("FUNCIONARIO")){ */
+            if(usuario.getTipo().equals("FUNCIONARIO")){
 
                 usuarioLogado = usuario;
                 ControladorUsuario.getInstance().login(usuarioLogado);
                 m.trocarCena("MenuFuncionario.fxml");
-            /* } else {
-                loginErrado.setText("Você não possui um perfil de usuário");
-            } */
+            } else {
+                //loginErrado.setText("Você não possui um perfil de funcionário");
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro no login");
+                alert.setHeaderText("Não foi possível realizar seu login");
+                alert.setContentText("Você não possui um perfil de funcionário.");
+                
+                alert.showAndWait();
+            }
         }
     }
-    if(usuarioLogado==null){
-        loginErrado.setText("Login ou senha incorretos");
+    if(usuarioLogado == null && checkBox.isSelected() == false){
+
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Erro no login");
+        alert.setHeaderText("Não foi possível realizar seu login");
+        alert.setContentText("Usuário ou senha incorretos.");
+        
+        alert.showAndWait();
     }
 }
 }

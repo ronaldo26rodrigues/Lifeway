@@ -11,12 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import negocio.beans.Cliente;
 import negocio.controle.ControladorUsuario;
-import negocio.controle.Fachada;
 
 
-public class PerfilScreenController implements Initializable {
-
-    
+public class PerfilADMScreenController implements Initializable {
+   
     
     @FXML
     private Button botaoSair;
@@ -45,7 +43,7 @@ public class PerfilScreenController implements Initializable {
     @FXML 
     Label dataNascimentoPerfil;
 
-    
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         if(nomePerfil != null) {
@@ -53,24 +51,9 @@ public class PerfilScreenController implements Initializable {
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
             dataNascimentoPerfil.setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
 
-            /* if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO")) {
-                adicionarPropriedades.setDisable(true);
-            } */
+
         }
         
-    }
-
-    
-
-    public void SairConta(ActionEvent event) throws IOException {
-        App x = new App();
-        x.trocarCena("Login.fxml");
-
-    }
-    public void irAdicionarPropriedades(ActionEvent event) throws IOException {
-        App w = new App();
-        w.trocarCena("Propriedades.fxml");
-
     }
 
     public void irAlterarInformacoes(ActionEvent event) throws IOException {
@@ -78,33 +61,46 @@ public class PerfilScreenController implements Initializable {
         d.trocarCena("AlterarInformacoes.fxml");
     }
 
-    public void irExtratos(ActionEvent event) throws IOException {
+    public void SairConta(ActionEvent event) throws IOException {
+        App x = new App();
+        x.trocarCena("Login.fxml");
+
+    }
+    public void irListaConsumidores(ActionEvent event) throws IOException {
+        App w = new App();
+        w.trocarCena("ListaConsumidores.fxml");
+
+    }
+
+    public void irPerfilADM(ActionEvent event) throws IOException {
         App v = new App();
-        v.trocarCena("Extratos.fxml");
+        v.trocarCena("PerfilADM.fxml");
 
     }
 
 
-    public void irPagamentos(ActionEvent event) throws IOException {
+    public void irListaRO(ActionEvent event) throws IOException {
         App a = new App();
-        a.trocarCena("Pagamentos.fxml");
-
-    }
-    public void irPerfil(ActionEvent event) throws IOException {
-        App b = new App();
-        b.trocarCena("Perfil.fxml");
-
-    }
-    public void irRO(ActionEvent event) throws IOException {
-        App c = new App();
-        c.trocarCena("RO.fxml");
-
-    }
-    public void irHome(ActionEvent event) throws IOException {
-        App d = new App();
-        d.trocarCena("Menu.fxml");
+        a.trocarCena("ListaRO.fxml");
 
     }
 
     
+    public void irHomeADM(ActionEvent event) throws IOException {
+        App d = new App();
+        d.trocarCena("HomeADM.fxml");
+
+    }
+
+
+    
+
+
+
+
+
+
+
+
+
 }

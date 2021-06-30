@@ -1,31 +1,29 @@
 package negocio.beans;
 
+import java.time.LocalDate;
+
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 public class Funcionario extends Usuario {
 
     private String idEmpresa;
     private Empresa empresa;
 
     //recebe o objeto empresa
-    public Funcionario(String nome, String identificacao, String senha, Empresa empresa, String idEmpresa) {
-        super(nome, identificacao, senha);
+    public Funcionario(String nome, String identificacao, String senha,LocalDate dataDeNascimeto, Empresa empresa) {
+        super(nome, identificacao, senha, dataDeNascimeto);
         this.empresa = empresa;
         this.idEmpresa = idEmpresa;
 
         //buscar empresa por ID
     }
 
-    //não recebe o objeto empresa mas recebe a id
-    public Funcionario(String nome, String identificacao, String senha, String idEmpresa) {
-        super(nome, identificacao, senha);
-        this.idEmpresa = idEmpresa;
-
-        //buscar empresa por ID
-    }
-
-
+    
     @Override
     public String getTipo() {
-        return "FUNCIONÁRIO";
+        return "FUNCIONARIO";
     }
 
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,9 +15,9 @@
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
-            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="308.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="337.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="17.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -23,6 +26,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </bottom>
          <center>
@@ -39,6 +45,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
                      <font>
@@ -51,6 +60,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
                      <font>
@@ -63,6 +75,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
@@ -75,6 +90,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="62.0" prefWidth="320.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
@@ -87,6 +105,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -101,7 +122,23 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <top>
-            <AnchorPane prefHeight="35.0" prefWidth="921.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="114.0" prefWidth="387.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="41.0" layoutY="-73.0" prefHeight="193.0" prefWidth="498.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Button layoutX="14.0" layoutY="105.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="226.0" style="-fx-background-color: #39A67F; text-decoration: underline;" text="Buscar Pagamento por Nome" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="249.0" layoutY="105.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="226.0" style="-fx-background-color: #39A67F; text-decoration: underline;" text="Buscar Pagamento por Data" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
          </top>
          <left>
             <AnchorPane prefHeight="571.0" prefWidth="41.0" BorderPane.alignment="CENTER" />
@@ -112,6 +149,17 @@
          <right>
             <AnchorPane prefHeight="571.0" prefWidth="42.0" BorderPane.alignment="CENTER" />
          </right>
+         <center>
+            <TableView prefHeight="474.0" prefWidth="388.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Nome" />
+                <TableColumn prefWidth="75.0" text="Tipo" />
+                  <TableColumn prefWidth="75.0" text="Data" />
+                  <TableColumn prefWidth="75.0" text="Preço" />
+                  <TableColumn prefWidth="75.0" text="Pagar" />
+              </columns>
+            </TableView>
+         </center>
       </BorderPane>
    </center>
 </BorderPane>

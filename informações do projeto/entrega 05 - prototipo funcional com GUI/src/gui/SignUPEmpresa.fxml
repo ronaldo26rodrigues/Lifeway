@@ -17,18 +17,18 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SignUp">
-  <columnConstraints>
-    <ColumnConstraints />
-    <ColumnConstraints />
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SignUpEmpresa">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+   </rowConstraints>
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <center>
@@ -73,13 +73,13 @@
          </right>
          <center>
             <GridPane prefWidth="450.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="187.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="348.0" minHeight="10.0" prefHeight="296.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="187.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="348.0" minHeight="10.0" prefHeight="296.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <TextField fx:id="cpf" prefHeight="31.0" prefWidth="351.0" promptText="CPF" GridPane.rowIndex="1">
                      <font>
@@ -157,27 +157,59 @@
                         <Insets bottom="130.0" left="5.0" top="230.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <CheckBox fx:id="checkBoxEmpresa" mnemonicParsing="false" onAction="#irCriarEmpresa" text="Criar uma Empresa" GridPane.rowIndex="1">
+                  <CheckBox fx:id="checkBoxEmpresa2" mnemonicParsing="false" onAction="#irCriarEmpresa2" prefHeight="19.0" prefWidth="129.0" selected="true" text="Criar uma Empresa" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="12.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="13.0" top="210.0" />
+                        <Insets left="3.0" top="350.0" />
                      </GridPane.margin>
                   </CheckBox>
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@imgs/usuario.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets top="180.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <TextField fx:id="nomeDaEmpresa" prefHeight="17.0" prefWidth="349.0" promptText="Nome da Empresa" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="45.0" right="30.0" top="180.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="servicoDaEmpresa" prefHeight="24.0" prefWidth="340.0" promptText="Serviço da Empresa" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="45.0" right="30.0" top="275.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@imgs/usuario.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets top="270.0" />
+                     </GridPane.margin>
+                  </ImageView>
                </children>
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoCriarConta" alignment="CENTER" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="174.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Criar Conta" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoCriarConta" alignment="CENTER" mnemonicParsing="false" onAction="#criarConta" prefHeight="44.0" prefWidth="182.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;;" styleClass="border 2px solid red" text="Criar conta da Empresa" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Arial" size="24.0" />
+                  <Font name="Arial" size="15.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <BorderPane.margin>
-                  <Insets bottom="17.0" left="10.0" />
+                  <Insets bottom="17.0" left="10.0" top="30.0" />
                </BorderPane.margin>
             </Button>
          </bottom>
