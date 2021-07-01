@@ -92,7 +92,7 @@ public class ValidaCPF {
 	}
 
 	public String rg(boolean comPontos) {
-		String nDigResult;
+		
 		String numerosContatenados;
 		String numeroGerado;
 		Random numeroAleatorio = new Random();
