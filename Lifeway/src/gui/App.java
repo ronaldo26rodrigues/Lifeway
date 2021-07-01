@@ -1,17 +1,19 @@
 package gui;
-import java.io.IOException;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class  App extends Application{
+public class App extends Application {
     public static void main(String[] args) throws Exception {
         launch(args);
-    }   
+    }
+
     private static Stage stg;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -21,7 +23,7 @@ public class  App extends Application{
         Parent root = fxmlLoader.load();
         Scene tela = new Scene(root);
 
-        primaryStage.setTitle("LIFEWAY");        
+        primaryStage.setTitle("LIFEWAY");
         primaryStage.setMaximized(true);
         primaryStage.setScene(tela);
         primaryStage.show();

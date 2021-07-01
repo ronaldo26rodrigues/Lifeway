@@ -3,7 +3,6 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,23 +19,20 @@ import javafx.util.Callback;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Propriedade;
-import negocio.beans.TipoEmpresa;
 import negocio.beans.TipoPropriedade;
 import negocio.controle.ControladorEmpresa;
 import negocio.controle.Fachada;
 
 public class PropriedadesScreenController implements Initializable {
-    
 
     @FXML
     private Button retornar;
-
 
     @FXML
     private Button botaoOK;
     @FXML
     private ComboBox<Empresa> empresaCB;
-    @FXML 
+    @FXML
     private ComboBox<TipoPropriedade> tipoCB;
     @FXML
     private TextArea rua;
@@ -47,50 +43,54 @@ public class PropriedadesScreenController implements Initializable {
     @FXML
     private TextArea pontoReferencia;
 
-    public void irRetornar(ActionEvent event) throws IOException{
+    public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
         n.trocarCena("Perfil.fxml");
 
     }
 
     public void criarPropriedadeAction(ActionEvent event) {
-        Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()), Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
+        Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
+                new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
+                        pontoReferencia.getText()),
+                Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
         try {
             Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
         } catch (Exception e) {
-            //TODO: handle exception
+            // TODO: handle exception
         }
         Alert alertPropriedades = new Alert(AlertType.INFORMATION);
-            alertPropriedades.setTitle("Propriedade adicionada");
-                alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
-                rua.clear();
-                complemento.clear();
-                numeroCasa.clear();
-                empresaCB.getSelectionModel().clearSelection();
-                tipoCB.getSelectionModel().clearSelection();
-                complemento.clear();
-                pontoReferencia.clear();
-                alertPropriedades.showAndWait();
-        
-    } 
+        alertPropriedades.setTitle("Propriedade adicionada");
+        alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
+        rua.clear();
+        complemento.clear();
+        numeroCasa.clear();
+        empresaCB.getSelectionModel().clearSelection();
+        tipoCB.getSelectionModel().clearSelection();
+        complemento.clear();
+        pontoReferencia.clear();
+        alertPropriedades.showAndWait();
+
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        ObservableList<Empresa> empresaList = FXCollections.observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
+        ObservableList<Empresa> empresaList = FXCollections
+                .observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
         System.out.println(empresaList);
         empresaCB.setItems(empresaList);
         // empresaCB.getItems().addAll(empresaList);
-        empresaCB.setCellFactory(new Callback<ListView<Empresa>,ListCell<Empresa>>(){
+        empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
             public ListCell<Empresa> call(ListView<Empresa> arg0) {
-                
+
                 final ListCell<Empresa> cell = new ListCell<>() {
                     @Override
                     protected void updateItem(Empresa arg0, boolean arg1) {
                         super.updateItem(arg0, arg1);
 
-                        if(arg0!=null) {
+                        if (arg0 != null) {
                             setText(arg0.getNome());
                         } else {
                             setText(null);
@@ -100,12 +100,11 @@ public class PropriedadesScreenController implements Initializable {
 
                 return cell;
             }
-            
+
         });
 
         tipoCB.getItems().addAll(TipoPropriedade.values());
-        
-    }
 
+    }
 
 }

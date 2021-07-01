@@ -2,7 +2,6 @@ package negocio.beans;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
@@ -15,8 +14,7 @@ public abstract class Usuario {
     private String senha;
     private LocalDate dataDeNascimeto;
 
-
-    public Usuario(String nome, String identificacao, String senha, LocalDate dataDeNascimeto){
+    public Usuario(String nome, String identificacao, String senha, LocalDate dataDeNascimeto) {
         this.nome = nome;
         this.identificacao = identificacao;
         this.senha = senha;
@@ -25,36 +23,30 @@ public abstract class Usuario {
         repositorioPropriedades = new RepositorioGenerico<>();
     }
 
-
     // Método abstrato getTipo
     public abstract String getTipo();
-
 
     /**
      * @return repositorioConsumidores
      */
-    //public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
-        //return repositorioConsumidores;
-    //}
-    
+    // public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
+    // return repositorioConsumidores;
+    // }
+
     // /**
-    //  * @return cadastro
-    //  */
+    // * @return cadastro
+    // */
     // public String getCadastro() {
-    //     return cadastro;
+    // return cadastro;
     // }
     // /**
-    //  * @param cadastro set cadastro
-    //  */
+    // * @param cadastro set cadastro
+    // */
     // public void setCadastro(String cadastro) {
-    //     this.cadastro = cadastro;
+    // this.cadastro = cadastro;
     // }
 
-
-
-    //Validar CPF
-    
-
+    // Validar CPF
 
     /**
      * Equals: Usuário
@@ -63,13 +55,12 @@ public abstract class Usuario {
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
-        if(obj instanceof Usuario) {
+        if (obj instanceof Usuario) {
             Usuario param = (Usuario) obj;
-            if( (param.getIdentificacao() != null) 
-            && param.getIdentificacao().equals(this.getIdentificacao()) ) {
+            if ((param.getIdentificacao() != null) && param.getIdentificacao().equals(this.getIdentificacao())) {
                 resultado = true;
             }
-        }   
+        }
         return resultado;
     }
 
@@ -92,11 +83,11 @@ public abstract class Usuario {
         return true;
     }
 
-
-    //Getters & Setters
+    // Getters & Setters
     public LocalDate getDataDeNascimeto() {
         return dataDeNascimeto;
     }
+
     public void setDataDeNascimeto(LocalDate dataDeNascimeto) {
         this.dataDeNascimeto = dataDeNascimeto;
     }
@@ -132,7 +123,5 @@ public abstract class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    
 
 }

@@ -1,24 +1,18 @@
 package negocio.beans;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 
 public class Empresa {
-    
+
     private String nome;
     private String servico;
     private String idEmpresa;
-    
-    private List<Taxa> taxas; // ?
 
+    private List<Taxa> taxas;
 
     // private List<TaxasPorTipo> taxasPorTipo;
     // private Map<String, Double> tarifas;
@@ -27,11 +21,11 @@ public class Empresa {
     // private String identificacao;
 
     private IRepositorioGenerico<Usuario> repositorioFuncionarios;
-    //private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
+    // private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
     private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
 
     public Empresa(String nome, String servico) {
-        //super(idEmpresa);
+        // super(idEmpresa);
         Random rng = new Random();
         this.idEmpresa = "EMP" + rng.nextInt(1000) + rng.nextInt(1000);
         this.nome = nome;
@@ -40,18 +34,17 @@ public class Empresa {
         this.taxas = new ArrayList<>();
 
         repositorioFuncionarios = new RepositorioGenerico<>();
-        //repositorioFuncionarios = new RepositorioGenerico<>();
+        // repositorioFuncionarios = new RepositorioGenerico<>();
         repositorioRDO = new RepositorioGenerico<>();
 
     }
 
-    //métodos para receber as taxas instanciadas pelo funcionário
+    // métodos para receber as taxas instanciadas pelo funcionário
 
-    //method(type): type
+    // method(type): type
 
     // Getters & Setters
 
-    
     public String getNome() {
         return nome;
     }
@@ -60,11 +53,9 @@ public class Empresa {
         return idEmpresa;
     }
 
-
     public void setIdEmpresa(String idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
-
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -84,6 +75,7 @@ public class Empresa {
     public List<Taxa> getTaxas() {
         return taxas;
     }
+
     /**
      * @param taxas the taxas to set
      */
@@ -91,16 +83,12 @@ public class Empresa {
         this.taxas = taxas;
     }
 
-
-    
-    
-    /* public String getIdentificacao() {
-        return identificacao;
-    }
-
-    public void setIdentificacao(String identificacao) {
-        this.identificacao = identificacao;
-    } */
+    /*
+     * public String getIdentificacao() { return identificacao; }
+     * 
+     * public void setIdentificacao(String identificacao) { this.identificacao =
+     * identificacao; }
+     */
 
     /**
      * @return the repositorioFuncionarios
@@ -108,12 +96,13 @@ public class Empresa {
     public IRepositorioGenerico<Usuario> getRepositorioFuncionarios() {
         return repositorioFuncionarios;
     }
+
     /**
      * @return the repositorioFuncionarios
      */
-    //public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
-        //return repositorioFuncionarios;
-    //}
+    // public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
+    // return repositorioFuncionarios;
+    // }
     /**
      * @param repositorioFuncionarios the repositorioFuncionarios to set
      */
@@ -123,9 +112,10 @@ public class Empresa {
     /**
      * @param repositorioFuncionarios the repositorioFuncionarios to set
      */
-    //public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario> repositorioFuncionarios) {
-        //this.repositorioFuncionarios = repositorioFuncionarios;
-    //}
+    // public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario>
+    // repositorioFuncionarios) {
+    // this.repositorioFuncionarios = repositorioFuncionarios;
+    // }
 
     /**
      * @return the repositorioReports
@@ -133,6 +123,7 @@ public class Empresa {
     public IRepositorioGenerico<RegistroDeOcorrencia> getRepositorioRDO() {
         return repositorioRDO;
     }
+
     /**
      * @param repositorioRDO the repositorioReports to set
      */
@@ -141,71 +132,68 @@ public class Empresa {
     }
 
     // /**
-    //  * @return the taxas
-    //  */
+    // * @return the taxas
+    // */
     // public Taxas getTaxas() {
-    //     return taxas;
+    // return taxas;
     // }
     // /**
-    //  * @param taxas the taxas to set
-    //  */
+    // * @param taxas the taxas to set
+    // */
     // public void setTaxas(Taxas taxas) {
-    //     this.taxas = taxas;
+    // this.taxas = taxas;
     // }
-
 
     /**
      * Equals: Empresa (compara id)
      */
 
     // /**
-    //  * @return the bandeira
-    //  */
+    // * @return the bandeira
+    // */
     // public Bandeira getBandeira() {
-    //     return bandeira;
+    // return bandeira;
     // }
     // /**
-    //  * @return the tarifas
-    //  */
+    // * @return the tarifas
+    // */
     // public Map<String, Double> getTarifas() {
-    //     return tarifas;
+    // return tarifas;
     // }
     // /**
-    //  * @return the taxasPorTipo
-    //  */
+    // * @return the taxasPorTipo
+    // */
     // public List<TaxasPorTipo> getTaxasPorTipo() {
-    //     return taxasPorTipo;
-    // }
-    
-    // /**
-    //  * @param bandeira the bandeira to set
-    //  */
-    // public void setBandeira(Bandeira bandeira) {
-    //     this.bandeira = bandeira;
-    // }
-    // /**
-    //  * @param tarifas the tarifas to set
-    //  */
-    // public void setTarifas(Map<String, Double> tarifas) {
-    //     this.tarifas = tarifas;
-    // }
-    // /**
-    //  * @param taxasPorTipo the taxasPorTipo to set
-    //  */
-    // public void setTaxasPorTipo(List<TaxasPorTipo> taxasPorTipo) {
-    //     this.taxasPorTipo = taxasPorTipo;
+    // return taxasPorTipo;
     // }
 
+    // /**
+    // * @param bandeira the bandeira to set
+    // */
+    // public void setBandeira(Bandeira bandeira) {
+    // this.bandeira = bandeira;
+    // }
+    // /**
+    // * @param tarifas the tarifas to set
+    // */
+    // public void setTarifas(Map<String, Double> tarifas) {
+    // this.tarifas = tarifas;
+    // }
+    // /**
+    // * @param taxasPorTipo the taxasPorTipo to set
+    // */
+    // public void setTaxasPorTipo(List<TaxasPorTipo> taxasPorTipo) {
+    // this.taxasPorTipo = taxasPorTipo;
+    // }
 
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if (  (param.getIdEmpresa() != null) 
-                && param.getIdEmpresa().equals(this.getIdEmpresa()) ) {
-                    resultado = true;
-                }
+            if ((param.getIdEmpresa() != null) && param.getIdEmpresa().equals(this.getIdEmpresa())) {
+                resultado = true;
+            }
         }
         return resultado;
     }
@@ -220,14 +208,12 @@ public class Empresa {
         resultado += "\n" + "ID: " + this.getIdEmpresa();
         resultado += "\n" + "Serviço: " + this.getServico();
         return resultado;
-      
+
     }
 
     public boolean validar() {
         // TODO Auto-generated method stub
         return false;
-        }
-
-        
     }
-    
+
+}

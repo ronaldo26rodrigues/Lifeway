@@ -2,10 +2,8 @@ package negocio.beans;
 
 import java.time.LocalDate;
 
-// import negocio.ControladorEmpresas;
-
 public class RegistroDeOcorrencia {
-    
+
     private String protocolo;
     private String assunto;
     private String mensagem;
@@ -14,10 +12,9 @@ public class RegistroDeOcorrencia {
     private LocalDate data;
     private Endereco endereco;
     private boolean resolvido;
-    
 
-    public RegistroDeOcorrencia(String protocolo, String assunto, String mensagem, 
-        Empresa empresa, Usuario cliente, LocalDate data, Endereco endereco){
+    public RegistroDeOcorrencia(String protocolo, String assunto, String mensagem, Empresa empresa, Usuario cliente,
+            LocalDate data, Endereco endereco) {
         this.protocolo = protocolo;
         this.assunto = assunto;
         this.mensagem = mensagem;
@@ -28,9 +25,7 @@ public class RegistroDeOcorrencia {
 
         resolvido = false;
     }
-    
-    
-    
+
     public Usuario getUsuario() {
         return cliente;
     }
@@ -47,31 +42,34 @@ public class RegistroDeOcorrencia {
         this.protocolo = protocolo;
     }
 
-
     /**
      * @return the assunto
      */
     public String getAssunto() {
         return assunto;
     }
+
     /**
      * @return the data
      */
     public LocalDate getData() {
         return data;
     }
+
     /**
      * @return the endereco
      */
     public Endereco getEndereco() {
         return endereco;
     }
+
     /**
      * @return the idEmpresa
      */
     public Empresa getEmpresa() {
         return empresa;
     }
+
     /**
      * @return the mensagem
      */
@@ -85,24 +83,28 @@ public class RegistroDeOcorrencia {
     public void setAssunto(String assunto) {
         this.assunto = assunto;
     }
+
     /**
      * @param data the data to set
      */
     public void setData(LocalDate data) {
         this.data = data;
     }
+
     /**
      * @param endereco the endereco to set
      */
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
     /**
      * @param idEmpresa the idEmpresa to set
      */
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+
     /**
      * @param mensagem the mensagem to set
      */
@@ -110,16 +112,20 @@ public class RegistroDeOcorrencia {
         this.mensagem = mensagem;
     }
 
-    public boolean getResolvido(){
+    /**
+     * 
+     * @return
+     */
+    public boolean getResolvido() {
         return this.resolvido;
     }
+
     /**
      * @param resolvido the resolvido to set
      */
     public void setResolvido(boolean resolvido) {
         this.resolvido = resolvido;
     }
-    
 
     public boolean validar() {
         // TODO Auto-generated method stub
@@ -128,8 +134,8 @@ public class RegistroDeOcorrencia {
 
     @Override
     public String toString() {
-        String texto="";
-        texto += "\n" + "Protocolo: " + this.protocolo; 
+        String texto = "";
+        texto += "\n" + "Protocolo: " + this.protocolo;
         texto += "\n" + "Usuario: " + this.cliente.getNome();
         texto += "\n" + "Empresa: " + this.empresa.getNome();
         texto += "\n" + "Assunto: " + this.assunto;
@@ -142,6 +148,4 @@ public class RegistroDeOcorrencia {
 
     }
 
-
-    
 }

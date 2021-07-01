@@ -5,13 +5,15 @@ import java.util.List;
 import excecoes.ElementoJaExisteException;
 
 public interface IRepositorioGenerico<T> {
-    
+
     void inserir(T obj) throws ElementoJaExisteException;
+
     void remover(T obj);
-    //void removerPorID(String id);
+
+    // void removerPorID(String id);
     T buscar(T obj);
-    //T buscarPorID(String id);
+
+    // T buscarPorID(String id);
     List<T> listar();
-    
-    
+
 }

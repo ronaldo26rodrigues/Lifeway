@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,12 +38,11 @@ public class ROScreenController implements Initializable {
     @FXML
     private Button botaoHome;
 
-
     @FXML
     private TextField ocorrencia;
     @FXML
     private DatePicker dataOcorrencia;
-    
+
     @FXML
     private TextArea rua;
     @FXML
@@ -64,7 +61,6 @@ public class ROScreenController implements Initializable {
     @FXML
     private ComboBox<Empresa> empresaCB;
 
-
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
@@ -77,65 +73,71 @@ public class ROScreenController implements Initializable {
 
     }
 
-
     public void irPagamentos(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("Pagamentos.fxml");
 
     }
+
     public void irPerfil(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("Perfil.fxml");
 
     }
+
     public void irRO(ActionEvent event) throws IOException {
         App c = new App();
         c.trocarCena("RO.fxml");
 
     }
+
     public void irHome(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("Menu.fxml");
 
     }
+
     public void registrarOcorrencia(ActionEvent event) throws IOException {
         System.out.println("botao de criar ocorrencia clicado");
         System.out.println(Fachada.getInstance().getUsuarioLogado());
-            System.out.println("botao de criar ocorrencia clicado");
-            System.out.println(Fachada.getInstance().getUsuarioLogado());
-            Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(), empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(), dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()));
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Ocorrência registrada");
-                alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
-                ocorrencia.clear();
-                rua.clear();
-                detalhes.clear();
-                numeroCasa.clear();
-                empresaCB.getSelectionModel().clearSelection();
-                dataOcorrencia.setValue(LocalDate.now());
-                complemento.clear();
-                pontoReferencia.clear();
-                alert.showAndWait();
-            }
-        
+        System.out.println("botao de criar ocorrencia clicado");
+        System.out.println(Fachada.getInstance().getUsuarioLogado());
+        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(),
+                empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(),
+                dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()),
+                        complemento.getText(), pontoReferencia.getText()));
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Ocorrência registrada");
+        alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
+        ocorrencia.clear();
+        rua.clear();
+        detalhes.clear();
+        numeroCasa.clear();
+        empresaCB.getSelectionModel().clearSelection();
+        dataOcorrencia.setValue(LocalDate.now());
+        complemento.clear();
+        pontoReferencia.clear();
+        alert.showAndWait();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<Empresa> empresaList = FXCollections.observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
+        ObservableList<Empresa> empresaList = FXCollections
+                .observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
         System.out.println(empresaList);
         empresaCB.setItems(empresaList);
         // empresaCB.getItems().addAll(empresaList);
-        empresaCB.setCellFactory(new Callback<ListView<Empresa>,ListCell<Empresa>>(){
+        empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
             public ListCell<Empresa> call(ListView<Empresa> arg0) {
-                
+
                 final ListCell<Empresa> cell = new ListCell<>() {
                     @Override
                     protected void updateItem(Empresa arg0, boolean arg1) {
                         super.updateItem(arg0, arg1);
 
-                        if(arg0!=null) {
+                        if (arg0 != null) {
                             setText(arg0.getNome());
                         } else {
                             setText(null);
@@ -145,11 +147,8 @@ public class ROScreenController implements Initializable {
 
                 return cell;
             }
-            
+
         });
-            }
-    
+    }
 
 }
-
-

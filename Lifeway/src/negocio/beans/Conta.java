@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Conta {
-    
+
     private String idConta;
     private Cliente cliente;
     private Empresa empresa;
@@ -17,7 +17,8 @@ public class Conta {
 
     private boolean paga;
 
-    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal){
+    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo,
+            double valorTotal) {
         this.idConta = idConta;
         this.cliente = cliente;
         this.empresa = empresa;
@@ -28,10 +29,7 @@ public class Conta {
         this.taxasAplicadas = new ArrayList<>();
     }
 
-
-    //Getters & Setters
-
-    
+    // Getters & Setters
 
     public String getIdConta() {
         return idConta;
@@ -71,6 +69,7 @@ public class Conta {
     public List<Taxa> getTaxasAplicadas() {
         return taxasAplicadas;
     }
+
     /**
      * @param taxasAplicadas the taxasAplicadas to set
      */
@@ -85,6 +84,7 @@ public class Conta {
     public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
+
     public LocalDate getDataEmissao() {
         return dataEmissao;
     }
@@ -105,15 +105,14 @@ public class Conta {
         this.paga = paga;
     }
 
-    public boolean getPaga(){
+    public boolean getPaga() {
         return paga;
     }
 
-    
     public double calcularTotal() {
         double total = 0;
-        //TODO
-        return total;   
+        // TODO
+        return total;
     }
 
     /**

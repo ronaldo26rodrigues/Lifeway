@@ -2,11 +2,9 @@ package negocio.controle;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 import excecoes.EmpresaJaCadastradaException;
-// import excecoes.EmpresaNaoExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Empresa;
@@ -14,16 +12,15 @@ import negocio.beans.Empresa;
 public class ControladorEmpresa {
 
     private static ControladorEmpresa instance;
-    
+
     private IRepositorioGenerico<Empresa> repositorioEmpresa;
 
-    
     ControladorEmpresa() {
         this.repositorioEmpresa = new RepositorioGenerico<>();
     }
 
     public static ControladorEmpresa getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new ControladorEmpresa();
         }
         return instance;
@@ -41,22 +38,23 @@ public class ControladorEmpresa {
         return repositorioEmpresa.listar();
     }
 
-
     /**
      * Método para cadastrar empresa.
+     * 
      * @param empresa
      * @throws NoSuchAlgorithmException
      * @throws EmpresaJaCadastradaException
      */
     public void cadastrarEmpresa(Empresa empresa) throws NoSuchAlgorithmException, EmpresaJaCadastradaException {
-        if (empresa == null) return; // >>> Tratar erros para GUI
+        if (empresa == null)
+            return; // >>> Tratar erros para GUI
 
-        //id, nome, serviço
+        // id, nome, serviço
 
-        //adicionar empresa ao repositorioEmpresa
+        // adicionar empresa ao repositorioEmpresa
         try {
             this.repositorioEmpresa.inserir(empresa);
-        } catch(ElementoJaExisteException e) {
+        } catch (ElementoJaExisteException e) {
             throw new EmpresaJaCadastradaException(e);
         }
     }

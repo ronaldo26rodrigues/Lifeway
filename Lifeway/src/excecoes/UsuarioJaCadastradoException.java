@@ -1,10 +1,9 @@
 package excecoes;
 
-
 import negocio.beans.Usuario;
 
 public class UsuarioJaCadastradoException extends Exception {
-    
+
     private Usuario usuario;
     private ElementoJaExisteException e;
 
@@ -23,10 +22,10 @@ public class UsuarioJaCadastradoException extends Exception {
     }
 
     @Override
-    public String getMessage(){
+    public String getMessage() {
         String mensagem = "Usuário já cadastrado no sistema.";
-        if(this.usuario != null) {
-            mensagem = String.format("O CPF %s já está cadastrado." , usuario.getIdentificacao());
+        if (this.usuario != null) {
+            mensagem = String.format("O CPF %s já está cadastrado.", usuario.getIdentificacao());
         }
         return mensagem;
     }

@@ -1,11 +1,9 @@
 package negocio.beans;
 
 public enum Bandeira {
-    
-    VERDE,
-    AMARELA,
-    VERMELHA;
-    
+
+    VERDE, AMARELA, VERMELHA;
+
     private float valor;
 
     /**
@@ -14,6 +12,7 @@ public enum Bandeira {
     public float getValor() {
         return valor;
     }
+
     /**
      * @param valor the valor to set
      */

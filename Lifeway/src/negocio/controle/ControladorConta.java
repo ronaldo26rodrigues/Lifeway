@@ -10,16 +10,15 @@ import negocio.beans.Conta;
 public class ControladorConta {
 
     private static ControladorConta instance;
-    
+
     private IRepositorioGenerico<Conta> repositorioContas;
 
-    
     ControladorConta() {
         this.repositorioContas = new RepositorioGenerico<>();
     }
 
     public ControladorConta getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new ControladorConta();
         }
         return instance;
@@ -37,8 +36,7 @@ public class ControladorConta {
         return repositorioContas.listar();
     }
 
-    //Método para gerar histórico de contas?
-    //Gerar conta
+    // Método para gerar histórico de contas?
+    // Gerar conta
 
-    
 }

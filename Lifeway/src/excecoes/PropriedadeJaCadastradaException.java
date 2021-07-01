@@ -3,7 +3,7 @@ package excecoes;
 import negocio.beans.Propriedade;
 
 public class PropriedadeJaCadastradaException extends Exception {
-    
+
     private Propriedade propriedade;
     private ElementoJaExisteException e;
 
@@ -20,13 +20,13 @@ public class PropriedadeJaCadastradaException extends Exception {
         }
         this.e = e;
     }
-    
+
     @Override
-    public String getMessage(){
+    public String getMessage() {
         String mensagem = "Propriedade já cadastrada no perfil.";
-        if(this.propriedade != null) {
-            mensagem = String.format("Propriedade já cadastrada no perfil do usuário %s." , 
-                propriedade.getClienteProprietario().getNome());
+        if (this.propriedade != null) {
+            mensagem = String.format("Propriedade já cadastrada no perfil do usuário %s.",
+                    propriedade.getClienteProprietario().getNome());
         }
         return mensagem;
     }

@@ -1,7 +1,7 @@
 package negocio.beans;
 
 public class Endereco {
-    
+
     private String rua;
     private int numero;
     private String complemento;
@@ -11,7 +11,7 @@ public class Endereco {
 
     }
 
-    public Endereco(String rua, int numero){
+    public Endereco(String rua, int numero) {
         this.rua = rua;
         this.numero = numero;
         this.complemento = "nenhum";
@@ -32,9 +32,8 @@ public class Endereco {
         setPontoDeReferencia(pontoDeReferencia);
     }
 
+    // Getters & Setters
 
-    //Getters & Setters
-    
     public String getRua() {
         return rua;
     }
@@ -56,7 +55,7 @@ public class Endereco {
     }
 
     public void setComplemento(String complemento) {
-        if(complemento == null || complemento.equals("")) {
+        if (complemento == null || complemento.equals("")) {
             this.complemento = "nenhum";
         } else {
             this.complemento = complemento;
@@ -68,7 +67,7 @@ public class Endereco {
     }
 
     public void setPontoDeReferencia(String pontoDeReferencia) {
-        if(pontoDeReferencia == null || pontoDeReferencia.equals("")) {
+        if (pontoDeReferencia == null || pontoDeReferencia.equals("")) {
             this.pontoDeReferencia = "nenhum";
         } else {
             this.pontoDeReferencia = pontoDeReferencia;
@@ -80,11 +79,8 @@ public class Endereco {
      */
     @Override
     public String toString() {
-        return "Rua: " + this.rua + 
-        "\nNúmero: " + this.numero + 
-        "\nComplemento: " + this.complemento + 
-        "\nPonto de referência: " + this.pontoDeReferencia;
+        return "Rua: " + this.rua + "\nNúmero: " + this.numero + "\nComplemento: " + this.complemento
+                + "\nPonto de referência: " + this.pontoDeReferencia;
     }
 
-    
 }

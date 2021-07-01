@@ -9,13 +9,13 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     private List<T> objetos;
 
-    public RepositorioGenerico(){
+    public RepositorioGenerico() {
         objetos = new ArrayList<>();
     }
 
     @Override
     public void inserir(T obj) throws ElementoJaExisteException {
-        if(!objetos.contains(obj)){
+        if (!objetos.contains(obj)) {
             objetos.add(obj);
         } else {
             throw new ElementoJaExisteException(obj.toString());
@@ -27,11 +27,11 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         objetos.remove(obj);
     }
 
-
     @Override
     public T buscar(T obj) {
         for (T t : objetos) {
-            if(t.equals(obj))  return t;
+            if (t.equals(obj))
+                return t;
         }
         return null;
     }

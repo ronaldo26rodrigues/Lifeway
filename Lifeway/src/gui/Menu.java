@@ -1,12 +1,9 @@
 package gui;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Menu {
 
@@ -23,10 +20,6 @@ public class Menu {
     @FXML
     private Button botaoHome;
 
-
-    
-
-
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
@@ -39,27 +32,28 @@ public class Menu {
 
     }
 
-
     public void irPagamentos(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("Pagamentos.fxml");
 
     }
+
     public void irPerfil(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("Perfil.fxml");
 
     }
+
     public void irRO(ActionEvent event) throws IOException {
         App c = new App();
         c.trocarCena("RO.fxml");
 
     }
+
     public void irHome(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("Menu.fxml");
 
     }
 
-   
 }

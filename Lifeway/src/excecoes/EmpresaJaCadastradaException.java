@@ -3,7 +3,7 @@ package excecoes;
 import negocio.beans.Empresa;
 
 public class EmpresaJaCadastradaException extends Exception {
-    
+
     private Empresa empresa;
     private ElementoJaExisteException e;
 
@@ -20,13 +20,12 @@ public class EmpresaJaCadastradaException extends Exception {
         }
         this.e = e;
     }
-    
+
     @Override
-    public String getMessage(){
+    public String getMessage() {
         String mensagem = "Empresa já cadastrada.";
-        if(this.empresa != null) {
-            mensagem = String.format("Empresa %s já cadastrada no sistema." , 
-            empresa.getNome());
+        if (this.empresa != null) {
+            mensagem = String.format("Empresa %s já cadastrada no sistema.", empresa.getNome());
         }
         return mensagem;
     }

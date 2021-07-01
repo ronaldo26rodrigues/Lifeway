@@ -3,7 +3,6 @@ package negocio.controle;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.List;
-
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 import excecoes.PropriedadeJaCadastradaException;
@@ -14,8 +13,7 @@ import negocio.beans.RegistroDeOcorrencia;
 import negocio.beans.Usuario;
 
 public class Fachada {
-    
-    
+
     private static Fachada instance;
 
     private static ControladorUsuario controladorUsuario;
@@ -31,11 +29,11 @@ public class Fachada {
     }
 
     public static Fachada getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Fachada();
         }
         return instance;
-    } 
+    }
 
     public void criarNovoUsuario(Usuario usuario) throws ElementoJaExisteException {
         controladorUsuario.criarNovoUsuario(usuario);
@@ -52,7 +50,7 @@ public class Fachada {
     public void login(Usuario usuario) {
         controladorUsuario.login(usuario);
     }
-    
+
     /**
      * @return the usuarioLogado
      */
@@ -60,39 +58,38 @@ public class Fachada {
         return controladorUsuario.getUsuarioLogado();
     }
 
-    public void criarNovaOcorrencia(String assunto, String mensagem, Empresa empresa, Usuario cliente, LocalDate data, Endereco endereco) {
+    public void criarNovaOcorrencia(String assunto, String mensagem, Empresa empresa, Usuario cliente, LocalDate data,
+            Endereco endereco) {
         controladorRO.criarNovaOcorrencia(assunto, mensagem, empresa, cliente, data, endereco);
     }
-
 
     public void resolverOcorrencia(RegistroDeOcorrencia ocorrencia) {
         controladorRO.resolverOcorrencia(ocorrencia);
     }
 
-
     public void criarNovaOcorrencia(RegistroDeOcorrencia registroDeOcorrencia) throws ElementoJaExisteException {
         controladorRO.criarNovaOcorrencia(registroDeOcorrencia);
     }
-
 
     public void excluirOcorrencia(RegistroDeOcorrencia registroDeOcorrencia) throws ElementoJaExisteException {
         controladorRO.excluirOcorrencia(registroDeOcorrencia);
     }
 
-        
     public List<RegistroDeOcorrencia> listarROcorrencias() {
         return controladorRO.listarROcorrencias();
     }
 
     public void excluirPropriedade(Propriedade propriedade) throws ElementoJaExisteException {
-        controladorPropriedade.excluirPropriedade(propriedade);;
+        controladorPropriedade.excluirPropriedade(propriedade);
+        ;
     }
 
     public List<Propriedade> listarPropriedade() {
         return controladorPropriedade.listarPropriedade();
     }
 
-    public void cadastrarPropriedade(Propriedade propriedade) throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
+    public void cadastrarPropriedade(Propriedade propriedade)
+            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
         controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
@@ -107,6 +104,5 @@ public class Fachada {
     public List<Empresa> listarEmpresas() {
         return controladorEmpresa.listarEmpresas();
     }
-    
- 
+
 }

@@ -1,8 +1,6 @@
 package negocio.beans;
 
-import java.util.List;
 import java.util.Random;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
@@ -15,25 +13,27 @@ public class Propriedade {
     private String idEmpresa;
     private Empresa empresaContratada;
 
-    private IRepositorioGenerico<Conta>repositorioContas;
+    private IRepositorioGenerico<Conta> repositorioContas;
 
     // private String idCliente;
     // private String numMedidor;
 
     /**
      * Construtor: Propriedade
+     * 
      * @param idPropriedade
      * @param tipo
      * @param endereco
      */
-    public Propriedade(TipoPropriedade tipo,Endereco endereco, Cliente clienteProprietario, String idPropriedade, String idEmpresa) {
-        
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Cliente clienteProprietario, String idPropriedade,
+            String idEmpresa) {
+
         this.tipo = tipo;
         this.endereco = endereco;
         this.clienteProprietario = clienteProprietario;
         this.idPropriedade = idPropriedade;
         this.idEmpresa = idEmpresa;
-        
+
         this.repositorioContas = new RepositorioGenerico<>();
     }
 
@@ -47,10 +47,8 @@ public class Propriedade {
         this.endereco = endereco;
     }
 
+    // Getters & Setters
 
-    //Getters & Setters
-
-    
     public TipoPropriedade getTipo() {
         return tipo;
     }
@@ -99,14 +97,13 @@ public class Propriedade {
         this.clienteProprietario = clienteProprietario;
     }
 
-
     /**
      * @return the repositorioContas
      */
     public IRepositorioGenerico<Conta> getRepositorioContas() {
         return repositorioContas;
     }
-    
+
     /**
      * @param repositorioContas the repositorioContas to set
      */
@@ -114,25 +111,22 @@ public class Propriedade {
         this.repositorioContas = repositorioContas;
     }
 
-
-    
     // /**
-    //  * @return numMedidor
-    //  */
+    // * @return numMedidor
+    // */
     // public String getNumMedidor() {
-    //     return numMedidor;
+    // return numMedidor;
     // }
     // /**
-    //  * @param numMedidor  set numMedidor
-    //  */
+    // * @param numMedidor set numMedidor
+    // */
     // public void setNumMedidor(String numMedidor) {
-    //     this.numMedidor = numMedidor;
+    // this.numMedidor = numMedidor;
     // }
 
     /**
-     * eu acho que pra comparar propriedades, basta comparar endereço,
-     * já que o método deve estar atrelado a um cliente específico,
-     * mas não tenho ctz. Mudar?
+     * eu acho que pra comparar propriedades, basta comparar endereço, já que o
+     * método deve estar atrelado a um cliente específico, mas não tenho ctz. Mudar?
      * Equals: Propriedade (compara id, tipo e endereço)
      */
     @Override
@@ -140,16 +134,16 @@ public class Propriedade {
         boolean resultado = false;
         if (obj instanceof Propriedade) {
             Propriedade param = (Propriedade) obj;
-            if ( /* (param.getIdentificacao() != null) 
-                && param.getIdentificacao().equals(this.getIdentificacao()) 
-                && param.getTipo().equals(this.getTipo())
-                && */param.getEndereco().equals(this.getEndereco()) ) {
-                    resultado = true;
-                }
+            if ( /*
+                  * (param.getIdentificacao() != null) &&
+                  * param.getIdentificacao().equals(this.getIdentificacao()) &&
+                  * param.getTipo().equals(this.getTipo()) &&
+                  */param.getEndereco().equals(this.getEndereco())) {
+                resultado = true;
+            }
         }
         return resultado;
     }
-
 
     /**
      * toString: Propriedade
@@ -174,25 +168,25 @@ public class Propriedade {
     /**
      * @return the idEmpresa
      */
-    //public String getIdEmpresa() {
-       // return idEmpresa;
-    //}
+    // public String getIdEmpresa() {
+    // return idEmpresa;
+    // }
 
-    //public void setId(String id) {
-        // TODO Auto-generated method stub
-    //}
-    
+    // public void setId(String id) {
+    // TODO Auto-generated method stub
+    // }
+
     // /**
-    //  * @return the idCliente
-    //  */
+    // * @return the idCliente
+    // */
     // public String getIdCliente() {
-    //     return idCliente;
+    // return idCliente;
     // }
     // /**
-    //  * @param idCliente the idCliente to set
-    //  */
+    // * @param idCliente the idCliente to set
+    // */
     // public void setIdCliente(String idCliente) {
-    //     this.idCliente = idCliente;
+    // this.idCliente = idCliente;
     // }
-    
+
 }
