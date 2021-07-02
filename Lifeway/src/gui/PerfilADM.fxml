@@ -96,6 +96,21 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button fx:id="botaoListaTaxas" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaTaxas" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Lista de taxas" textFill="#f8f8f8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imgs/tax.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imgs/Logo.png" />
