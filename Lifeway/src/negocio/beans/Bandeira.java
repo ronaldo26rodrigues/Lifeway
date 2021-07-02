@@ -22,4 +22,6 @@ public enum Bandeira {
         this.valor = valor;
     }
 
+    
+
 }
