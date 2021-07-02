@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -26,6 +27,7 @@ public class App extends Application {
         primaryStage.setTitle("LIFEWAY");
         primaryStage.setMaximized(true);
         primaryStage.setScene(tela);
+        primaryStage.getIcons().add(new Image("/gui/imgs/LogoIcon.png"));
         primaryStage.show();
     }
 
