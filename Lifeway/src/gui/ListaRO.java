@@ -98,6 +98,11 @@ public class ListaRO implements Initializable {
 
     }
 
+    public void irListaTaxas() throws IOException {
+        App d = new App();
+        d.trocarCena("Taxas.fxml");
+    }
+
     public void marcarResolvidoEvent(ActionEvent event) throws IOException {
         registroSelecionado.setResolvido(true);
         atualizarLista();

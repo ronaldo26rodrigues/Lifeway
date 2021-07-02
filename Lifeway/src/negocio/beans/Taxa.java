@@ -17,7 +17,7 @@ public class Taxa implements Serializable {
         Bandeira bandeira, Empresa empresa) {
         this.bandeira = bandeira;
         this.faixaAte = faixaAte;
-        this.faixaDe = faixaAte;
+        this.faixaDe = faixaDe;
         this.tipoPropriedade = tipoPropriedade;
         this.valor = valor;
         this.empresa = empresa;
