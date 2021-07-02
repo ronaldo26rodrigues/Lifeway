@@ -92,7 +92,7 @@ public class Empresa implements Serializable {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if ((param.getIdEmpresa() != null) && param.getIdEmpresa().equals(this.getIdEmpresa()) &&
+            if ((param.getIdEmpresa() != null) &&
                  param.getNome().equals(this.getNome()) &&
                  param.getServico().equals(this.getServico())) {
                 resultado = true;
