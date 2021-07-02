@@ -7,9 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.Conta;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
+import negocio.beans.Taxa;
 import negocio.beans.TaxasTipo;
 import negocio.beans.TipoEmpresa;
 import negocio.controle.Fachada;
@@ -50,6 +53,8 @@ public class ConsumidorLista implements Initializable {
 
     @FXML
     private Label labelConsumidorList;
+    @FXML
+    private TextField valorConsumido;
 
     // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
@@ -138,13 +143,22 @@ public class ConsumidorLista implements Initializable {
          */
     }
     public void criarConta() {
-        
-        
-     
-        
+        double valorTotal = 0; 
 
+        for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
+            if(taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo()) && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText()) && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText() ) {
+            valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();
+            valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
+            }   
+            
 
+        }
+        // public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
+        //double valorTotal)
+        Conta conta = new Conta();
+        //Random rng = new Random();
+
+        }
 
     }
-
-}
+    
