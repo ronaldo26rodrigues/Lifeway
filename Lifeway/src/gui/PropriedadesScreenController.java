@@ -43,6 +43,9 @@ public class PropriedadesScreenController implements Initializable {
     @FXML
     private TextArea pontoReferencia;
 
+
+    
+
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
         n.trocarCena("Perfil.fxml");
@@ -104,7 +107,13 @@ public class PropriedadesScreenController implements Initializable {
         });
 
         tipoCB.getItems().addAll(TipoPropriedade.values());
+       
+
+        
 
     }
 
+    
+    
+    
 }

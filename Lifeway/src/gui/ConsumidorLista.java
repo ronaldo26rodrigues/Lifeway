@@ -10,10 +10,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
+import negocio.beans.TaxasTipo;
+import negocio.beans.TipoEmpresa;
 import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.graalvm.compiler.nodes.graphbuilderconf.GeneratedInvocationPlugin;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 public class ConsumidorLista implements Initializable {
 
@@ -46,7 +53,7 @@ public class ConsumidorLista implements Initializable {
 
     // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
-    String consumidorAtual;
+    Propriedade propriedadeSelecionada;
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
@@ -104,6 +111,20 @@ public class ConsumidorLista implements Initializable {
 
         atualizarLista();
 
+        consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Propriedade>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Propriedade> arg0, Propriedade arg1, Propriedade arg2) {
+                // TODO Auto-generated method stub
+                propriedadeSelecionada = consumidorList.getSelectionModel().getSelectedItem();
+            }
+
+        });
+
+        
+
+        
+
         /*
          * consumidorList.getSelectionModel().selectedItemProperty().addListener(new
          * ChangeListener<String>(){
@@ -115,6 +136,15 @@ public class ConsumidorLista implements Initializable {
          * 
          * });
          */
+    }
+    public void criarConta() {
+        
+        
+     
+        
+
+
+
     }
 
 }
