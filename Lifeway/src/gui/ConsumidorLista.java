@@ -17,8 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.graalvm.compiler.nodes.graphbuilderconf.GeneratedInvocationPlugin;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
