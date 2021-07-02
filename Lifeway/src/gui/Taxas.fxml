@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -17,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConsumidorLista">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TaxaScreenController">
    <left>
-      <BorderPane prefHeight="687.0" prefWidth="320.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="600.0" prefWidth="285.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
             <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="331.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
@@ -38,7 +39,7 @@
             </Button>
          </bottom>
          <center>
-            <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="541.0" prefWidth="259.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
                      <font>
@@ -103,7 +104,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="286.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imgs/Logo.png" />
                      </image>
@@ -125,83 +126,131 @@
          <center>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="95.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.199951171875" minWidth="10.0" prefWidth="388.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="212.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="537.0" prefWidth="222.0">
+                  <TableView prefHeight="548.0" prefWidth="387.0">
                      <columns>
-                        <TableColumn fx:id="colunaProprietario" prefWidth="140.0" text="Proprietario" />
-                        <TableColumn fx:id="colunaTipo" prefWidth="36.0" text="Tipo" />
-                        <TableColumn fx:id="colunaEndereco" prefWidth="138.0" text="Endereço" />
-                        <TableColumn fx:id="colunaSituacao" editable="false" prefWidth="32.0" text="id" />
+                        <TableColumn fx:id="colunaProprietario" prefWidth="136.00000590085983" text="Tipo de propriedade" />
+                        <TableColumn fx:id="colunaTipo" prefWidth="53.600067138671875" text="De" />
+                        <TableColumn fx:id="colunaEndereco" prefWidth="53.60003662109375" text="Até" />
+                        <TableColumn fx:id="colunaSituacao" editable="false" prefWidth="133.59994506835938" text="Bandeira" />
                      </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
                   <GridPane style="-fx-background-color: gray;" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField promptText="Tipo" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="30.0" left="10.0" right="10.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="novoNome1" promptText="Empresa" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="30.0" left="10.0" right="10.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField promptText="Empresa" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="30.0" left="10.0" right="10.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                           <bottom>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="OK" textFill="WHITE" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <BorderPane.margin>
-                                    <Insets bottom="10.0" />
-                                 </BorderPane.margin>
-                              </Button>
-                           </bottom>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                            <center>
-                              <TextField promptText="Empresa" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                                 <BorderPane.margin>
-                                    <Insets bottom="30.0" left="10.0" right="10.0" />
-                                 </BorderPane.margin>
-                              </TextField>
+                              <GridPane BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="btnOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Modificar seleção" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="btnOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Criar nova" textFill="WHITE" wrapText="true" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </GridPane>
                            </center>
                         </BorderPane>
+                        <GridPane prefHeight="70.0" prefWidth="188.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox fx:id="tipoProprCB" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <Label text="Tipo de propriedade" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="De" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Até" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="de" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <TextField fx:id="ate" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="3">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox fx:id="bandeiraCB" prefWidth="150.0" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <TextField fx:id="valorBandeira" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <Label text="Bandeira" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Valor" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <TextField fx:id="valor" promptText="Valor" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </GridPane>
                </children>

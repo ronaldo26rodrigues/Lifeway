@@ -10,6 +10,7 @@ import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Propriedade;
 import negocio.beans.RegistroDeOcorrencia;
+import negocio.beans.Taxa;
 import negocio.beans.Usuario;
 
 public class Fachada {
@@ -20,12 +21,14 @@ public class Fachada {
     private static ControladorRO controladorRO;
     private static ControladorPropriedade controladorPropriedade;
     private static ControladorEmpresa controladorEmpresa;
+    private static ControladorTaxa controladorTaxa;
 
     private Fachada() {
         controladorEmpresa = ControladorEmpresa.getInstance();
         controladorUsuario = ControladorUsuario.getInstance();
         controladorRO = ControladorRO.getInstance();
         controladorPropriedade = ControladorPropriedade.getInstance();
+        controladorTaxa = ControladorTaxa.getInstance();
     }
 
     public static Fachada getInstance() {
@@ -103,6 +106,18 @@ public class Fachada {
 
     public List<Empresa> listarEmpresas() {
         return controladorEmpresa.listarEmpresas();
+    }
+
+    public void criarTaxa(Taxa taxa) throws ElementoJaExisteException {
+        controladorTaxa.criarTaxa(taxa);
+    }
+
+    public void removerTaxa(Taxa taxa) {
+        controladorTaxa.removerTaxa(taxa);
+    }
+
+    public List<Taxa> listarTaxas() {
+        return controladorTaxa.listarTaxas();
     }
 
 }
