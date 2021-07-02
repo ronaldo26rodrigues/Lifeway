@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -106,7 +107,54 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <left>
-            <AnchorPane prefHeight="328.0" prefWidth="137.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="328.0" prefWidth="137.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="96.0" layoutY="88.0" text="Tipo de Empresa" textFill="#41951c">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="96.0" layoutY="116.0" text="Você faz parte da empresa XXXX do tipo XXXX" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="92.0" layoutY="168.0" text="Ocorrências para Atender" textFill="#41951c">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="92.0" layoutY="196.0" text="Você possui XXXX ocorrências para atender" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="92.0" layoutY="243.0" text="Consumidores Ativos" textFill="#41951c">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="92.0" layoutY="271.0" text="Você possui XXXX consumidores ativos" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="91.0" fitWidth="65.0" layoutX="13.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Downloads/download__2_-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="2.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Downloads/kisspng-computer-icons-business-company-corporation-company-5abff413e49df4.4050835415225292999364-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="118.0" fitWidth="84.0" layoutX="13.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Downloads/images__4_-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
          </left>
          <bottom>
             <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
@@ -121,6 +169,9 @@
                </font>
             </Label>
          </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" rotate="90.0" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </center>
 </BorderPane>
