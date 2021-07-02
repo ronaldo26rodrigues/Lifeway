@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -53,6 +55,8 @@ public class ConsumidorLista implements Initializable {
     private Label labelConsumidorList;
     @FXML
     private TextField valorConsumido;
+    @FXML
+    private DatePicker dataDeLeitura;
 
     // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
@@ -144,7 +148,7 @@ public class ConsumidorLista implements Initializable {
         double valorTotal = 0; 
 
         for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
-            if(taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo()) && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText()) && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText() ) {
+            if(taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo()) && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText()) && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText())) {
             valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();
             valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
             }   
@@ -153,7 +157,13 @@ public class ConsumidorLista implements Initializable {
         }
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
         //double valorTotal)
-        Conta conta = new Conta();
+        Conta novaConta = new Conta(propriedadeSelecionada, ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(), Double.parseDouble(valorConsumido.getText()), valorTotal);
+        try {
+            Fachada.getInstance().criarNovaConta(novaConta);
+        } catch (ElementoJaExisteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         //Random rng = new Random();
 
         }

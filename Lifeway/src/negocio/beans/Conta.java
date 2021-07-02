@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Conta implements Serializable {
 
@@ -18,8 +19,12 @@ public class Conta implements Serializable {
 
     private boolean paga;
 
-    public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
-            double valorTotal) {
+    public Conta(Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal) {
+        
+        Random rng = new Random();
+        
+        this.idConta = "C" + rng.nextInt(1000) + rng.nextInt(1000);
+
         this.idConta = idConta;
         this.propriedade = propriedade;
         this.empresa = empresa;
