@@ -14,7 +14,7 @@ public class ControladorConta {
     private IRepositorioGenerico<Conta> repositorioContas;
 
     ControladorConta() {
-        this.repositorioContas = new RepositorioGenerico<>();
+        this.repositorioContas = new RepositorioGenerico<>("contas.dat");
     }
 
     public ControladorConta getInstance() {

@@ -16,7 +16,7 @@ public class ControladorEmpresa {
     private IRepositorioGenerico<Empresa> repositorioEmpresa;
 
     ControladorEmpresa() {
-        this.repositorioEmpresa = new RepositorioGenerico<>();
+        this.repositorioEmpresa = new RepositorioGenerico<>("empresas.dat");
     }
 
     public static ControladorEmpresa getInstance() {

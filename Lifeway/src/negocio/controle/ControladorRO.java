@@ -18,7 +18,7 @@ public class ControladorRO {
     private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRO;
 
     private ControladorRO() {
-        repositorioRO = new RepositorioGenerico<>();
+        repositorioRO = new RepositorioGenerico<>("ro.dat");
     }
 
     public static ControladorRO getInstance() {

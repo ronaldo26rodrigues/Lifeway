@@ -1,10 +1,11 @@
 package negocio.beans;
 
+import java.io.Serializable;
 import java.util.Random;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
-public class Propriedade {
+public class Propriedade implements Serializable {
 
     private String idPropriedade;
     private TipoPropriedade tipo;
@@ -34,7 +35,7 @@ public class Propriedade {
         this.idPropriedade = idPropriedade;
         this.idEmpresa = idEmpresa;
 
-        this.repositorioContas = new RepositorioGenerico<>();
+        // this.repositorioContas = new RepositorioGenerico<>();
     }
 
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {

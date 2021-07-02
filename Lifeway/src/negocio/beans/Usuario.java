@@ -1,13 +1,14 @@
 package negocio.beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
 
-    private IRepositorioGenerico<Propriedade> repositorioPropriedades;
+    // private IRepositorioGenerico<Propriedade> repositorioPropriedades;
 
     private String nome;
     private String identificacao;
@@ -20,7 +21,7 @@ public abstract class Usuario {
         this.senha = senha;
         this.dataDeNascimeto = dataDeNascimeto;
 
-        repositorioPropriedades = new RepositorioGenerico<>();
+        // repositorioPropriedades = new RepositorioGenerico<>();
     }
 
     // Método abstrato getTipo
@@ -70,10 +71,10 @@ public abstract class Usuario {
     @Override
     public String toString() {
 
-        DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
         String resultado = "";
         resultado += "Nome: " + this.getNome();
-        resultado += "\n" + "Data de Nascimento: " + this.getDataDeNascimeto().format(meuFormatador);
+        resultado += "\n" + "Data de Nascimento: " + this.getDataDeNascimeto().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }
@@ -92,13 +93,13 @@ public abstract class Usuario {
         this.dataDeNascimeto = dataDeNascimeto;
     }
 
-    public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
+    /* public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
         return repositorioPropriedades;
     }
 
     public void setRepositorioPropriedades(IRepositorioGenerico<Propriedade> repositorioPropriedades) {
         this.repositorioPropriedades = repositorioPropriedades;
-    }
+    } */
 
     public String getNome() {
         return nome;

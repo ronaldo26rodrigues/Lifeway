@@ -8,9 +8,17 @@ import excecoes.ElementoJaExisteException;
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     private List<T> objetos;
+    private String fileName;
 
-    public RepositorioGenerico() {
+    @SuppressWarnings("unchecked")
+    public RepositorioGenerico(String fileName) {
         objetos = new ArrayList<>();
+        this.fileName = fileName;
+
+        Object listaObjetos = RepositorioFileUtil.lerDoArquivo(this.fileName);
+        if(listaObjetos != null && listaObjetos instanceof List<?>) {
+            this.objetos = (List<T>) listaObjetos;
+        }
     }
 
     @Override
@@ -20,11 +28,13 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         } else {
             throw new ElementoJaExisteException(obj.toString());
         }
+        RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
     }
 
     @Override
     public void remover(T obj) {
         objetos.remove(obj);
+        RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
     }
 
     @Override

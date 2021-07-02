@@ -1,10 +1,11 @@
 package negocio.beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conta {
+public class Conta implements Serializable {
 
     private String idConta;
     private Cliente cliente;

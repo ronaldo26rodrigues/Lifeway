@@ -1,8 +1,9 @@
 package negocio.beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RegistroDeOcorrencia {
+public class RegistroDeOcorrencia implements Serializable {
 
     private String protocolo;
     private String assunto;

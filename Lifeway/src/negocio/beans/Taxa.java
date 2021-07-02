@@ -1,6 +1,8 @@
 package negocio.beans;
 
-public class Taxa {
+import java.io.Serializable;
+
+public class Taxa implements Serializable {
 
     private double faixaDe;
     private double faixaAte;

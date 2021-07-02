@@ -15,7 +15,7 @@ public class ControladorPropriedade {
     private IRepositorioGenerico<Propriedade> repositorioPropriedade;
 
     ControladorPropriedade() {
-        this.repositorioPropriedade = new RepositorioGenerico<>();
+        this.repositorioPropriedade = new RepositorioGenerico<>("propriedades.dat");
     }
 
     public static ControladorPropriedade getInstance() {

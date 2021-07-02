@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Random;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Empresa {
+public class Empresa implements Serializable {
 
     private String nome;
     private String servico;
@@ -20,9 +22,9 @@ public class Empresa {
 
     // private String identificacao;
 
-    private IRepositorioGenerico<Usuario> repositorioFuncionarios;
+    // private IRepositorioGenerico<Usuario> repositorioFuncionarios;
     // private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
-    private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
+    // private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
 
     public Empresa(String nome, String servico) {
         // super(idEmpresa);
@@ -33,9 +35,9 @@ public class Empresa {
 
         this.taxas = new ArrayList<>();
 
-        repositorioFuncionarios = new RepositorioGenerico<>();
         // repositorioFuncionarios = new RepositorioGenerico<>();
-        repositorioRDO = new RepositorioGenerico<>();
+        // repositorioFuncionarios = new RepositorioGenerico<>();
+        // repositorioRDO = new RepositorioGenerico<>();
 
     }
 
@@ -83,115 +85,16 @@ public class Empresa {
         this.taxas = taxas;
     }
 
-    /*
-     * public String getIdentificacao() { return identificacao; }
-     * 
-     * public void setIdentificacao(String identificacao) { this.identificacao =
-     * identificacao; }
-     */
-
-    /**
-     * @return the repositorioFuncionarios
-     */
-    public IRepositorioGenerico<Usuario> getRepositorioFuncionarios() {
-        return repositorioFuncionarios;
-    }
-
-    /**
-     * @return the repositorioFuncionarios
-     */
-    // public IRepositorioGenerico<Funcionario> getRepositorioFuncionarios() {
-    // return repositorioFuncionarios;
-    // }
-    /**
-     * @param repositorioFuncionarios the repositorioFuncionarios to set
-     */
-    public void setRepositorioFuncionarios(IRepositorioGenerico<Usuario> repositorioFuncionarios) {
-        this.repositorioFuncionarios = repositorioFuncionarios;
-    }
-    /**
-     * @param repositorioFuncionarios the repositorioFuncionarios to set
-     */
-    // public void setRepositorioFuncionarios(IRepositorioGenerico<Funcionario>
-    // repositorioFuncionarios) {
-    // this.repositorioFuncionarios = repositorioFuncionarios;
-    // }
-
-    /**
-     * @return the repositorioReports
-     */
-    public IRepositorioGenerico<RegistroDeOcorrencia> getRepositorioRDO() {
-        return repositorioRDO;
-    }
-
-    /**
-     * @param repositorioRDO the repositorioReports to set
-     */
-    public void setRepositorioRDO(IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO) {
-        this.repositorioRDO = repositorioRDO;
-    }
-
-    // /**
-    // * @return the taxas
-    // */
-    // public Taxas getTaxas() {
-    // return taxas;
-    // }
-    // /**
-    // * @param taxas the taxas to set
-    // */
-    // public void setTaxas(Taxas taxas) {
-    // this.taxas = taxas;
-    // }
-
-    /**
-     * Equals: Empresa (compara id)
-     */
-
-    // /**
-    // * @return the bandeira
-    // */
-    // public Bandeira getBandeira() {
-    // return bandeira;
-    // }
-    // /**
-    // * @return the tarifas
-    // */
-    // public Map<String, Double> getTarifas() {
-    // return tarifas;
-    // }
-    // /**
-    // * @return the taxasPorTipo
-    // */
-    // public List<TaxasPorTipo> getTaxasPorTipo() {
-    // return taxasPorTipo;
-    // }
-
-    // /**
-    // * @param bandeira the bandeira to set
-    // */
-    // public void setBandeira(Bandeira bandeira) {
-    // this.bandeira = bandeira;
-    // }
-    // /**
-    // * @param tarifas the tarifas to set
-    // */
-    // public void setTarifas(Map<String, Double> tarifas) {
-    // this.tarifas = tarifas;
-    // }
-    // /**
-    // * @param taxasPorTipo the taxasPorTipo to set
-    // */
-    // public void setTaxasPorTipo(List<TaxasPorTipo> taxasPorTipo) {
-    // this.taxasPorTipo = taxasPorTipo;
-    // }
+    
 
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if ((param.getIdEmpresa() != null) && param.getIdEmpresa().equals(this.getIdEmpresa())) {
+            if ((param.getIdEmpresa() != null) && param.getIdEmpresa().equals(this.getIdEmpresa()) &&
+                 param.getNome().equals(this.getNome()) &&
+                 param.getServico().equals(this.getServico())) {
                 resultado = true;
             }
         }

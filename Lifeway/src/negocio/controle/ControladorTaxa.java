@@ -14,7 +14,7 @@ public class ControladorTaxa {
     private IRepositorioGenerico<Taxa> repositorioTaxa;
 
     private ControladorTaxa() {
-        repositorioTaxa = new RepositorioGenerico<>();
+        repositorioTaxa = new RepositorioGenerico<>("taxas.dat");
     }
 
     public static ControladorTaxa getInstance() {

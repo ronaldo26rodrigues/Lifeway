@@ -20,7 +20,7 @@ public class ControladorUsuario {
     private Usuario usuarioLogado;
 
     ControladorUsuario() {
-        this.repositorioUsuario = new RepositorioGenerico<>();
+        this.repositorioUsuario = new RepositorioGenerico<>("usuarios.dat");
     }
 
     public static ControladorUsuario getInstance() {
