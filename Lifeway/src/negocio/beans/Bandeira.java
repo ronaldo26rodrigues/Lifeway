@@ -1,5 +1,7 @@
 package negocio.beans;
 
+import java.io.Serializable;
+
 public enum Bandeira {
 
     VERDE, AMARELA, VERMELHA;
