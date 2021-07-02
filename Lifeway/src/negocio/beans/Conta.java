@@ -8,7 +8,7 @@ import java.util.List;
 public class Conta implements Serializable {
 
     private String idConta;
-    private Cliente cliente;
+    private Propriedade propriedade;
     private Empresa empresa;
     private LocalDate dataEmissao;
     private double consumo;
@@ -18,10 +18,10 @@ public class Conta implements Serializable {
 
     private boolean paga;
 
-    public Conta(String idConta, Cliente cliente, Empresa empresa, LocalDate dataEmissao, double consumo,
+    public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
             double valorTotal) {
         this.idConta = idConta;
-        this.cliente = cliente;
+        this.propriedade = propriedade;
         this.empresa = empresa;
         this.dataEmissao = dataEmissao;
         this.consumo = consumo;
@@ -40,14 +40,12 @@ public class Conta implements Serializable {
         this.idConta = idConta;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
+   public Propriedade getPropriedade() {
+       return propriedade;
+   }
+   public void setPropriedade(Propriedade propriedade) {
+       this.propriedade = propriedade;
+   }
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -122,7 +120,7 @@ public class Conta implements Serializable {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "\n" + "Cliente: " + this.getCliente().getNome();
+        resultado += "Propriedade: " + this.getPropriedade();
         resultado += "\n" + "Empresa: " + this.getEmpresa().getNome();
         resultado += "\n" + "Data de emissão: " + this.getDataEmissao();
         resultado += "\n" + "Data de vencimento: " + this.getDataVencimento();
