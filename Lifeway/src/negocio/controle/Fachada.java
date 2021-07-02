@@ -6,6 +6,7 @@ import java.util.List;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 import excecoes.PropriedadeJaCadastradaException;
+import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Propriedade;
@@ -22,6 +23,7 @@ public class Fachada {
     private static ControladorPropriedade controladorPropriedade;
     private static ControladorEmpresa controladorEmpresa;
     private static ControladorTaxa controladorTaxa;
+    private static ControladorConta controladorConta;
 
     private Fachada() {
         controladorEmpresa = ControladorEmpresa.getInstance();
@@ -29,6 +31,7 @@ public class Fachada {
         controladorRO = ControladorRO.getInstance();
         controladorPropriedade = ControladorPropriedade.getInstance();
         controladorTaxa = ControladorTaxa.getInstance();
+        controladorConta = ControladorConta.getInstance();
     }
 
     public static Fachada getInstance() {
@@ -118,6 +121,18 @@ public class Fachada {
 
     public List<Taxa> listarTaxas() {
         return controladorTaxa.listarTaxas();
+    }
+
+    public void criarNovaConta(Conta conta) throws ElementoJaExisteException {
+        controladorConta.criarNovaConta(conta);
+    }
+
+    public void excluirConta(Conta conta) throws ElementoJaExisteException {
+        controladorConta.excluirConta(conta);
+    }
+
+    public List<Conta> listarContas() {
+        return controladorConta.listarContas();
     }
 
 }

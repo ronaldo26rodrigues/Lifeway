@@ -85,4 +85,9 @@ public class PerfilADMScreenController implements Initializable {
 
     }
 
+    public void irListaTaxas() throws IOException {
+        App d = new App();
+        d.trocarCena("Taxas.fxml");
+    }
+
 }

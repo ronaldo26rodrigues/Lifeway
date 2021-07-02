@@ -74,6 +74,11 @@ public class Extratos implements Initializable {
 
     }
 
+    public void irListaTaxas() throws IOException {
+        App d = new App();
+        d.trocarCena("Taxas.fxml");
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 

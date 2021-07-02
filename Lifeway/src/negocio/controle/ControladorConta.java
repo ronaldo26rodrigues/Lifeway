@@ -17,7 +17,7 @@ public class ControladorConta {
         this.repositorioContas = new RepositorioGenerico<>("contas.dat");
     }
 
-    public ControladorConta getInstance() {
+    public static ControladorConta getInstance() {
         if (instance == null) {
             instance = new ControladorConta();
         }

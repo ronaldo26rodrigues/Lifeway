@@ -94,9 +94,24 @@
                         <Font size="20.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="botaoListaTaxas" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaTaxas" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Lista de taxas" textFill="#f8f8f8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imgs/tax.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -124,21 +139,22 @@
             </Label>
          </top>
          <center>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane prefHeight="548.0" prefWidth="629.0" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.199951171875" minWidth="10.0" prefWidth="388.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="212.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="413.60003662109375" minWidth="10.0" prefWidth="413.60003662109375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="186.39996337890625" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="548.0" prefWidth="387.0">
+                  <TableView fx:id="taxaList" prefHeight="548.0" prefWidth="408.0">
                      <columns>
-                        <TableColumn fx:id="colunaProprietario" prefWidth="136.00000590085983" text="Tipo de propriedade" />
-                        <TableColumn fx:id="colunaTipo" prefWidth="53.600067138671875" text="De" />
-                        <TableColumn fx:id="colunaEndereco" prefWidth="53.60003662109375" text="Até" />
-                        <TableColumn fx:id="colunaSituacao" editable="false" prefWidth="133.59994506835938" text="Bandeira" />
+                        <TableColumn fx:id="colunaTipoPropriedade" prefWidth="124.79999703168869" text="Tipo de propriedade" />
+                        <TableColumn fx:id="colunaDe" prefWidth="45.60003662109375" text="De" />
+                        <TableColumn fx:id="colunaAte" prefWidth="48.000030517578125" text="Até" />
+                        <TableColumn fx:id="colunaValor" editable="false" prefWidth="83.19999694824219" text="Valor" />
+                        <TableColumn fx:id="colunaBandeira" prefWidth="83.99996948242188" text="Bandeira" />
                      </columns>
                   </TableView>
                   <GridPane style="-fx-background-color: gray;" GridPane.columnIndex="1">
@@ -146,11 +162,11 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="83.20001831054688" minHeight="10.0" prefHeight="83.20001831054688" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="78.40000610351561" minHeight="10.0" prefHeight="74.39998168945314" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="102.99997558593753" minHeight="10.0" prefHeight="78.39999389648438" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="193.39999999999998" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="203.80002441406248" minHeight="10.0" prefHeight="171.5999755859375" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
@@ -162,20 +178,29 @@
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="btnOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Modificar seleção" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                    <Button fx:id="btnOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modificarTaxa" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Modificar seleção" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Criar nova" textFill="WHITE" wrapText="true" GridPane.columnIndex="1">
+                                    <Button fx:id="btnOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#criarTaxa" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Criar nova" textFill="WHITE" wrapText="true" GridPane.columnIndex="1">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
+                                    </Button>
+                                    <Button fx:id="btnOK2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#excluirTaxa" prefHeight="55.0" prefWidth="94.0" style="-fx-background-color: #323232; -fx-background-radius: 25px;" text="Excluir seleção" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Button>
                                  </children>
                               </GridPane>
@@ -230,6 +255,7 @@
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <ComboBox fx:id="bandeiraCB" prefWidth="150.0" GridPane.rowIndex="1" GridPane.valignment="TOP" />
@@ -244,6 +270,11 @@
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Label>
+                              <Button fx:id="btnOK11" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mudarTodasAsBandeiras" prefHeight="62.0" prefWidth="94.0" style="-fx-background-color: #a6a7ab; -fx-background-radius: 25px;" text="Mudar todas as bandeiras" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </GridPane>
                         <TextField fx:id="valor" promptText="Valor" style="-fx-background-color: gray; -fx-border-width: 0 0 1 0;; -fx-border-color: black;" GridPane.rowIndex="2">
