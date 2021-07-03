@@ -1,24 +1,23 @@
 package gui;
 
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import negocio.controle.Fachada;
 
-
-public class Extratos implements Initializable {
+public class PagamentosScreenController implements Initializable {
+    
 
     @FXML
     private TableView<Conta> contaList;
@@ -32,8 +31,8 @@ public class Extratos implements Initializable {
     private TableColumn<Conta, String> colunaPreco;
     @FXML
     private TableColumn<Conta, String> colunaTaxa;
-    @FXML
-    private TableColumn<Conta, String> colunaPagaEm;
+    
+    
 
     private Conta contaSelecionada;
 
@@ -46,8 +45,9 @@ public class Extratos implements Initializable {
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
         colunaTaxa.setCellValueFactory(new PropertyValueFactory<>("taxaAplicada"));
         
-        colunaPagaEm.setCellValueFactory(new PropertyValueFactory<>("pagaEm"));
 
+
+        contaList.autosize();
         
 
         atualizarLista();
@@ -67,11 +67,21 @@ public class Extratos implements Initializable {
 
     private void atualizarLista() {
         for (Conta conta : Fachada.getInstance().listarContas()) {
-            if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+            if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==false) {
                 contaList.getItems().addAll(conta);
             }
         }
     }
+
+
+    public void pagar() {
+        contaSelecionada.setPaga(true);
+        contaSelecionada.setPagaEm(LocalDate.now());
+        contaList.getItems().remove(contaSelecionada);
+        Fachada.getInstance().salvar();
+
+    }
+    
 
 
     public void SairConta(ActionEvent event) throws IOException {
@@ -114,5 +124,4 @@ public class Extratos implements Initializable {
         App d = new App();
         d.trocarCena("Taxas.fxml");
     }
-
 }

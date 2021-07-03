@@ -32,6 +32,11 @@ public class ControladorTaxa {
         repositorioTaxa.remover(taxa);
     }
 
+    public void salvar() {
+        this.repositorioTaxa.salvar();
+    }
+    
+
     public List<Taxa> listarTaxas() {
         return repositorioTaxa.listar();
     }

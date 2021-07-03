@@ -128,4 +128,14 @@ public class Taxa implements Serializable {
         this.valor = valor;
     }
 
+    @Override
+    public String toString() {
+        String resultado = "";
+        resultado += "Tipo de propriedade: " + getTipoPropriedade();
+        resultado += "\n" + "De " + getFaixaDe() + " Até " + getFaixaAte();
+        resultado += "\n" + "Valor: " + getValor();
+        resultado += "\n" + "Bandeira " + getBandeira() + ": " + getBandeira().getValor();
+        return resultado;
+    }
+
 }

@@ -2,8 +2,6 @@ package negocio.beans;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Conta implements Serializable {
@@ -14,25 +12,27 @@ public class Conta implements Serializable {
     private LocalDate dataEmissao;
     private double consumo;
     private double valorTotal;
-    private List<Taxa> taxasAplicadas;
+    private Taxa taxaAplicada;
     private LocalDate dataVencimento;
 
     private boolean paga;
+    private LocalDate pagaEm;
 
-    public Conta(Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal) {
+    public Conta(Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal, Taxa taxaAplicada) {
         
         Random rng = new Random();
         
         this.idConta = "C" + rng.nextInt(1000) + rng.nextInt(1000);
 
-        this.idConta = idConta;
+        // this.idConta = idConta;
         this.propriedade = propriedade;
         this.empresa = empresa;
         this.dataEmissao = dataEmissao;
         this.consumo = consumo;
         this.valorTotal = valorTotal;
 
-        this.taxasAplicadas = new ArrayList<>();
+        this.taxaAplicada = taxaAplicada;
+        this.pagaEm = null;
     }
 
     // Getters & Setters
@@ -70,15 +70,15 @@ public class Conta implements Serializable {
     /**
      * @return the taxasAplicadas
      */
-    public List<Taxa> getTaxasAplicadas() {
-        return taxasAplicadas;
+    public Taxa getTaxaAplicada() {
+        return taxaAplicada;
     }
 
     /**
      * @param taxasAplicadas the taxasAplicadas to set
      */
-    public void setTaxasAplicadas(List<Taxa> taxasAplicadas) {
-        this.taxasAplicadas = taxasAplicadas;
+    public void setTaxaAplicada(Taxa taxaAplicada) {
+        this.taxaAplicada = taxaAplicada;
     }
 
     public double getConsumo() {
@@ -117,6 +117,13 @@ public class Conta implements Serializable {
         double total = 0;
         // TODO
         return total;
+    }
+
+    public LocalDate getPagaEm() {
+        return pagaEm;
+    }
+    public void setPagaEm(LocalDate pagaEm) {
+        this.pagaEm = pagaEm;
     }
 
     /**

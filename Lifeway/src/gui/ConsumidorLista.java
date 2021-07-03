@@ -9,18 +9,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.Taxa;
-import negocio.beans.TaxasTipo;
-import negocio.beans.TipoEmpresa;
+
 import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+
 import java.util.ResourceBundle;
 
 import excecoes.ElementoJaExisteException;
@@ -153,18 +152,20 @@ public class ConsumidorLista implements Initializable {
     }
     public void criarConta() {
         double valorTotal = 0; 
+        Taxa taxaAplicada = null;
 
         for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
             if(taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo()) && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText()) && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText())) {
             valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();
             valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
+            taxaAplicada = taxa;
             }   
             
 
         }
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
         //double valorTotal)
-        Conta novaConta = new Conta(propriedadeSelecionada, ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(), Double.parseDouble(valorConsumido.getText()), valorTotal);
+        Conta novaConta = new Conta(propriedadeSelecionada, ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(), Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);
         novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
         try {
             Fachada.getInstance().criarNovaConta(novaConta);

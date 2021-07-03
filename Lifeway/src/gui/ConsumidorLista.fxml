@@ -190,7 +190,7 @@
                   </Label>
                   <TextArea fx:id="valorConsumido" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="44.0" prefWidth="248.0" promptText="Digite aqui" wrapText="true" GridPane.columnIndex="1" />
                   <DatePicker fx:id="dataDeLeitura" promptText="Data da Leitura" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="addLeitura" mnemonicParsing="false" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar Leitura" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="addLeitura" mnemonicParsing="false" onAction="#criarConta" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Adicionar Leitura" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

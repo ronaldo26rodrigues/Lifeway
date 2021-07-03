@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.ElementoNaoExisteException;
 
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
@@ -31,6 +32,8 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
     }
 
+    
+
     @Override
     public void remover(T obj) {
         objetos.remove(obj);
@@ -49,6 +52,25 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
     @Override
     public List<T> listar() {
         return objetos;
+    }
+
+    @Override
+    public void salvar() {
+        RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
+    }
+
+    @Override
+    public void atualizar(T newObj) throws ElementoNaoExisteException {
+        if(objetos.contains(newObj)) {
+            int indice = this.objetos.indexOf(newObj);
+            this.objetos.set(indice, newObj);
+        } else {
+            throw new ElementoNaoExisteException(newObj.toString());
+        }
+
+
+        RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
+
     }
 
 }

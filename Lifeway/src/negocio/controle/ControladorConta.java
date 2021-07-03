@@ -36,6 +36,10 @@ public class ControladorConta {
         return repositorioContas.listar();
     }
 
+    public void salvar() {
+        this.repositorioContas.salvar();
+    }
+
     
 }
     // Método para gerar histórico de contas?

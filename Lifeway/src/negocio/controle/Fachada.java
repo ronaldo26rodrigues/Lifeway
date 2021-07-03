@@ -135,4 +135,9 @@ public class Fachada {
         return controladorConta.listarContas();
     }
 
+    public void salvar() {
+        controladorTaxa.salvar();
+        controladorConta.salvar();
+    }
+
 }

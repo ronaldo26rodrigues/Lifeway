@@ -3,6 +3,7 @@ package dados;
 import java.util.List;
 
 import excecoes.ElementoJaExisteException;
+import excecoes.ElementoNaoExisteException;
 
 public interface IRepositorioGenerico<T> {
 
@@ -15,5 +16,9 @@ public interface IRepositorioGenerico<T> {
 
     // T buscarPorID(String id);
     List<T> listar();
+
+    void salvar();
+
+    void atualizar(T newObj)  throws ElementoNaoExisteException;
 
 }
