@@ -8,6 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
@@ -19,6 +20,7 @@ import negocio.beans.TipoEmpresa;
 import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import excecoes.ElementoJaExisteException;
@@ -54,7 +56,7 @@ public class ConsumidorLista implements Initializable {
     @FXML
     private Label labelConsumidorList;
     @FXML
-    private TextField valorConsumido;
+    private TextArea valorConsumido;
     @FXML
     private DatePicker dataDeLeitura;
 
@@ -163,6 +165,7 @@ public class ConsumidorLista implements Initializable {
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
         //double valorTotal)
         Conta novaConta = new Conta(propriedadeSelecionada, ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(), Double.parseDouble(valorConsumido.getText()), valorTotal);
+        novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
         try {
             Fachada.getInstance().criarNovaConta(novaConta);
         } catch (ElementoJaExisteException e) {
