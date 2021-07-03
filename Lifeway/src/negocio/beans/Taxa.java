@@ -15,6 +15,7 @@ public class Taxa implements Serializable {
 
     public Taxa(double faixaDe, double faixaAte, double valor, String tipoTaxa, TipoPropriedade tipoPropriedade,
         Bandeira bandeira, Empresa empresa) {
+        
         this.bandeira = bandeira;
         this.faixaAte = faixaAte;
         this.faixaDe = faixaDe;

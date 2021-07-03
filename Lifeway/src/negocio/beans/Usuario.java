@@ -3,12 +3,8 @@ package negocio.beans;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import dados.IRepositorioGenerico;
-import dados.RepositorioGenerico;
 
 public abstract class Usuario implements Serializable {
-
-    // private IRepositorioGenerico<Propriedade> repositorioPropriedades;
 
     private String nome;
     private String identificacao;
@@ -20,34 +16,10 @@ public abstract class Usuario implements Serializable {
         this.identificacao = identificacao;
         this.senha = senha;
         this.dataDeNascimeto = dataDeNascimeto;
-
-        // repositorioPropriedades = new RepositorioGenerico<>();
     }
 
     // Método abstrato getTipo
     public abstract String getTipo();
-
-    /**
-     * @return repositorioConsumidores
-     */
-    // public IRepositorioGenerico<Consumidor> getRepositorioConsumidores() {
-    // return repositorioConsumidores;
-    // }
-
-    // /**
-    // * @return cadastro
-    // */
-    // public String getCadastro() {
-    // return cadastro;
-    // }
-    // /**
-    // * @param cadastro set cadastro
-    // */
-    // public void setCadastro(String cadastro) {
-    // this.cadastro = cadastro;
-    // }
-
-    // Validar CPF
 
     /**
      * Equals: Usuário
@@ -92,14 +64,6 @@ public abstract class Usuario implements Serializable {
     public void setDataDeNascimeto(LocalDate dataDeNascimeto) {
         this.dataDeNascimeto = dataDeNascimeto;
     }
-
-    /* public IRepositorioGenerico<Propriedade> getRepositorioPropriedades() {
-        return repositorioPropriedades;
-    }
-
-    public void setRepositorioPropriedades(IRepositorioGenerico<Propriedade> repositorioPropriedades) {
-        this.repositorioPropriedades = repositorioPropriedades;
-    } */
 
     public String getNome() {
         return nome;

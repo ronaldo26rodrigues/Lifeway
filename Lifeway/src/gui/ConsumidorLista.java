@@ -9,19 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.Taxa;
-
 import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
-
 import java.util.ResourceBundle;
-
 import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -66,25 +62,21 @@ public class ConsumidorLista implements Initializable {
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
-
     }
 
     public void irCriarLeitura(ActionEvent event) throws IOException {
         App v = new App();
         v.trocarCena("CriarLeitura.fxml");
-
     }
 
     public void irListaConsumidores(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("ConsumidorLista.fxml");
-
     }
 
     public void irPerfilADM(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("PerfilADM.fxml");
-
     }
 
     public void irListaRO(ActionEvent event) throws IOException {
@@ -96,7 +88,6 @@ public class ConsumidorLista implements Initializable {
     public void irHomeADM(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("HomeADM.fxml");
-
     }
 
     public void irListaTaxas() throws IOException {

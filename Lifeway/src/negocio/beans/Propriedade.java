@@ -3,7 +3,6 @@ package negocio.beans;
 import java.io.Serializable;
 import java.util.Random;
 import dados.IRepositorioGenerico;
-import dados.RepositorioGenerico;
 
 public class Propriedade implements Serializable {
 
@@ -34,11 +33,10 @@ public class Propriedade implements Serializable {
         this.clienteProprietario = clienteProprietario;
         this.idPropriedade = idPropriedade;
         this.idEmpresa = idEmpresa;
-
-        // this.repositorioContas = new RepositorioGenerico<>();
     }
 
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
+
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
 
@@ -112,34 +110,16 @@ public class Propriedade implements Serializable {
         this.repositorioContas = repositorioContas;
     }
 
-    // /**
-    // * @return numMedidor
-    // */
-    // public String getNumMedidor() {
-    // return numMedidor;
-    // }
-    // /**
-    // * @param numMedidor set numMedidor
-    // */
-    // public void setNumMedidor(String numMedidor) {
-    // this.numMedidor = numMedidor;
-    // }
-
     /**
-     * eu acho que pra comparar propriedades, basta comparar endereço, já que o
-     * método deve estar atrelado a um cliente específico, mas não tenho ctz. Mudar?
-     * Equals: Propriedade (compara id, tipo e endereço)
+     *
+     * Método equals: endereço
      */
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Propriedade) {
             Propriedade param = (Propriedade) obj;
-            if ( /*
-                  * (param.getIdentificacao() != null) &&
-                  * param.getIdentificacao().equals(this.getIdentificacao()) &&
-                  * param.getTipo().equals(this.getTipo()) &&
-                  */param.getEndereco().equals(this.getEndereco())) {
+            if (param.getEndereco().equals(this.getEndereco())) {
                 resultado = true;
             }
         }

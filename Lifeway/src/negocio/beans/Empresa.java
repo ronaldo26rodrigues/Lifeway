@@ -2,9 +2,6 @@ package negocio.beans;
 
 import java.util.List;
 import java.util.Random;
-import dados.IRepositorioGenerico;
-import dados.RepositorioGenerico;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -13,21 +10,10 @@ public class Empresa implements Serializable {
     private String nome;
     private String servico;
     private String idEmpresa;
-
     private List<Taxa> taxas;
 
-    // private List<TaxasPorTipo> taxasPorTipo;
-    // private Map<String, Double> tarifas;
-    // private Bandeira bandeira;
-
-    // private String identificacao;
-
-    // private IRepositorioGenerico<Usuario> repositorioFuncionarios;
-    // private IRepositorioGenerico<Funcionario> repositorioFuncionarios;
-    // private IRepositorioGenerico<RegistroDeOcorrencia> repositorioRDO;
-
     public Empresa(String nome, String servico) {
-        // super(idEmpresa);
+
         Random rng = new Random();
         this.idEmpresa = "EMP" + rng.nextInt(1000) + rng.nextInt(1000);
         this.nome = nome;
@@ -35,15 +21,7 @@ public class Empresa implements Serializable {
 
         this.taxas = new ArrayList<>();
 
-        // repositorioFuncionarios = new RepositorioGenerico<>();
-        // repositorioFuncionarios = new RepositorioGenerico<>();
-        // repositorioRDO = new RepositorioGenerico<>();
-
     }
-
-    // métodos para receber as taxas instanciadas pelo funcionário
-
-    // method(type): type
 
     // Getters & Setters
 
@@ -85,16 +63,13 @@ public class Empresa implements Serializable {
         this.taxas = taxas;
     }
 
-    
-
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Empresa) {
             Empresa param = (Empresa) obj;
-            if ((param.getIdEmpresa() != null) &&
-                 param.getNome().equals(this.getNome()) &&
-                 param.getServico().equals(this.getServico())) {
+            if ((param.getIdEmpresa() != null) && param.getNome().equals(this.getNome())
+                    && param.getServico().equals(this.getServico())) {
                 resultado = true;
             }
         }
