@@ -122,34 +122,34 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <left>
-            <AnchorPane prefHeight="328.0" prefWidth="137.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="391.0" prefWidth="576.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="96.0" layoutY="88.0" text="Tipo de Empresa" textFill="#41951c">
+                  <Label layoutX="193.0" layoutY="93.0" text="Tipo de Empresa" textFill="#41951c">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="96.0" layoutY="116.0" text="Você faz parte da empresa XXXX do tipo XXXX" textFill="WHITE">
+                  <Label layoutX="193.0" layoutY="121.0" text="Você faz parte da empresa XXXX do tipo XXXX" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="92.0" layoutY="168.0" text="Ocorrências para Atender" textFill="#41951c">
+                  <Label layoutX="193.0" layoutY="168.0" text="Ocorrências para Atender" textFill="#41951c">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="92.0" layoutY="196.0" text="Você possui XXXX ocorrências para atender" textFill="WHITE">
+                  <Label layoutX="193.0" layoutY="201.0" text="Você possui XXXX ocorrências para atender" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="92.0" layoutY="243.0" text="Consumidores Ativos" textFill="#41951c">
+                  <Label layoutX="193.0" layoutY="243.0" text="Consumidores Ativos" textFill="#41951c">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="92.0" layoutY="271.0" text="Você possui XXXX consumidores ativos" textFill="WHITE">
+                  <Label layoutX="193.0" layoutY="271.0" text="Você possui XXXX consumidores ativos" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -169,13 +169,28 @@
                         <Image url="@../../../../../../Downloads/images__4_-removebg-preview.png" />
                      </image>
                   </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="52.0" layoutX="113.0" layoutY="166.0">
+                     <image>
+                        <Image url="@../../../../../../Downloads/image1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="68.0" fitWidth="57.0" layoutX="111.0" layoutY="87.0">
+                     <image>
+                        <Image url="@../../../../../../Downloads/image2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="72.0" fitWidth="62.0" layoutX="119.0" layoutY="235.0">
+                     <image>
+                        <Image url="@../../../../../../Downloads/image3.png" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
          </left>
          <bottom>
             <AnchorPane prefHeight="119.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
          </bottom>
          <right>
-            <AnchorPane prefHeight="328.0" prefWidth="112.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="391.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
          <top>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="504.0" text="HomeADM" textFill="WHITE" BorderPane.alignment="CENTER">
