@@ -125,7 +125,14 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <top>
-            <AnchorPane prefHeight="122.0" prefWidth="993.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="101.0" prefWidth="581.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="45.0" prefHeight="101.6" prefWidth="580.8" text="Menu" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Calibri Bold" size="35.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
          </top>
          <left>
             <AnchorPane prefHeight="446.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
@@ -137,7 +144,7 @@
             <AnchorPane prefHeight="446.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <GridPane style="-fx-background-color: #131022;" BorderPane.alignment="CENTER">
+            <GridPane style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(134,165,221) 10%, rgb(32,61,103));" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -149,11 +156,11 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Pane prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" GridPane.rowIndex="3">
+                  <Pane prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: rgba(0,0,0,0); -fx-background-radius: 10;" GridPane.rowIndex="3">
                      <children>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes." textFill="WHITE">
+                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes.">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="17.0" />
                            </font>
                         </Label>
                         <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
@@ -161,45 +168,45 @@
                               <Image url="@imgs/chart.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Registos de ocorrencias concluidos" textFill="#41951c">
+                        <Label layoutX="58.0" layoutY="14.0" text="Registos de ocorrencias concluidos">
                            <font>
-                              <Font size="19.0" />
+                              <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane prefHeight="69.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" GridPane.rowIndex="1">
+                  <Pane prefHeight="69.0" prefWidth="538.0" style="-fx-background-color: rgba(0,0,0,0); -fx-background-radius: 10;" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="44.0" fitWidth="49.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/dinheiro.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Tipo de taxa" textFill="#41951c">
+                        <Label layoutX="58.0" layoutY="14.0" text="Tipo de taxa">
                            <font>
-                              <Font size="19.0" />
+                              <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tipoTaxa" layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa" textFill="WHITE">
+                        <Label fx:id="tipoTaxa" layoutX="58.0" layoutY="34.0" text="Você é um usuário do tipo XXXX e tem XXXX de taxa">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" GridPane.rowIndex="2">
+                  <Pane prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: rgba(0,0,0,0); -fx-background-radius: 10;" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/dinheiro.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Status " textFill="#41951c">
+                        <Label layoutX="58.0" layoutY="14.0" text="Status ">
                            <font>
-                              <Font size="19.0" />
+                              <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" textFill="WHITE">
+                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar">
                            <font>
                               <Font size="17.0" />
                            </font>
