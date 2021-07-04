@@ -130,7 +130,7 @@
                <children>
                   <BorderPane layoutX="190.0" layoutY="1.0" prefHeight="122.4" prefWidth="580.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <Label text="Menu" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Label text="Home" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="35.0" />
                            </font>
@@ -219,7 +219,7 @@
                         </Label>
                         <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar">
                            <font>
-                              <Font name="Calibri" size="17.0" />
+                              <Font name="Calibri" size="18.0" />
                            </font>
                            <padding>
                               <Insets top="5.0" />

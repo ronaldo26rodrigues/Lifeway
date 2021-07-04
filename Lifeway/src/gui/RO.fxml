@@ -129,7 +129,18 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <top>
-            <AnchorPane prefHeight="56.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="56.0" prefWidth="581.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane layoutX="102.0" layoutY="-2.0" prefHeight="58.4" prefWidth="580.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <Label prefWidth="229.0" text="Registro de Ocorrência" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="23.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
          </top>
          <left>
             <AnchorPane prefHeight="429.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
@@ -287,13 +298,16 @@
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoOcorrencia" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="ENVIAR" textFill="#392727" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoOcorrencia" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="ENVIAR" textFill="#392727" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="20.0" />
                </BorderPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
             </Button>
          </bottom>
       </BorderPane>
