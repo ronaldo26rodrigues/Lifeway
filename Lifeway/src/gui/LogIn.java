@@ -90,7 +90,7 @@ public class LogIn {
                     if(usuario.getTipo() == "FUNCIONARIO") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
-                        m.trocarCena("MenuFuncionario.fxml");
+                        m.trocarCena("HomeADM.fxml");
                     } else if(usuario.getTipo() == "CLIENTE") {
                         erro = true;
 

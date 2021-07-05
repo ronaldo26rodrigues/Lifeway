@@ -162,7 +162,7 @@
                         <Insets bottom="20.0" left="50.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="27.0" prefWidth="389.0" text="Você faz parte da empresa XXXX do tipo XXXX" GridPane.rowIndex="1">
+                  <Label fx:id="tipoEmpresa" prefHeight="27.0" prefWidth="389.0" text="Você faz parte da empresa XXXX do tipo XXXX" GridPane.rowIndex="1">
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font>
@@ -178,7 +178,7 @@
                         <Insets bottom="20.0" left="50.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Você possui XXXX ocorrências para atender" GridPane.rowIndex="2">
+                  <Label fx:id="ocorrenciasPendentes" text="Você possui XXXX ocorrências para atender" GridPane.rowIndex="2">
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font>
@@ -194,7 +194,7 @@
                         <Insets bottom="20.0" left="50.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Você possui XXXX consumidores ativos" GridPane.rowIndex="3">
+                  <Label fx:id="propriedadeAtiva" text="Você possui XXXX consumidores ativos" GridPane.rowIndex="3">
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font>
