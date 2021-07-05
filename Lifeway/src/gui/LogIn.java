@@ -69,11 +69,11 @@ public class LogIn {
             String senhaInseridaHex = ControladorUsuario.gerarSenhaHex(senha.getText());
 
             if (usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex)) {
-                if(checkBox.isSelected() == false) {
-                    if(usuario.getTipo() == "CLIENTE") {
+                if (checkBox.isSelected() == false) {
+                    if (usuario.getTipo() == "CLIENTE") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
-                        m.trocarCena("Menu.fxml"); 
+                        m.trocarCena("Menu.fxml");
                     } else if (usuario.getTipo() == "FUNCIONARIO") {
                         erro = true;
 
@@ -81,17 +81,17 @@ public class LogIn {
                         alert.setTitle("Erro de acesso");
                         alert.setHeaderText("Não foi possível realizar seu login");
                         alert.setContentText("Realize login como funcionário.");
-    
-                        alert.showAndWait();                        
+
+                        alert.showAndWait();
                     }
                 }
 
-                if(checkBox.isSelected() == true) {
-                    if(usuario.getTipo() == "FUNCIONARIO") {
+                if (checkBox.isSelected() == true) {
+                    if (usuario.getTipo() == "FUNCIONARIO") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
                         m.trocarCena("MenuFuncionario.fxml");
-                    } else if(usuario.getTipo() == "CLIENTE") {
+                    } else if (usuario.getTipo() == "CLIENTE") {
                         erro = true;
 
                         Alert alert = new Alert(AlertType.ERROR);

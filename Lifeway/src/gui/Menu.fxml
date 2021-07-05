@@ -85,7 +85,7 @@
                   </Button>
                   <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
-                        <Font name="Calibri Bold" size="20.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
