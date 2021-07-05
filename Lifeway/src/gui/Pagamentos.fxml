@@ -22,7 +22,7 @@
             <AnchorPane prefHeight="571.0" prefWidth="42.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <TableView fx:id="contaList" prefHeight="362.0" prefWidth="497.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="contaList" prefHeight="407.0" prefWidth="498.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="colunaPropriedade" prefWidth="87.20001757144928" text="Propriedade" />
                   <TableColumn fx:id="colunaEmissao" prefWidth="105.60005950927734" text="Data de emissão" />
@@ -36,31 +36,9 @@
             </TableView>
          </center>
          <top>
-            <BorderPane prefHeight="130.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <bottom>
-                  <AnchorPane prefHeight="75.0" prefWidth="581.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button alignment="CENTER" layoutX="45.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" style="-fx-background-color: #7156DD; text-decoration: underline;" text="Buscar por nome" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="CENTER" layoutX="223.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: #7156DD; text-decoration: underline;" text="Buscar por data" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-               </bottom>
+            <BorderPane prefHeight="59.0" prefWidth="581.0" BorderPane.alignment="CENTER">
                <center>
-                  <Label text="Pagamentos" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label prefHeight="59.0" prefWidth="163.0" text="Pagamentos" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
@@ -106,7 +84,7 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
+                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="318.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -121,7 +99,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="45.0" prefWidth="347.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Pagamentos" textFill="#f8f8f8">
+                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="321.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Pagamentos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -136,7 +114,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="44.0" prefWidth="319.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -151,7 +129,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
+                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="355.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
                         <Font name="Calibri" size="20.0" />
                      </font>
