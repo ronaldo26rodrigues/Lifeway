@@ -163,7 +163,7 @@
                <children>
                   <Pane prefHeight="66.0" prefWidth="472.0" style="-fx-background-color: #83A7DE; -fx-background-radius: 0;" GridPane.rowIndex="3">
                      <children>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes.">
+                        <Label fx:id="registrosPendentes" layoutX="58.0" layoutY="34.0" text="Você tem XXX Registros de ocorrencias pendentes.">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
@@ -176,7 +176,7 @@
                               <Image url="@imgs/chart.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="58.0" layoutY="14.0" text="Registos de ocorrencias concluidos" textFill="#131022">
+                        <Label layoutX="58.0" layoutY="14.0" text="Registros de ocorrencia" textFill="#131022">
                            <font>
                               <Font name="Calibri Bold" size="19.0" />
                            </font>
@@ -217,7 +217,7 @@
                               <Font name="Calibri Bold" size="19.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar">
+                        <Label fx:id="contasPendentes" layoutX="58.0" layoutY="34.0" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
