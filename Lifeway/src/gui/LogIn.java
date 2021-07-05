@@ -57,51 +57,56 @@ public class LogIn {
      * @throws NoSuchAlgorithmException
      */
     private void checkLogin() throws IOException, NoSuchAlgorithmException {
-        /*
-         * App m = new App(); if(cpf.getText().toString().equals("123") &&
-         * senha.getText().toString().equals("123")){ loginErrado.setText("Sucesso!");
-         * 
-         * m.trocarCena("Menu.fxml"); }
-         * 
-         * else if(cpf.getText().isEmpty() && senha.getText().isEmpty()){
-         * loginErrado.setText("Por favor insira suas informações"); } else{
-         * loginErrado.setText("Nome ou senha incorretas"); }
-         */
 
         App m = new App();
         Usuario usuarioLogado = null;
+        boolean erro = false;
+
         for (Usuario usuario : ControladorUsuario.getInstance().listarUsuarios()) {
 
             // chama método gerarSenhaHex para criptografar senha digitada
             // e comparar com a senha guardada no sistema
             String senhaInseridaHex = ControladorUsuario.gerarSenhaHex(senha.getText());
 
-            if (usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex)
-                    && checkBox.isSelected() == false) {
-                usuarioLogado = usuario;
-                ControladorUsuario.getInstance().login(usuarioLogado);
-                m.trocarCena("Menu.fxml");
-            }
-            if (usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex)
-                    && checkBox.isSelected() == true) {
-                if (usuario.getTipo().equals("FUNCIONARIO")) {
+            if (usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex)) {
+                if(checkBox.isSelected() == false) {
+                    if(usuario.getTipo() == "CLIENTE") {
+                        usuarioLogado = usuario;
+                        ControladorUsuario.getInstance().login(usuarioLogado);
+                        m.trocarCena("Menu.fxml"); 
+                    } else if (usuario.getTipo() == "FUNCIONARIO") {
+                        erro = true;
 
-                    usuarioLogado = usuario;
-                    ControladorUsuario.getInstance().login(usuarioLogado);
-                    m.trocarCena("MenuFuncionario.fxml");
-                } else {
-                    // loginErrado.setText("Você não possui um perfil de funcionário");
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Erro no login");
-                    alert.setHeaderText("Não foi possível realizar seu login");
-                    alert.setContentText("Você não possui um perfil de funcionário.");
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Erro de acesso");
+                        alert.setHeaderText("Não foi possível realizar seu login");
+                        alert.setContentText("Realize login como funcionário.");
+    
+                        alert.showAndWait();                        
+                    }
+                }
 
-                    alert.showAndWait();
+                if(checkBox.isSelected() == true) {
+                    if(usuario.getTipo() == "FUNCIONARIO") {
+                        usuarioLogado = usuario;
+                        ControladorUsuario.getInstance().login(usuarioLogado);
+                        m.trocarCena("MenuFuncionario.fxml");
+                    } else if(usuario.getTipo() == "CLIENTE") {
+                        erro = true;
+
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Erro no login");
+                        alert.setHeaderText("Não foi possível realizar seu login");
+                        alert.setContentText("Você não possui um perfil de funcionário.");
+
+                        alert.showAndWait();
+                    }
                 }
             }
-        }
-        if (usuarioLogado == null && checkBox.isSelected() == false) {
 
+        }
+
+        if (usuarioLogado == null && erro == false) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro no login");
             alert.setHeaderText("Não foi possível realizar seu login");
