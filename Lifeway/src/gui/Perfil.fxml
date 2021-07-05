@@ -40,7 +40,7 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
+                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="46.0" prefWidth="376.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
+                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="45.0" prefWidth="343.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Perfil" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="44.0" prefWidth="373.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Perfil" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -85,7 +85,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
+                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="45.0" prefWidth="367.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
