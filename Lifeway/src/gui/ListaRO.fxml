@@ -20,7 +20,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListaRO">
    <left>
-      <BorderPane prefHeight="687.0" prefWidth="320.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="600.0" prefWidth="281.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
             <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="436.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
@@ -39,7 +39,7 @@
             </Button>
          </bottom>
          <center>
-            <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="541.0" prefWidth="346.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
                      <font>
@@ -56,7 +56,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -71,7 +71,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
+                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="44.0" prefWidth="317.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Lista de Ocorrências" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -129,7 +129,7 @@
    <center>
       <BorderPane prefWidth="513.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <left>
-            <AnchorPane prefHeight="474.0" prefWidth="93.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="164.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
             <AnchorPane prefHeight="474.0" prefWidth="71.0" BorderPane.alignment="CENTER" />

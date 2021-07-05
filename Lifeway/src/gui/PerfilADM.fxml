@@ -51,7 +51,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="62.0" prefWidth="350.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="62.0" prefWidth="350.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Perfil Adminstrativo" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>

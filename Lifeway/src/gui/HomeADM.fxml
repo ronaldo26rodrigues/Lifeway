@@ -37,7 +37,7 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
+                  <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="355.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
+                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="380.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Home" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -202,6 +202,26 @@
                         <Insets left="50.0" top="20.0" />
                      </GridPane.margin>
                   </Label>
+                  <ImageView fitHeight="36.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@imgs/kisspng-computer-icons-business-company-corporation-company-5abff413e49df4.4050835415225292999364-removebg-preview.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@imgs/download__2_-removebg-preview.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="3.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@imgs/images__4_-removebg-preview.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="3.0" />
+                     </GridPane.margin>
+                  </ImageView>
                </children>
             </GridPane>
          </center>

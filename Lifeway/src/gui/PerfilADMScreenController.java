@@ -63,7 +63,7 @@ public class PerfilADMScreenController implements Initializable {
 
     public void irListaConsumidores(ActionEvent event) throws IOException {
         App w = new App();
-        w.trocarCena("ListaConsumidores.fxml");
+        w.trocarCena("consumidorLista.fxml");
 
     }
 
