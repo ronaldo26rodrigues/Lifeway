@@ -79,7 +79,7 @@
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
          <bottom>
-            <Button fx:id="botaoSair1" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="337.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoSair" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SairConta" prefHeight="59.0" prefWidth="426.0" style="-fx-background-color: #7156DD;" text="Sair da conta" textFill="#f8f8f8" BorderPane.alignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -98,7 +98,7 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoExtratos1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="45.0" prefWidth="332.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Extratos" textFill="#f8f8f8">
+                  <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="45.0" prefWidth="382.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Extratos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPagamentos1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="45.0" prefWidth="335.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
+                  <Button fx:id="botaoPagamentos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPagamentos" prefHeight="63.0" prefWidth="314.0" style="-fx-background-color: #7156DD;" text="Pagamentos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfil1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="44.0" prefWidth="339.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfil" prefHeight="62.0" prefWidth="301.0" style="-fx-background-color: #7156DD;" text="Perfil" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -143,9 +143,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoRO1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="46.0" prefWidth="345.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
+                  <Button fx:id="botaoRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRO" prefHeight="63.0" prefWidth="312.0" style="-fx-background-color: #7156DD;" text="Registro de ocorrencia" textFill="#f8f8f8">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -158,7 +158,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoHome1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="62.0" prefWidth="320.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHome" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHome" prefHeight="62.0" prefWidth="320.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
