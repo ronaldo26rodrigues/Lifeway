@@ -2,18 +2,30 @@ package gui;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import negocio.beans.Conta;
+import negocio.beans.Empresa;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
 import java.util.ResourceBundle;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import negocio.controle.Fachada;
 
@@ -34,6 +46,13 @@ public class Extratos implements Initializable {
     private TableColumn<Conta, String> colunaTaxa;
     @FXML
     private TableColumn<Conta, String> colunaPagaEm;
+
+    @FXML
+    private ComboBox<Empresa> empresaCB;
+    @FXML
+    private ComboBox<Month> mesCB;
+    @FXML
+    private ComboBox<Integer> anoCB;
 
     private Conta contaSelecionada;
 
@@ -62,16 +81,72 @@ public class Extratos implements Initializable {
         });
 
 
+        mesCB.getItems().addAll(Month.values());
+        
+        anoCB.getItems().setAll(
+            IntStream.rangeClosed(1980, LocalDate.now().getYear()).boxed().collect(Collectors.toList())
+        );
+
+
+        ObservableList<Empresa> empresaList = FXCollections
+                .observableArrayList(Fachada.getInstance().listarEmpresas());
+        System.out.println(empresaList);
+        empresaCB.setItems(empresaList);
+        // empresaCB.getItems().addAll(empresaList);
+        empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
+
+            @Override
+            public ListCell<Empresa> call(ListView<Empresa> arg0) {
+
+                final ListCell<Empresa> cell = new ListCell<>() {
+                    @Override
+                    protected void updateItem(Empresa arg0, boolean arg1) {
+                        super.updateItem(arg0, arg1);
+
+                        if (arg0 != null) {
+                            setText(arg0.getNome());
+                        } else {
+                            setText(null);
+                        }
+                    };
+                };
+
+                return cell;
+            }
+
+        });
+
+
         
     }
 
-    private void atualizarLista() {
+    public void atualizarLista() {
+        contaList.getItems().removeAll(contaList.getItems());
         for (Conta conta : Fachada.getInstance().listarContas()) {
             if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
                 contaList.getItems().addAll(conta);
             }
         }
     }
+
+    public void filtrarEmpresas() {
+        contaList.getItems().removeAll(contaList.getItems());
+        for (Conta conta : Fachada.getInstance().listarContas()) {
+            if(conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+                contaList.getItems().addAll(conta);
+            }
+        }
+    }
+
+    public void filtrarMesAno() {
+        contaList.getItems().removeAll(contaList.getItems());
+        for (Conta conta : Fachada.getInstance().listarContas()) {
+            if(conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem() && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem() && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+                contaList.getItems().addAll(conta);
+            }
+        }
+    }
+
 
 
     public void SairConta(ActionEvent event) throws IOException {
