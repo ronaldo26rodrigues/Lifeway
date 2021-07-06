@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -53,6 +54,11 @@ public class Extratos implements Initializable {
     private ComboBox<Month> mesCB;
     @FXML
     private ComboBox<Integer> anoCB;
+
+    @FXML
+    private CheckBox empresaCheck;
+    @FXML
+    private CheckBox mesAnoCheck;
 
     private Conta contaSelecionada;
 
@@ -129,13 +135,33 @@ public class Extratos implements Initializable {
         }
     }
 
-    public void filtrarEmpresas() {
-        contaList.getItems().removeAll(contaList.getItems());
+    public void filtrar() {
+        if(empresaCheck.isSelected() && !mesAnoCheck.isSelected()) {
+            filtrarEmpresas();
+        } 
+        if(mesAnoCheck.isSelected() && !empresaCheck.isSelected()) {
+            filtrarMesAno();
+        }
+        if(mesAnoCheck.isSelected() && empresaCheck.isSelected()) {
+            contaList.getItems().removeAll(contaList.getItems());
         for (Conta conta : Fachada.getInstance().listarContas()) {
-            if(conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+            if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true &&
+                conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem() && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem()) {
                 contaList.getItems().addAll(conta);
             }
         }
+        }
+    }
+
+    public void filtrarEmpresas() {
+        contaList.getItems().removeAll(contaList.getItems());
+        if(empresaCheck.isSelected()) {
+            for (Conta conta : Fachada.getInstance().listarContas()) {
+                if(conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+                    contaList.getItems().addAll(conta);
+                }
+            }
+        } 
     }
 
     public void filtrarMesAno() {
