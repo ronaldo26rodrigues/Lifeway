@@ -140,4 +140,8 @@ public class Fachada {
         controladorConta.salvar();
     }
 
+    public void checarInadimplentes() {
+        controladorPropriedade.checarInadimplentes();
+    }
+
 }

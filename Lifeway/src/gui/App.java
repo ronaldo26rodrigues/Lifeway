@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import negocio.controle.Fachada;
 
 public class App extends Application {
     public static void main(String[] args) throws Exception {
@@ -29,6 +30,7 @@ public class App extends Application {
         primaryStage.setScene(tela);
         primaryStage.getIcons().add(new Image("/gui/imgs/LogoIcon.png"));
         primaryStage.show();
+        
     }
 
     public void trocarCena(String fxml) throws IOException {

@@ -47,6 +47,8 @@ public class ConsumidorLista implements Initializable {
     private TableColumn<Propriedade, String> colunaEndereco;
     @FXML
     private TableColumn<Propriedade, String> colunaSituacao;
+    @FXML
+    private TableColumn<Propriedade, String> colunaInadimplente;
 
     @FXML
     private Label labelConsumidorList;
@@ -96,6 +98,7 @@ public class ConsumidorLista implements Initializable {
     }
 
     public void atualizarLista() {
+        Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (propriedade.getEmpresaContratada()
@@ -112,6 +115,7 @@ public class ConsumidorLista implements Initializable {
         colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
         colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("idPropriedade"));
+        colunaInadimplente.setCellValueFactory(new PropertyValueFactory<>("inadimplente"));
 
         atualizarLista();
 
@@ -160,6 +164,7 @@ public class ConsumidorLista implements Initializable {
         novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
         try {
             Fachada.getInstance().criarNovaConta(novaConta);
+            atualizarLista();
         } catch (ElementoJaExisteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

@@ -58,15 +58,19 @@ public class MenuFuncionario implements Initializable {
         }
 
         int nPropriedadeRegistrada = 0;
+        int nPropriedadeInadimplente = 0;
+        Fachada.getInstance().checarInadimplentes();
         for(Propriedade propriedadeAtiva :  Fachada.getInstance().listarPropriedade() ){
             if(propriedadeAtiva.getEmpresaContratada().equals(((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa())){
                 nPropriedadeRegistrada++;
+                if(propriedadeAtiva.getInadimplente()) nPropriedadeInadimplente++;
             } 
         }
         if(nPropriedadeRegistrada==0){
             propriedadeAtiva.setText("Ainda não existem propriedades registradas.");
         } else {
-            propriedadeAtiva.setText("Existem " + nPropriedadeRegistrada + " Propriedades registradas");
+            
+            propriedadeAtiva.setText("Existem " + nPropriedadeRegistrada + " Propriedades registradas e " + nPropriedadeInadimplente + " inadimplentes.");
         }
 
         tipoEmpresa.setText("Você faz parte da Empresa " + ((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa().getNome() + " do tipo " + ((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa().getServico());

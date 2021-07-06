@@ -6,6 +6,7 @@ import excecoes.ElementoJaExisteException;
 import excecoes.PropriedadeJaCadastradaException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
+import negocio.beans.Conta;
 import negocio.beans.Propriedade;
 
 public class ControladorPropriedade {
@@ -35,6 +36,19 @@ public class ControladorPropriedade {
 
     public List<Propriedade> listarPropriedade() {
         return repositorioPropriedade.listar();
+    }
+
+    public void checarInadimplentes() {
+        for (Propriedade propriedade : ControladorPropriedade.getInstance().listarPropriedade()) {
+            propriedade.setInadimplente(false);
+        }
+        for (Conta conta : ControladorConta.getInstance().listarContas()) {
+            if(conta.getPaga()==false) {
+                int indice = repositorioPropriedade.listar().indexOf(conta.getPropriedade());
+                repositorioPropriedade.listar().get(indice).setInadimplente(true);
+            }
+        }
+        repositorioPropriedade.salvar();
     }
 
     /**

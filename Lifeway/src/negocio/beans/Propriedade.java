@@ -13,10 +13,7 @@ public class Propriedade implements Serializable {
     private String idEmpresa;
     private Empresa empresaContratada;
 
-    private IRepositorioGenerico<Conta> repositorioContas;
-
-    // private String idCliente;
-    // private String numMedidor;
+    private boolean inadimplente;
 
     /**
      * Construtor: Propriedade
@@ -33,6 +30,7 @@ public class Propriedade implements Serializable {
         this.clienteProprietario = clienteProprietario;
         this.idPropriedade = idPropriedade;
         this.idEmpresa = idEmpresa;
+        this.inadimplente = false;
     }
 
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
@@ -47,6 +45,13 @@ public class Propriedade implements Serializable {
     }
 
     // Getters & Setters
+
+    public boolean getInadimplente() {
+        return this.inadimplente;
+    }
+    public void setInadimplente(boolean inadimplente) {
+        this.inadimplente = inadimplente;
+    }
 
     public TipoPropriedade getTipo() {
         return tipo;
@@ -96,19 +101,7 @@ public class Propriedade implements Serializable {
         this.clienteProprietario = clienteProprietario;
     }
 
-    /**
-     * @return the repositorioContas
-     */
-    public IRepositorioGenerico<Conta> getRepositorioContas() {
-        return repositorioContas;
-    }
-
-    /**
-     * @param repositorioContas the repositorioContas to set
-     */
-    public void setRepositorioContas(IRepositorioGenerico<Conta> repositorioContas) {
-        this.repositorioContas = repositorioContas;
-    }
+    
 
     /**
      *
