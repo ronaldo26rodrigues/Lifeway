@@ -76,13 +76,7 @@ public class LogIn {
                         m.trocarCena("Menu.fxml"); 
                     } else if (usuario.getTipo() == "FUNCIONARIO") {
                         erro = true;
-
-                        Alert alert = new Alert(AlertType.ERROR);
-                        alert.setTitle("Erro de acesso");
-                        alert.setHeaderText("Não foi possível realizar seu login");
-                        alert.setContentText("Realize login como funcionário.");
-    
-                        alert.showAndWait();                        
+                        this.gerarAlertaErroLogin("Realize login como funcionário.");                   
                     }
                 }
 
@@ -93,13 +87,7 @@ public class LogIn {
                         m.trocarCena("HomeADM.fxml");
                     } else if(usuario.getTipo() == "CLIENTE") {
                         erro = true;
-
-                        Alert alert = new Alert(AlertType.ERROR);
-                        alert.setTitle("Erro no login");
-                        alert.setHeaderText("Não foi possível realizar seu login");
-                        alert.setContentText("Você não possui um perfil de funcionário.");
-
-                        alert.showAndWait();
+                        this.gerarAlertaErroLogin("Você não possui um perfil de funcionário.");
                     }
                 }
             }
@@ -107,12 +95,16 @@ public class LogIn {
         }
 
         if (usuarioLogado == null && erro == false) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Erro no login");
-            alert.setHeaderText("Não foi possível realizar seu login");
-            alert.setContentText("Usuário ou senha incorretos.");
-
-            alert.showAndWait();
+            this.gerarAlertaErroLogin("Usuário ou senha incorretos.");
         }
+    }
+
+    
+    private void gerarAlertaErroLogin(String mesnagemDeErro) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Erro no login");
+        alerta.setHeaderText("Não foi possível realizar seu login.");
+        alerta.setContentText(mesnagemDeErro);
+        alerta.showAndWait();
     }
 }
