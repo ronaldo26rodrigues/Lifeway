@@ -28,13 +28,10 @@ public class PerfilADMScreenController implements Initializable {
     private Button adicionarPropriedades;
     @FXML
     private Button alterarInformacoes;
-
     @FXML
     private Label nomePerfil;
-
     @FXML
     private Label cpfPerfil;
-
     @FXML
     Label dataNascimentoPerfil;
 
@@ -58,31 +55,26 @@ public class PerfilADMScreenController implements Initializable {
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
-
     }
 
     public void irListaConsumidores(ActionEvent event) throws IOException {
         App w = new App();
         w.trocarCena("consumidorLista.fxml");
-
     }
 
     public void irPerfilADM(ActionEvent event) throws IOException {
         App v = new App();
         v.trocarCena("PerfilADM.fxml");
-
     }
 
     public void irListaRO(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("ListaRO.fxml");
-
     }
 
     public void irHomeADM(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("HomeADM.fxml");
-
     }
 
     public void irListaTaxas() throws IOException {

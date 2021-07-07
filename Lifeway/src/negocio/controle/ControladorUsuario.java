@@ -84,6 +84,7 @@ public class ControladorUsuario {
             this.repositorioUsuario.inserir(usuario);
         } catch (ElementoJaExisteException e) {
             throw new UsuarioJaCadastradoException(e);
+            
         }
     }
 

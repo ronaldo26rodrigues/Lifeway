@@ -79,14 +79,9 @@ public class SignUp {
             ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
             System.out.println(novoCliente.getSenha());
             cadastroRealizado = true;
-        } catch (CPFInvalidoException e) {
-            System.out.println("Exception caught: CPF inválido.");
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("CPF inválido");
-            // alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("O CPF inserido é inválido. Tente novamente.");
-
-            alert.showAndWait();
+        } catch (CPFInvalidoException | UsuarioJaCadastradoException e) {
+            System.out.println("Exception caught: CPF inválido ou já cadastrado.");
+            this.gerarAlertaErroCadastro(e.getMessage());
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
@@ -115,6 +110,14 @@ public class SignUp {
             });
         }
 
+    }
+
+    private void gerarAlertaErroCadastro(String mesnagemDeErro) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Erro de cadastro");
+        alerta.setHeaderText("Não foi possível realizar seu cadastro");
+        alerta.setContentText(mesnagemDeErro);
+        alerta.showAndWait();
     }
 
 }

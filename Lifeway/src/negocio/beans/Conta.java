@@ -14,23 +14,20 @@ public class Conta implements Serializable {
     private double valorTotal;
     private Taxa taxaAplicada;
     private LocalDate dataVencimento;
-
     private boolean paga;
     private LocalDate pagaEm;
 
-    public Conta(Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal, Taxa taxaAplicada) {
-        
-        Random rng = new Random();
-        
-        this.idConta = "C" + rng.nextInt(1000) + rng.nextInt(1000);
+    public Conta(Propriedade propriedade, Empresa empresa, LocalDate dataEmissao, double consumo, double valorTotal,
+            Taxa taxaAplicada) {
 
-        // this.idConta = idConta;
+        Random rng = new Random();
+
+        this.idConta = "C" + rng.nextInt(1000) + rng.nextInt(1000);
         this.propriedade = propriedade;
         this.empresa = empresa;
         this.dataEmissao = dataEmissao;
         this.consumo = consumo;
         this.valorTotal = valorTotal;
-
         this.taxaAplicada = taxaAplicada;
         this.pagaEm = null;
     }
@@ -45,12 +42,14 @@ public class Conta implements Serializable {
         this.idConta = idConta;
     }
 
-   public Propriedade getPropriedade() {
-       return propriedade;
-   }
-   public void setPropriedade(Propriedade propriedade) {
-       this.propriedade = propriedade;
-   }
+    public Propriedade getPropriedade() {
+        return propriedade;
+    }
+
+    public void setPropriedade(Propriedade propriedade) {
+        this.propriedade = propriedade;
+    }
+
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -122,8 +121,24 @@ public class Conta implements Serializable {
     public LocalDate getPagaEm() {
         return pagaEm;
     }
+
     public void setPagaEm(LocalDate pagaEm) {
         this.pagaEm = pagaEm;
+    }
+
+    /**
+     * Método equals: Conta
+     */
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Conta) {
+            Conta param = (Conta) obj;
+            if ((param.getIdConta() != null) && param.getIdConta().equals(this.getIdConta())) {
+                resultado = true;
+            }
+        }
+        return resultado;
     }
 
     /**

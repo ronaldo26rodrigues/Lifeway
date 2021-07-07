@@ -129,10 +129,6 @@ public class ConsumidorLista implements Initializable {
 
         });
 
-        
-
-        
-
         /*
          * consumidorList.getSelectionModel().selectedItemProperty().addListener(new
          * ChangeListener<String>(){
@@ -145,22 +141,32 @@ public class ConsumidorLista implements Initializable {
          * });
          */
     }
+
     public void criarConta() {
-        double valorTotal = 0; 
+
+        double valorTotal = 0;
         Taxa taxaAplicada = null;
 
         for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
-            if(taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo()) && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText()) && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText())) {
-            valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();
-            valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
-            taxaAplicada = taxa;
-            }   
-            
+            if (taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo())
+                    && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText())
+                    && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText())) {
+                valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();
+                valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
+                taxaAplicada = taxa;
+            }
 
         }
-        // public Conta(String idConta,Propriedade propriedade , Empresa empresa, LocalDate dataEmissao, double consumo,
-        //double valorTotal)
-        Conta novaConta = new Conta(propriedadeSelecionada, ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(), Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);
+
+        // public Conta(String idConta,Propriedade propriedade , Empresa empresa,
+        // LocalDate dataEmissao, double consumo,
+        // double valorTotal)
+
+        
+
+        Conta novaConta = new Conta(propriedadeSelecionada,
+                ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),
+                Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);
         novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
         try {
             Fachada.getInstance().criarNovaConta(novaConta);
@@ -169,9 +175,8 @@ public class ConsumidorLista implements Initializable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //Random rng = new Random();
-
-        }
+        // Random rng = new Random();
 
     }
-    
+
+}

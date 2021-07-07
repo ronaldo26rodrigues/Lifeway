@@ -17,7 +17,7 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         this.fileName = fileName;
 
         Object listaObjetos = RepositorioFileUtil.lerDoArquivo(this.fileName);
-        if(listaObjetos != null && listaObjetos instanceof List<?>) {
+        if (listaObjetos != null && listaObjetos instanceof List<?>) {
             this.objetos = (List<T>) listaObjetos;
         }
     }
@@ -31,8 +31,6 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
         }
         RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
     }
-
-    
 
     @Override
     public void remover(T obj) {
@@ -61,13 +59,12 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     @Override
     public void atualizar(T newObj) throws ElementoNaoExisteException {
-        if(objetos.contains(newObj)) {
+        if (objetos.contains(newObj)) {
             int indice = this.objetos.indexOf(newObj);
             this.objetos.set(indice, newObj);
         } else {
             throw new ElementoNaoExisteException(newObj.toString());
         }
-
 
         RepositorioFileUtil.salvarArquivo(objetos, this.fileName);
 

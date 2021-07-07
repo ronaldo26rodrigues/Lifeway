@@ -60,6 +60,7 @@ public class ControladorPropriedade {
      */
     public void cadastrarPropriedade(Propriedade propriedade)
             throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
+
         if (propriedade == null)
             return; // >>> Tratar erros para GUI
 
