@@ -38,7 +38,6 @@ public class ConsumidorLista implements Initializable {
     private Button botaoHomeADM;
     @FXML
     private TableView<Propriedade> consumidorList;
-
     @FXML
     private TableColumn<Propriedade, String> colunaProprietario;
     @FXML
@@ -49,7 +48,6 @@ public class ConsumidorLista implements Initializable {
     private TableColumn<Propriedade, String> colunaSituacao;
     @FXML
     private TableColumn<Propriedade, String> colunaInadimplente;
-
     @FXML
     private Label labelConsumidorList;
     @FXML
@@ -162,7 +160,7 @@ public class ConsumidorLista implements Initializable {
         // LocalDate dataEmissao, double consumo,
         // double valorTotal)
 
-        
+
 
         Conta novaConta = new Conta(propriedadeSelecionada,
                 ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),
