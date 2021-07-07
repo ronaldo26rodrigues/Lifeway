@@ -89,4 +89,7 @@ public abstract class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public void setDataNascimento(LocalDate value) {
+    }
+
 }
