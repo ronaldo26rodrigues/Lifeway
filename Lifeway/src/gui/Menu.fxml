@@ -142,33 +142,36 @@
          <center>
             <GridPane prefHeight="363.0" prefWidth="581.0" style="-fx-background-color: #83A7DE;" BorderPane.alignment="CENTER">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.4000274658203" minWidth="10.0" prefWidth="284.00006408691405" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="509.19996643066406" minWidth="10.0" prefWidth="296.799935913086" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="370.6000122070312" minHeight="10.0" prefHeight="188.79998474121095" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="492.2000106811523" minHeight="10.0" prefHeight="369.60001525878914" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="370.6000122070312" minHeight="10.0" prefHeight="190.40001831054687" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="492.2000106811523" minHeight="10.0" prefHeight="367.9999816894531" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <AnchorPane fx:id="tela" prefHeight="264.0" prefWidth="291.0">
                      <children>
-                        <Label fx:id="contasPendentes" alignment="CENTER" layoutX="3.0" layoutY="52.0" prefHeight="225.0" prefWidth="285.0" style="-fx-font-size: 2.2em;" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" wrapText="true">
+                        <Label fx:id="contasPendentes" alignment="CENTER" layoutX="3.0" layoutY="57.0" prefHeight="138.0" prefWidth="281.0" style="-fx-font-size: 2.2em;" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" wrapText="true">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
                            <padding>
-                              <Insets top="5.0" />
+                              <Insets left="10.0" />
                            </padding>
                         </Label>
-                        <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="14.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/dinheiro.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="60.0" layoutY="61.0" text="Status " textFill="#131022">
+                        <Label layoutX="60.0" layoutY="23.0" text="Status " textFill="#131022">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </Label>
                      </children>
                   </AnchorPane>
@@ -194,25 +197,28 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <AnchorPane prefHeight="211.0" prefWidth="290.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="53.0" prefHeight="220.0" prefWidth="290.0" style="-fx-font-size: 2.2em;" text="Você tem XXX Registros de ocorrencias pendentes." wrapText="true">
+                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="54.0" prefHeight="144.0" prefWidth="283.0" style="-fx-font-size: 2.2em;" text="Você tem XXX Registros de ocorrencias pendentes." wrapText="true">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
                            <padding>
-                              <Insets top="5.0" />
+                              <Insets left="10.0" />
                            </padding>
                         </Label>
-                        <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="7.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/chart.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="49.0" layoutY="60.0" text="Registros de ocorrencia" textFill="#131022">
+                        <Label layoutX="39.0" layoutY="21.0" text="Registros de ocorrencia" textFill="#131022">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </Label>
                      </children>
                   </AnchorPane>
