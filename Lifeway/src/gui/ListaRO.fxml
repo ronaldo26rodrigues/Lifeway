@@ -129,13 +129,13 @@
    <center>
       <BorderPane prefWidth="513.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
          <left>
-            <AnchorPane prefHeight="164.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="212.0" prefWidth="48.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <AnchorPane prefHeight="474.0" prefWidth="71.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="212.0" prefWidth="49.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <TableView fx:id="listaRO" prefHeight="302.0" prefWidth="416.0">
+            <TableView fx:id="listaRO" prefHeight="302.0" prefWidth="478.0">
               <columns>
                 <TableColumn fx:id="colunaAssunto" prefWidth="82.0" text="Assunto" />
                 <TableColumn fx:id="colunaLocal" prefWidth="222.0" text="Local" />
@@ -148,27 +148,35 @@
             </TableView>
          </center>
          <bottom>
-            <GridPane prefHeight="354.0" prefWidth="580.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="306.0" prefWidth="586.0" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="490.0" minWidth="10.0" prefWidth="470.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="110.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="584.8" minWidth="10.0" prefWidth="584.8" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="0.0" prefWidth="0.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.6000122070312" minHeight="10.0" prefHeight="221.39999999999998" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="172.60001220703126" minHeight="10.0" prefHeight="84.60000000000002" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="labelConsumidorList" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="314.0" prefWidth="439.0" style="-fx-background-color: #5f7174;" text="Nenhuma ocorrencia selecionada" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER">
+                  <Label fx:id="labelConsumidorList" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="214.0" prefWidth="489.0" style="-fx-background-color: #5f7174;" text=" Nenhuma ocorrencia selecionada" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </Label>
-                  <Button fx:id="marcarResolvido" mnemonicParsing="false" onAction="#marcarResolvidoEvent" prefHeight="56.0" prefWidth="96.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="Marcar como resolvido" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <Button fx:id="marcarResolvido" mnemonicParsing="false" onAction="#marcarResolvidoEvent" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #7156DD; -fx-background-radius: 5;" text="Marcar como resolvido" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="200.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </bottom>

@@ -183,14 +183,14 @@
                               </Button>
                            </top>
                            <bottom>
-                              <Button fx:id="btnOK2" mnemonicParsing="false" onAction="#excluirTaxa" prefHeight="26.0" prefWidth="172.0" style="-fx-background-color: #7156DD; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="Excluir seleção" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Button fx:id="btnOK2" mnemonicParsing="false" onAction="#excluirTaxa" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: #7156DD; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="Excluir seleção" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
-                                    <Insets bottom="30.0" left="5.0" right="5.0" />
+                                    <Insets bottom="20.0" left="5.0" right="5.0" />
                                  </BorderPane.margin>
                               </Button>
                            </bottom>
                            <center>
-                              <Button fx:id="btnOK" mnemonicParsing="false" onAction="#modificarTaxa" prefWidth="172.0" style="-fx-background-color: #7156DD; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="Modificar seleção" textFill="WHITE" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btnOK" mnemonicParsing="false" onAction="#modificarTaxa" prefWidth="177.0" style="-fx-background-color: #7156DD; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="Modificar seleção" textFill="WHITE" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <GridPane prefHeight="70.0" prefWidth="186.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
