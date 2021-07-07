@@ -5,7 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
+import negocio.beans.Propriedade;
 import negocio.controle.Fachada;
 import negocio.beans.RegistroDeOcorrencia;
 import java.io.IOException;
@@ -30,6 +34,31 @@ public class Menu implements Initializable {
     private Label contasPendentes;
     @FXML
     private Label registrosPendentes;
+
+
+    @FXML
+    private TableView<Propriedade> consumidorList;
+    
+    @FXML
+    private TableColumn<Propriedade, String> colunaTipo;
+    @FXML
+    private TableColumn<Propriedade, String> colunaEndereco;
+    @FXML
+    private TableColumn<Propriedade, String> colunaSituacao;
+    @FXML
+    private TableColumn<Propriedade, String> colunaInadimplente;
+
+    @FXML
+    private TableView<RegistroDeOcorrencia> listaRO;
+
+    @FXML
+    private TableColumn<RegistroDeOcorrencia, String> colunaAssunto;
+    @FXML
+    private TableColumn<RegistroDeOcorrencia, String> colunaLocal;
+    @FXML
+    private TableColumn<RegistroDeOcorrencia, String> colunaData;
+    @FXML
+    private TableColumn<RegistroDeOcorrencia, String> colunaEstado;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -69,6 +98,40 @@ public class Menu implements Initializable {
         } else {
             registrosPendentes.setText("Você tem " + nRegistrosPendentes + " ocorrências em processo.");
         }
+
+
+        
+        
+        colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("idPropriedade"));
+        colunaInadimplente.setCellValueFactory(new PropertyValueFactory<>("inadimplente"));
+        
+        Fachada.getInstance().checarInadimplentes();
+        consumidorList.getItems().removeAll(consumidorList.getItems());
+        for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
+            if (propriedade.getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())) {
+                consumidorList.getItems().addAll(propriedade);
+            }
+        }
+
+
+        colunaAssunto.setCellValueFactory(new PropertyValueFactory<>("assunto"));
+        colunaData.setCellValueFactory(new PropertyValueFactory<>("data"));
+        colunaLocal.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        colunaEstado.setCellValueFactory(new PropertyValueFactory<>("resolvido"));
+
+        for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
+            if (registroDeOcorrencia.getUsuario().equals(Fachada.getInstance().getUsuarioLogado())) {
+                listaRO.getItems().addAll(registroDeOcorrencia);
+                // if (registroDeOcorrencia.getResolvido() == false && apenasPendentes.isSelected())
+                //     listaRO.getItems().addAll(registroDeOcorrencia);
+                // else if (apenasPendentes.isSelected() == false)
+                //     listaRO.getItems().addAll(registroDeOcorrencia);
+            }
+        }
+        
+
 
     }
 

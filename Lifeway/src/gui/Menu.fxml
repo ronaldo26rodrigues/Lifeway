@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -143,15 +142,15 @@
          <center>
             <GridPane prefHeight="363.0" prefWidth="581.0" style="-fx-background-color: #83A7DE;" BorderPane.alignment="CENTER">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.4000274658203" minWidth="10.0" prefWidth="284.00006408691405" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="509.19996643066406" minWidth="10.0" prefWidth="296.799935913086" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="370.6000122070312" minHeight="10.0" prefHeight="188.79998474121095" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="492.2000106811523" minHeight="10.0" prefHeight="369.60001525878914" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <AnchorPane fx:id="tela" prefHeight="264.0" prefWidth="291.0" style="-fx-border-color: black;">
+                  <AnchorPane fx:id="tela" prefHeight="264.0" prefWidth="291.0">
                      <children>
                         <Label fx:id="contasPendentes" alignment="CENTER" layoutX="3.0" layoutY="52.0" prefHeight="225.0" prefWidth="285.0" style="-fx-font-size: 2.2em;" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" wrapText="true">
                            <font>
@@ -161,43 +160,20 @@
                               <Insets top="5.0" />
                            </padding>
                         </Label>
-                        <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="14.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imgs/dinheiro.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="53.0" layoutY="23.0" text="Status " textFill="#131022">
+                        <Label layoutX="60.0" layoutY="61.0" text="Status " textFill="#131022">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Pane prefHeight="253.0" prefWidth="290.0" style="-fx-background-color: #83A7DE; -fx-background-radius: 0;" GridPane.columnIndex="1">
-                     <children>
-                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="61.0" prefHeight="220.0" prefWidth="290.0" style="-fx-font-size: 2.2em;" text="Você tem XXX Registros de ocorrencias pendentes." wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="18.0" />
-                           </font>
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                        </Label>
-                        <ImageView fitHeight="42.0" fitWidth="46.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/chart.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="42.0" layoutY="21.0" text="Registros de ocorrencia" textFill="#131022">
-                           <font>
-                              <Font name="Calibri Bold" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <TableView fx:id="consumidorList" prefHeight="474.0" prefWidth="343.0" GridPane.rowIndex="1">
+                  <TableView fx:id="consumidorList" prefHeight="474.0" prefWidth="343.0" stylesheets="@table.css" GridPane.rowIndex="1">
                      <columns>
-                        <TableColumn fx:id="colunaProprietario" prefWidth="83.20001220703125" text="Proprietario" />
                         <TableColumn fx:id="colunaTipo" prefWidth="68.0" text="Tipo" />
                         <TableColumn fx:id="colunaEndereco" prefWidth="75.20001220703125" text="Endereço" />
                         <TableColumn fx:id="colunaSituacao" editable="false" prefWidth="51.199951171875" text="id" />
@@ -207,17 +183,39 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TableView fx:id="listaRO" prefHeight="302.0" prefWidth="478.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="listaRO" prefHeight="370.0" prefWidth="308.0" stylesheets="@table.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <columns>
-                        <TableColumn fx:id="colunaAssunto" prefWidth="82.0" text="Assunto" />
-                        <TableColumn fx:id="colunaLocal" prefWidth="222.0" text="Local" />
-                        <TableColumn fx:id="colunaData" prefWidth="62.0" text="Data" />
-                        <TableColumn fx:id="colunaEstado" prefWidth="49.0" resizable="false" text="Estado" />
+                        <TableColumn fx:id="colunaAssunto" minWidth="0.0" prefWidth="108.00000303983688" text="Assunto" />
+                        <TableColumn fx:id="colunaLocal" minWidth="2.39996337890625" prefWidth="184.79998779296875" text="Local" />
+                        <TableColumn fx:id="colunaData" minWidth="0.0" prefWidth="119.2000732421875" text="Data" />
+                        <TableColumn fx:id="colunaEstado" prefWidth="97.5999755859375" resizable="false" text="Estado" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="53.0" prefHeight="220.0" prefWidth="290.0" style="-fx-font-size: 2.2em;" text="Você tem XXX Registros de ocorrencias pendentes." wrapText="true">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="7.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imgs/chart.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="49.0" layoutY="60.0" text="Registros de ocorrencia" textFill="#131022">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </GridPane>
          </center>
