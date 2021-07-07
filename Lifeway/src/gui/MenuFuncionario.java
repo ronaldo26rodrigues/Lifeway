@@ -6,17 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import java.io.IOException;
 import java.net.URL;
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
-import negocio.beans.Conta;
-import negocio.beans.Empresa;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.RegistroDeOcorrencia;
-import negocio.beans.Usuario;
 import negocio.controle.Fachada;
 
 public class MenuFuncionario implements Initializable {
@@ -40,18 +34,18 @@ public class MenuFuncionario implements Initializable {
     @FXML
     private Label propriedadeAtiva;
 
-
-    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        
+
         int nOcorrenciasPendentes = 0;
         for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
-            if(registroDeOcorrencia.getEmpresa().equals(((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa()) && registroDeOcorrencia.getResolvido()==false) {
+            if (registroDeOcorrencia.getEmpresa()
+                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())
+                    && registroDeOcorrencia.getResolvido() == false) {
                 nOcorrenciasPendentes++;
             }
         }
-        if(nOcorrenciasPendentes==0) {
+        if (nOcorrenciasPendentes == 0) {
             ocorrenciasPendentes.setText("Você não tem ocorrências para serem resolvidas");
         } else {
             ocorrenciasPendentes.setText("Há " + nOcorrenciasPendentes + " ocorrências enviadas para serem resolvidas");
@@ -60,29 +54,29 @@ public class MenuFuncionario implements Initializable {
         int nPropriedadeRegistrada = 0;
         int nPropriedadeInadimplente = 0;
         Fachada.getInstance().checarInadimplentes();
-        for(Propriedade propriedadeAtiva :  Fachada.getInstance().listarPropriedade() ){
-            if(propriedadeAtiva.getEmpresaContratada().equals(((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa())){
+        for (Propriedade propriedadeAtiva : Fachada.getInstance().listarPropriedade()) {
+            if (propriedadeAtiva.getEmpresaContratada()
+                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
                 nPropriedadeRegistrada++;
-                if(propriedadeAtiva.getInadimplente()) nPropriedadeInadimplente++;
-            } 
+                if (propriedadeAtiva.getInadimplente())
+                    nPropriedadeInadimplente++;
+            }
         }
-        if(nPropriedadeRegistrada==0){
+        if (nPropriedadeRegistrada == 0) {
             propriedadeAtiva.setText("Ainda não existem propriedades registradas.");
+        } else if (nPropriedadeRegistrada == 1) {
+            propriedadeAtiva.setText("Existe " + nPropriedadeRegistrada + " propriedade registrada e "
+                    + nPropriedadeInadimplente + " inadimplentes.");
         } else {
-            
-            propriedadeAtiva.setText("Existem " + nPropriedadeRegistrada + " Propriedades registradas e " + nPropriedadeInadimplente + " inadimplentes.");
+            propriedadeAtiva.setText("Existem " + nPropriedadeRegistrada + " propriedades registradas e "
+                    + nPropriedadeInadimplente + " inadimplentes.");
         }
 
-        tipoEmpresa.setText("Você faz parte da Empresa " + ((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa().getNome() + " do tipo " + ((Funcionario)Fachada.getInstance().getUsuarioLogado()).getEmpresa().getServico());
-        
+        tipoEmpresa.setText("Você faz parte da Empresa "
+                + ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa().getNome() + " fornecedora de "
+                + ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa().getServico());
 
-
-
-        } 
-
-        
-        
-    
+    }
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
@@ -124,7 +118,5 @@ public class MenuFuncionario implements Initializable {
         App d = new App();
         d.trocarCena("Taxas.fxml");
     }
-
-    
 
 }

@@ -2,7 +2,6 @@ package negocio.beans;
 
 import java.io.Serializable;
 import java.util.Random;
-import dados.IRepositorioGenerico;
 
 public class Propriedade implements Serializable {
 
@@ -12,7 +11,6 @@ public class Propriedade implements Serializable {
     private Usuario clienteProprietario;
     private String idEmpresa;
     private Empresa empresaContratada;
-
     private boolean inadimplente;
 
     /**
@@ -49,6 +47,7 @@ public class Propriedade implements Serializable {
     public boolean getInadimplente() {
         return this.inadimplente;
     }
+
     public void setInadimplente(boolean inadimplente) {
         this.inadimplente = inadimplente;
     }
@@ -100,8 +99,6 @@ public class Propriedade implements Serializable {
     public void setClienteProprietario(Cliente clienteProprietario) {
         this.clienteProprietario = clienteProprietario;
     }
-
-    
 
     /**
      *

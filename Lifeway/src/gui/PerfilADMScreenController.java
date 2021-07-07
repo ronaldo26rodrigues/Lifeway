@@ -8,9 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import negocio.beans.Conta;
 import negocio.controle.ControladorUsuario;
-import negocio.controle.Fachada;
 
 public class PerfilADMScreenController implements Initializable {
 
@@ -51,7 +49,6 @@ public class PerfilADMScreenController implements Initializable {
         }
 
     }
-
 
     public void irAlterarInformacoes(ActionEvent event) throws IOException {
         App d = new App();

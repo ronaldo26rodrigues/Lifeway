@@ -1,14 +1,13 @@
 package negocio.controle;
 
 import java.util.List;
-
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import excecoes.ElementoJaExisteException;
 import negocio.beans.Taxa;
 
 public class ControladorTaxa {
-    
+
     private static ControladorTaxa instance;
 
     private IRepositorioGenerico<Taxa> repositorioTaxa;
@@ -18,7 +17,7 @@ public class ControladorTaxa {
     }
 
     public static ControladorTaxa getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new ControladorTaxa();
         }
         return instance;
@@ -35,7 +34,6 @@ public class ControladorTaxa {
     public void salvar() {
         this.repositorioTaxa.salvar();
     }
-    
 
     public List<Taxa> listarTaxas() {
         return repositorioTaxa.listar();

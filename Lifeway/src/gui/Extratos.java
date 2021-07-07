@@ -17,25 +17,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Year;
 import java.util.ResourceBundle;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import negocio.controle.Fachada;
 
-
 public class Extratos implements Initializable {
 
     @FXML
     private TableView<Conta> contaList;
-    @FXML 
+    @FXML
     private TableColumn<Conta, String> colunaPropriedade;
     @FXML
     private TableColumn<Conta, String> colunaEmissao;
@@ -62,40 +58,31 @@ public class Extratos implements Initializable {
 
     private Conta contaSelecionada;
 
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
         colunaPropriedade.setCellValueFactory(new PropertyValueFactory<>("propriedade"));
         colunaEmissao.setCellValueFactory(new PropertyValueFactory<>("dataEmissao"));
         colunaVencimento.setCellValueFactory(new PropertyValueFactory<>("dataVencimento"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
         colunaTaxa.setCellValueFactory(new PropertyValueFactory<>("taxaAplicada"));
-        
         colunaPagaEm.setCellValueFactory(new PropertyValueFactory<>("pagaEm"));
-
-        
 
         atualizarLista();
 
-        contaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Conta>(){
+        contaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Conta>() {
             @Override
             public void changed(ObservableValue<? extends Conta> arg0, Conta arg1, Conta arg2) {
                 contaSelecionada = contaList.getSelectionModel().getSelectedItem();
-                
-                
             }
         });
 
-
         mesCB.getItems().addAll(Month.values());
-        
-        anoCB.getItems().setAll(
-            IntStream.rangeClosed(1980, LocalDate.now().getYear()).boxed().collect(Collectors.toList())
-        );
 
+        anoCB.getItems()
+                .setAll(IntStream.rangeClosed(1980, LocalDate.now().getYear()).boxed().collect(Collectors.toList()));
 
-        ObservableList<Empresa> empresaList = FXCollections
-                .observableArrayList(Fachada.getInstance().listarEmpresas());
+        ObservableList<Empresa> empresaList = FXCollections.observableArrayList(Fachada.getInstance().listarEmpresas());
         System.out.println(empresaList);
         empresaCB.setItems(empresaList);
         // empresaCB.getItems().addAll(empresaList);
@@ -122,58 +109,63 @@ public class Extratos implements Initializable {
 
         });
 
-
-        
     }
 
     public void atualizarLista() {
         contaList.getItems().removeAll(contaList.getItems());
         for (Conta conta : Fachada.getInstance().listarContas()) {
-            if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+            if (conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())
+                    && conta.getPaga() == true) {
                 contaList.getItems().addAll(conta);
             }
         }
     }
 
     public void filtrar() {
-        if(empresaCheck.isSelected() && !mesAnoCheck.isSelected()) {
+        if (empresaCheck.isSelected() && !mesAnoCheck.isSelected()) {
             filtrarEmpresas();
-        } 
-        if(mesAnoCheck.isSelected() && !empresaCheck.isSelected()) {
+        }
+        if (mesAnoCheck.isSelected() && !empresaCheck.isSelected()) {
             filtrarMesAno();
         }
-        if(mesAnoCheck.isSelected() && empresaCheck.isSelected()) {
+        if (mesAnoCheck.isSelected() && empresaCheck.isSelected()) {
             contaList.getItems().removeAll(contaList.getItems());
-        for (Conta conta : Fachada.getInstance().listarContas()) {
-            if(conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true &&
-                conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem() && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem()) {
-                contaList.getItems().addAll(conta);
+            for (Conta conta : Fachada.getInstance().listarContas()) {
+                if (conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())
+                        && conta.getPaga() == true
+                        && conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem())
+                        && conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem()
+                        && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem()) {
+                    contaList.getItems().addAll(conta);
+                }
             }
-        }
         }
     }
 
     public void filtrarEmpresas() {
         contaList.getItems().removeAll(contaList.getItems());
-        if(empresaCheck.isSelected()) {
+        if (empresaCheck.isSelected()) {
             for (Conta conta : Fachada.getInstance().listarContas()) {
-                if(conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+                if (conta.getEmpresa().equals(empresaCB.getSelectionModel().getSelectedItem()) && conta.getPropriedade()
+                        .getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())
+                        && conta.getPaga() == true) {
                     contaList.getItems().addAll(conta);
                 }
             }
-        } 
+        }
     }
 
     public void filtrarMesAno() {
         contaList.getItems().removeAll(contaList.getItems());
         for (Conta conta : Fachada.getInstance().listarContas()) {
-            if(conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem() && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem() && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado()) && conta.getPaga()==true) {
+            if (conta.getPagaEm().getMonth() == mesCB.getSelectionModel().getSelectedItem()
+                    && conta.getPagaEm().getYear() == anoCB.getSelectionModel().getSelectedItem()
+                    && conta.getPropriedade().getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())
+                    && conta.getPaga() == true) {
                 contaList.getItems().addAll(conta);
             }
         }
     }
-
-
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();

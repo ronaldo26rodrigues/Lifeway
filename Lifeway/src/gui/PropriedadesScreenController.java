@@ -27,7 +27,6 @@ public class PropriedadesScreenController implements Initializable {
 
     @FXML
     private Button retornar;
-
     @FXML
     private Button botaoOK;
     @FXML
@@ -42,9 +41,6 @@ public class PropriedadesScreenController implements Initializable {
     private TextArea complemento;
     @FXML
     private TextArea pontoReferencia;
-
-
-    
 
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
@@ -62,9 +58,11 @@ public class PropriedadesScreenController implements Initializable {
         } catch (Exception e) {
             // TODO: handle exception
         }
+
         Alert alertPropriedades = new Alert(AlertType.INFORMATION);
         alertPropriedades.setTitle("Propriedade adicionada");
         alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
+
         rua.clear();
         complemento.clear();
         numeroCasa.clear();
@@ -73,7 +71,6 @@ public class PropriedadesScreenController implements Initializable {
         complemento.clear();
         pontoReferencia.clear();
         alertPropriedades.showAndWait();
-
     }
 
     @Override
@@ -103,17 +100,9 @@ public class PropriedadesScreenController implements Initializable {
 
                 return cell;
             }
-
         });
 
         tipoCB.getItems().addAll(TipoPropriedade.values());
-       
-
-        
 
     }
-
-    
-    
-    
 }

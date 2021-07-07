@@ -43,7 +43,7 @@ public class ControladorPropriedade {
             propriedade.setInadimplente(false);
         }
         for (Conta conta : ControladorConta.getInstance().listarContas()) {
-            if(conta.getPaga()==false) {
+            if (conta.getPaga() == false) {
                 int indice = repositorioPropriedade.listar().indexOf(conta.getPropriedade());
                 repositorioPropriedade.listar().get(indice).setInadimplente(true);
             }
