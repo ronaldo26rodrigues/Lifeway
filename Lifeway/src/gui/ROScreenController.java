@@ -98,16 +98,25 @@ public class ROScreenController implements Initializable {
     }
 
     public void registrarOcorrencia(ActionEvent event) throws IOException {
-        System.out.println("botao de criar ocorrencia clicado");
-        System.out.println(Fachada.getInstance().getUsuarioLogado());
-        System.out.println("botao de criar ocorrencia clicado");
-        System.out.println(Fachada.getInstance().getUsuarioLogado());
-        Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(),
+        Alert alert = new Alert(AlertType.INFORMATION);
+        if(ocorrencia.getText().equals("") ||
+         dataOcorrencia.getValue() == (null) ||
+          empresaCB.getSelectionModel().getSelectedItem().equals(null) ||
+           rua.getText().equals("") ||
+            numeroCasa.getText().equals("")){
+            
+
+            alert.setTitle("Ocorrência não registrada");
+            alert.setContentText("Ocorrência não registrada! \n Preencha os espaços.");
+        }
+
+        else{
+            try{ 
+            Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(),
                 empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(),
                 dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()),
                         complemento.getText(), pontoReferencia.getText()));
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Ocorrência registrada");
+                        alert.setTitle("Ocorrência registrada");
         alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
         ocorrencia.clear();
         rua.clear();
@@ -117,6 +126,12 @@ public class ROScreenController implements Initializable {
         dataOcorrencia.setValue(LocalDate.now());
         complemento.clear();
         pontoReferencia.clear();
+            }
+            catch(NumberFormatException nFE){
+            alert.setContentText("Número da casa deve ser enumerado");
+            }
+        }
+
         alert.showAndWait();
     }
 
