@@ -43,14 +43,12 @@ public class Extratos implements Initializable {
     private TableColumn<Conta, String> colunaTaxa;
     @FXML
     private TableColumn<Conta, String> colunaPagaEm;
-
     @FXML
     private ComboBox<Empresa> empresaCB;
     @FXML
     private ComboBox<Month> mesCB;
     @FXML
     private ComboBox<Integer> anoCB;
-
     @FXML
     private CheckBox empresaCheck;
     @FXML

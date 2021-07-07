@@ -23,14 +23,15 @@ public abstract class Usuario implements Serializable {
 
     /**
      * Equals: Usuário
+     * compara: identificação (CPF) e tipo (Cliente/Funcionário)
      */
-
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Usuario) {
             Usuario param = (Usuario) obj;
-            if ((param.getIdentificacao() != null) && param.getIdentificacao().equals(this.getIdentificacao())) {
+            if ((param.getIdentificacao() != null) && param.getIdentificacao().equals(this.getIdentificacao())
+                    && param.getTipo().equals(this.getTipo())) {
                 resultado = true;
             }
         }
@@ -43,10 +44,10 @@ public abstract class Usuario implements Serializable {
     @Override
     public String toString() {
 
-        
         String resultado = "";
         resultado += "Nome: " + this.getNome();
-        resultado += "\n" + "Data de Nascimento: " + this.getDataDeNascimeto().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        resultado += "\n" + "Data de Nascimento: "
+                + this.getDataDeNascimeto().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }
