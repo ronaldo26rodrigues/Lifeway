@@ -55,6 +55,7 @@ public class ConsumidorLista implements Initializable {
     @FXML
     private DatePicker dataDeLeitura;
 
+    // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
     Propriedade propriedadeSelecionada;
 
@@ -158,6 +159,8 @@ public class ConsumidorLista implements Initializable {
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa,
         // LocalDate dataEmissao, double consumo,
         // double valorTotal)
+
+
 
         Conta novaConta = new Conta(propriedadeSelecionada,
                 ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),

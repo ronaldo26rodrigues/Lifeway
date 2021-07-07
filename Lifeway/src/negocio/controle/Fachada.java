@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
-import excecoes.EmpresaJaCadastradaException;
 import excecoes.PropriedadeJaCadastradaException;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
@@ -100,7 +99,7 @@ public class Fachada {
         controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
-    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException, EmpresaJaCadastradaException {
+    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException {
         controladorEmpresa.criarNovaEmpresa(empresa);
     }
 
