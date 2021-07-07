@@ -37,7 +37,7 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="63.0" prefWidth="355.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
+                  <Button fx:id="botaoVerListaConsumires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaConsumidores" prefHeight="44.0" prefWidth="333.0" style="-fx-background-color: #7156DD;" text="Lista de Consumidores" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
+                  <Button fx:id="botaoPerfilADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irPerfilADM" prefHeight="62.0" prefWidth="350.0" style="-fx-background-color: #7156DD;" text="Perfil Adminstrativo" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
+                  <Button fx:id="botaoListaRO" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaRO" prefHeight="45.0" prefWidth="364.0" style="-fx-background-color: #7156DD;" text="Lista de Ocorrências" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="380.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="358.0" style="-fx-background-color: #7156DD; -fx-border-color: lime; -fx-border-width: 0px 5px 0px 0px;" text="Home" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoListaTaxas" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaTaxas" prefHeight="63.0" prefWidth="311.0" style="-fx-background-color: #7156DD;" text="Lista de taxas" textFill="#f8f8f8">
+                  <Button fx:id="botaoListaTaxas" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irListaTaxas" prefHeight="46.0" prefWidth="398.0" style="-fx-background-color: #7156DD;" text="Lista de taxas" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
