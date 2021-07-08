@@ -47,11 +47,8 @@ public class ControladorEmpresa {
      */
     public void cadastrarEmpresa(Empresa empresa) throws NoSuchAlgorithmException, EmpresaJaCadastradaException {
         if (empresa == null)
-            return; // >>> Tratar erros para GUI
+            return;
 
-        // id, nome, serviço
-
-        // adicionar empresa ao repositorioEmpresa
         try {
             this.repositorioEmpresa.inserir(empresa);
         } catch (ElementoJaExisteException e) {

@@ -46,9 +46,6 @@ public class ControladorUsuario {
         this.usuarioLogado = usuario;
     }
 
-    /**
-     * @return the usuarioLogado
-     */
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
@@ -84,7 +81,7 @@ public class ControladorUsuario {
             this.repositorioUsuario.inserir(usuario);
         } catch (ElementoJaExisteException e) {
             throw new UsuarioJaCadastradoException(e);
-            
+
         }
     }
 
@@ -113,10 +110,6 @@ public class ControladorUsuario {
 
     }
 
-    /**
-     * 
-     * @return repositorioUsuario
-     */
     public IRepositorioGenerico<Usuario> getRepositorioUsuario() {
         return repositorioUsuario;
     }

@@ -59,9 +59,6 @@ public class Fachada {
         controladorUsuario.login(usuario);
     }
 
-    /**
-     * @return the usuarioLogado
-     */
     public Usuario getUsuarioLogado() {
         return controladorUsuario.getUsuarioLogado();
     }

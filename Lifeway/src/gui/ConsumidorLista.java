@@ -159,8 +159,6 @@ public class ConsumidorLista implements Initializable {
         // LocalDate dataEmissao, double consumo,
         // double valorTotal)
 
-
-
         Conta novaConta = new Conta(propriedadeSelecionada,
                 ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),
                 Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);

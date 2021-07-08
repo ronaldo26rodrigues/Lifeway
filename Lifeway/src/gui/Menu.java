@@ -34,11 +34,8 @@ public class Menu implements Initializable {
     private Label contasPendentes;
     @FXML
     private Label registrosPendentes;
-
-
     @FXML
     private TableView<Propriedade> consumidorList;
-    
     @FXML
     private TableColumn<Propriedade, String> colunaTipo;
     @FXML
@@ -47,10 +44,8 @@ public class Menu implements Initializable {
     private TableColumn<Propriedade, String> colunaSituacao;
     @FXML
     private TableColumn<Propriedade, String> colunaInadimplente;
-
     @FXML
     private TableView<RegistroDeOcorrencia> listaRO;
-
     @FXML
     private TableColumn<RegistroDeOcorrencia, String> colunaAssunto;
     @FXML
@@ -99,14 +94,11 @@ public class Menu implements Initializable {
             registrosPendentes.setText("Você tem " + nRegistrosPendentes + " ocorrências em processo.");
         }
 
-
-        
-        
         colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
         colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("idPropriedade"));
         colunaInadimplente.setCellValueFactory(new PropertyValueFactory<>("inadimplente"));
-        
+
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
@@ -114,7 +106,6 @@ public class Menu implements Initializable {
                 consumidorList.getItems().addAll(propriedade);
             }
         }
-
 
         colunaAssunto.setCellValueFactory(new PropertyValueFactory<>("assunto"));
         colunaData.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -124,14 +115,13 @@ public class Menu implements Initializable {
         for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
             if (registroDeOcorrencia.getUsuario().equals(Fachada.getInstance().getUsuarioLogado())) {
                 listaRO.getItems().addAll(registroDeOcorrencia);
-                // if (registroDeOcorrencia.getResolvido() == false && apenasPendentes.isSelected())
-                //     listaRO.getItems().addAll(registroDeOcorrencia);
+                // if (registroDeOcorrencia.getResolvido() == false &&
+                // apenasPendentes.isSelected())
+                // listaRO.getItems().addAll(registroDeOcorrencia);
                 // else if (apenasPendentes.isSelected() == false)
-                //     listaRO.getItems().addAll(registroDeOcorrencia);
+                // listaRO.getItems().addAll(registroDeOcorrencia);
             }
         }
-        
-
 
     }
 

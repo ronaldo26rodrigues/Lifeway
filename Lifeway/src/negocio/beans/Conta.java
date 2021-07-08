@@ -66,16 +66,10 @@ public class Conta implements Serializable {
         this.dataVencimento = dataVencimento;
     }
 
-    /**
-     * @return the taxasAplicadas
-     */
     public Taxa getTaxaAplicada() {
         return taxaAplicada;
     }
 
-    /**
-     * @param taxasAplicadas the taxasAplicadas to set
-     */
     public void setTaxaAplicada(Taxa taxaAplicada) {
         this.taxaAplicada = taxaAplicada;
     }
@@ -104,7 +98,7 @@ public class Conta implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public boolean setPaga(boolean paga) {
+    public void setPaga(boolean paga) {
         this.paga = paga;
     }
 

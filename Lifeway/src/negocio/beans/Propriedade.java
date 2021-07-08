@@ -12,6 +12,7 @@ public class Propriedade implements Serializable {
     private String idEmpresa;
     private Empresa empresaContratada;
     private boolean inadimplente;
+    private String cnpj;
 
     /**
      * Construtor: Propriedade
@@ -42,10 +43,36 @@ public class Propriedade implements Serializable {
         this.endereco = endereco;
     }
 
+    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, Empresa empresa) {
+
+        Random rng = new Random();
+        idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
+
+        this.tipo = tipo;
+        this.cnpj = cnpj;
+        this.clienteProprietario = cliente;
+        this.empresaContratada = empresa;
+        this.endereco = endereco;
+    }
+
     // Getters & Setters
+
+    
 
     public boolean getInadimplente() {
         return this.inadimplente;
+    }
+
+    public void setClienteProprietario(Usuario clienteProprietario) {
+        this.clienteProprietario = clienteProprietario;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public void setInadimplente(boolean inadimplente) {

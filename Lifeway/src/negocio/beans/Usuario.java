@@ -22,8 +22,7 @@ public abstract class Usuario implements Serializable {
     public abstract String getTipo();
 
     /**
-     * Equals: Usuário
-     * compara: identificação (CPF) e tipo (Cliente/Funcionário)
+     * Equals: Usuário compara: identificação (CPF) e tipo (Cliente/Funcionário)
      */
     @Override
     public boolean equals(Object obj) {

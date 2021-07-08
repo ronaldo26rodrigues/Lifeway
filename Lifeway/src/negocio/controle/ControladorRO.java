@@ -29,7 +29,9 @@ public class ControladorRO {
     }
 
     /**
-     * Método para gerar nova ocorrência a partir do registro realizado pelo Cliente.
+     * Método para gerar nova ocorrência a partir do registro realizado pelo
+     * Cliente.
+     * 
      * @param assunto
      * @param mensagem
      * @param empresa
@@ -53,8 +55,9 @@ public class ControladorRO {
     }
 
     /**
-     * Método que registra a ocorrência como resolvida, 
-     * a partir de registro realizado pela empresa.
+     * Método que registra a ocorrência como resolvida, a partir de registro
+     * realizado pela empresa.
+     * 
      * @param ocorrencia
      */
     public void resolverOcorrencia(RegistroDeOcorrencia ocorrencia) {
@@ -78,16 +81,10 @@ public class ControladorRO {
         return repositorioRO.listar();
     }
 
-    /**
-     * @return the repositorioRO
-     */
     public IRepositorioGenerico<RegistroDeOcorrencia> getRepositorioRO() {
         return repositorioRO;
     }
 
-    /**
-     * @param repositorioRO the repositorioRO to set
-     */
     public void setRepositorioRO(IRepositorioGenerico<RegistroDeOcorrencia> repositorioRO) {
         this.repositorioRO = repositorioRO;
     }

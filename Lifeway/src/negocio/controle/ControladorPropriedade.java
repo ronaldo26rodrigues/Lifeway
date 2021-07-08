@@ -2,7 +2,6 @@ package negocio.controle;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
 import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.PropriedadeJaCadastradaException;
@@ -81,6 +80,14 @@ public class ControladorPropriedade {
 
     }
 
+    /**
+     * Método para cadastrar propriedades comerciais e industriais.
+     * (Contém a informação adicional do CNPJ.)
+     * @param propriedade
+     * @throws NoSuchAlgorithmException
+     * @throws PropriedadeJaCadastradaException
+     * @throws CPFInvalidoException
+     */
     public void cadastrarPropriedadeComercial(Propriedade propriedade)
             throws NoSuchAlgorithmException, PropriedadeJaCadastradaException, CPFInvalidoException {
         if (propriedade == null) {
