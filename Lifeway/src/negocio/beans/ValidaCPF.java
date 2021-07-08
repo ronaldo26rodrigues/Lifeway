@@ -180,7 +180,7 @@ public class ValidaCPF {
 		}
 	}
 
-	public boolean isCNPJ(String CNPJ) {
+	public static boolean isCNPJ(String CNPJ) {
 
 		CNPJ = removeCaracteresEspeciais(CNPJ);
 

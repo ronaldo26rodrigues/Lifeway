@@ -2,6 +2,8 @@ package negocio.controle;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+
+import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.PropriedadeJaCadastradaException;
 import javafx.scene.control.Alert;
@@ -10,6 +12,7 @@ import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Conta;
 import negocio.beans.Propriedade;
+import negocio.beans.ValidaCPF;
 
 public class ControladorPropriedade {
 
@@ -66,12 +69,8 @@ public class ControladorPropriedade {
     public void cadastrarPropriedade(Propriedade propriedade)
             throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
 
-        if (propriedade == null) {   
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Cadastro não realizado.");
-            //alert.setHeaderText("");
-            alert.setContentText("Preencha os campos obrigatórios.");
-            alert.showAndWait(); 
+        if (propriedade == null) {
+            gerarErroPropriedade("Preencha os campos obrigatórios.");
         }
 
         try {
@@ -80,5 +79,29 @@ public class ControladorPropriedade {
             throw new PropriedadeJaCadastradaException(e);
         }
 
+    }
+
+    public void cadastrarPropriedadeComercial(Propriedade propriedade)
+            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException, CPFInvalidoException {
+        if (propriedade == null) {
+            gerarErroPropriedade("Preencha os campos obrigatórios.");
+        }
+
+        String cnpj = propriedade.getCnpj();
+
+        if (!(ValidaCPF.isCNPJ(cnpj))) {
+            gerarErroPropriedade("CNPJ inválido.");
+        } else {
+            cadastrarPropriedade(propriedade);
+        }
+    }
+
+
+    public void gerarErroPropriedade(String mensagem) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Cadastro não realizado.");
+        // alert.setHeaderText("");
+        alert.setContentText(mensagem);
+        alert.showAndWait();
     }
 }
