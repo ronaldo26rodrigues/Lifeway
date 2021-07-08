@@ -121,13 +121,17 @@ public class Conta implements Serializable {
 
     /**
      * Método equals: Conta
+     * Compara propriedade, empresa, e mês e ano de emissão
      */
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
         if (obj instanceof Conta) {
             Conta param = (Conta) obj;
-            if ((param.getIdConta() != null) && param.getIdConta().equals(this.getIdConta())) {
+            if (param.getPropriedade().equals(this.getPropriedade()) 
+            && param.getEmpresa().equals(this.getEmpresa()) 
+            && this.getDataEmissao().getMonthValue() == this.getDataEmissao().getMonthValue() 
+            && this.getDataEmissao().getYear() == this.getDataEmissao().getYear() ) {
                 resultado = true;
             }
         }

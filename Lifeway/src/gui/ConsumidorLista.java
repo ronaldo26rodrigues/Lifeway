@@ -3,6 +3,7 @@ package gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -18,6 +19,8 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -139,7 +142,7 @@ public class ConsumidorLista implements Initializable {
          */
     }
 
-    public void criarConta() {
+    public void criarConta() throws ElementoJaExisteException {
 
         double valorTotal = 0;
         Taxa taxaAplicada = null;
@@ -166,8 +169,14 @@ public class ConsumidorLista implements Initializable {
         try {
             Fachada.getInstance().criarNovaConta(novaConta);
             atualizarLista();
-        } catch (ElementoJaExisteException e) {
+        } catch (ContaJaGeradaException e) {
             e.printStackTrace();
+            //alerta
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Esta conta já foi gerada");
+            //alerta.setHeaderText();
+            alerta.setContentText("Uma conta já foi gerada para esta propriedade neste mês.");
+            alerta.showAndWait();
         }
         // Random rng = new Random();
 
