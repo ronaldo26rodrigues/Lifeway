@@ -3,12 +3,15 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import excecoes.CPFInvalidoException;
 import excecoes.PropriedadeJaCadastradaException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -57,6 +60,8 @@ public class PropriedadesScreenController implements Initializable {
 
     @FXML
     private HBox hboxEmp;
+
+    private List<Empresa> empresasPropriedade;
 
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
@@ -125,7 +130,20 @@ public class PropriedadesScreenController implements Initializable {
     public void addEmpresa() {
         Button empresaButton = new Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new ImageView(new Image("/gui/imgs/x.png")));
         
-        empresaButton.setOnAction(event -> hboxEmp.getChildren().remove(empresaButton));
+        empresaButton.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent arg0) {
+                hboxEmp.getChildren().remove(empresaButton);
+                for (Empresa empresa : empresasPropriedade) {
+                    if(empresa.getNome() == empresaButton.getText()) empresasPropriedade.remove(empresa);
+                }
+            }
+        });
+        empresasPropriedade.add(empresaCB.getSelectionModel().getSelectedItem());
+        System.out.println("===================");
+        for (Empresa empresa : empresasPropriedade) {
+            System.out.println(empresa);
+        }
         hboxEmp.getChildren().addAll(empresaButton);
     }
 
@@ -133,7 +151,6 @@ public class PropriedadesScreenController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         ObservableList<Empresa> empresaList = FXCollections
                 .observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
-        System.out.println(empresaList);
         empresaCB.setItems(empresaList);
         // empresaCB.getItems().addAll(empresaList);
         empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
@@ -159,6 +176,8 @@ public class PropriedadesScreenController implements Initializable {
         });
 
         tipoCB.getItems().addAll(TipoPropriedade.values());
+
+        empresasPropriedade = new ArrayList<>();
 
     }
 }
