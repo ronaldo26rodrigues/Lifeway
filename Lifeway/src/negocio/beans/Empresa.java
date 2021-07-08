@@ -90,7 +90,6 @@ public class Empresa implements Serializable {
     }
 
     public boolean validar() {
-        // TODO Auto-generated method stub
         return false;
     }
 

@@ -53,7 +53,6 @@ public abstract class Usuario implements Serializable {
     }
 
     public boolean validar() {
-        // TODO Auto-generated method stub
         return true;
     }
 

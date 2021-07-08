@@ -121,7 +121,6 @@ public class ConsumidorLista implements Initializable {
 
             @Override
             public void changed(ObservableValue<? extends Propriedade> arg0, Propriedade arg1, Propriedade arg2) {
-                // TODO Auto-generated method stub
                 propriedadeSelecionada = consumidorList.getSelectionModel().getSelectedItem();
             }
 
@@ -170,7 +169,6 @@ public class ConsumidorLista implements Initializable {
             Fachada.getInstance().criarNovaConta(novaConta);
             atualizarLista();
         } catch (ElementoJaExisteException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         // Random rng = new Random();

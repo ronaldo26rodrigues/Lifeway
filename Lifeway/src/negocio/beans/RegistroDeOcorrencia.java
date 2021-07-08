@@ -129,7 +129,6 @@ public class RegistroDeOcorrencia implements Serializable {
     }
 
     public boolean validar() {
-        // TODO Auto-generated method stub
         return true;
     }
 

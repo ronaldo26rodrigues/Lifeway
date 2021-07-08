@@ -114,7 +114,6 @@ public class Conta implements Serializable {
 
     public double calcularTotal() {
         double total = 0;
-        // TODO
         return total;
     }
 
@@ -158,7 +157,6 @@ public class Conta implements Serializable {
     }
 
     public boolean validar() {
-        // TODO Auto-generated method stub
         return true;
     }
 }

@@ -132,7 +132,6 @@ public class Propriedade implements Serializable {
     }
 
     public boolean validar() {
-        // TODO Auto-generated method stub
         return true;
     }
 
@@ -144,7 +143,6 @@ public class Propriedade implements Serializable {
     // }
 
     // public void setId(String id) {
-    // TODO Auto-generated method stub
     // }
 
     // /**

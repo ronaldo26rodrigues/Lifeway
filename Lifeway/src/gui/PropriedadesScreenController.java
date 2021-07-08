@@ -56,7 +56,6 @@ public class PropriedadesScreenController implements Initializable {
         try {
             Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
         } catch (Exception e) {
-            // TODO: handle exception
         }
 
         Alert alertPropriedades = new Alert(AlertType.INFORMATION);

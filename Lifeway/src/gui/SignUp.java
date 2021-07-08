@@ -102,7 +102,6 @@ public class SignUp {
                     try {
                         voltarp.trocarCena("Login.fxml");
                     } catch (Exception e) {
-                        // TODO: handle exception
                     }
 
                 };

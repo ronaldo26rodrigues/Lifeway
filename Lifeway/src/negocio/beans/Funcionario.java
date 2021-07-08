@@ -30,7 +30,6 @@ public class Funcionario extends Usuario {
 
     @Override
     public boolean validar() {
-        // TODO Auto-generated method stub
         return true;
     }
 
