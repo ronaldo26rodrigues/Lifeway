@@ -47,6 +47,9 @@ public class PropriedadesScreenController implements Initializable {
     private TextArea complemento;
     @FXML
     private TextArea pontoReferencia;
+    @FXML
+    private TextArea cepCasa;
+
 
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
@@ -108,6 +111,7 @@ public class PropriedadesScreenController implements Initializable {
         cnpj.clear();
         complemento.clear();
         pontoReferencia.clear();
+        cepCasa.clear();
         // alertPropriedades.showAndWait();
     }
 
