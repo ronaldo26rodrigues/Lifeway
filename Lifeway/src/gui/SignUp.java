@@ -110,11 +110,11 @@ public class SignUp {
 
     }
 
-    private void gerarAlertaErroCadastro(String mesnagemDeErro) {
+    private void gerarAlertaErroCadastro(String mensagem) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle("Erro de cadastro");
         alerta.setHeaderText("Não foi possível realizar seu cadastro");
-        alerta.setContentText(mesnagemDeErro);
+        alerta.setContentText(mensagem);
         alerta.showAndWait();
     }
 

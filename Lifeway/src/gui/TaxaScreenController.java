@@ -48,7 +48,6 @@ public class TaxaScreenController implements Initializable {
     private TextField valor;
     @FXML
     private TextField valorBandeira;
-
     @FXML
     private TableView<Taxa> taxaList;
     @FXML

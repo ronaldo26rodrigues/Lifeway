@@ -27,28 +27,20 @@ public class SignUpEmpresa {
 
     @FXML
     private Button botaoFazerLogin;
-
     @FXML
     private TextField cpf;
-
     @FXML
     private PasswordField senha;
-
     @FXML
     private TextField nome;
-
     @FXML
     private DatePicker dataNascimento;
-
     @FXML
     private CheckBox checkBoxEmpresa2;
-
     @FXML
     private TextField nomeDaEmpresa;
-
     @FXML
     private TextField servicoDaEmpresa;
-
     @FXML
     private TextField criarContaDoFuncionario;
 

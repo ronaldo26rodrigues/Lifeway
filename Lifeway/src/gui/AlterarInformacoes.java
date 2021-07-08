@@ -48,6 +48,15 @@ public class AlterarInformacoes {
         }
     }
 
+    /**
+     * Método que permite ao usuário alterar as informações no seu perfil.
+     * @param event
+     * @throws ElementoJaExisteException
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws UsuarioJaCadastradoException
+     * @throws CPFInvalidoException
+     */
     public void alterarInformacoes(ActionEvent event) throws ElementoJaExisteException, IOException,
             NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
         

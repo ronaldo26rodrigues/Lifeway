@@ -10,8 +10,6 @@ public class Cliente extends Usuario {
 
     // numero propriedades?
 
-    //DateTimeFormatter meuFormatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
     public Cliente(String nome, String identificacao, String senha, LocalDate dataNascimento) {
         super(nome, identificacao, senha, dataNascimento);
 

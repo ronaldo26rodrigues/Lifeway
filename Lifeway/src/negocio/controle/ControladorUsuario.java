@@ -113,8 +113,6 @@ public class ControladorUsuario {
 
     }
 
-    // public boolean autenticarUsuario()
-
     /**
      * 
      * @return repositorioUsuario

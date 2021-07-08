@@ -62,7 +62,6 @@ public class Empresa implements Serializable {
     public void setTaxas(List<Taxa> taxas) {
         this.taxas = taxas;
     }
-
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;

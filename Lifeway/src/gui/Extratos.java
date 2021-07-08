@@ -44,6 +44,8 @@ public class Extratos implements Initializable {
     @FXML
     private TableColumn<Conta, String> colunaPagaEm;
     @FXML
+    private TableColumn<Conta, String> empresaFornecedora;
+    @FXML
     private ComboBox<Empresa> empresaCB;
     @FXML
     private ComboBox<Month> mesCB;
@@ -65,6 +67,7 @@ public class Extratos implements Initializable {
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
         colunaTaxa.setCellValueFactory(new PropertyValueFactory<>("taxaAplicada"));
         colunaPagaEm.setCellValueFactory(new PropertyValueFactory<>("pagaEm"));
+        empresaFornecedora.setCellValueFactory(new PropertyValueFactory<>("empresaFornecedora"));
 
         atualizarLista();
 

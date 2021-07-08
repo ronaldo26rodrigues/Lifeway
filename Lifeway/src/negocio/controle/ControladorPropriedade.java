@@ -4,6 +4,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import excecoes.ElementoJaExisteException;
 import excecoes.PropriedadeJaCadastradaException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Conta;
@@ -38,6 +40,9 @@ public class ControladorPropriedade {
         return repositorioPropriedade.listar();
     }
 
+    /**
+     * Método que identifica propriedade com contas a pagar.
+     */
     public void checarInadimplentes() {
         for (Propriedade propriedade : ControladorPropriedade.getInstance().listarPropriedade()) {
             propriedade.setInadimplente(false);
@@ -61,8 +66,13 @@ public class ControladorPropriedade {
     public void cadastrarPropriedade(Propriedade propriedade)
             throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
 
-        if (propriedade == null)
-            return; // >>> Tratar erros para GUI
+        if (propriedade == null) {   
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Cadastro não realizado.");
+            //alert.setHeaderText("");
+            alert.setContentText("Preencha os campos obrigatórios.");
+            alert.showAndWait(); 
+        }
 
         try {
             this.repositorioPropriedade.inserir(propriedade);
