@@ -16,6 +16,7 @@ import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
+
 public class AlterarInformacoes {
 
     @FXML
@@ -49,58 +50,89 @@ public class AlterarInformacoes {
 
     public void alterarInformacoes(ActionEvent event) throws ElementoJaExisteException, IOException,
             NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+        
+        
         boolean alteracaoRealizada = true;
+        
         Alert alert = new Alert(AlertType.INFORMATION);
 
-        String textoAlerta = "";
-
+        //String textoAlerta = "";
+        
         if (!novoNome.getText().equals("")) {
-            if (novoNome.getText().equals(Fachada.getInstance().getUsuarioLogado().getNome())) {
-                textoAlerta += "Voce nao altero o nome \n";
-            } else {
-                Fachada.getInstance().getUsuarioLogado().setNome(novoNome.getText());
-                textoAlerta += "Nome alterado com sucesso \n";
+            if(novoNome.getText().equals(Fachada.getInstance().getUsuarioLogado().getNome())) {
+                this.gerarAlertaErroInformacoes("Nome não alterado.");
             }
-
+            else {
+                Fachada.getInstance().getUsuarioLogado().setNome(novoNome.getText());
+                this.gerarAlertaInformacoesAlteradas("Nome alterado com sucesso.");
+            }
+            
         }
         if (!novoCpf.getText().equals("")) {
 
             if (ValidaCPF.isCPF(novoCpf.getText())) {
                 Fachada.getInstance().getUsuarioLogado().setIdentificacao(novoCpf.getText());
             } else {
-                alteracaoRealizada = false;
-
+                //alteracaoRealizada = false;
+                
                 alert.setTitle("CPF inválido");
                 // alert.setHeaderText("Look, an Error Dialog");
                 alert.setContentText("O CPF inserido é inválido. Tente novamente.");
+                alert.showAndWait();
 
                 throw new CPFInvalidoException(novoCpf.getText());
             }
 
         }
-        if (!novaSenha.getText().equals("")) {
-            if (novaSenha.getText().equals(Fachada.getInstance().getUsuarioLogado().getSenha())) {
-                textoAlerta += "Voce nao altero a senha \n";
-            } else {
+        if (!novaSenha.getText().equals("") ) {
+            if(novaSenha.getText().equals(Fachada.getInstance().getUsuarioLogado().getSenha())) {
+                this.gerarAlertaErroInformacoes("Senha não alterada.");
+            }
+            else {
                 Fachada.getInstance().getUsuarioLogado().setSenha(novaSenha.getText());
-                textoAlerta += "Senha alterada com sucesso \n";
+                this.gerarAlertaInformacoesAlteradas("Senha alterada com sucesso.");
             }
         }
         System.out.println(novaDataNascimento.getValue());
-        if (!novaDataNascimento.getValue().equals(null)) {
-            if (novaDataNascimento.getValue().equals(Fachada.getInstance().getUsuarioLogado().getDataDeNascimeto())) {
-                textoAlerta += "Voce nao altero a data de nascimento \n";
-            } else {
-                Fachada.getInstance().getUsuarioLogado().setDataNascimento(novaDataNascimento.getValue());
-                textoAlerta += "Data de nascimento alterada com sucesso \n";
+        if (!novaDataNascimento.getValue().equals(null) ) {
+            if(novaDataNascimento.getValue().equals(Fachada.getInstance().getUsuarioLogado().getDataDeNascimeto())) {
+                this.gerarAlertaErroInformacoes("Data de nascimento não alterada.");
             }
+            else {
+                Fachada.getInstance().getUsuarioLogado().setDataNascimento(novaDataNascimento.getValue());
+                this.gerarAlertaInformacoesAlteradas("Data de nascimento alterada com sucesso.");
+            } 
 
-            if (alteracaoRealizada)
-                irRetornar();
+        if (alteracaoRealizada) 
+        irRetornar();
 
-            alert.showAndWait();
+        //alert.showAndWait();
+        
 
         }
 
     }
+
+    private void gerarAlertaErroInformacoes(String mensagem) {
+        
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Alteração não realizada");
+        alert.setHeaderText("Não foi possível alterar suas informações.");
+        alert.setContentText(mensagem);
+
+        alert.showAndWait();
+
+    }
+
+    private void gerarAlertaInformacoesAlteradas(String mensagem) {
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alteração realizada");
+        //alert.setHeaderText("");
+        alert.setContentText(mensagem);
+
+        alert.showAndWait();
+
+    }
+
 }
