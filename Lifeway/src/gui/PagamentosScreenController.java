@@ -68,19 +68,12 @@ public class PagamentosScreenController implements Initializable {
 
     public void pagar() {
 
-        //if(contaSelecionada.setPaga(false)) {
-
-        //alerta.setTitle("O pagamento na foi efetuado de nenhuma conta");
-
-        //}
-       // else {
             
         contaSelecionada.setPaga(true);
         contaSelecionada.setPagaEm(LocalDate.now());
         contaList.getItems().remove(contaSelecionada);
         Fachada.getInstance().salvar();
-
-       // }
+        
     }
 
     public void SairConta(ActionEvent event) throws IOException {
