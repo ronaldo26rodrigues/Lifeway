@@ -14,10 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import negocio.beans.Empresa;
 import negocio.beans.Endereco;
@@ -47,6 +51,9 @@ public class PropriedadesScreenController implements Initializable {
     private TextArea complemento;
     @FXML
     private TextArea pontoReferencia;
+
+    @FXML
+    private HBox hboxEmp;
 
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
@@ -109,6 +116,13 @@ public class PropriedadesScreenController implements Initializable {
         complemento.clear();
         pontoReferencia.clear();
         // alertPropriedades.showAndWait();
+    }
+
+    public void addEmpresa() {
+        Button empresaButton = new Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new ImageView(new Image("/gui/imgs/x.png")));
+        
+        empresaButton.setOnAction(event -> hboxEmp.getChildren().remove(empresaButton));
+        hboxEmp.getChildren().addAll(empresaButton);
     }
 
     @Override
