@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -56,8 +57,8 @@
             <GridPane style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.199951171875" minWidth="10.0" prefWidth="226.00001220703126" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="577.5999755859375" minWidth="10.0" prefWidth="538.7999877929688" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.4000244140625" minWidth="10.0" prefWidth="134.20009765625002" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="673.6" minWidth="10.0" prefWidth="599.1999755859375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0000366210937" minWidth="0.0" prefWidth="76.00002441406252" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="163.1999984741211" minHeight="10.0" prefHeight="73.39998779296874" vgrow="SOMETIMES" />
@@ -94,14 +95,9 @@
                         <Insets bottom="50.0" left="20.0" />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox fx:id="tipoCB" prefHeight="28.0" prefWidth="215.0" promptText="Selecionar" GridPane.columnIndex="1">
+                  <ComboBox fx:id="tipoCB" prefHeight="28.0" prefWidth="217.0" promptText="Selecionar" GridPane.columnIndex="1">
                      <GridPane.margin>
-                        <Insets left="10.0" />
-                     </GridPane.margin>
-                  </ComboBox>
-                  <ComboBox fx:id="empresaCB" prefHeight="29.0" prefWidth="218.0" promptText="Selecionar" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets />
                      </GridPane.margin>
                   </ComboBox>
                   <TextArea fx:id="rua" prefHeight="39.0" prefWidth="578.0" promptText="Logradouro" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -145,6 +141,31 @@
                      </GridPane.margin>
                   </Label>
                   <TextArea fx:id="cnpj" maxHeight="40.0" maxWidth="400.0" prefHeight="40.0" prefWidth="400.0" promptText="CNPJ" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <GridPane prefHeight="30.0" prefWidth="606.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.20001220703125" minWidth="10.0" prefWidth="229.6000244140625" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.20001220703125" minWidth="10.0" prefWidth="54.20000000000002" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="378.0000305175781" minWidth="10.0" prefWidth="324.6" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="empresaCB" prefHeight="29.0" prefWidth="218.0" promptText="Selecionar" />
+                        <HBox fx:id="hboxEmp" onMouseClicked="#addEmpresa" prefHeight="21.0" prefWidth="321.0" GridPane.columnIndex="2" />
+                        <Button fx:id="botaoOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmpresa" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="ADD" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <GridPane.margin>
+                              <Insets left="4.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
          </center>
