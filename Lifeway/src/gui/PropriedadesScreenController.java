@@ -2,7 +2,10 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import excecoes.CPFInvalidoException;
+import excecoes.PropriedadeJaCadastradaException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +23,7 @@ import negocio.beans.Empresa;
 import negocio.beans.Endereco;
 import negocio.beans.Propriedade;
 import negocio.beans.TipoPropriedade;
+import negocio.beans.ValidaCPF;
 import negocio.controle.ControladorEmpresa;
 import negocio.controle.Fachada;
 
@@ -29,6 +33,8 @@ public class PropriedadesScreenController implements Initializable {
     private Button retornar;
     @FXML
     private Button botaoOK;
+    @FXML
+    private TextArea cnpj;
     @FXML
     private ComboBox<Empresa> empresaCB;
     @FXML
@@ -45,31 +51,64 @@ public class PropriedadesScreenController implements Initializable {
     public void irRetornar(ActionEvent event) throws IOException {
         App n = new App();
         n.trocarCena("Perfil.fxml");
-
     }
 
-    public void criarPropriedadeAction(ActionEvent event) {
-        Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
-                new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
-                        pontoReferencia.getText()),
-                Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
-        try {
-            Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
-        } catch (Exception e) {
+    public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, CPFInvalidoException {
+
+        boolean erro = false;
+
+        if (tipoCB.getSelectionModel().getSelectedItem() == TipoPropriedade.COMERCIAL
+                || tipoCB.getSelectionModel().getSelectedItem() == TipoPropriedade.INDUSTRIAL) {
+
+            if (ValidaCPF.isCNPJ(cnpj.getText())) {
+                Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
+                        cnpj.getText(),
+                        new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
+                                pontoReferencia.getText()),
+                        Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
+                try {
+                    Fachada.getInstance().cadastrarPropriedadeComercial(novaPropriedade);
+                } catch (PropriedadeJaCadastradaException e) {
+                    erro = true;
+                }
+            } else {
+                erro = true;
+
+                Alert alertPropriedades = new Alert(AlertType.ERROR);
+                alertPropriedades.setTitle("Propriedade não cadastrada");
+                alertPropriedades.setContentText("CNPJ inválido.");
+                alertPropriedades.showAndWait();
+            }
+
+        } else {
+            Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
+                    new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
+                            pontoReferencia.getText()),
+                    Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
+            try {
+                Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
+
+            } catch (PropriedadeJaCadastradaException e) {
+                erro = true;
+            }
         }
 
-        Alert alertPropriedades = new Alert(AlertType.INFORMATION);
-        alertPropriedades.setTitle("Propriedade adicionada");
-        alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
+        if (erro == false) {
+            Alert alertPropriedades = new Alert(AlertType.INFORMATION);
+            alertPropriedades.setTitle("Propriedade adicionada");
+            alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
+            alertPropriedades.showAndWait();
+        }
 
         rua.clear();
         complemento.clear();
         numeroCasa.clear();
         empresaCB.getSelectionModel().clearSelection();
         tipoCB.getSelectionModel().clearSelection();
+        cnpj.clear();
         complemento.clear();
         pontoReferencia.clear();
-        alertPropriedades.showAndWait();
+        // alertPropriedades.showAndWait();
     }
 
     @Override

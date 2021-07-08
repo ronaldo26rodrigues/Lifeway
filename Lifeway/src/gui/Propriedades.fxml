@@ -60,13 +60,14 @@
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.4000244140625" minWidth="10.0" prefWidth="134.20009765625002" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="85.40000610351562" minHeight="10.0" prefHeight="85.40000610351562" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="109.60000610351564" minHeight="3.0000061035156165" prefHeight="70.79999389648438" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="143.00000915527346" minHeight="10.0" prefHeight="84.4" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="222.40000915527344" minHeight="10.0" prefHeight="51.79999389648435" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="244.99999084472654" minHeight="10.0" prefHeight="53.39997558593751" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="178.4000244140625" minHeight="10.0" prefHeight="66.99998779296874" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="178.4000244140625" minHeight="10.0" prefHeight="70.20001220703125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="163.1999984741211" minHeight="10.0" prefHeight="73.39998779296874" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="163.1999984741211" minHeight="10.0" prefHeight="45.40001220703125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="160.19999237060543" minHeight="3.0000061035156165" prefHeight="54.399987792968744" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="169.40000000000003" minHeight="10.0" prefHeight="92.8000183105469" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="222.40000915527344" minHeight="5.999963378906273" prefHeight="45.400000000000034" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="244.99999084472654" minHeight="10.0" prefHeight="62.400000000000034" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="178.4000244140625" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="178.4000244140625" minHeight="10.0" prefHeight="100.79999999999995" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Tipo de propriedade:" textFill="WHITE">
@@ -85,7 +86,7 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="TOP_LEFT" text="Endereço:" textFill="WHITE" GridPane.rowIndex="2">
+                  <Label alignment="TOP_LEFT" text="Endereço:" textFill="WHITE" GridPane.rowIndex="3">
                   <font>
                      <Font name="Calibri Bold" size="22.0" />
                   </font>
@@ -103,20 +104,20 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <TextArea fx:id="rua" prefHeight="39.0" prefWidth="578.0" promptText="Logradouro" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextArea fx:id="rua" prefHeight="39.0" prefWidth="578.0" promptText="Logradouro" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <TextArea fx:id="cepCasa" maxHeight="40.0" maxWidth="400.0" prefHeight="40.0" prefWidth="400.0" promptText="CEP" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextArea fx:id="numeroCasa" maxHeight="35.0" maxWidth="150.0" prefHeight="35.0" prefWidth="150.0" promptText="Número" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextArea fx:id="cepCasa" maxHeight="40.0" maxWidth="400.0" prefHeight="40.0" prefWidth="400.0" promptText="CEP" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextArea fx:id="numeroCasa" maxHeight="35.0" maxWidth="150.0" prefHeight="35.0" prefWidth="150.0" promptText="Número" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="450.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <TextArea fx:id="complemento" prefHeight="200.0" prefWidth="539.0" promptText="Complemento (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextArea fx:id="pontoReferencia" prefHeight="39.0" prefWidth="316.0" promptText="Ponto de referência (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <TextArea fx:id="complemento" prefHeight="200.0" prefWidth="539.0" promptText="Complemento (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextArea fx:id="pontoReferencia" prefHeight="39.0" prefWidth="539.0" promptText="Ponto de referência (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -127,6 +128,23 @@
                         <Insets left="200.0" />
                      </GridPane.margin>
                   </Button>
+                  <Label text="CNPJ:" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="(Se aplicável)" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextArea fx:id="cnpj" maxHeight="40.0" maxWidth="400.0" prefHeight="40.0" prefWidth="400.0" promptText="CNPJ" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </center>

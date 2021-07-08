@@ -3,6 +3,8 @@ package negocio.controle;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.List;
+
+import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 import excecoes.PropriedadeJaCadastradaException;
@@ -97,6 +99,11 @@ public class Fachada {
     public void cadastrarPropriedade(Propriedade propriedade)
             throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
         controladorPropriedade.cadastrarPropriedade(propriedade);
+    }
+
+    public void cadastrarPropriedadeComercial(Propriedade propriedade)
+            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException, CPFInvalidoException {
+        controladorPropriedade.cadastrarPropriedadeComercial(propriedade);
     }
 
     public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException {
