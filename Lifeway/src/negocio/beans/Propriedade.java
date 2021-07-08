@@ -1,6 +1,7 @@
 package negocio.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Propriedade implements Serializable {
@@ -13,6 +14,30 @@ public class Propriedade implements Serializable {
     private Empresa empresaContratada;
     private boolean inadimplente;
     private String cnpj;
+    private ArrayList<Empresa> listaEmpresasFornecedoras;
+
+    // USANDO ARRAYLIST
+
+    /**
+     * Construtor de Propriedade.
+     * 
+     * @param tipo
+     * @param endereco
+     * @param cliente
+     * @param listaEmpresasFornecedoras
+     */
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente,
+            ArrayList<Empresa> listaEmpresasFornecedoras) {
+
+        Random rng = new Random();
+        idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
+
+        this.tipo = tipo;
+        this.endereco = endereco;
+        this.clienteProprietario = cliente;
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
+
+    }
 
     /**
      * Construtor: Propriedade
@@ -32,6 +57,14 @@ public class Propriedade implements Serializable {
         this.inadimplente = false;
     }
 
+    /**
+     * Construtor de Propriedade residencial.
+     * 
+     * @param tipo
+     * @param endereco
+     * @param cliente
+     * @param empresa
+     */
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
 
         Random rng = new Random();
@@ -43,6 +76,15 @@ public class Propriedade implements Serializable {
         this.endereco = endereco;
     }
 
+    /**
+     * Construtor de Propriedade comercial/industrial.
+     * 
+     * @param tipo
+     * @param cnpj
+     * @param endereco
+     * @param cliente
+     * @param empresa
+     */
     public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, Empresa empresa) {
 
         Random rng = new Random();
@@ -56,8 +98,6 @@ public class Propriedade implements Serializable {
     }
 
     // Getters & Setters
-
-    
 
     public boolean getInadimplente() {
         return this.inadimplente;
@@ -125,6 +165,14 @@ public class Propriedade implements Serializable {
 
     public void setClienteProprietario(Cliente clienteProprietario) {
         this.clienteProprietario = clienteProprietario;
+    }
+
+    public ArrayList<Empresa> getListaEmpresasFornecedoras() {
+        return listaEmpresasFornecedoras;
+    }
+
+    public void setListaEmpresasFornecedoras(ArrayList<Empresa> listaEmpresasFornecedoras) {
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
     }
 
     /**

@@ -29,4 +29,24 @@ public class EmpresaJaCadastradaException extends Exception {
         }
         return mensagem;
     }
+
+    //Getters & Setters
+    
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public ElementoJaExisteException getE() {
+        return e;
+    }
+
+    public void setE(ElementoJaExisteException e) {
+        this.e = e;
+    }
+
+    
 }
