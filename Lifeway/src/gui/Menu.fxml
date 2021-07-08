@@ -146,13 +146,13 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="370.6000122070312" minHeight="10.0" prefHeight="190.40001831054687" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="492.2000106811523" minHeight="10.0" prefHeight="367.9999816894531" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="190.40001831054687" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="367.9999816894531" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <AnchorPane fx:id="tela" prefHeight="264.0" prefWidth="291.0">
                      <children>
-                        <Label fx:id="contasPendentes" alignment="CENTER" layoutX="3.0" layoutY="57.0" prefHeight="138.0" prefWidth="281.0" style="-fx-font-size: 2.2em;" text="Você tem XXXX contas pendentes, vá para pagamentos para pagar" wrapText="true">
+                        <Label fx:id="contasPendentes" alignment="CENTER" layoutX="3.0" layoutY="57.0" prefHeight="138.0" prefWidth="281.0" style="-fx-font-size: 1.9em;" text="Você tem XXXX contas a pagar." wrapText="true">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
@@ -177,8 +177,8 @@
                   </AnchorPane>
                   <TableView fx:id="consumidorList" prefHeight="474.0" prefWidth="343.0" stylesheets="@table.css" GridPane.rowIndex="1">
                      <columns>
-                        <TableColumn fx:id="colunaTipo" prefWidth="68.0" text="Tipo" />
-                        <TableColumn fx:id="colunaEndereco" prefWidth="75.20001220703125" text="Endereço" />
+                        <TableColumn fx:id="colunaTipo" prefWidth="51.20001143217087" text="Tipo" />
+                        <TableColumn fx:id="colunaEndereco" prefWidth="92.79999160766602" text="Endereço" />
                         <TableColumn fx:id="colunaSituacao" editable="false" prefWidth="51.199951171875" text="id" />
                         <TableColumn fx:id="colunaInadimplente" prefWidth="68.800048828125" text="Inadimplente" />
                      </columns>
@@ -188,10 +188,10 @@
                   </TableView>
                   <TableView fx:id="listaRO" prefHeight="370.0" prefWidth="308.0" stylesheets="@table.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <columns>
-                        <TableColumn fx:id="colunaAssunto" minWidth="0.0" prefWidth="108.00000303983688" text="Assunto" />
-                        <TableColumn fx:id="colunaLocal" minWidth="2.39996337890625" prefWidth="184.79998779296875" text="Local" />
-                        <TableColumn fx:id="colunaData" minWidth="0.0" prefWidth="119.2000732421875" text="Data" />
-                        <TableColumn fx:id="colunaEstado" prefWidth="97.5999755859375" resizable="false" text="Estado" />
+                        <TableColumn fx:id="colunaAssunto" minWidth="0.0" prefWidth="51.199949622154236" text="Assunto" />
+                        <TableColumn fx:id="colunaLocal" minWidth="2.39996337890625" prefWidth="89.60010528564453" text="Local" />
+                        <TableColumn fx:id="colunaData" minWidth="0.0" prefWidth="86.39990234375" text="Data" />
+                        <TableColumn fx:id="colunaEstado" prefWidth="200.0" text="Estado" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -199,7 +199,7 @@
                   </TableView>
                   <AnchorPane prefHeight="211.0" prefWidth="290.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="54.0" prefHeight="144.0" prefWidth="283.0" style="-fx-font-size: 2.2em;" text="Você tem XXX Registros de ocorrencias pendentes." wrapText="true">
+                        <Label fx:id="registrosPendentes" alignment="CENTER" contentDisplay="TOP" layoutY="67.0" prefHeight="138.0" prefWidth="283.0" style="-fx-font-size: 1.9em;" text="Você tem XXX registros de ocorrência pendentes." wrapText="true">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
@@ -212,7 +212,7 @@
                               <Image url="@imgs/chart.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="39.0" layoutY="21.0" text="Registros de ocorrencia" textFill="#131022">
+                        <Label layoutX="39.0" layoutY="21.0" text="Registros de ocorrência" textFill="#131022">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
