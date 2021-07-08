@@ -104,7 +104,7 @@ public class Conta implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public void setPaga(boolean paga) {
+    public boolean setPaga(boolean paga) {
         this.paga = paga;
     }
 

@@ -9,6 +9,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -63,11 +64,23 @@ public class PagamentosScreenController implements Initializable {
         }
     }
 
+    Alert alerta = new Alert(Alert.AlertType.ERROR);
+
     public void pagar() {
+
+        //if(contaSelecionada.setPaga(false)) {
+
+        //alerta.setTitle("O pagamento na foi efetuado de nenhuma conta");
+
+        //}
+       // else {
+            
         contaSelecionada.setPaga(true);
         contaSelecionada.setPagaEm(LocalDate.now());
         contaList.getItems().remove(contaSelecionada);
         Fachada.getInstance().salvar();
+
+       // }
     }
 
     public void SairConta(ActionEvent event) throws IOException {
