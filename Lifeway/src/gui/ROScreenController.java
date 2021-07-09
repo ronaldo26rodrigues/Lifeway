@@ -25,7 +25,7 @@ import negocio.controle.Fachada;
 import javafx.util.Callback;
 
 public class ROScreenController implements Initializable {
-    
+
     @FXML
     private Button botaoSair;
     @FXML
@@ -95,36 +95,32 @@ public class ROScreenController implements Initializable {
 
     public void registrarOcorrencia(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
-        if(ocorrencia.getText().equals("") ||
-         dataOcorrencia.getValue() == (null) ||
-          empresaCB.getSelectionModel().getSelectedItem().equals(null) ||
-           rua.getText().equals("") ||
-            numeroCasa.getText().equals("")){
-            
+        if (ocorrencia.getText().equals("") || dataOcorrencia.getValue() == (null)
+                || empresaCB.getSelectionModel().getSelectedItem().equals(null) || rua.getText().equals("")
+                || numeroCasa.getText().equals("")) {
 
             alert.setTitle("Ocorrência não registrada");
             alert.setContentText("Ocorrência não registrada! \n Preencha os espaços.");
         }
 
-        else{
-            try{ 
-            Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(),
-                empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(),
-                dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()),
-                        complemento.getText(), pontoReferencia.getText()));
-                        alert.setTitle("Ocorrência registrada");
-        alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
-        ocorrencia.clear();
-        rua.clear();
-        detalhes.clear();
-        numeroCasa.clear();
-        empresaCB.getSelectionModel().clearSelection();
-        dataOcorrencia.setValue(LocalDate.now());
-        complemento.clear();
-        pontoReferencia.clear();
-            }
-            catch(NumberFormatException nFE){
-            alert.setContentText("Número da casa deve ser enumerado");
+        else {
+            try {
+                Fachada.getInstance().criarNovaOcorrencia(ocorrencia.getText(), detalhes.getText(),
+                        empresaCB.getSelectionModel().getSelectedItem(), Fachada.getInstance().getUsuarioLogado(),
+                        dataOcorrencia.getValue(), new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()),
+                                complemento.getText(), pontoReferencia.getText()));
+                alert.setTitle("Ocorrência registrada");
+                alert.setContentText("Ocorrência registrada! \n Aguarde seu atendimento.");
+                ocorrencia.clear();
+                rua.clear();
+                detalhes.clear();
+                numeroCasa.clear();
+                empresaCB.getSelectionModel().clearSelection();
+                dataOcorrencia.setValue(LocalDate.now());
+                complemento.clear();
+                pontoReferencia.clear();
+            } catch (NumberFormatException nFE) {
+                alert.setContentText("Número da casa deve ser enumerado");
             }
         }
 
@@ -135,9 +131,11 @@ public class ROScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Empresa> empresaList = FXCollections
                 .observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
+
         System.out.println(empresaList);
+
         empresaCB.setItems(empresaList);
-        // empresaCB.getItems().addAll(empresaList);
+
         empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
@@ -155,11 +153,8 @@ public class ROScreenController implements Initializable {
                         }
                     };
                 };
-
                 return cell;
             }
-
         });
     }
-
 }

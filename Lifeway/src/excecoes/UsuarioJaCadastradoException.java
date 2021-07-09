@@ -30,8 +30,8 @@ public class UsuarioJaCadastradoException extends Exception {
         return mensagem;
     }
 
-    //Getters & Setters
-    
+    // Getters & Setters
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -48,5 +48,4 @@ public class UsuarioJaCadastradoException extends Exception {
         this.e = e;
     }
 
-    
 }

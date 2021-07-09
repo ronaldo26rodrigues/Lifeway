@@ -3,7 +3,7 @@ package excecoes;
 import negocio.beans.Conta;
 
 public class ContaJaGeradaException extends Exception {
-             
+
     private Conta conta;
     private ElementoJaExisteException e;
 
@@ -31,7 +31,7 @@ public class ContaJaGeradaException extends Exception {
         return mensagem;
     }
 
-    //Getters & Setters
+    // Getters & Setters
 
     public Conta getConta() {
         return conta;
@@ -48,7 +48,5 @@ public class ContaJaGeradaException extends Exception {
     public void setE(ElementoJaExisteException e) {
         this.e = e;
     }
-
-    
 
 }

@@ -1,7 +1,6 @@
 package negocio.controle;
 
 import java.util.List;
-
 import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
@@ -43,5 +42,3 @@ public class ControladorConta {
     }
 
 }
-
-

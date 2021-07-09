@@ -18,7 +18,6 @@ public abstract class Usuario implements Serializable {
         this.dataDeNascimeto = dataDeNascimeto;
     }
 
-    // Método abstrato getTipo
     public abstract String getTipo();
 
     /**
@@ -56,6 +55,7 @@ public abstract class Usuario implements Serializable {
     }
 
     // Getters & Setters
+
     public LocalDate getDataDeNascimeto() {
         return dataDeNascimeto;
     }

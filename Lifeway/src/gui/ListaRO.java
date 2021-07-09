@@ -32,10 +32,8 @@ public class ListaRO implements Initializable {
     private Button botaoListaRO;
     @FXML
     private Button botaoHomeADM;
-
     @FXML
     private TableView<RegistroDeOcorrencia> listaRO;
-
     @FXML
     private TableColumn<RegistroDeOcorrencia, String> colunaAssunto;
     @FXML
@@ -44,58 +42,45 @@ public class ListaRO implements Initializable {
     private TableColumn<RegistroDeOcorrencia, String> colunaData;
     @FXML
     private TableColumn<RegistroDeOcorrencia, String> colunaEstado;
-
     @FXML
     private Label labelConsumidorList;
-
     @FXML
     private Button marcarResolvido;
-
     @FXML
     private CheckBox apenasPendentes;
 
     RegistroDeOcorrencia registroSelecionado;
-
-    /*
-     * String[] consumidores = {"Vicente, Rona, Ganso"};
-     */
 
     String consumidorAtual;
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
-
     }
 
     public void irCriarLeitura(ActionEvent event) throws IOException {
         App v = new App();
         v.trocarCena("CriarLeitura.fxml");
-
     }
 
     public void irListaConsumidores(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("ConsumidorLista.fxml");
-
     }
 
     public void irPerfilADM(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("PerfilADM.fxml");
-
     }
 
     public void irListaRO(ActionEvent event) throws IOException {
         App c = new App();
         c.trocarCena("ListaRO.fxml");
-
     }
 
     public void irHomeADM(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("HomeADM.fxml");
-
     }
 
     public void irListaTaxas() throws IOException {
@@ -142,19 +127,5 @@ public class ListaRO implements Initializable {
             }
 
         });
-
-        /*
-         * consumidorList.getItems().addAll(consumidores);
-         * consumidorList.getSelectionModel().selectedItemProperty().addListener(new
-         * ChangeListener<String>(){
-         * 
-         * @Override public void changed(ObservableValue<? extends String> arg0, String
-         * arg1, String arg2) { consumidorAtual =
-         * consumidorList.getSelectionModel().getSelectedItem();
-         * labelConsumidorList.setText(consumidorAtual); }
-         * 
-         * });
-         */
     }
-
 }

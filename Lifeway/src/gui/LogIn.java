@@ -72,19 +72,19 @@ public class LogIn {
                     if(usuario.getTipo() == "CLIENTE") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
-                        m.trocarCena("Menu.fxml"); 
+                        m.trocarCena("Menu.fxml");
                     } else if (usuario.getTipo() == "FUNCIONARIO") {
                         erro = true;
-                        this.gerarAlertaErroLogin("Realize login como funcionário.");                   
+                        this.gerarAlertaErroLogin("Realize login como funcionário.");
                     }
                 }
 
-                if(checkBox.isSelected() == true) {
-                    if(usuario.getTipo() == "FUNCIONARIO") {
+                if (checkBox.isSelected() == true) {
+                    if (usuario.getTipo() == "FUNCIONARIO") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
                         m.trocarCena("HomeADM.fxml");
-                    } else if(usuario.getTipo() == "CLIENTE") {
+                    } else if (usuario.getTipo() == "CLIENTE") {
                         erro = true;
                         this.gerarAlertaErroLogin("Você não possui um perfil de funcionário.");
                     }
@@ -110,7 +110,6 @@ public class LogIn {
         return cpf;
     }
 
-    
     private void gerarAlertaErroLogin(String mensagem) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle("Erro no login");

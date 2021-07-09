@@ -95,7 +95,6 @@ public class SignUpEmpresa {
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
         } catch (EmpresaJaCadastradaException | IDInvalidoException e) {
-            // TODO
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Cadastro não realizado");
             alert.setContentText("");

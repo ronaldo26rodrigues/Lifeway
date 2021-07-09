@@ -31,8 +31,7 @@ public class PropriedadeJaCadastradaException extends Exception {
         return mensagem;
     }
 
-
-    //Getters & Setters
+    // Getters & Setters
 
     public Propriedade getPropriedade() {
         return propriedade;
@@ -49,6 +48,5 @@ public class PropriedadeJaCadastradaException extends Exception {
     public void setE(ElementoJaExisteException e) {
         this.e = e;
     }
-  
 
 }

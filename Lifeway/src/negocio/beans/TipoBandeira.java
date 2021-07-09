@@ -1,6 +1,5 @@
 package negocio.beans;
 
-
 public enum TipoBandeira {
 
     VERDE, AMARELA, VERMELHA;
@@ -14,7 +13,5 @@ public enum TipoBandeira {
     public void setValor(float valor) {
         this.valor = valor;
     }
-
-    
 
 }

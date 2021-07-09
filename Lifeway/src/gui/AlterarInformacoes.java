@@ -64,8 +64,6 @@ public class AlterarInformacoes {
 
         Alert alert = new Alert(AlertType.INFORMATION);
 
-        // String textoAlerta = "";
-
         if (!novoNome.getText().equals("")) {
             if (novoNome.getText().equals(Fachada.getInstance().getUsuarioLogado().getNome())) {
                 this.gerarAlertaErroInformacoes("Nome não alterado.");
@@ -110,11 +108,7 @@ public class AlterarInformacoes {
 
             if (alteracaoRealizada)
                 irRetornar();
-
-            // alert.showAndWait();
-
         }
-
     }
 
     private void gerarAlertaErroInformacoes(String mensagem) {
@@ -125,7 +119,6 @@ public class AlterarInformacoes {
         alert.setContentText(mensagem);
 
         alert.showAndWait();
-
     }
 
     private void gerarAlertaInformacoesAlteradas(String mensagem) {
@@ -136,7 +129,6 @@ public class AlterarInformacoes {
         alert.setContentText(mensagem);
 
         alert.showAndWait();
-
     }
 
 }

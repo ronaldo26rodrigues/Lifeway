@@ -66,24 +66,22 @@ public class PagamentosScreenController implements Initializable {
 
     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
     Alert alertaErrado = new Alert(Alert.AlertType.ERROR);
-    
+
     public void pagar() {
-        if(contaSelecionada == null){
+        if (contaSelecionada == null) {
             alertaErrado.setTitle("Nenhuma conta selecionada!!!");
-        alertaErrado.setContentText("Selecione uma conta para pagar");
-        alertaErrado.showAndWait();
-        }
-        else{
-        contaSelecionada.setPaga(true);
-        contaSelecionada.setPagaEm(LocalDate.now());
-        contaList.getItems().remove(contaSelecionada);
-        Fachada.getInstance().salvar();
-        alerta.setTitle("Você pagou!!!");
-        alerta.setContentText("Pagamento realizado com sucesso!");
-        alerta.showAndWait();
+            alertaErrado.setContentText("Selecione uma conta para pagar");
+            alertaErrado.showAndWait();
+        } else {
+            contaSelecionada.setPaga(true);
+            contaSelecionada.setPagaEm(LocalDate.now());
+            contaList.getItems().remove(contaSelecionada);
+            Fachada.getInstance().salvar();
+            alerta.setTitle("Você pagou!!!");
+            alerta.setContentText("Pagamento realizado com sucesso!");
+            alerta.showAndWait();
         }
     }
-
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();

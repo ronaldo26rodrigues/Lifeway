@@ -21,7 +21,6 @@ import javafx.util.Callback;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
 import negocio.beans.Propriedade;
-import negocio.controle.ControladorEmpresa;
 import negocio.controle.Fachada;
 import negocio.beans.RegistroDeOcorrencia;
 import java.io.IOException;
@@ -70,7 +69,7 @@ public class Menu implements Initializable {
     private TableColumn<RegistroDeOcorrencia, String> colunaEstado;
     @FXML
     private ComboBox<Empresa> empresaCB;
-    
+
     Propriedade propriedadeSelecionada;
 
     @Override
@@ -119,7 +118,6 @@ public class Menu implements Initializable {
 
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
-        
 
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (propriedade.getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())) {
@@ -135,18 +133,12 @@ public class Menu implements Initializable {
         for (RegistroDeOcorrencia registroDeOcorrencia : Fachada.getInstance().listarROcorrencias()) {
             if (registroDeOcorrencia.getUsuario().equals(Fachada.getInstance().getUsuarioLogado())) {
                 listaRO.getItems().addAll(registroDeOcorrencia);
-                // if (registroDeOcorrencia.getResolvido() == false &&
-                // apenasPendentes.isSelected())
-                // listaRO.getItems().addAll(registroDeOcorrencia);
-                // else if (apenasPendentes.isSelected() == false)
-                // listaRO.getItems().addAll(registroDeOcorrencia);
             }
         }
 
-        ObservableList<Empresa> empresaList = FXCollections
-                .observableArrayList(Fachada.getInstance().listarEmpresas());
+        ObservableList<Empresa> empresaList = FXCollections.observableArrayList(Fachada.getInstance().listarEmpresas());
         empresaCB.setItems(empresaList);
-        // empresaCB.getItems().addAll(empresaList);
+        
         empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
@@ -167,32 +159,20 @@ public class Menu implements Initializable {
 
                 return cell;
             }
-        
+
         });
-        
-        consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Propriedade>(){
+
+        consumidorList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Propriedade>() {
             @Override
             public void changed(ObservableValue<? extends Propriedade> arg0, Propriedade arg1, Propriedade arg2) {
 
                 propriedadeSelecionada = consumidorList.getSelectionModel().getSelectedItem();
-                
+
             }
 
-
-
-
-
-
-
-            
         });
-    
-        
-    
-    
-    
+
     }
-    
 
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
@@ -228,31 +208,28 @@ public class Menu implements Initializable {
         App d = new App();
         d.trocarCena("Taxas.fxml");
     }
+
     public void irAdicionarPropriedades(ActionEvent event) throws IOException {
         App w = new App();
         w.trocarCena("Propriedades.fxml");
-
     }
 
     public void addEmpresa(ActionEvent event) throws IOException {
-       
-       if(!propriedadeSelecionada.getListaEmpresasFornecedoras().contains(empresaCB.getSelectionModel().getSelectedItem())) {
-        propriedadeSelecionada.getListaEmpresasFornecedoras().add(empresaCB.getSelectionModel().getSelectedItem());
-        Alert alerta = new Alert(AlertType.INFORMATION);
-        alerta.setTitle("Empresa adicionada com sucesso");
-        alerta.setContentText("Propriedade cadastrada");
-        alerta.showAndWait();
-       }
 
-       
-       else {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Empresa não adicionada");
-        alert.setContentText("Propriedade já tem cadastro nessa empresa");
-        alert.showAndWait();
-       }
+        if (!propriedadeSelecionada.getListaEmpresasFornecedoras()
+                .contains(empresaCB.getSelectionModel().getSelectedItem())) {
+            propriedadeSelecionada.getListaEmpresasFornecedoras().add(empresaCB.getSelectionModel().getSelectedItem());
+            Alert alerta = new Alert(AlertType.INFORMATION);
+            alerta.setTitle("Empresa adicionada com sucesso");
+            alerta.setContentText("Propriedade cadastrada");
+            alerta.showAndWait();
+        }
+
+        else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Empresa não adicionada");
+            alert.setContentText("Propriedade já tem cadastro nessa empresa");
+            alert.showAndWait();
+        }
     }
-
-
-
 }

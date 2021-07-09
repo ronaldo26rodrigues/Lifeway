@@ -2,7 +2,6 @@ package dados;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
 

@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import excecoes.ElementoJaExisteException;
 import excecoes.IDInvalidoException;
 import excecoes.PropriedadeJaCadastradaException;
@@ -66,7 +65,8 @@ public class PropriedadesScreenController implements Initializable {
         n.trocarCena("Perfil.fxml");
     }
 
-    public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, IDInvalidoException, ElementoJaExisteException, PropriedadeJaCadastradaException {
+    public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, IDInvalidoException,
+            ElementoJaExisteException, PropriedadeJaCadastradaException {
 
         boolean erro = false;
         Propriedade novaPropriedade = null;
@@ -75,8 +75,7 @@ public class PropriedadesScreenController implements Initializable {
                 || tipoCB.getSelectionModel().getSelectedItem() == TipoPropriedade.INDUSTRIAL) {
 
             if (ValidaCPF.isCNPJ(cnpj.getText())) {
-                novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
-                        cnpj.getText(),
+                novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(), cnpj.getText(),
                         new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
                                 pontoReferencia.getText()),
                         Fachada.getInstance().getUsuarioLogado(), new ArrayList<>(empresasPropriedade));
@@ -94,14 +93,13 @@ public class PropriedadesScreenController implements Initializable {
                 alertPropriedades.showAndWait();
             }
 
-        }  
-        else {
-            
-            novaPropriedade = new Propriedade(
-                    tipoCB.getSelectionModel().getSelectedItem(), new Endereco(rua.getText(),
-                            Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()),
+        } else {
+
+            novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
+                    new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
+                            pontoReferencia.getText()),
                     Fachada.getInstance().getUsuarioLogado(), new ArrayList<>(empresasPropriedade));
-                
+
             try {
                 Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
 
@@ -110,14 +108,13 @@ public class PropriedadesScreenController implements Initializable {
                 throw new PropriedadeJaCadastradaException(e);
             }
         }
-        
+
         if (erro == false) {
             Alert alertPropriedades = new Alert(AlertType.INFORMATION);
             alertPropriedades.setTitle("Propriedade adicionada");
             alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
             alertPropriedades.showAndWait();
         }
-        
 
         rua.clear();
         complemento.clear();
@@ -130,24 +127,11 @@ public class PropriedadesScreenController implements Initializable {
         cepCasa.clear();
         empresasPropriedade.clear();
         hboxEmp.getChildren().clear();
-        
+
     }
 
     public void addEmpresa() {
-        /*
-         * Button empresaButton = new
-         * Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new
-         * ImageView(new Image("/gui/imgs/x.png")));
-         * 
-         * empresaButton.setOnAction(new EventHandler<ActionEvent>(){
-         * 
-         * @Override public void handle(ActionEvent arg0) {
-         * hboxEmp.getChildren().remove(empresaButton); for (Empresa empresa :
-         * empresasPropriedade) { if(empresa.getNome() == empresaButton.getText())
-         * empresasPropriedade.remove(empresa); } } });
-         */
 
-        
         if (!empresasPropriedade.contains(empresaCB.getSelectionModel().getSelectedItem())) {
             EmpresaTag eTag = new EmpresaTag(empresaCB.getSelectionModel().getSelectedItem());
             eTag.getIconX().setOnMouseClicked(new EventHandler<Event>() {
@@ -166,8 +150,9 @@ public class PropriedadesScreenController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         ObservableList<Empresa> empresaList = FXCollections
                 .observableArrayList(ControladorEmpresa.getInstance().listarEmpresas());
+
         empresaCB.setItems(empresaList);
-        // empresaCB.getItems().addAll(empresaList);
+
         empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
