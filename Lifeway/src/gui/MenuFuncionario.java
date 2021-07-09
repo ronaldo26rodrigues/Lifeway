@@ -118,5 +118,4 @@ public class MenuFuncionario implements Initializable {
         App d = new App();
         d.trocarCena("Taxas.fxml");
     }
-
 }
