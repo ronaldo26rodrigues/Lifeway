@@ -3,7 +3,7 @@ package excecoes;
 import negocio.beans.Conta;
 
 public class ContaJaGeradaException extends Exception {
-
+             
     private Conta conta;
     private ElementoJaExisteException e;
 
