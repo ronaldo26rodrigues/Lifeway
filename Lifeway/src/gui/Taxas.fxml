@@ -173,7 +173,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                            <top>
-                              <Button fx:id="btnOK1" mnemonicParsing="false" onAction="#criarTaxa" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: #2F2B43;" text="Criar taxa" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
+                              <Button fx:id="btnOK1" defaultButton="true" mnemonicParsing="false" onAction="#criarTaxa" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: #2F2B43;" text="Criar taxa" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
                                  <BorderPane.margin>
                                     <Insets left="5.0" right="5.0" top="5.0" />
                                  </BorderPane.margin>
