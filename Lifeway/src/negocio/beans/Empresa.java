@@ -66,6 +66,7 @@ public class Empresa implements Serializable {
             if ((param.getIdEmpresa() != null) && param.getNome().equals(this.getNome())
                     && param.getServico().equals(this.getServico())) {
                 resultado = true;
+                
             }
         }
         return resultado;

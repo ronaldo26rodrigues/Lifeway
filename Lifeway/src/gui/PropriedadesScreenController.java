@@ -69,16 +69,17 @@ public class PropriedadesScreenController implements Initializable {
     public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, IDInvalidoException, ElementoJaExisteException, PropriedadeJaCadastradaException {
 
         boolean erro = false;
+        Propriedade novaPropriedade = null;
 
         if (tipoCB.getSelectionModel().getSelectedItem() == TipoPropriedade.COMERCIAL
                 || tipoCB.getSelectionModel().getSelectedItem() == TipoPropriedade.INDUSTRIAL) {
 
             if (ValidaCPF.isCNPJ(cnpj.getText())) {
-                Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
+                novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
                         cnpj.getText(),
                         new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
                                 pontoReferencia.getText()),
-                        Fachada.getInstance().getUsuarioLogado(), empresasPropriedade);
+                        Fachada.getInstance().getUsuarioLogado(), new ArrayList<>(empresasPropriedade));
                 try {
                     Fachada.getInstance().cadastrarPropriedadeComercial(novaPropriedade);
                 } catch (PropriedadeJaCadastradaException e) {
@@ -93,14 +94,14 @@ public class PropriedadesScreenController implements Initializable {
                 alertPropriedades.showAndWait();
             }
 
-        } 
-        
-        
+        }  
         else {
-            Propriedade novaPropriedade = new Propriedade(
+            
+            novaPropriedade = new Propriedade(
                     tipoCB.getSelectionModel().getSelectedItem(), new Endereco(rua.getText(),
                             Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()),
-                    Fachada.getInstance().getUsuarioLogado(), empresasPropriedade);
+                    Fachada.getInstance().getUsuarioLogado(), new ArrayList<>(empresasPropriedade));
+                
             try {
                 Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
 
@@ -109,13 +110,14 @@ public class PropriedadesScreenController implements Initializable {
                 throw new PropriedadeJaCadastradaException(e);
             }
         }
-
+        
         if (erro == false) {
             Alert alertPropriedades = new Alert(AlertType.INFORMATION);
             alertPropriedades.setTitle("Propriedade adicionada");
             alertPropriedades.setContentText("Propriedade registrada com sucesso! \n Iremos informar suas taxas.");
             alertPropriedades.showAndWait();
         }
+        
 
         rua.clear();
         complemento.clear();
@@ -128,7 +130,7 @@ public class PropriedadesScreenController implements Initializable {
         cepCasa.clear();
         empresasPropriedade.clear();
         hboxEmp.getChildren().clear();
-        // alertPropriedades.showAndWait();
+        
     }
 
     public void addEmpresa() {
@@ -145,11 +147,7 @@ public class PropriedadesScreenController implements Initializable {
          * empresasPropriedade.remove(empresa); } } });
          */
 
-        System.out.println("===================");
-        for (Empresa empresa : empresasPropriedade) {
-            System.out.println(empresa);
-            System.out.println("------------------");
-        }
+        
         if (!empresasPropriedade.contains(empresaCB.getSelectionModel().getSelectedItem())) {
             EmpresaTag eTag = new EmpresaTag(empresaCB.getSelectionModel().getSelectedItem());
             eTag.getIconX().setOnMouseClicked(new EventHandler<Event>() {

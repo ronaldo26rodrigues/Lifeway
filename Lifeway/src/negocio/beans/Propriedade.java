@@ -25,8 +25,7 @@ public class Propriedade implements Serializable {
      * @param cliente
      * @param listaEmpresasFornecedoras
      */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente,
-            List<Empresa> listaEmpresasFornecedoras) {
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
@@ -35,7 +34,6 @@ public class Propriedade implements Serializable {
         this.tipo = tipo;
         this.endereco = endereco;
         this.clienteProprietario = cliente;
-        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
 
     }
 
@@ -46,8 +44,7 @@ public class Propriedade implements Serializable {
      * @param tipo
      * @param endereco
      */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Cliente clienteProprietario, String idPropriedade,
-            String idEmpresa) {
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Cliente clienteProprietario, String idPropriedade, String idEmpresa) {
 
         this.tipo = tipo;
         this.endereco = endereco;
@@ -150,9 +147,6 @@ public class Propriedade implements Serializable {
         return listaEmpresasFornecedoras;
     }
 
-    public void setListaEmpresasFornecedoras(ArrayList<Empresa> listaEmpresasFornecedoras) {
-        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
-    }
 
     /**
      *

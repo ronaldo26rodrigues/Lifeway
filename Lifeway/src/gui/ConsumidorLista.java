@@ -103,9 +103,12 @@ public class ConsumidorLista implements Initializable {
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (Fachada.getInstance().getUsuarioLogado() instanceof Funcionario) {
+                
+                
                 if (propriedade.getListaEmpresasFornecedoras()
                         .contains(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
                     consumidorList.getItems().addAll(propriedade);
+                    
                 }
             }
         }
