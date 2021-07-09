@@ -89,7 +89,7 @@ public class SignUpEmpresa {
         try {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
-            Usuario novoFuncionario = new Funcionario(nome.getText(), cpf.getText(), senha.getText(),
+            Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
                     dataNascimento.getValue(), novaEmpresa);
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
@@ -126,6 +126,18 @@ public class SignUpEmpresa {
             });
         }
 
+    }
+    private String removeCaracteresEspeciais(String cpf) {
+        if (cpf.contains(".")) {
+            cpf= cpf.replace(".", "");
+        }
+        if (cpf.contains("-")) {
+            cpf= cpf.replace("-", "");
+        }
+        if (cpf.contains("/")) {
+            cpf= cpf.replace("/", "");
+        }
+        return cpf;
     }
 
 }

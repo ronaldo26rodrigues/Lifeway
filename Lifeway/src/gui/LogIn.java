@@ -67,9 +67,9 @@ public class LogIn {
             // e comparar com a senha guardada no sistema
             String senhaInseridaHex = ControladorUsuario.gerarSenhaHex(senha.getText());
 
-            if (usuario.getIdentificacao().equals(cpf.getText()) && usuario.getSenha().equals(senhaInseridaHex)) {
-                if (checkBox.isSelected() == false) {
-                    if (usuario.getTipo() == "CLIENTE") {
+            if (usuario.getIdentificacao().equals(removeCaracteresEspeciais(cpf.getText())) && usuario.getSenha().equals(senhaInseridaHex)) {
+                if(checkBox.isSelected() == false) {
+                    if(usuario.getTipo() == "CLIENTE") {
                         usuarioLogado = usuario;
                         ControladorUsuario.getInstance().login(usuarioLogado);
                         m.trocarCena("Menu.fxml");
@@ -96,6 +96,18 @@ public class LogIn {
         if (usuarioLogado == null && erro == false) {
             this.gerarAlertaErroLogin("Usuário ou senha incorretos.");
         }
+    }
+    private String removeCaracteresEspeciais(String cpf) {
+        if (cpf.contains(".")) {
+            cpf= cpf.replace(".", "");
+        }
+        if (cpf.contains("-")) {
+            cpf= cpf.replace("-", "");
+        }
+        if (cpf.contains("/")) {
+            cpf= cpf.replace("/", "");
+        }
+        return cpf;
     }
 
     private void gerarAlertaErroLogin(String mensagem) {
