@@ -89,14 +89,6 @@
                         <Insets bottom="170.0" left="45.0" right="30.0" top="30.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@imgs/usuario.png" />
-                     </image>
-                     <GridPane.margin>
-                        <Insets bottom="250.0" left="2.0" top="20.0" />
-                     </GridPane.margin>
-                  </ImageView>
                   <BorderPane prefHeight="233.0" prefWidth="450.0">
                      <center>
                         <ImageView fitHeight="177.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
@@ -197,14 +189,6 @@
                         <Insets left="2.0" top="270.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <TextField prefHeight="31.0" prefWidth="351.0" promptText="ID de Funcionário" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="230.0" left="45.0" right="30.0" />
-                     </GridPane.margin>
-                  </TextField>
                   <ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@imgs/usuario.png" />
