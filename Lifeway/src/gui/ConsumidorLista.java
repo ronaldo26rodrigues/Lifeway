@@ -3,6 +3,7 @@ package gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -152,9 +153,13 @@ public class ConsumidorLista implements Initializable {
                 valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
                 taxaAplicada = taxa;
             }
-
+           
         }
-
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Conta adicionada!!!");
+        alerta.setContentText("Voce adicionou uma conta para o cliente!!!");
+        alerta.showAndWait();
+      
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa,
         // LocalDate dataEmissao, double consumo,
         // double valorTotal)
