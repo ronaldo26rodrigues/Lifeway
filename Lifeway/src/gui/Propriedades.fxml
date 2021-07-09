@@ -31,7 +31,7 @@
          <top>
             <BorderPane prefHeight="53.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button mnemonicParsing="false" onAction="#irRetornar" prefHeight="44.0" prefWidth="154.0" style="-fx-background-color: #2F2B43; -fx-border-radius: 30;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button cancelButton="true" mnemonicParsing="false" onAction="#irRetornar" prefHeight="44.0" prefWidth="154.0" style="-fx-background-color: #2F2B43; -fx-border-radius: 30;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -113,7 +113,7 @@
                   </TextArea>
                   <TextArea fx:id="complemento" prefHeight="200.0" prefWidth="539.0" promptText="Complemento (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <TextArea fx:id="pontoReferencia" prefHeight="39.0" prefWidth="539.0" promptText="Ponto de referência (opcional)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#criarPropriedadeAction" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <font>
                         <Font size="21.0" />
                      </font>
