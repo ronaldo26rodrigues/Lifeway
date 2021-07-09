@@ -81,7 +81,7 @@ public class PropriedadesScreenController implements Initializable {
                         cnpj.getText(),
                         new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
                                 pontoReferencia.getText()),
-                        Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
+                        Fachada.getInstance().getUsuarioLogado(), empresasPropriedade);
                 try {
                     Fachada.getInstance().cadastrarPropriedadeComercial(novaPropriedade);
                 } catch (PropriedadeJaCadastradaException e) {
@@ -100,7 +100,7 @@ public class PropriedadesScreenController implements Initializable {
             Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
                     new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
                             pontoReferencia.getText()),
-                    Fachada.getInstance().getUsuarioLogado(), empresaCB.getSelectionModel().getSelectedItem());
+                    Fachada.getInstance().getUsuarioLogado(), empresasPropriedade);
             try {
                 Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
 
@@ -125,6 +125,8 @@ public class PropriedadesScreenController implements Initializable {
         complemento.clear();
         pontoReferencia.clear();
         cepCasa.clear();
+        empresasPropriedade.clear();
+        hboxEmp.getChildren().clear();
         // alertPropriedades.showAndWait();
     }
 

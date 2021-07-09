@@ -2,6 +2,7 @@ package negocio.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Propriedade implements Serializable {
@@ -14,7 +15,7 @@ public class Propriedade implements Serializable {
     private Empresa empresaContratada;
     private boolean inadimplente;
     private String cnpj;
-    private ArrayList<Empresa> listaEmpresasFornecedoras;
+    private List<Empresa> listaEmpresasFornecedoras;
 
     // USANDO ARRAYLIST
 
@@ -27,11 +28,12 @@ public class Propriedade implements Serializable {
      * @param listaEmpresasFornecedoras
      */
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente,
-            ArrayList<Empresa> listaEmpresasFornecedoras) {
+            List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
 
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
         this.tipo = tipo;
         this.endereco = endereco;
         this.clienteProprietario = cliente;
@@ -85,15 +87,16 @@ public class Propriedade implements Serializable {
      * @param cliente
      * @param empresa
      */
-    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, Empresa empresa) {
+    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
 
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
         this.tipo = tipo;
         this.cnpj = cnpj;
         this.clienteProprietario = cliente;
-        this.empresaContratada = empresa;
+
         this.endereco = endereco;
     }
 
@@ -167,7 +170,7 @@ public class Propriedade implements Serializable {
         this.clienteProprietario = clienteProprietario;
     }
 
-    public ArrayList<Empresa> getListaEmpresasFornecedoras() {
+    public List<Empresa> getListaEmpresasFornecedoras() {
         return listaEmpresasFornecedoras;
     }
 
