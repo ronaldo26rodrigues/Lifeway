@@ -4,11 +4,9 @@ import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.List;
 
-import excecoes.IDInvalidoException;
-import excecoes.ContaJaGeradaException;
+import excecoes.CPFInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.ElementoNaoExisteException;
-import excecoes.EmpresaJaCadastradaException;
 import excecoes.PropriedadeJaCadastradaException;
 import negocio.beans.Conta;
 import negocio.beans.Empresa;
@@ -96,16 +94,16 @@ public class Fachada {
     }
 
     public void cadastrarPropriedade(Propriedade propriedade)
-            throws NoSuchAlgorithmException, ElementoJaExisteException, PropriedadeJaCadastradaException {
+            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException {
         controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
     public void cadastrarPropriedadeComercial(Propriedade propriedade)
-            throws NoSuchAlgorithmException, ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
+            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException, CPFInvalidoException {
         controladorPropriedade.cadastrarPropriedadeComercial(propriedade);
     }
 
-    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException, EmpresaJaCadastradaException {
+    public void criarNovaEmpresa(Empresa empresa) throws ElementoJaExisteException {
         controladorEmpresa.criarNovaEmpresa(empresa);
     }
 
@@ -129,11 +127,11 @@ public class Fachada {
         return controladorTaxa.listarTaxas();
     }
 
-    public void criarNovaConta(Conta conta) throws ContaJaGeradaException, ElementoJaExisteException {
+    public void criarNovaConta(Conta conta) throws ElementoJaExisteException {
         controladorConta.criarNovaConta(conta);
     }
 
-    public void excluirConta(Conta conta) throws ElementoNaoExisteException {
+    public void excluirConta(Conta conta) throws ElementoJaExisteException {
         controladorConta.excluirConta(conta);
     }
 
