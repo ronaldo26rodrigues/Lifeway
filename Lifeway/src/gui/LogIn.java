@@ -99,11 +99,11 @@ public class LogIn {
     }
 
     
-    private void gerarAlertaErroLogin(String mesnagemDeErro) {
+    private void gerarAlertaErroLogin(String mensagem) {
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setTitle("Erro no login");
         alerta.setHeaderText("Não foi possível realizar seu login.");
-        alerta.setContentText(mesnagemDeErro);
+        alerta.setContentText(mensagem);
         alerta.showAndWait();
     }
 }

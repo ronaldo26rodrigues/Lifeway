@@ -29,4 +29,24 @@ public class UsuarioJaCadastradoException extends Exception {
         }
         return mensagem;
     }
+
+    //Getters & Setters
+    
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public ElementoJaExisteException getE() {
+        return e;
+    }
+
+    public void setE(ElementoJaExisteException e) {
+        this.e = e;
+    }
+
+    
 }
