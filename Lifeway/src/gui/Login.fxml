@@ -145,7 +145,7 @@
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoLogin" alignment="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="56.0" prefWidth="121.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Entrar" textFill="#f7f7f7" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoLogin" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#entrar" prefHeight="56.0" prefWidth="121.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Entrar" textFill="#f7f7f7" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>

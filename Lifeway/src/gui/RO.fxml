@@ -191,7 +191,7 @@
             </GridPane>
          </center>
          <bottom>
-            <Button fx:id="botaoOcorrencia" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="ENVIAR" textFill="#392727" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoOcorrencia" defaultButton="true" mnemonicParsing="false" onAction="#registrarOcorrencia" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #7156DD; -fx-background-radius: 25px;" text="ENVIAR" textFill="#392727" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
