@@ -102,9 +102,11 @@ public class ConsumidorLista implements Initializable {
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
-            if (propriedade.getListaEmpresasFornecedoras()
-                    .contains(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
-                consumidorList.getItems().addAll(propriedade);
+            if (Fachada.getInstance().getUsuarioLogado() instanceof Funcionario) {
+                if (propriedade.getListaEmpresasFornecedoras()
+                        .contains(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                    consumidorList.getItems().addAll(propriedade);
+                }
             }
         }
     }
@@ -155,41 +157,46 @@ public class ConsumidorLista implements Initializable {
                 valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
                 taxaAplicada = taxa;
             }
-           
-        }
-      
-        // public Conta(String idConta,Propriedade propriedade , Empresa empresa,
-        // LocalDate dataEmissao, double consumo,
-        // double valorTotal)
 
-        Conta novaConta = new Conta(propriedadeSelecionada,
-                ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),
-                Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);
-        novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
-        try {
-            Fachada.getInstance().criarNovaConta(novaConta);
-            atualizarLista();
-        } catch (ElementoJaExisteException e) {
-            e.printStackTrace();
-            
-            System.out.println("Exception caught: conta duplicada");
-            
+        }
+
+        // apenas gera a conta se existe uma taxa a ser aplicada
+        if (taxaAplicada == null) {
             Alert alertaErro = new Alert(Alert.AlertType.ERROR);
-            alertaErro.setTitle("Esta conta já foi gerada");
-            // alerta.setHeaderText();
-            alertaErro.setContentText("Uma conta já foi gerada para esta propriedade neste mês.");
+            alertaErro.setTitle("Conta não gerada");
+            alertaErro.setHeaderText("Crie uma nova taxa.");
+            alertaErro.setContentText("Nenhuma taxa para este valor foi registrada no sistema.");
             alertaErro.showAndWait();
+        } else {
+            Conta novaConta = new Conta(propriedadeSelecionada,
+                    ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa(), dataDeLeitura.getValue(),
+                    Double.parseDouble(valorConsumido.getText()), valorTotal, taxaAplicada);
+            novaConta.setDataVencimento(novaConta.getDataEmissao().plusDays(15));
+            try {
+                Fachada.getInstance().criarNovaConta(novaConta);
+                atualizarLista();
+            } catch (ElementoJaExisteException e) {
+                e.printStackTrace();
 
-            throw new ContaJaGeradaException(e);
+                System.out.println("Exception caught: conta duplicada");
 
-        }
-        // Random rng = new Random();
+                Alert alertaErro = new Alert(Alert.AlertType.ERROR);
+                alertaErro.setTitle("Esta conta já foi gerada");
+                // alerta.setHeaderText();
+                alertaErro.setContentText("Uma conta já foi gerada para esta propriedade neste mês.");
+                alertaErro.showAndWait();
 
+                throw new ContaJaGeradaException(e);
 
-        Alert alertaContaCriada = new Alert(Alert.AlertType.INFORMATION);
+            }
+
+            Alert alertaContaCriada = new Alert(Alert.AlertType.INFORMATION);
             alertaContaCriada.setTitle("Conta gerada.");
+            alertaContaCriada.setHeaderText("Conta gerada");
             alertaContaCriada.setContentText("A conta foi gerada com sucesso.");
             alertaContaCriada.showAndWait();
+        }
+
     }
 
 }
