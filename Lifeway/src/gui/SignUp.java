@@ -37,6 +37,9 @@ public class SignUp {
     @FXML
     private CheckBox checkBoxEmpresa;
 
+   
+   
+
     public void voltar(ActionEvent event) throws IOException {
         App voltarp = new App();
         voltarp.trocarCena("Login.fxml");
@@ -65,7 +68,7 @@ public class SignUp {
         boolean cadastroRealizado = false;
 
         try {
-            Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(),
+            Usuario novoCliente = new Cliente(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
                     dataNascimento.getValue());
             ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
             System.out.println(novoCliente.getSenha());
@@ -74,6 +77,8 @@ public class SignUp {
             System.out.println("Exception caught: CPF inválido ou já cadastrado.");
             this.gerarAlertaErroCadastro(e.getMessage());
         }
+        
+   
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
 
@@ -106,6 +111,20 @@ public class SignUp {
         alerta.setHeaderText("Não foi possível realizar seu cadastro");
         alerta.setContentText(mensagem);
         alerta.showAndWait();
+    }
+
+
+    private String removeCaracteresEspeciais(String cpf) {
+        if (cpf.contains(".")) {
+            cpf= cpf.replace(".", "");
+        }
+        if (cpf.contains("-")) {
+            cpf= cpf.replace("-", "");
+        }
+        if (cpf.contains("/")) {
+            cpf= cpf.replace("/", "");
+        }
+        return cpf;
     }
 
 }
