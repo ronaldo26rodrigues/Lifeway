@@ -19,8 +19,9 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
-import excecoes.CPFInvalidoException;
+import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
+import excecoes.EmpresaJaCadastradaException;
 import excecoes.UsuarioJaCadastradoException;
 
 public class SignUpEmpresa {
@@ -54,16 +55,19 @@ public class SignUpEmpresa {
         if (checkBoxEmpresa2.isSelected() == false) {
             App oi = new App();
             oi.trocarCena("SignUP.fxml");
+
             Alert AlertaSignUp = new Alert(AlertType.INFORMATION);
             AlertaSignUp.setTitle("Cadastro realizado");
             AlertaSignUp.setHeaderText(null);
             AlertaSignUp.setContentText("Sua empresa foi cadastrada com sucesso. Faça seu login!");
+
             cpf.clear();
             senha.clear();
             nome.clear();
             dataNascimento.setValue(LocalDate.now());
             servicoDaEmpresa.clear();
             criarContaDoFuncionario.clear();
+
             AlertaSignUp.showAndWait();
         }
     }
@@ -75,13 +79,13 @@ public class SignUpEmpresa {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException,
-            UsuarioJaCadastradoException, CPFInvalidoException {
-        // ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(),
-        // cpf.getText(), senha.getText(), dataNascimento.getValue()));;
+            UsuarioJaCadastradoException, IDInvalidoException, EmpresaJaCadastradaException {
+
         boolean cadastroRealizado = false;
+
         try {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
@@ -90,13 +94,11 @@ public class SignUpEmpresa {
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
-        } catch (CPFInvalidoException e) {
-            System.out.println("Exception caught: CPF inválido.");
+        } catch (EmpresaJaCadastradaException | IDInvalidoException e) {
+            // TODO
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("CPF inválido");
-            // alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("O CPF inserido é inválido. Tente novamente.");
-
+            alert.setTitle("Cadastro não realizado");
+            alert.setContentText("");
             alert.showAndWait();
         }
 
