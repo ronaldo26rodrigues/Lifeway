@@ -203,12 +203,12 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="37.799993896484374" minHeight="10.0" prefHeight="37.799993896484374" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="99.99998779296874" minHeight="10.0" prefHeight="85.00000610351563" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="49.599996948242186" minHeight="10.0" prefHeight="49.599996948242186" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="99.99998779296874" minHeight="10.0" prefHeight="74.4000030517578" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="72.79999847412111" minHeight="10.0" prefHeight="66.40000457763674" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="contasPendentes" alignment="CENTER" prefHeight="113.0" prefWidth="274.0" style="-fx-font-size: 1.9em;" text="Você tem XXXX contas a pagar." wrapText="true" GridPane.rowIndex="1">
+                        <Label fx:id="contasPendentes" alignment="CENTER" prefHeight="74.0" prefWidth="272.0" style="-fx-font-size: 1.9em;" text="Você tem XXXX contas a pagar." wrapText="true" GridPane.rowIndex="1">
                            <font>
                               <Font name="Calibri" size="18.0" />
                            </font>
@@ -241,13 +241,16 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="adicionarPropriedades" alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#irAdicionarPropriedades" prefHeight="28.0" prefWidth="152.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 25px;" text="Add propriedades" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                              <Button fx:id="adicionarPropriedades" alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#irAdicionarPropriedades" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 15px;" text="Add propriedades" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                                  <font>
                                     <Font name="Calibri" size="13.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
+                                 <GridPane.margin>
+                                    <Insets top="25.0" />
+                                 </GridPane.margin>
                               </Button>
                               <GridPane prefHeight="62.0" prefWidth="159.0">
                                 <columnConstraints>
@@ -274,7 +277,7 @@
                                           <Insets bottom="2.0" left="120.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Label prefHeight="50.0" prefWidth="159.0" text="Clique para add uma empresa à propriedade" wrapText="true">
+                                    <Label prefHeight="50.0" prefWidth="159.0" text="Clique para adicionar uma empresa à propriedade" wrapText="true">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
