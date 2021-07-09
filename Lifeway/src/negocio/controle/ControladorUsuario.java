@@ -3,14 +3,17 @@ package negocio.controle;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import excecoes.IDInvalidoException;
+import excecoes.MenorDeIdadeException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
+import java.time.LocalDate;
 
 public class ControladorUsuario {
 
@@ -61,8 +64,12 @@ public class ControladorUsuario {
      * @throws IDInvalidoException
      */
     public void cadastrarUsuario(Usuario usuario)
-            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException {
-
+            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException, MenorDeIdadeException {
+         
+                if(maiorDeDeizoto(usuario.getDataDeNascimeto()) == false){
+                    throw new MenorDeIdadeException();
+                    
+                }
         if (usuario == null)
             return;
 
@@ -83,6 +90,14 @@ public class ControladorUsuario {
             throw new UsuarioJaCadastradoException(e);
 
         }
+    }
+
+    private boolean maiorDeDeizoto(LocalDate dataNascimento) {
+        long  idade= ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
+        
+        boolean maiorDeDezoito = false;
+        if(idade >=  18) maiorDeDezoito = true;
+        return maiorDeDezoito;
     }
 
     /**
@@ -113,4 +128,5 @@ public class ControladorUsuario {
     public IRepositorioGenerico<Usuario> getRepositorioUsuario() {
         return repositorioUsuario;
     }
+
 }

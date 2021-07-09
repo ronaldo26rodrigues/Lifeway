@@ -16,7 +16,12 @@ import negocio.beans.Usuario;
 import negocio.controle.ControladorUsuario;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+
+
 import excecoes.IDInvalidoException;
+import excecoes.MenorDeIdadeException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
@@ -52,6 +57,7 @@ public class SignUp {
 
     /**
      * Método para cadastrar novo usuário.
+     * @return 
      * 
      * @throws ElementoJaExisteException
      * @throws IOException
@@ -59,18 +65,29 @@ public class SignUp {
      * @throws UsuarioJaCadastradoException
      * @throws IDInvalidoException
      */
-    public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException,
+
+    public boolean maiorDeDeizoto(){
+        long  idade= ChronoUnit.YEARS.between(this.dataNascimento.getValue(),LocalDate.now());
+        
+        boolean maiorDeDezoito = false;
+        if(idade >=  18) maiorDeDezoito = true;
+        return maiorDeDezoito;
+    }
+    
+    public boolean criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException,
             UsuarioJaCadastradoException, IDInvalidoException {
 
         boolean cadastroRealizado = false;
-
+        
         try {
             Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(),
                     dataNascimento.getValue());
+    
             ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
             System.out.println(novoCliente.getSenha());
             cadastroRealizado = true;
-        } catch (IDInvalidoException | UsuarioJaCadastradoException e) {
+            
+        } catch (IDInvalidoException | UsuarioJaCadastradoException |MenorDeIdadeException e ) {
             System.out.println("Exception caught: CPF inválido ou já cadastrado.");
             this.gerarAlertaErroCadastro(e.getMessage());
         }
@@ -97,6 +114,7 @@ public class SignUp {
                 };
             });
         }
+        return cadastroRealizado;
 
     }
 
