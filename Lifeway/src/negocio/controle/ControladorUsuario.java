@@ -65,13 +65,13 @@ public class ControladorUsuario {
      */
     public void cadastrarUsuario(Usuario usuario)
             throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException, MenorDeIdadeException {
-         
-                if(maiorDeDeizoto(usuario.getDataDeNascimeto()) == false){
-                    throw new MenorDeIdadeException();
-                    
-                }
+
         if (usuario == null)
             return;
+
+        if (maiorDeDeizoto(usuario.getDataDeNascimeto()) == false) {
+            throw new MenorDeIdadeException();
+        }
 
         String cpfUsuario = usuario.getIdentificacao();
 
@@ -93,10 +93,11 @@ public class ControladorUsuario {
     }
 
     private boolean maiorDeDeizoto(LocalDate dataNascimento) {
-        long  idade= ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
-        
+        long idade = ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
+
         boolean maiorDeDezoito = false;
-        if(idade >=  18) maiorDeDezoito = true;
+        if (idade >= 18)
+            maiorDeDezoito = true;
         return maiorDeDezoito;
     }
 
