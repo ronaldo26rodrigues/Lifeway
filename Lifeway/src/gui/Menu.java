@@ -43,6 +43,8 @@ public class Menu implements Initializable {
     @FXML
     private TableColumn<Propriedade, String> colunaSituacao;
     @FXML
+    private TableColumn<Propriedade, String> colunaInadimplente;
+    @FXML
     private TableView<RegistroDeOcorrencia> listaRO;
     @FXML
     private TableColumn<RegistroDeOcorrencia, String> colunaAssunto;
@@ -95,10 +97,11 @@ public class Menu implements Initializable {
         colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colunaEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
         colunaSituacao.setCellValueFactory(new PropertyValueFactory<>("idPropriedade"));
+        colunaInadimplente.setCellValueFactory(new PropertyValueFactory<>("inadimplente"));
 
-        //Fachada.getInstance().checarInadimplentes();
+        Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
-
+        
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (propriedade.getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())) {
                 consumidorList.getItems().addAll(propriedade);
