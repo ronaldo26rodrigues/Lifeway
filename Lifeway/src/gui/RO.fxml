@@ -227,6 +227,14 @@
          <center>
             <VBox prefHeight="628.0" prefWidth="300.0" style="-fx-background-color: #7156DD;" BorderPane.alignment="CENTER">
                <children>
+                  <Button fx:id="adicionarPropriedades" alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#irAdicionarPropriedades" prefHeight="42.0" prefWidth="188.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 25px;" text="Adicionar propriedades" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="botaoExtratos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irExtratos" prefHeight="63.0" prefWidth="318.0" style="-fx-background-color: #7156DD;" text="Extratos" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
@@ -302,7 +310,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <ImageView fitHeight="325.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="359.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imgs/Logo.png" />
                      </image>
