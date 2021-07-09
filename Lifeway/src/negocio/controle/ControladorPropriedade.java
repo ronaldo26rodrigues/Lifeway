@@ -52,10 +52,12 @@ public class ControladorPropriedade {
             propriedade.setInadimplente(false);
         }
         for (Conta conta : ControladorConta.getInstance().listarContas()) {
-            if (conta.getPaga() == false && conta.getDataVencimento().isAfter(LocalDate.now()) && conta.getEmpresa()
-                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
-                int indice = repositorioPropriedade.listar().indexOf(conta.getPropriedade());
-                repositorioPropriedade.listar().get(indice).setInadimplente(true);
+            if (Fachada.getInstance().getUsuarioLogado() instanceof Funcionario) {
+                if (conta.getPaga() == false && conta.getDataVencimento().isBefore(LocalDate.now()) && conta
+                        .getEmpresa().equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                    int indice = repositorioPropriedade.listar().indexOf(conta.getPropriedade());
+                    repositorioPropriedade.listar().get(indice).setInadimplente(true);
+                }
             }
         }
         repositorioPropriedade.salvar();

@@ -1,6 +1,8 @@
 package negocio.beans;
 
-public class Bandeira {
+import java.io.Serializable;
+
+public class Bandeira implements Serializable{
     
     private double valor;
     private TipoBandeira tipoBandeira;
