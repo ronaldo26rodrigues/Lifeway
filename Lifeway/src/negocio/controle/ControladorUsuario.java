@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import excecoes.CPFInvalidoException;
+import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 import dados.IRepositorioGenerico;
@@ -58,10 +58,10 @@ public class ControladorUsuario {
      * @param usuario
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void cadastrarUsuario(Usuario usuario)
-            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException {
 
         if (usuario == null)
             return;
@@ -70,7 +70,7 @@ public class ControladorUsuario {
 
         // verificar se CPF é válido
         if (!ValidaCPF.isCPF(cpfUsuario)) {
-            throw new CPFInvalidoException(cpfUsuario);
+            throw new IDInvalidoException(cpfUsuario);
         }
 
         String senhaHex = gerarSenhaHex(usuario.getSenha());

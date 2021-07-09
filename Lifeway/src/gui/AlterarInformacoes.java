@@ -12,7 +12,7 @@ import negocio.beans.ValidaCPF;
 import negocio.controle.Fachada;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import excecoes.CPFInvalidoException;
+import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
@@ -36,7 +36,7 @@ public class AlterarInformacoes {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void irRetornar() throws IOException {
         if (Fachada.getInstance().getUsuarioLogado().getTipo().equals("CLIENTE")) {
@@ -55,10 +55,10 @@ public class AlterarInformacoes {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void alterarInformacoes(ActionEvent event) throws ElementoJaExisteException, IOException,
-            NoSuchAlgorithmException, UsuarioJaCadastradoException, CPFInvalidoException {
+            NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException {
 
         boolean alteracaoRealizada = true;
 
@@ -87,7 +87,7 @@ public class AlterarInformacoes {
                 alert.setContentText("O CPF inserido é inválido. Tente novamente.");
                 alert.showAndWait();
 
-                throw new CPFInvalidoException(novoCpf.getText());
+                throw new IDInvalidoException(novoCpf.getText());
             }
 
         }

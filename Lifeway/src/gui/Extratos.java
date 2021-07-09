@@ -24,7 +24,6 @@ import java.time.Month;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import negocio.controle.Fachada;
 
 public class Extratos implements Initializable {

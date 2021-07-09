@@ -6,7 +6,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import excecoes.CPFInvalidoException;
+
+import excecoes.ElementoJaExisteException;
+import excecoes.IDInvalidoException;
 import excecoes.PropriedadeJaCadastradaException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,13 +20,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import negocio.beans.Empresa;
@@ -57,8 +56,6 @@ public class PropriedadesScreenController implements Initializable {
     private TextArea pontoReferencia;
     @FXML
     private TextArea cepCasa;
-
-
     @FXML
     private HBox hboxEmp;
 
@@ -69,7 +66,7 @@ public class PropriedadesScreenController implements Initializable {
         n.trocarCena("Perfil.fxml");
     }
 
-    public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, CPFInvalidoException {
+    public void criarPropriedadeAction(ActionEvent event) throws NoSuchAlgorithmException, IDInvalidoException, ElementoJaExisteException, PropriedadeJaCadastradaException {
 
         boolean erro = false;
 
@@ -97,15 +94,16 @@ public class PropriedadesScreenController implements Initializable {
             }
 
         } else {
-            Propriedade novaPropriedade = new Propriedade(tipoCB.getSelectionModel().getSelectedItem(),
-                    new Endereco(rua.getText(), Integer.parseInt(numeroCasa.getText()), complemento.getText(),
-                            pontoReferencia.getText()),
+            Propriedade novaPropriedade = new Propriedade(
+                    tipoCB.getSelectionModel().getSelectedItem(), new Endereco(rua.getText(),
+                            Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()),
                     Fachada.getInstance().getUsuarioLogado(), empresasPropriedade);
             try {
                 Fachada.getInstance().cadastrarPropriedade(novaPropriedade);
 
-            } catch (PropriedadeJaCadastradaException e) {
+            } catch (ElementoJaExisteException e) {
                 erro = true;
+                throw new PropriedadeJaCadastradaException(e);
             }
         }
 
@@ -131,36 +129,36 @@ public class PropriedadesScreenController implements Initializable {
     }
 
     public void addEmpresa() {
-        /* Button empresaButton = new Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new ImageView(new Image("/gui/imgs/x.png")));
-        
-        empresaButton.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent arg0) {
-                hboxEmp.getChildren().remove(empresaButton);
-                for (Empresa empresa : empresasPropriedade) {
-                    if(empresa.getNome() == empresaButton.getText()) empresasPropriedade.remove(empresa);
-                }
-            }
-        }); */
-        
+        /*
+         * Button empresaButton = new
+         * Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new
+         * ImageView(new Image("/gui/imgs/x.png")));
+         * 
+         * empresaButton.setOnAction(new EventHandler<ActionEvent>(){
+         * 
+         * @Override public void handle(ActionEvent arg0) {
+         * hboxEmp.getChildren().remove(empresaButton); for (Empresa empresa :
+         * empresasPropriedade) { if(empresa.getNome() == empresaButton.getText())
+         * empresasPropriedade.remove(empresa); } } });
+         */
+
         System.out.println("===================");
         for (Empresa empresa : empresasPropriedade) {
             System.out.println(empresa);
             System.out.println("------------------");
         }
-        if(!empresasPropriedade.contains(empresaCB.getSelectionModel().getSelectedItem())) {
-        EmpresaTag eTag = new EmpresaTag(empresaCB.getSelectionModel().getSelectedItem());
-        eTag.getIconX().setOnMouseClicked(new EventHandler<Event>(){
-            public void handle(Event arg0) {
-                empresasPropriedade.remove(eTag.getEmpresa());
-                hboxEmp.getChildren().remove(eTag);
-            };
-        });
-        empresasPropriedade.add(empresaCB.getSelectionModel().getSelectedItem());
-        hboxEmp.getChildren().addAll(eTag);
+        if (!empresasPropriedade.contains(empresaCB.getSelectionModel().getSelectedItem())) {
+            EmpresaTag eTag = new EmpresaTag(empresaCB.getSelectionModel().getSelectedItem());
+            eTag.getIconX().setOnMouseClicked(new EventHandler<Event>() {
+                public void handle(Event arg0) {
+                    empresasPropriedade.remove(eTag.getEmpresa());
+                    hboxEmp.getChildren().remove(eTag);
+                };
+            });
+            empresasPropriedade.add(empresaCB.getSelectionModel().getSelectedItem());
+            hboxEmp.getChildren().addAll(eTag);
         }
-        
-        
+
     }
 
     @Override
