@@ -49,7 +49,7 @@
          <bottom>
             <BorderPane prefHeight="90.0" prefWidth="581.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" onAction="#pagar" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #7156DD;" text="Pagar" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#pagar" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #7156DD;" text="Pagar" textFill="WHITE" BorderPane.alignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

@@ -80,7 +80,7 @@
                                     <Image url="@imgs/calendario.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="485.0" mnemonicParsing="false" onAction="#alterarInformacoes" prefHeight="46.0" prefWidth="98.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" textFill="WHITE">
+                              <Button fx:id="botaoOK" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="212.0" layoutY="485.0" mnemonicParsing="false" onAction="#alterarInformacoes" prefHeight="46.0" prefWidth="98.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="OK" textFill="WHITE">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
@@ -106,7 +106,7 @@
                         </Label>
                      </center>
                      <left>
-                        <Button fx:id="Button" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irRetornar" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="Button" alignment="BASELINE_LEFT" cancelButton="true" mnemonicParsing="false" onAction="#irRetornar" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #2F2B43; -fx-border-color: 0; -fx-border-radius: 30; -fx-background-color: 0;" text="Retornar" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
