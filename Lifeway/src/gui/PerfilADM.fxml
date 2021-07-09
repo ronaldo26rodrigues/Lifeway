@@ -81,7 +81,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="358.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" cancelButton="true" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="358.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -197,7 +197,7 @@
                      <bottom>
                         <AnchorPane prefHeight="93.0" prefWidth="386.0" style="-fx-background-color: 2F2B43;" BorderPane.alignment="CENTER">
                            <children>
-                              <Button alignment="BASELINE_CENTER" layoutX="76.0" layoutY="25.0" mnemonicParsing="false" onAction="#irAlterarInformacoes" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 20px;" text="Alterar  informações" textFill="WHITE">
+                              <Button alignment="BASELINE_CENTER" layoutX="64.0" layoutY="26.0" mnemonicParsing="false" onAction="#irAlterarInformacoes" prefHeight="42.0" prefWidth="250.0" style="-fx-background-color: #2F2B43; -fx-background-radius: 20px;" text="Alterar  informações" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="20.0" />
                                  </font>

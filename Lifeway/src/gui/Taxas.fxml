@@ -86,7 +86,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="358.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
+                  <Button fx:id="botaoHomeADM" alignment="BASELINE_LEFT" cancelButton="true" mnemonicParsing="false" onAction="#irHomeADM" prefHeight="45.0" prefWidth="358.0" style="-fx-background-color: #7156DD;" text="Home" textFill="#f8f8f8">
                      <font>
                         <Font size="20.0" />
                      </font>

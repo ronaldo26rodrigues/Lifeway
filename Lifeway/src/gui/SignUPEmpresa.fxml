@@ -50,7 +50,7 @@
       </BorderPane>
       <BorderPane prefHeight="576.0" prefWidth="450.0" style="-fx-background-color: radial-gradient(center 50% 50%, radius 65%, rgb(152,113,245) 10%, rgb(134, 168, 231));" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <top>
-            <Button fx:id="botaoLogar" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #eb0000; -fx-border-radius: 15px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Fazer Login" textFill="#fcfcfc" BorderPane.alignment="CENTER">
+            <Button fx:id="botaoLogar" alignment="CENTER" cancelButton="true" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #eb0000; -fx-border-radius: 15px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" styleClass="border 2px solid red" text="Fazer Login" textFill="#fcfcfc" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

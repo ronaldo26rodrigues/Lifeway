@@ -93,7 +93,10 @@ public class PropriedadesScreenController implements Initializable {
                 alertPropriedades.showAndWait();
             }
 
-        } else {
+        } 
+        
+        
+        else {
             Propriedade novaPropriedade = new Propriedade(
                     tipoCB.getSelectionModel().getSelectedItem(), new Endereco(rua.getText(),
                             Integer.parseInt(numeroCasa.getText()), complemento.getText(), pontoReferencia.getText()),
