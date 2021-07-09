@@ -85,4 +85,20 @@ public class Endereco implements Serializable {
                 + "\nPonto de referência: " + this.pontoDeReferencia;
     }
 
+    /**
+     *
+     * Método equals: endereço
+     */
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof Endereco) {
+            Endereco param = (Endereco) obj;
+            if (param.getRua().equals(this.getRua()) && param.getNumero() == this.getNumero()) {
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
+
 }

@@ -156,7 +156,8 @@ public class Propriedade implements Serializable {
 
     /**
      *
-     * Método equals: endereço
+     * Método equals: Propriedade 
+     * compara endereço
      */
     @Override
     public boolean equals(Object obj) {
@@ -188,28 +189,5 @@ public class Propriedade implements Serializable {
     public boolean validar() {
         return true;
     }
-
-    /**
-     * @return the idEmpresa
-     */
-    // public String getIdEmpresa() {
-    // return idEmpresa;
-    // }
-
-    // public void setId(String id) {
-    // }
-
-    // /**
-    // * @return the idCliente
-    // */
-    // public String getIdCliente() {
-    // return idCliente;
-    // }
-    // /**
-    // * @param idCliente the idCliente to set
-    // */
-    // public void setIdCliente(String idCliente) {
-    // this.idCliente = idCliente;
-    // }
 
 }
