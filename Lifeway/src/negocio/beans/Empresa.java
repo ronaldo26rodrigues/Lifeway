@@ -20,7 +20,6 @@ public class Empresa implements Serializable {
         this.servico = servico;
 
         this.taxas = new ArrayList<>();
-
     }
 
     // Getters & Setters
@@ -57,7 +56,6 @@ public class Empresa implements Serializable {
         this.taxas = taxas;
     }
 
-
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
@@ -66,12 +64,12 @@ public class Empresa implements Serializable {
             if ((param.getIdEmpresa() != null) && param.getNome().equals(this.getNome())
                     && param.getServico().equals(this.getServico())) {
                 resultado = true;
-                
             }
         }
         return resultado;
     }
 
+    
     /**
      * toString: Empresa
      */

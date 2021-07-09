@@ -266,7 +266,7 @@
                                           <Insets bottom="2.0" left="5.0" />
                                        </GridPane.margin>
                                     </ComboBox>
-                                    <Button fx:id="botaoOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmpresa" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="ADD" GridPane.rowIndex="1">
+                                    <Button fx:id="botaoOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmpresa" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="ADD" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
@@ -277,7 +277,7 @@
                                           <Insets bottom="2.0" left="120.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Label prefHeight="50.0" prefWidth="159.0" text="Clique para adicionar uma empresa à propriedade" wrapText="true">
+                                    <Label prefHeight="50.0" prefWidth="159.0" text="Clique para adicionar uma empresa à propriedade" wrapText="true" GridPane.vgrow="ALWAYS">
                                        <font>
                                           <Font size="11.0" />
                                        </font>

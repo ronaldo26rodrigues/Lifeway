@@ -8,8 +8,6 @@ public class Cliente extends Usuario {
 
     private List<Propriedade> propriedades;
 
-    // numero propriedades?
-
     public Cliente(String nome, String identificacao, String senha, LocalDate dataNascimento) {
         super(nome, identificacao, senha, dataNascimento);
 
@@ -55,9 +53,6 @@ public class Cliente extends Usuario {
     public String toString() {
         String resultado = "";
         resultado += super.toString();
-        // resultado += "\n" + "Nome: " + this.getNome();
-        // resultado += "\n" + "Identificação: " + this.getIdentificacao();
-        // resultado += "\n" + "Senha: " + this.getSenha(); //TESTE
         return resultado;
     }
 

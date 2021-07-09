@@ -28,13 +28,10 @@ public class PerfilScreenController implements Initializable {
     private Button adicionarPropriedades;
     @FXML
     private Button alterarInformacoes;
-
     @FXML
     private Label nomePerfil;
-
     @FXML
     private Label cpfPerfil;
-
     @FXML
     Label dataNascimentoPerfil;
 
@@ -45,11 +42,6 @@ public class PerfilScreenController implements Initializable {
             cpfPerfil.setText(ControladorUsuario.getInstance().getUsuarioLogado().getIdentificacao());
             dataNascimentoPerfil
                     .setText((ControladorUsuario.getInstance().getUsuarioLogado()).getDataDeNascimeto().toString());
-
-            /*
-             * if(Fachada.getInstance().getUsuarioLogado().getTipo().equals("FUNCIONARIO"))
-             * { adicionarPropriedades.setDisable(true); }
-             */
         }
 
     }
@@ -57,13 +49,11 @@ public class PerfilScreenController implements Initializable {
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
-
     }
 
     public void irAdicionarPropriedades(ActionEvent event) throws IOException {
         App w = new App();
         w.trocarCena("Propriedades.fxml");
-
     }
 
     public void irAlterarInformacoes(ActionEvent event) throws IOException {
@@ -74,31 +64,26 @@ public class PerfilScreenController implements Initializable {
     public void irExtratos(ActionEvent event) throws IOException {
         App v = new App();
         v.trocarCena("Extratos.fxml");
-
     }
 
     public void irPagamentos(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("Pagamentos.fxml");
-
     }
 
     public void irPerfil(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("Perfil.fxml");
-
     }
 
     public void irRO(ActionEvent event) throws IOException {
         App c = new App();
         c.trocarCena("RO.fxml");
-
     }
 
     public void irHome(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("Menu.fxml");
-
     }
 
 }

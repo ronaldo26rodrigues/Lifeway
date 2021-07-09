@@ -15,7 +15,6 @@ public class Propriedade implements Serializable {
     private String cnpj;
     private List<Empresa> listaEmpresasFornecedoras;
 
-
     /**
      * Construtor de Propriedade.
      * 
@@ -24,7 +23,8 @@ public class Propriedade implements Serializable {
      * @param cliente
      * @param listaEmpresasFornecedoras
      */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, List<Empresa> listaEmpresasFornecedoras) {
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente,
+            List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
@@ -43,7 +43,8 @@ public class Propriedade implements Serializable {
      * @param tipo
      * @param endereco
      */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Cliente clienteProprietario, String idPropriedade, String idEmpresa) {
+    public Propriedade(TipoPropriedade tipo, Endereco endereco, Cliente clienteProprietario, String idPropriedade,
+            String idEmpresa) {
 
         this.tipo = tipo;
         this.endereco = endereco;
@@ -52,7 +53,6 @@ public class Propriedade implements Serializable {
         this.idEmpresa = idEmpresa;
         this.inadimplente = false;
     }
-
 
     /**
      * Construtor de Propriedade comercial/industrial.
@@ -63,7 +63,8 @@ public class Propriedade implements Serializable {
      * @param cliente
      * @param empresa
      */
-    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, List<Empresa> listaEmpresasFornecedoras) {
+    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente,
+            List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
@@ -146,11 +147,9 @@ public class Propriedade implements Serializable {
         return listaEmpresasFornecedoras;
     }
 
-
     /**
      *
-     * Método equals: Propriedade 
-     * compara endereço
+     * Método equals: Propriedade compara endereço
      */
     @Override
     public boolean equals(Object obj) {

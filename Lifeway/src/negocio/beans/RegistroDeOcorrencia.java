@@ -43,87 +43,50 @@ public class RegistroDeOcorrencia implements Serializable {
         this.protocolo = protocolo;
     }
 
-    /**
-     * @return the assunto
-     */
     public String getAssunto() {
         return assunto;
     }
 
-    /**
-     * @return the data
-     */
     public LocalDate getData() {
         return data;
     }
 
-    /**
-     * @return the endereco
-     */
     public Endereco getEndereco() {
         return endereco;
     }
 
-    /**
-     * @return the idEmpresa
-     */
     public Empresa getEmpresa() {
         return empresa;
     }
 
-    /**
-     * @return the mensagem
-     */
     public String getMensagem() {
         return mensagem;
     }
 
-    /**
-     * @param assunto the assunto to set
-     */
     public void setAssunto(String assunto) {
         this.assunto = assunto;
     }
 
-    /**
-     * @param data the data to set
-     */
     public void setData(LocalDate data) {
         this.data = data;
     }
 
-    /**
-     * @param endereco the endereco to set
-     */
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
-    /**
-     * @param idEmpresa the idEmpresa to set
-     */
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
 
-    /**
-     * @param mensagem the mensagem to set
-     */
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
 
-    /**
-     * 
-     * @return
-     */
     public boolean getResolvido() {
         return this.resolvido;
     }
 
-    /**
-     * @param resolvido the resolvido to set
-     */
     public void setResolvido(boolean resolvido) {
         this.resolvido = resolvido;
     }
@@ -145,7 +108,5 @@ public class RegistroDeOcorrencia implements Serializable {
         texto += "\n" + "Status: " + this.resolvido;
 
         return texto;
-
     }
-
 }

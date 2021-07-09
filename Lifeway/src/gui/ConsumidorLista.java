@@ -19,7 +19,6 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
@@ -57,8 +56,6 @@ public class ConsumidorLista implements Initializable {
     private TextArea valorConsumido;
     @FXML
     private DatePicker dataDeLeitura;
-
-    // String[] consumidores = {"Vicente", "Rona", "Ganso"};
 
     Propriedade propriedadeSelecionada;
 
@@ -103,12 +100,11 @@ public class ConsumidorLista implements Initializable {
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (Fachada.getInstance().getUsuarioLogado() instanceof Funcionario) {
-                
-                
+
                 if (propriedade.getListaEmpresasFornecedoras()
                         .contains(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
                     consumidorList.getItems().addAll(propriedade);
-                    
+
                 }
             }
         }
@@ -133,18 +129,6 @@ public class ConsumidorLista implements Initializable {
             }
 
         });
-
-        /*
-         * consumidorList.getSelectionModel().selectedItemProperty().addListener(new
-         * ChangeListener<String>(){
-         * 
-         * @Override public void changed(ObservableValue<? extends String> arg0, String
-         * arg1, String arg2) { consumidorAtual =
-         * consumidorList.getSelectionModel().getSelectedItem();
-         * labelConsumidorList.setText(consumidorAtual); }
-         * 
-         * });
-         */
     }
 
     public void criarConta() throws ElementoJaExisteException, ContaJaGeradaException {
@@ -160,7 +144,6 @@ public class ConsumidorLista implements Initializable {
                 valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getBandeira().getValor();
                 taxaAplicada = taxa;
             }
-
         }
 
         // apenas gera a conta se existe uma taxa a ser aplicada
@@ -199,7 +182,5 @@ public class ConsumidorLista implements Initializable {
             alertaContaCriada.setContentText("A conta foi gerada com sucesso.");
             alertaContaCriada.showAndWait();
         }
-
     }
-
 }

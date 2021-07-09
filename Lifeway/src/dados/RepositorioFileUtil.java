@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class RepositorioFileUtil {
-    
+
     public static Object lerDoArquivo(String fileName) {
         Object instanciaLocal = null;
 
@@ -28,7 +28,7 @@ public class RepositorioFileUtil {
                 try {
                     ois.close();
                 } catch (IOException e) {
-                    
+
                 }
             }
         }
@@ -37,8 +37,8 @@ public class RepositorioFileUtil {
     }
 
     public static void salvarArquivo(Object instance, String fileName) {
-        if(instance == null) {
-            return ;
+        if (instance == null) {
+            return;
         }
         File out = new File(fileName);
         FileOutputStream fos = null;
@@ -51,7 +51,7 @@ public class RepositorioFileUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(oos != null) {
+            if (oos != null) {
                 try {
                     oos.close();
                 } catch (IOException e) {

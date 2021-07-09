@@ -30,8 +30,8 @@ public class EmpresaJaCadastradaException extends Exception {
         return mensagem;
     }
 
-    //Getters & Setters
-    
+    // Getters & Setters
+
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -48,5 +48,4 @@ public class EmpresaJaCadastradaException extends Exception {
         this.e = e;
     }
 
-    
 }

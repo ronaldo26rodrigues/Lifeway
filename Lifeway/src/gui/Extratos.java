@@ -83,9 +83,10 @@ public class Extratos implements Initializable {
                 .setAll(IntStream.rangeClosed(1980, LocalDate.now().getYear()).boxed().collect(Collectors.toList()));
 
         ObservableList<Empresa> empresaList = FXCollections.observableArrayList(Fachada.getInstance().listarEmpresas());
+        
         System.out.println(empresaList);
         empresaCB.setItems(empresaList);
-        // empresaCB.getItems().addAll(empresaList);
+
         empresaCB.setCellFactory(new Callback<ListView<Empresa>, ListCell<Empresa>>() {
 
             @Override
@@ -103,12 +104,9 @@ public class Extratos implements Initializable {
                         }
                     };
                 };
-
                 return cell;
             }
-
         });
-
     }
 
     public void atualizarLista() {
@@ -170,37 +168,31 @@ public class Extratos implements Initializable {
     public void SairConta(ActionEvent event) throws IOException {
         App x = new App();
         x.trocarCena("Login.fxml");
-
     }
 
     public void irExtratos(ActionEvent event) throws IOException {
         App v = new App();
         v.trocarCena("Extratos.fxml");
-
     }
 
     public void irPagamentos(ActionEvent event) throws IOException {
         App a = new App();
         a.trocarCena("Pagamentos.fxml");
-
     }
 
     public void irPerfil(ActionEvent event) throws IOException {
         App b = new App();
         b.trocarCena("Perfil.fxml");
-
     }
 
     public void irRO(ActionEvent event) throws IOException {
         App c = new App();
         c.trocarCena("RO.fxml");
-
     }
 
     public void irHome(ActionEvent event) throws IOException {
         App d = new App();
         d.trocarCena("Menu.fxml");
-
     }
 
     public void irListaTaxas() throws IOException {

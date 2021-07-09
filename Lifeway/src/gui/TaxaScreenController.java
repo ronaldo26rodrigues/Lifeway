@@ -116,7 +116,8 @@ public class TaxaScreenController implements Initializable {
 
     public void modificarTaxa() {
 
-        taxaSelecionada.setBandeira(new Bandeira(Float.parseFloat(valorBandeira.getText()), bandeiraCB.getSelectionModel().getSelectedItem()) );
+        taxaSelecionada.setBandeira(new Bandeira(Float.parseFloat(valorBandeira.getText()),
+                bandeiraCB.getSelectionModel().getSelectedItem()));
         taxaSelecionada.setFaixaAte(Double.parseDouble(ate.getText()));
         taxaSelecionada.setFaixaDe(Double.parseDouble(de.getText()));
         taxaSelecionada.setTipoPropriedade(tipoProprCB.getSelectionModel().getSelectedItem());

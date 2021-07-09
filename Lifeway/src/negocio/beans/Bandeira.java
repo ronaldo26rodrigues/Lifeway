@@ -2,11 +2,11 @@ package negocio.beans;
 
 import java.io.Serializable;
 
-public class Bandeira implements Serializable{
-    
+public class Bandeira implements Serializable {
+
     private double valor;
     private TipoBandeira tipoBandeira;
-    
+
     public Bandeira(double valor, TipoBandeira tipoBandeira) {
         this.valor = valor;
         this.tipoBandeira = tipoBandeira;

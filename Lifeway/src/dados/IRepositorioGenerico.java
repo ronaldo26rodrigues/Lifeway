@@ -11,14 +11,12 @@ public interface IRepositorioGenerico<T> {
 
     void remover(T obj);
 
-    // void removerPorID(String id);
     T buscar(T obj);
 
-    // T buscarPorID(String id);
     List<T> listar();
 
     void salvar();
 
-    void atualizar(T newObj)  throws ElementoNaoExisteException;
+    void atualizar(T newObj) throws ElementoNaoExisteException;
 
 }
