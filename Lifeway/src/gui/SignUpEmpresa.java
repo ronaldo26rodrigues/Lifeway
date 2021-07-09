@@ -19,7 +19,10 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 import excecoes.IDInvalidoException;
+import excecoes.MenorDeIdadeException;
 import excecoes.ElementoJaExisteException;
 import excecoes.EmpresaJaCadastradaException;
 import excecoes.UsuarioJaCadastradoException;
@@ -81,6 +84,13 @@ public class SignUpEmpresa {
      * @throws UsuarioJaCadastradoException
      * @throws IDInvalidoException
      */
+    public boolean maiorDeDeizoto(){
+        long  idade= ChronoUnit.YEARS.between(this.dataNascimento.getValue(),LocalDate.now());
+        
+        boolean maiorDeDezoito = false;
+        if(idade >=  18) maiorDeDezoito = true;
+        return maiorDeDezoito;
+    }
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException,
             UsuarioJaCadastradoException, IDInvalidoException, EmpresaJaCadastradaException {
 
@@ -91,14 +101,16 @@ public class SignUpEmpresa {
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
             Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
                     dataNascimento.getValue(), novaEmpresa);
-            ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
+                    ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
-        } catch (EmpresaJaCadastradaException | IDInvalidoException e) {
+        } catch (EmpresaJaCadastradaException | IDInvalidoException | MenorDeIdadeException e) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Cadastro não realizado");
+            alert.setTitle("Cadastro não realizado, empre");
             alert.setContentText("");
             alert.showAndWait();
+            
+            
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
