@@ -31,6 +31,8 @@ public class Menu implements Initializable {
     @FXML
     private Button botaoHome;
     @FXML
+    private Button adicionarPropriedades;
+    @FXML
     private Label contasPendentes;
     @FXML
     private Label registrosPendentes;
@@ -159,6 +161,11 @@ public class Menu implements Initializable {
     public void irListaTaxas() throws IOException {
         App d = new App();
         d.trocarCena("Taxas.fxml");
+    }
+    public void irAdicionarPropriedades(ActionEvent event) throws IOException {
+        App w = new App();
+        w.trocarCena("Propriedades.fxml");
+
     }
 
 }
