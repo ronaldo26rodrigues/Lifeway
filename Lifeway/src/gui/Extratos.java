@@ -1,7 +1,5 @@
 package gui;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,7 +53,7 @@ public class Extratos implements Initializable {
     @FXML
     private CheckBox mesAnoCheck;
 
-    private Conta contaSelecionada;
+    //private Conta contaSelecionada;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -70,13 +68,7 @@ public class Extratos implements Initializable {
 
         atualizarLista();
 
-        contaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Conta>() {
-            @Override
-            public void changed(ObservableValue<? extends Conta> arg0, Conta arg1, Conta arg2) {
-                contaSelecionada = contaList.getSelectionModel().getSelectedItem();
-            }
-        });
-
+        
         mesCB.getItems().addAll(Month.values());
 
         anoCB.getItems()
