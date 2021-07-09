@@ -12,7 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import negocio.beans.Conta;
-import negocio.beans.Empresa;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.Taxa;
@@ -20,8 +19,6 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -102,12 +99,10 @@ public class ConsumidorLista implements Initializable {
     public void atualizarLista() {
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
-
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
-            for (Empresa empresa : propriedade.getListaEmpresasFornecedoras()) {
-                if (empresa.equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
-                    consumidorList.getItems().addAll(propriedade);
-                }
+            if (propriedade.getEmpresaContratada()
+                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                consumidorList.getItems().addAll(propriedade);
             }
         }
     }
@@ -145,7 +140,7 @@ public class ConsumidorLista implements Initializable {
          */
     }
 
-    public void criarConta() throws ElementoJaExisteException {
+    public void criarConta() {
 
         double valorTotal = 0;
         Taxa taxaAplicada = null;
@@ -176,14 +171,8 @@ public class ConsumidorLista implements Initializable {
         try {
             Fachada.getInstance().criarNovaConta(novaConta);
             atualizarLista();
-        } catch (ContaJaGeradaException e) {
+        } catch (ElementoJaExisteException e) {
             e.printStackTrace();
-            // alerta
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Esta conta já foi gerada");
-            // alerta.setHeaderText();
-            alerta.setContentText("Uma conta já foi gerada para esta propriedade neste mês.");
-            alerta.showAndWait();
         }
         // Random rng = new Random();
 
