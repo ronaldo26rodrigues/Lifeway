@@ -1,26 +1,42 @@
 package negocio.beans;
 
+public class Bandeira {
+    
+    private double valor;
+    private TipoBandeira tipoBandeira;
+    
+    public Bandeira(double valor, TipoBandeira tipoBandeira) {
+        this.valor = valor;
+        this.tipoBandeira = tipoBandeira;
+    }
 
-public enum Bandeira {
+    // Getters & Setters
 
-    VERDE, AMARELA, VERMELHA;
-
-    private float valor;
-
-    /**
-     * @return the valor
-     */
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
-    
+    public TipoBandeira getTipoBandeira() {
+        return tipoBandeira;
+    }
+
+    public void setTipoBandeira(TipoBandeira tipoBandeira) {
+        this.tipoBandeira = tipoBandeira;
+    }
+
+    /**
+     * ToString: Bandeira
+     */
+    @Override
+    public String toString() {
+        String resultado = "";
+        resultado += "Tipo de bandeira: " + this.getTipoBandeira();
+        resultado += "\n" + "Valor: " + this.getValor();
+        return resultado;
+    }
 
 }

@@ -16,7 +16,6 @@ public class Propriedade implements Serializable {
     private String cnpj;
     private List<Empresa> listaEmpresasFornecedoras;
 
-    // USANDO ARRAYLIST
 
     /**
      * Construtor de Propriedade.

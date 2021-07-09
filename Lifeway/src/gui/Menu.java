@@ -101,6 +101,7 @@ public class Menu implements Initializable {
 
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
+        
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
             if (propriedade.getClienteProprietario().equals(Fachada.getInstance().getUsuarioLogado())) {
                 consumidorList.getItems().addAll(propriedade);

@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import negocio.beans.TipoBandeira;
 import negocio.beans.Bandeira;
 import negocio.beans.Funcionario;
 import negocio.beans.Taxa;
@@ -35,11 +36,10 @@ public class TaxaScreenController implements Initializable {
     private Button botaoListaRO;
     @FXML
     private Button botaoHomeADM;
-
     @FXML
     private ComboBox<TipoPropriedade> tipoProprCB;
     @FXML
-    private ComboBox<Bandeira> bandeiraCB;
+    private ComboBox<TipoBandeira> bandeiraCB;
     @FXML
     private TextField de;
     @FXML
@@ -67,7 +67,7 @@ public class TaxaScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         tipoProprCB.getItems().addAll(TipoPropriedade.values());
-        bandeiraCB.getItems().addAll(Bandeira.values());
+        bandeiraCB.getItems().addAll(TipoBandeira.values());
 
         colunaAte.setCellValueFactory(new PropertyValueFactory<>("faixaAte"));
         colunaDe.setCellValueFactory(new PropertyValueFactory<>("faixaDe"));
@@ -82,7 +82,7 @@ public class TaxaScreenController implements Initializable {
             public void changed(ObservableValue<? extends Taxa> arg0, Taxa arg1, Taxa arg2) {
                 taxaSelecionada = taxaList.getSelectionModel().getSelectedItem();
                 tipoProprCB.getSelectionModel().select(taxaSelecionada.getTipoPropriedade());
-                bandeiraCB.getSelectionModel().select(taxaSelecionada.getBandeira());
+                bandeiraCB.getSelectionModel().select(taxaSelecionada.getBandeira().getTipoBandeira());
                 de.setText(new String("" + taxaSelecionada.getFaixaDe()));
                 ate.setText(new String("" + taxaSelecionada.getFaixaAte()));
                 valor.setText(new String("" + taxaSelecionada.getValor()));
@@ -95,7 +95,7 @@ public class TaxaScreenController implements Initializable {
     public void mudarTodasAsBandeiras() {
         for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
             if (taxa.getEmpresa().equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
-                taxa.setBandeira(bandeiraCB.getSelectionModel().getSelectedItem());
+                taxa.getBandeira().setTipoBandeira(bandeiraCB.getSelectionModel().getSelectedItem());
                 taxa.getBandeira().setValor(Float.parseFloat(valorBandeira.getText()));
             }
         }
@@ -105,7 +105,8 @@ public class TaxaScreenController implements Initializable {
     public void criarTaxa() throws ElementoJaExisteException {
         Taxa novaTaxa = new Taxa(Double.parseDouble(de.getText()), Double.parseDouble(ate.getText()),
                 Double.parseDouble(valor.getText()), "tipoTaxa", tipoProprCB.getSelectionModel().getSelectedItem(),
-                bandeiraCB.getSelectionModel().getSelectedItem(),
+                new Bandeira(Float.parseFloat(valorBandeira.getText()),
+                        bandeiraCB.getSelectionModel().getSelectedItem()),
                 ((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa());
         novaTaxa.getBandeira().setValor(Float.parseFloat(valorBandeira.getText()));
         Fachada.getInstance().criarTaxa(novaTaxa);
@@ -115,7 +116,7 @@ public class TaxaScreenController implements Initializable {
 
     public void modificarTaxa() {
 
-        taxaSelecionada.setBandeira(bandeiraCB.getSelectionModel().getSelectedItem());
+        taxaSelecionada.setBandeira(new Bandeira(Float.parseFloat(valorBandeira.getText()), bandeiraCB.getSelectionModel().getSelectedItem()) );
         taxaSelecionada.setFaixaAte(Double.parseDouble(ate.getText()));
         taxaSelecionada.setFaixaDe(Double.parseDouble(de.getText()));
         taxaSelecionada.setTipoPropriedade(tipoProprCB.getSelectionModel().getSelectedItem());

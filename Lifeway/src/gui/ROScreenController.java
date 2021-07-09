@@ -25,6 +25,7 @@ import negocio.controle.Fachada;
 import javafx.util.Callback;
 
 public class ROScreenController implements Initializable {
+    
     @FXML
     private Button botaoSair;
     @FXML
@@ -37,12 +38,10 @@ public class ROScreenController implements Initializable {
     private Button botaoRO;
     @FXML
     private Button botaoHome;
-
     @FXML
     private TextField ocorrencia;
     @FXML
     private DatePicker dataOcorrencia;
-
     @FXML
     private TextArea rua;
     @FXML
@@ -51,13 +50,10 @@ public class ROScreenController implements Initializable {
     private TextArea complemento;
     @FXML
     private TextArea pontoReferencia;
-
     @FXML
     private TextField detalhes;
-
     @FXML
     private Button botaoOcorrencia;
-
     @FXML
     private ComboBox<Empresa> empresaCB;
 
