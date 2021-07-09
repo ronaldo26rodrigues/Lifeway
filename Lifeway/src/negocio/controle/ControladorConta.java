@@ -2,7 +2,9 @@ package negocio.controle;
 
 import java.util.List;
 
+import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
+import excecoes.ElementoNaoExisteException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Conta;
@@ -24,11 +26,11 @@ public class ControladorConta {
         return instance;
     }
 
-    public void criarNovaConta(Conta conta) throws ElementoJaExisteException {
+    public void criarNovaConta(Conta conta) throws ElementoJaExisteException, ContaJaGeradaException {
         repositorioContas.inserir(conta);
     }
 
-    public void excluirConta(Conta conta) throws ElementoJaExisteException {
+    public void excluirConta(Conta conta) throws ElementoNaoExisteException {
         repositorioContas.remover(conta);
     }
 

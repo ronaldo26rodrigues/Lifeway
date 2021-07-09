@@ -49,19 +49,15 @@ public class Empresa implements Serializable {
         this.servico = servico;
     }
 
-    /**
-     * @return the taxas
-     */
     public List<Taxa> getTaxas() {
         return taxas;
     }
 
-    /**
-     * @param taxas the taxas to set
-     */
     public void setTaxas(List<Taxa> taxas) {
         this.taxas = taxas;
     }
+
+
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;

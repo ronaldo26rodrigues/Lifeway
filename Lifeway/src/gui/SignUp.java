@@ -16,7 +16,7 @@ import negocio.beans.Usuario;
 import negocio.controle.ControladorUsuario;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import excecoes.CPFInvalidoException;
+import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 
@@ -24,27 +24,20 @@ public class SignUp {
 
     @FXML
     private Button botaoLogar;
-
     @FXML
     private Button botaoCriarConta;
-
     @FXML
     private TextField cpf;
-
     @FXML
     private PasswordField senha;
-
     @FXML
     private TextField nome;
-
     @FXML
     private DatePicker dataNascimento;
-
     @FXML
     private CheckBox checkBoxEmpresa;
 
     public void voltar(ActionEvent event) throws IOException {
-
         App voltarp = new App();
         voltarp.trocarCena("Login.fxml");
     }
@@ -53,7 +46,6 @@ public class SignUp {
         if (checkBoxEmpresa.isSelected() == true) {
             App oi = new App();
             oi.trocarCena("SignUPEmpresa.fxml");
-
         }
 
     }
@@ -65,20 +57,20 @@ public class SignUp {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      * @throws UsuarioJaCadastradoException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void criarConta() throws ElementoJaExisteException, IOException, NoSuchAlgorithmException,
-            UsuarioJaCadastradoException, CPFInvalidoException {
-        // ControladorUsuario.getInstance().criarNovoUsuario(new Cliente(nome.getText(),
-        // cpf.getText(), senha.getText(), dataNascimento.getValue()));;
+            UsuarioJaCadastradoException, IDInvalidoException {
+
         boolean cadastroRealizado = false;
+
         try {
             Usuario novoCliente = new Cliente(nome.getText(), cpf.getText(), senha.getText(),
                     dataNascimento.getValue());
             ControladorUsuario.getInstance().cadastrarUsuario(novoCliente);
             System.out.println(novoCliente.getSenha());
             cadastroRealizado = true;
-        } catch (CPFInvalidoException | UsuarioJaCadastradoException e) {
+        } catch (IDInvalidoException | UsuarioJaCadastradoException e) {
             System.out.println("Exception caught: CPF inválido ou já cadastrado.");
             this.gerarAlertaErroCadastro(e.getMessage());
         }
@@ -91,7 +83,6 @@ public class SignUp {
             alert.setTitle("Cadastro realizado");
             alert.setHeaderText(null);
             alert.setContentText("Cadastro realizado com sucesso. Faça seu login!");
-
             alert.showAndWait();
 
             botaoCriarConta.setFont(Font.font(16));
@@ -103,7 +94,6 @@ public class SignUp {
                         voltarp.trocarCena("Login.fxml");
                     } catch (Exception e) {
                     }
-
                 };
             });
         }

@@ -141,6 +141,7 @@ public class ConsumidorLista implements Initializable {
     }
 
     public void criarConta() {
+    public void criarConta() throws ElementoJaExisteException, ContaJaGeradaException {
 
         double valorTotal = 0;
         Taxa taxaAplicada = null;
@@ -155,10 +156,6 @@ public class ConsumidorLista implements Initializable {
             }
            
         }
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("Conta adicionada!!!");
-        alerta.setContentText("Voce adicionou uma conta para o cliente!!!");
-        alerta.showAndWait();
       
         // public Conta(String idConta,Propriedade propriedade , Empresa empresa,
         // LocalDate dataEmissao, double consumo,
@@ -173,9 +170,25 @@ public class ConsumidorLista implements Initializable {
             atualizarLista();
         } catch (ElementoJaExisteException e) {
             e.printStackTrace();
+            
+            System.out.println("Exception caught: conta duplicada");
+            
+            Alert alertaErro = new Alert(Alert.AlertType.ERROR);
+            alertaErro.setTitle("Esta conta já foi gerada");
+            // alerta.setHeaderText();
+            alertaErro.setContentText("Uma conta já foi gerada para esta propriedade neste mês.");
+            alertaErro.showAndWait();
+
+            throw new ContaJaGeradaException(e);
+
         }
         // Random rng = new Random();
 
+
+        Alert alertaContaCriada = new Alert(Alert.AlertType.INFORMATION);
+            alertaContaCriada.setTitle("Conta gerada.");
+            alertaContaCriada.setContentText("A conta foi gerada com sucesso.");
+            alertaContaCriada.showAndWait();
     }
 
 }

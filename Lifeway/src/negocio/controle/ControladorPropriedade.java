@@ -2,7 +2,7 @@ package negocio.controle;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import excecoes.CPFInvalidoException;
+import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
 import excecoes.PropriedadeJaCadastradaException;
 import javafx.scene.control.Alert;
@@ -86,10 +86,10 @@ public class ControladorPropriedade {
      * @param propriedade
      * @throws NoSuchAlgorithmException
      * @throws PropriedadeJaCadastradaException
-     * @throws CPFInvalidoException
+     * @throws IDInvalidoException
      */
     public void cadastrarPropriedadeComercial(Propriedade propriedade)
-            throws NoSuchAlgorithmException, PropriedadeJaCadastradaException, CPFInvalidoException {
+            throws NoSuchAlgorithmException, ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
         if (propriedade == null) {
             gerarErroPropriedade("Preencha os campos obrigatórios.");
         }

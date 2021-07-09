@@ -2,6 +2,7 @@ package negocio.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Propriedade implements Serializable {
@@ -11,10 +12,9 @@ public class Propriedade implements Serializable {
     private Endereco endereco;
     private Usuario clienteProprietario;
     private String idEmpresa;
-    private Empresa empresaContratada;
     private boolean inadimplente;
     private String cnpj;
-    private ArrayList<Empresa> listaEmpresasFornecedoras;
+    private List<Empresa> listaEmpresasFornecedoras;
 
     // USANDO ARRAYLIST
 
@@ -27,11 +27,12 @@ public class Propriedade implements Serializable {
      * @param listaEmpresasFornecedoras
      */
     public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente,
-            ArrayList<Empresa> listaEmpresasFornecedoras) {
+            List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
 
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
         this.tipo = tipo;
         this.endereco = endereco;
         this.clienteProprietario = cliente;
@@ -57,24 +58,6 @@ public class Propriedade implements Serializable {
         this.inadimplente = false;
     }
 
-    /**
-     * Construtor de Propriedade residencial.
-     * 
-     * @param tipo
-     * @param endereco
-     * @param cliente
-     * @param empresa
-     */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
-
-        Random rng = new Random();
-        idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
-
-        this.tipo = tipo;
-        this.clienteProprietario = cliente;
-        this.empresaContratada = empresa;
-        this.endereco = endereco;
-    }
 
     /**
      * Construtor de Propriedade comercial/industrial.
@@ -85,15 +68,16 @@ public class Propriedade implements Serializable {
      * @param cliente
      * @param empresa
      */
-    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, Empresa empresa) {
+    public Propriedade(TipoPropriedade tipo, String cnpj, Endereco endereco, Usuario cliente, List<Empresa> listaEmpresasFornecedoras) {
 
         Random rng = new Random();
         idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
 
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
         this.tipo = tipo;
         this.cnpj = cnpj;
         this.clienteProprietario = cliente;
-        this.empresaContratada = empresa;
+
         this.endereco = endereco;
     }
 
@@ -123,12 +107,8 @@ public class Propriedade implements Serializable {
         return tipo;
     }
 
-    public Empresa getEmpresaContratada() {
-        return empresaContratada;
-    }
-
-    public void setEmpresaContratada(Empresa empresaContratada) {
-        this.empresaContratada = empresaContratada;
+    public void setListaEmpresasFornecedoras(List<Empresa> listaEmpresasFornecedoras) {
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
     }
 
     public String getIdEmpresa() {
@@ -167,7 +147,7 @@ public class Propriedade implements Serializable {
         this.clienteProprietario = clienteProprietario;
     }
 
-    public ArrayList<Empresa> getListaEmpresasFornecedoras() {
+    public List<Empresa> getListaEmpresasFornecedoras() {
         return listaEmpresasFornecedoras;
     }
 
@@ -201,7 +181,7 @@ public class Propriedade implements Serializable {
         resultado += "\n" + "ID da propriedade: " + this.getIdPropriedade();
         resultado += "\n" + "Tipo de propriedade: " + this.getTipo();
         resultado += "\n" + "Endereço: " + this.getEndereco();
-        resultado += "\n" + "Empresa distribuidora: " + this.getEmpresaContratada().getNome();
+        resultado += "\n" + "Empresa distribuidora: " + this.getListaEmpresasFornecedoras();
 
         return resultado;
     }

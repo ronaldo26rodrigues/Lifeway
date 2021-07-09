@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
+import negocio.beans.Empresa;
 import negocio.beans.Funcionario;
 import negocio.beans.Propriedade;
 import negocio.beans.RegistroDeOcorrencia;
@@ -55,11 +56,12 @@ public class MenuFuncionario implements Initializable {
         int nPropriedadeInadimplente = 0;
         Fachada.getInstance().checarInadimplentes();
         for (Propriedade propriedadeAtiva : Fachada.getInstance().listarPropriedade()) {
-            if (propriedadeAtiva.getEmpresaContratada()
-                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
-                nPropriedadeRegistrada++;
-                if (propriedadeAtiva.getInadimplente())
-                    nPropriedadeInadimplente++;
+            for (Empresa empresa : propriedadeAtiva.getListaEmpresasFornecedoras()) {
+                if (empresa.equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+                    nPropriedadeRegistrada++;
+                    if (propriedadeAtiva.getInadimplente())
+                        nPropriedadeInadimplente++;
+                }
             }
         }
         if (nPropriedadeRegistrada == 0) {
