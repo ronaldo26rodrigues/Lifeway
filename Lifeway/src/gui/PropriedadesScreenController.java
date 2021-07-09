@@ -11,6 +11,7 @@ import excecoes.PropriedadeJaCadastradaException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -128,7 +129,7 @@ public class PropriedadesScreenController implements Initializable {
     }
 
     public void addEmpresa() {
-        Button empresaButton = new Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new ImageView(new Image("/gui/imgs/x.png")));
+        /* Button empresaButton = new Button(empresaCB.getSelectionModel().getSelectedItem().getNome(), new ImageView(new Image("/gui/imgs/x.png")));
         
         empresaButton.setOnAction(new EventHandler<ActionEvent>(){
             @Override
@@ -138,13 +139,26 @@ public class PropriedadesScreenController implements Initializable {
                     if(empresa.getNome() == empresaButton.getText()) empresasPropriedade.remove(empresa);
                 }
             }
-        });
-        empresasPropriedade.add(empresaCB.getSelectionModel().getSelectedItem());
+        }); */
+        
         System.out.println("===================");
         for (Empresa empresa : empresasPropriedade) {
             System.out.println(empresa);
+            System.out.println("------------------");
         }
-        hboxEmp.getChildren().addAll(empresaButton);
+        if(!empresasPropriedade.contains(empresaCB.getSelectionModel().getSelectedItem())) {
+        EmpresaTag eTag = new EmpresaTag(empresaCB.getSelectionModel().getSelectedItem());
+        eTag.getIconX().setOnMouseClicked(new EventHandler<Event>(){
+            public void handle(Event arg0) {
+                empresasPropriedade.remove(eTag.getEmpresa());
+                hboxEmp.getChildren().remove(eTag);
+            };
+        });
+        empresasPropriedade.add(empresaCB.getSelectionModel().getSelectedItem());
+        hboxEmp.getChildren().addAll(eTag);
+        }
+        
+        
     }
 
     @Override

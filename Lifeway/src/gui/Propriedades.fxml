@@ -152,7 +152,7 @@
                     </rowConstraints>
                      <children>
                         <ComboBox fx:id="empresaCB" prefHeight="29.0" prefWidth="218.0" promptText="Selecionar" />
-                        <HBox fx:id="hboxEmp" onMouseClicked="#addEmpresa" prefHeight="21.0" prefWidth="321.0" GridPane.columnIndex="2" />
+                        <HBox fx:id="hboxEmp" prefHeight="21.0" prefWidth="321.0" GridPane.columnIndex="2" />
                         <Button fx:id="botaoOK1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmpresa" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #7156DD; -fx-border-radius: 25px; -fx-background-radius: 5,5,4; -fx-background-insets: 0 0 -1 0,0,1;" text="ADD" GridPane.columnIndex="1">
                            <font>
                               <Font size="11.0" />
