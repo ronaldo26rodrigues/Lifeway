@@ -12,7 +12,6 @@ public class Propriedade implements Serializable {
     private Endereco endereco;
     private Usuario clienteProprietario;
     private String idEmpresa;
-    private Empresa empresaContratada;
     private boolean inadimplente;
     private String cnpj;
     private List<Empresa> listaEmpresasFornecedoras;
@@ -59,24 +58,6 @@ public class Propriedade implements Serializable {
         this.inadimplente = false;
     }
 
-    /**
-     * Construtor de Propriedade residencial.
-     * 
-     * @param tipo
-     * @param endereco
-     * @param cliente
-     * @param empresa
-     */
-    public Propriedade(TipoPropriedade tipo, Endereco endereco, Usuario cliente, Empresa empresa) {
-
-        Random rng = new Random();
-        idPropriedade = "PR" + rng.nextInt(1000) + rng.nextInt(1000);
-
-        this.tipo = tipo;
-        this.clienteProprietario = cliente;
-        this.empresaContratada = empresa;
-        this.endereco = endereco;
-    }
 
     /**
      * Construtor de Propriedade comercial/industrial.
@@ -126,12 +107,8 @@ public class Propriedade implements Serializable {
         return tipo;
     }
 
-    public Empresa getEmpresaContratada() {
-        return empresaContratada;
-    }
-
-    public void setEmpresaContratada(Empresa empresaContratada) {
-        this.empresaContratada = empresaContratada;
+    public void setListaEmpresasFornecedoras(List<Empresa> listaEmpresasFornecedoras) {
+        this.listaEmpresasFornecedoras = listaEmpresasFornecedoras;
     }
 
     public String getIdEmpresa() {
@@ -204,7 +181,7 @@ public class Propriedade implements Serializable {
         resultado += "\n" + "ID da propriedade: " + this.getIdPropriedade();
         resultado += "\n" + "Tipo de propriedade: " + this.getTipo();
         resultado += "\n" + "Endereço: " + this.getEndereco();
-        resultado += "\n" + "Empresa distribuidora: " + this.getEmpresaContratada().getNome();
+        resultado += "\n" + "Empresa distribuidora: " + this.getListaEmpresasFornecedoras();
 
         return resultado;
     }
