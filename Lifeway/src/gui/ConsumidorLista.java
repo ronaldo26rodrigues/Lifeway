@@ -19,6 +19,8 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import excecoes.ContaJaGeradaException;
 import excecoes.ElementoJaExisteException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -100,8 +102,8 @@ public class ConsumidorLista implements Initializable {
         Fachada.getInstance().checarInadimplentes();
         consumidorList.getItems().removeAll(consumidorList.getItems());
         for (Propriedade propriedade : Fachada.getInstance().listarPropriedade()) {
-            if (propriedade.getEmpresaContratada()
-                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
+            if (propriedade.getListaEmpresasFornecedoras()
+                    .contains(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
                 consumidorList.getItems().addAll(propriedade);
             }
         }
@@ -140,7 +142,6 @@ public class ConsumidorLista implements Initializable {
          */
     }
 
-    public void criarConta() {
     public void criarConta() throws ElementoJaExisteException, ContaJaGeradaException {
 
         double valorTotal = 0;

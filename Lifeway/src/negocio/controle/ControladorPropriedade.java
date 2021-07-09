@@ -1,6 +1,7 @@
 package negocio.controle;
 
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.util.List;
 import excecoes.IDInvalidoException;
 import excecoes.ElementoJaExisteException;
@@ -12,6 +13,7 @@ import dados.RepositorioGenerico;
 import negocio.beans.Conta;
 import negocio.beans.Propriedade;
 import negocio.beans.ValidaCPF;
+import negocio.beans.Funcionario;
 
 public class ControladorPropriedade {
 
@@ -50,7 +52,8 @@ public class ControladorPropriedade {
             propriedade.setInadimplente(false);
         }
         for (Conta conta : ControladorConta.getInstance().listarContas()) {
-            if (conta.getPaga() == false) {
+            if (conta.getPaga() == false && conta.getDataVencimento().isAfter(LocalDate.now()) && conta.getEmpresa()
+                    .equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())) {
                 int indice = repositorioPropriedade.listar().indexOf(conta.getPropriedade());
                 repositorioPropriedade.listar().get(indice).setInadimplente(true);
             }
@@ -81,15 +84,16 @@ public class ControladorPropriedade {
     }
 
     /**
-     * Método para cadastrar propriedades comerciais e industriais.
-     * (Contém a informação adicional do CNPJ.)
+     * Método para cadastrar propriedades comerciais e industriais. (Contém a
+     * informação adicional do CNPJ.)
+     * 
      * @param propriedade
      * @throws NoSuchAlgorithmException
      * @throws PropriedadeJaCadastradaException
      * @throws IDInvalidoException
      */
-    public void cadastrarPropriedadeComercial(Propriedade propriedade)
-            throws NoSuchAlgorithmException, ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
+    public void cadastrarPropriedadeComercial(Propriedade propriedade) throws NoSuchAlgorithmException,
+            ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
         if (propriedade == null) {
             gerarErroPropriedade("Preencha os campos obrigatórios.");
         }
@@ -102,7 +106,6 @@ public class ControladorPropriedade {
             cadastrarPropriedade(propriedade);
         }
     }
-
 
     public void gerarErroPropriedade(String mensagem) {
         Alert alert = new Alert(AlertType.ERROR);

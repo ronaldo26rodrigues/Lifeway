@@ -100,8 +100,8 @@ public class Fachada {
         controladorPropriedade.cadastrarPropriedade(propriedade);
     }
 
-    public void cadastrarPropriedadeComercial(Propriedade propriedade)
-            throws NoSuchAlgorithmException, ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
+    public void cadastrarPropriedadeComercial(Propriedade propriedade) throws NoSuchAlgorithmException,
+            ElementoJaExisteException, PropriedadeJaCadastradaException, IDInvalidoException {
         controladorPropriedade.cadastrarPropriedadeComercial(propriedade);
     }
 
