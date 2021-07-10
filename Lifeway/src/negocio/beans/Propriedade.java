@@ -173,7 +173,6 @@ public class Propriedade implements Serializable {
         resultado += "\n" + "ID da propriedade: " + this.getIdPropriedade();
         resultado += "\n" + "Tipo de propriedade: " + this.getTipo();
         resultado += "\n" + "Endereço: " + this.getEndereco();
-        resultado += "\n" + "Empresa distribuidora: " + this.getListaEmpresasFornecedoras();
 
         return resultado;
     }
