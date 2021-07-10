@@ -96,6 +96,19 @@ public class RegistroDeOcorrencia implements Serializable {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if (obj instanceof RegistroDeOcorrencia) {
+            RegistroDeOcorrencia param = (RegistroDeOcorrencia) obj;
+            if (param.getProtocolo().equals(this.getProtocolo()) && param.getEmpresa().equals(this.getEmpresa())
+                    && param.getUsuario().equals(this.getUsuario())) {
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
+
+    @Override
     public String toString() {
         String texto = "";
         texto += "\n" + "Protocolo: " + this.protocolo;

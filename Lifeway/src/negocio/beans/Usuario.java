@@ -45,7 +45,7 @@ public abstract class Usuario implements Serializable {
         String resultado = "";
         resultado += "Nome: " + this.getNome();
         resultado += "\n" + "Data de Nascimento: "
-                + this.getDataDeNascimeto().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                + this.getDataDeNascimeto();
         resultado += "\n" + "ID: " + this.getIdentificacao();
         return resultado;
     }

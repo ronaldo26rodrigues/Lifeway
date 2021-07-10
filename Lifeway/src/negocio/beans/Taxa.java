@@ -86,7 +86,8 @@ public class Taxa implements Serializable {
     @Override
     public String toString() {
         String resultado = "";
-        resultado += "Tipo de propriedade: " + getTipoPropriedade();
+        resultado += "Empresa distribuidora: " + this.getEmpresa().getNome();
+        resultado += "\n" + "Tipo de propriedade: " + getTipoPropriedade();
         resultado += "\n" + "De " + getFaixaDe() + " Até " + getFaixaAte();
         resultado += "\n" + "Valor: " + getValor();
         resultado += "\n" + "Bandeira " + getBandeira() + ": " + getBandeira().getValor();

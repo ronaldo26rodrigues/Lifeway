@@ -6,8 +6,16 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "gui.App",
+            "projectName": "waterway_cf1abd87",
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "gui.App",
             "projectName": "LIFEWAY.CODE_4ad549c3",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -15,8 +23,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "Lifeway_3c99f4ff",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -24,15 +31,14 @@
             "request": "launch",
             "mainClass": "gui.App",
             "projectName": "Lifeway_3c99f4ff",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -40,8 +46,7 @@
             "request": "launch",
             "mainClass": "gui.App",
             "projectName": "TheLifeway_6266a1e9",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -49,8 +54,7 @@
             "request": "launch",
             "mainClass": "testes.Teste",
             "projectName": "TheLifeway_6266a1e9",
-            "vmArgs": "--module-path \"C:/Users/aleks/Desktop/LIFEWAY/LIFEWAY.CODE/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-
+            "vmArgs": "--module-path \"C:/Users/maris/Documents/GitHub/waterway/Lifeway/lib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

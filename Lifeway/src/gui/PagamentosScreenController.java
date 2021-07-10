@@ -69,7 +69,7 @@ public class PagamentosScreenController implements Initializable {
 
     public void pagar() {
         if (contaSelecionada == null) {
-            alertaErrado.setTitle("Nenhuma conta selecionada!!!");
+            alertaErrado.setTitle("Nenhuma conta selecionada");
             alertaErrado.setContentText("Selecione uma conta para pagar");
             alertaErrado.showAndWait();
         } else {
@@ -77,7 +77,7 @@ public class PagamentosScreenController implements Initializable {
             contaSelecionada.setPagaEm(LocalDate.now());
             contaList.getItems().remove(contaSelecionada);
             Fachada.getInstance().salvar();
-            alerta.setTitle("Você pagou!!!");
+            alerta.setTitle("Sua conta foi paga");
             alerta.setContentText("Pagamento realizado com sucesso!");
             alerta.showAndWait();
         }

@@ -137,7 +137,8 @@ public class ConsumidorLista implements Initializable {
         Taxa taxaAplicada = null;
 
         for (Taxa taxa : Fachada.getInstance().listarTaxas()) {
-            if (taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo())
+            if (taxa.getEmpresa().equals(((Funcionario) Fachada.getInstance().getUsuarioLogado()).getEmpresa())
+                    && taxa.getTipoPropriedade().equals(propriedadeSelecionada.getTipo())
                     && taxa.getFaixaDe() <= Double.parseDouble(valorConsumido.getText())
                     && taxa.getFaixaAte() >= Double.parseDouble(valorConsumido.getText())) {
                 valorTotal += Double.parseDouble(valorConsumido.getText()) * taxa.getValor();

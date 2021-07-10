@@ -128,8 +128,8 @@ public class Conta implements Serializable {
         if (obj instanceof Conta) {
             Conta param = (Conta) obj;
             if (param.getPropriedade().equals(this.getPropriedade()) && param.getEmpresa().equals(this.getEmpresa())
-                    && this.getDataEmissao().getMonthValue() == this.getDataEmissao().getMonthValue()
-                    && this.getDataEmissao().getYear() == this.getDataEmissao().getYear()) {
+                    && param.getDataEmissao().getMonthValue() == this.getDataEmissao().getMonthValue()
+                    && param.getDataEmissao().getYear() == this.getDataEmissao().getYear()) {
                 resultado = true;
             }
         }

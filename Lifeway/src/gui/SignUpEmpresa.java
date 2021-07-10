@@ -89,32 +89,28 @@ public class SignUpEmpresa {
         try {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
-<<<<<<< HEAD
-<<<<<<< HEAD
             Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()),
                     senha.getText(), dataNascimento.getValue(), novaEmpresa);
-=======
-            Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
-=======
-            Usuario novoFuncionario = new Funcionario(nome.getText(), cpf.getText(), senha.getText(),
->>>>>>> parent of ba5b633 (Merge branch 'master' of https://github.com/Rona1f/Lifeway)
-                    dataNascimento.getValue(), novaEmpresa);
->>>>>>> parent of 2443a1e (CorreçõesEspecíficas)
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
-        } catch (EmpresaJaCadastradaException | IDInvalidoException e) {
-            Alert alert = new Alert(AlertType.ERROR);
-<<<<<<< HEAD
-            alert.setTitle("Cadastro não realizado.");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
 
-=======
-            alert.setTitle("Cadastro não realizado");
-            alert.setContentText("");
-            alert.showAndWait();
->>>>>>> parent of 2443a1e (CorreçõesEspecíficas)
+        } catch (Exception e) {
+            
+            if(e instanceof ElementoJaExisteException) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Cadastro não realizado");
+                alert.setContentText("Empresa já cadastrada.");
+                alert.showAndWait();
+                throwEmpresaJaCadastradaException(e);
+            } else {
+                Alert alertaID = new Alert(AlertType.ERROR);
+                alertaID.setTitle("Cadastro não realizado");
+                alertaID.setContentText(e.getMessage());
+                alertaID.showAndWait();
+                throw new IDInvalidoException(e);
+            }
+
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
@@ -143,7 +139,7 @@ public class SignUpEmpresa {
         }
 
     }
-<<<<<<< HEAD
+
 
     private String removeCaracteresEspeciais(String cpf) {
         if (cpf.contains(".")) {
@@ -157,17 +153,13 @@ public class SignUpEmpresa {
         }
         return cpf;
     }
-=======
->>>>>>> parent of ba5b633 (Merge branch 'master' of https://github.com/Rona1f/Lifeway)
 
-    public boolean maiorDeDeizoto() {
+    public void throwEmpresaJaCadastradaException(Exception e) throws EmpresaJaCadastradaException {
+        throw new EmpresaJaCadastradaException(e);
+    }
 
-        long idade = ChronoUnit.YEARS.between(this.dataNascimento.getValue(), LocalDate.now());
-
-        boolean maiorDeDezoito = false;
-        if (idade >= 18)
-            maiorDeDezoito = true;
-        return maiorDeDezoito;
+    public void throwIDInvalidoException(Exception e) throws IDInvalidoException {
+        throw new IDInvalidoException(e);
     }
 
 }

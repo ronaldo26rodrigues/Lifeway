@@ -21,6 +21,9 @@ public class EmpresaJaCadastradaException extends Exception {
         this.e = e;
     }
 
+    public EmpresaJaCadastradaException(Exception e2) {
+    }
+
     @Override
     public String getMessage() {
         String mensagem = "Empresa já cadastrada.";
