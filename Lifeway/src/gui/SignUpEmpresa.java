@@ -19,10 +19,7 @@ import negocio.controle.Fachada;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
 import excecoes.IDInvalidoException;
-import excecoes.MenorDeIdadeException;
 import excecoes.ElementoJaExisteException;
 import excecoes.EmpresaJaCadastradaException;
 import excecoes.UsuarioJaCadastradoException;
@@ -92,17 +89,28 @@ public class SignUpEmpresa {
         try {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
+<<<<<<< HEAD
             Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()),
                     senha.getText(), dataNascimento.getValue(), novaEmpresa);
+=======
+            Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
+                    dataNascimento.getValue(), novaEmpresa);
+>>>>>>> parent of 2443a1e (CorreçõesEspecíficas)
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
-        } catch (EmpresaJaCadastradaException | IDInvalidoException | MenorDeIdadeException e) {
+        } catch (EmpresaJaCadastradaException | IDInvalidoException e) {
             Alert alert = new Alert(AlertType.ERROR);
+<<<<<<< HEAD
             alert.setTitle("Cadastro não realizado.");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
 
+=======
+            alert.setTitle("Cadastro não realizado");
+            alert.setContentText("");
+            alert.showAndWait();
+>>>>>>> parent of 2443a1e (CorreçõesEspecíficas)
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
