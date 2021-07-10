@@ -3,17 +3,14 @@ package negocio.controle;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import excecoes.IDInvalidoException;
-import excecoes.MenorDeIdadeException;
 import excecoes.ElementoJaExisteException;
 import excecoes.UsuarioJaCadastradoException;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import negocio.beans.Usuario;
 import negocio.beans.ValidaCPF;
-import java.time.LocalDate;
 
 public class ControladorUsuario {
 
@@ -64,7 +61,11 @@ public class ControladorUsuario {
      * @throws IDInvalidoException
      */
     public void cadastrarUsuario(Usuario usuario)
+<<<<<<< HEAD
             throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException, MenorDeIdadeException {
+=======
+            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException {
+>>>>>>> parent of b0d172b (IdadeInvalida)
 
         if (usuario == null)
             return;
@@ -92,6 +93,7 @@ public class ControladorUsuario {
         }
     }
 
+<<<<<<< HEAD
     private boolean maiorDeDeizoto(LocalDate dataNascimento) {
         long idade = ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
 
@@ -101,6 +103,8 @@ public class ControladorUsuario {
         return maiorDeDezoito;
     }
 
+=======
+>>>>>>> parent of b0d172b (IdadeInvalida)
     /**
      * Método para gerar um Hash para a senha do usuário (utilizando o algoritmo
      * SHA-256) e guardá-la em formato hexadecimal (senhaHex)
@@ -129,5 +133,4 @@ public class ControladorUsuario {
     public IRepositorioGenerico<Usuario> getRepositorioUsuario() {
         return repositorioUsuario;
     }
-
 }
