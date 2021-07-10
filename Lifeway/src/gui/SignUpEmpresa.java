@@ -90,10 +90,14 @@ public class SignUpEmpresa {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
 <<<<<<< HEAD
+<<<<<<< HEAD
             Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()),
                     senha.getText(), dataNascimento.getValue(), novaEmpresa);
 =======
             Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
+=======
+            Usuario novoFuncionario = new Funcionario(nome.getText(), cpf.getText(), senha.getText(),
+>>>>>>> parent of ba5b633 (Merge branch 'master' of https://github.com/Rona1f/Lifeway)
                     dataNascimento.getValue(), novaEmpresa);
 >>>>>>> parent of 2443a1e (CorreçõesEspecíficas)
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
@@ -139,6 +143,7 @@ public class SignUpEmpresa {
         }
 
     }
+<<<<<<< HEAD
 
     private String removeCaracteresEspeciais(String cpf) {
         if (cpf.contains(".")) {
@@ -152,6 +157,8 @@ public class SignUpEmpresa {
         }
         return cpf;
     }
+=======
+>>>>>>> parent of ba5b633 (Merge branch 'master' of https://github.com/Rona1f/Lifeway)
 
     public boolean maiorDeDeizoto() {
 
