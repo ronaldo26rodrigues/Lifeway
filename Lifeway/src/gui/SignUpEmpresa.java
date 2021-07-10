@@ -89,11 +89,12 @@ public class SignUpEmpresa {
         try {
             Empresa novaEmpresa = new Empresa(nomeDaEmpresa.getText(), servicoDaEmpresa.getText());
             Fachada.getInstance().criarNovaEmpresa(novaEmpresa);
-            Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()), senha.getText(),
-                    dataNascimento.getValue(), novaEmpresa);
+            Usuario novoFuncionario = new Funcionario(nome.getText(), removeCaracteresEspeciais(cpf.getText()),
+                    senha.getText(), dataNascimento.getValue(), novaEmpresa);
             ControladorUsuario.getInstance().cadastrarUsuario(novoFuncionario);
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
+
         } catch (Exception e) {
             
             if(e instanceof ElementoJaExisteException) {
@@ -110,7 +111,6 @@ public class SignUpEmpresa {
                 throw new IDInvalidoException(e);
             }
 
-        
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
@@ -139,15 +139,17 @@ public class SignUpEmpresa {
         }
 
     }
+
+
     private String removeCaracteresEspeciais(String cpf) {
         if (cpf.contains(".")) {
-            cpf= cpf.replace(".", "");
+            cpf = cpf.replace(".", "");
         }
         if (cpf.contains("-")) {
-            cpf= cpf.replace("-", "");
+            cpf = cpf.replace("-", "");
         }
         if (cpf.contains("/")) {
-            cpf= cpf.replace("/", "");
+            cpf = cpf.replace("/", "");
         }
         return cpf;
     }

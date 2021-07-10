@@ -61,10 +61,18 @@ public class ControladorUsuario {
      * @throws IDInvalidoException
      */
     public void cadastrarUsuario(Usuario usuario)
+<<<<<<< HEAD
+            throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException, MenorDeIdadeException {
+=======
             throws NoSuchAlgorithmException, UsuarioJaCadastradoException, IDInvalidoException {
+>>>>>>> parent of b0d172b (IdadeInvalida)
 
         if (usuario == null)
             return;
+
+        if (maiorDeDeizoto(usuario.getDataDeNascimeto()) == false) {
+            throw new MenorDeIdadeException();
+        }
 
         String cpfUsuario = usuario.getIdentificacao();
 
@@ -85,6 +93,18 @@ public class ControladorUsuario {
         }
     }
 
+<<<<<<< HEAD
+    private boolean maiorDeDeizoto(LocalDate dataNascimento) {
+        long idade = ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
+
+        boolean maiorDeDezoito = false;
+        if (idade >= 18)
+            maiorDeDezoito = true;
+        return maiorDeDezoito;
+    }
+
+=======
+>>>>>>> parent of b0d172b (IdadeInvalida)
     /**
      * Método para gerar um Hash para a senha do usuário (utilizando o algoritmo
      * SHA-256) e guardá-la em formato hexadecimal (senhaHex)
