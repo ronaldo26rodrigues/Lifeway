@@ -95,10 +95,22 @@ public class SignUpEmpresa {
             System.out.println(novoFuncionario.getSenha());
             cadastroRealizado = true;
         } catch (Exception e) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Cadastro não realizado");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            
+            if(e instanceof ElementoJaExisteException) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Cadastro não realizado");
+                alert.setContentText("Empresa já cadastrada.");
+                alert.showAndWait();
+                throwEmpresaJaCadastradaException(e);
+            } else {
+                Alert alertaID = new Alert(AlertType.ERROR);
+                alertaID.setTitle("Cadastro não realizado");
+                alertaID.setContentText(e.getMessage());
+                alertaID.showAndWait();
+                throw new IDInvalidoException(e);
+            }
+
+        
         }
 
         System.out.println(ControladorUsuario.getInstance().listarUsuarios());
@@ -138,6 +150,14 @@ public class SignUpEmpresa {
             cpf= cpf.replace("/", "");
         }
         return cpf;
+    }
+
+    public void throwEmpresaJaCadastradaException(Exception e) throws EmpresaJaCadastradaException {
+        throw new EmpresaJaCadastradaException(e);
+    }
+
+    public void throwIDInvalidoException(Exception e) throws IDInvalidoException {
+        throw new IDInvalidoException(e);
     }
 
 }
